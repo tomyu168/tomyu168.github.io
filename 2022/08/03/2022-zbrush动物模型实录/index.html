@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>zbrush动物模型实录 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="此帖始于7.21 野猪模型的制作过程中没有一次增加细分，面数不够了略微提高分辨率dynamesh而已，s分辨率从最初的16-56之间。将各个结构分解到不同subtool，避免局部移动旋转时影响到其他结构。 跟做一个马z球结构开始的模型很不顺利，目前的问题是十分偏向于使用smooth笔刷，不仅会导致反复需要shift切换打断操作，而且无法体现造型的棱角、质感。这好像以前画素描图，目前眼睛的观察还是不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zbrush动物模型实录">
+<meta property="og:url" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="此帖始于7.21 野猪模型的制作过程中没有一次增加细分，面数不够了略微提高分辨率dynamesh而已，s分辨率从最初的16-56之间。将各个结构分解到不同subtool，避免局部移动旋转时影响到其他结构。 跟做一个马z球结构开始的模型很不顺利，目前的问题是十分偏向于使用smooth笔刷，不仅会导致反复需要shift切换打断操作，而且无法体现造型的棱角、质感。这好像以前画素描图，目前眼睛的观察还是不">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zma1.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu1.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu2.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu2-1.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu3.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu4.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu6.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu8.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu9.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu10.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E8%BF%87%E6%B8%A1%E5%B9%B3%E6%BB%91%E7%9A%84standard%E5%92%8C%E5%88%92%E7%97%95%E6%98%8E%E6%98%BE%E7%9A%84damstandard.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E8%84%9A%E6%8E%8C%E8%B6%BE%E5%A4%B4%E5%9C%A8%E8%85%BF%E6%A0%B9%E9%83%A8%E5%B0%B1%E6%9C%89%E5%88%86%E5%89%B2%E7%94%A8standard%E5%88%B6%E9%80%A0%E5%87%B9%E9%99%B7.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E6%88%91%E6%A8%A1%E4%BB%BF%E7%9A%84%E8%85%BF%E8%BF%99%E4%B8%AA%E5%9C%B0%E6%96%B9%E6%BB%A5%E7%AB%BD%E5%85%85%E6%95%B0%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%87%BA%E5%A4%A7%E9%97%AE%E9%A2%98.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E5%9C%A8standard%E5%87%B9%E9%99%B7%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%86%8D%E7%94%A8damstandard%E6%B7%B1%E5%8C%96%E5%87%B9%E9%99%B7.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E6%88%91%E6%A8%A1%E4%BB%BF%E7%9A%84%E7%9C%BC%E6%A1%86%E9%9B%95%E5%88%BB.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zremesherguide%E5%88%86%E5%89%B2%E7%BA%BF%E4%B9%8B%E5%90%8E%E7%9A%84zremesher.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E7%9B%B4%E6%8E%A5zremesher.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/d1.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/d2.jpg">
+<meta property="article:published_time" content="2022-08-03T08:28:48.000Z">
+<meta property="article:modified_time" content="2022-12-14T09:11:31.654Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="zbrush学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zma1.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            zbrush动物模型实录
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-03T08:28:48.000Z" itemprop="datePublished">8月 3 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2813 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>此帖始于7.21</p>
+<p>野猪模型的制作过程中没有一次增加细分，面数不够了略微提高分辨率dynamesh而已，s分辨率从最初的16-56之间。将各个结构分解到不同subtool，避免局部移动旋转时影响到其他结构。</p>
+<p>跟做一个马z球结构开始的模型很不顺利，目前的问题是十分偏向于使用smooth笔刷，不仅会导致反复需要shift切换打断操作，而且无法体现造型的棱角、质感。这好像以前画素描图，目前眼睛的观察还是不行，没法看着参考图就能想到用什么笔刷去构造这种局部结构，毕竟素描的体积就是纯粹用明暗去体现，但是zbrush雕刻没法用一个笔刷吃遍。</p>
+<span id="more"></span>
+
+<p>第二天再次尝试马，以外的做的不错。很遗憾我忘记保存第一天做的版本了，下图为第二天做的，腿部我十分满意，后蹄不好，前蹄可以，其实吧这个蹄子trim掉重新拉伸polish一下应该是很快的，显然心里上还是有障碍，害怕做不好裹足不前。</p>
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zma1.jpg" alt="2022-zbrush动物模型实录"></p>
+<p>我想现阶段可以把动物模型按照不同部位分解去一一落实效果。</p>
+<a href="https://www.youtube.com/watch?v=7ZNPf9Xne1o" title="" target="">鹿的教学</a>从z球开始把大型构造出来，然后在adaptive skin中设定最小的dynamesh 分辨率和密度生成物体，确保面数较少的情况下move笔刷调整大型方便。用move笔刷对大型进一步调整，这里的问题在于用多大的笔刷去调整多大的面这个需要多实践练习去把握。
+
+
+<p>7.24更新</p>
+<p>通过犀牛这个系列的教学详细分步骤解析：</p>
+<p>1.用z球做出大致的轮廓<br>目前我仅仅在一个月前用z球做了恐龙框架，还没有自主通过网上参考图自己构件z球，3个有蹄类动物都是用的zeezoo的样本，等雕刻水平上去了，去找一些自己喜欢的动物从z球阶段开始。</p>
+<p>2.尽量少像素的dynamesh构造出多边形棱角分明的罗阔，这样方便move笔刷拉大型，当面数多时用move拉动会造成局部突兀，比如动物的背部、胸部、腹部、臀部，刚开始做的时候很容易最后弄了一个方块而不是近似滚筒的圆润，缺少过渡变化，这一阶段对身体拉动很容易构造出来，等像素高了就不好调整了。这一步不做耳朵、鼻子、眼睛这些细节！<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu1.jpg" alt="zbrush动物模型实录"></p>
+<p>3.提高像素到100左右dynamesh，这一步演示中的犀牛大型仍然保持着多边形棱角只是面数多了，这很诡异，我暂时没有实验出这种效果。演示对犀牛身体和脸部稍稍claybuildup，感觉并没有刻画具体结构，然后着重刻画耳朵。它用的笔刷很小，耳朵之后作者把眼睛、鼻孔、角的位置用claybuildup确认了一下。接着刻画出头颈部分的渐进轮廓，腿部那一圈厚皮。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu2.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu2-1.jpg" alt="zbrush动物模型实录"></p>
+
+<span style="text-decoration: line-through">注意作者在大型阶段就把颈部渐变轮廓大小构造好了，claybuild只不过是深化层次纹理，并没有造型。</span> 以上划线部分为24号的想法，实际再次观察发现使用了
+claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
+
+<p>它在身体上进行了一系列犹如排线的刻画，暂时不明白这么做的意义是什么。从腹部来看作者好像在用微积分的思想一般用排线式刻画逐渐把腹部的棱角圆润化，并制造了不规则坡面使犀牛的身体看起来不会像酒桶那样缺乏骨骼肌肉概念。</p>
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu3.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu4.jpg" alt="zbrush动物模型实录"></p>
+<p>在128像素dynamesh之后犀牛身体上的多边形棱角不见了，之前细小的排线式claybuilder在身体上保留了不是很清晰的细节，腿部则稍微多一些，作者接着smooth进一步几乎消除了所有细节，这样看来一开始的排线雕刻似乎并没有起到细节作用（值得注意的是作者对不同部位的smooth笔刷大小有很大区别，这在头部好理解，但是腿部和躯干的话是想表达小的smooth可以保留局部不规则凹凸？），仅仅是为了营造肌肉圆润的效果？在整体光滑后，作者用move做了细微的形体调整。</p>
+<p>4.开始刻画头部细节，在头部7000面左右的情况下用standard笔刷构造面部的凹凸以及鼻孔，脖子切分线。standard笔刷做凹陷和突出的过渡十分平滑，不会有明显的凹凸。眼窟窿也是用standard笔刷雕的凹陷。眼眶上端是standard加厚出来的再用move稍微做拉伸形成包覆起眼球的眼眶结构。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu5.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu6.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">注意图2用standard笔刷做凹陷构造面部肌肉轮廓，standard笔刷做面部凹凸是个手艺活儿，目前还做不到看到一个面部或者解剖图能够快速想好怎样去构造这些面（我在之前做好的马模型上做眼眶部分鼠标修改，有效果，但是效果不理想，没法做到那种生动的眼眶造型），会裹足不前。</div> 
+
+
+<p>耳朵用move和standard做局部细化。用move把眼眶上端拉出来包覆眼球。脖子用standard细化肌肉块。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu8.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu9.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">这一部分为什么这么雕刻？是单纯对犀牛照片的参考就观察出来的细节还是通过解剖图的肌肉分布？抑或是自己的想象，暂时不得而知。</div> 
+
+
+<p>像素加到152dynamesh,重新做了眼眶包覆。这回对下眼眶用standard笔刷加厚，但同时注意到在眼眶下收缩立刻会有颧骨的突出，要在小范围构造出这个凸出凹陷凸出。152dynamesh之后作者在身体部分的细节刻画完全丢失了，也就是说之前的排线刻画纯粹就是使身体的“滚筒”形状过渡自然，我怀疑阶段3存在诸多无用功。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zxiniu10.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E8%BF%87%E6%B8%A1%E5%B9%B3%E6%BB%91%E7%9A%84standard%E5%92%8C%E5%88%92%E7%97%95%E6%98%8E%E6%98%BE%E7%9A%84damstandard.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">过渡平滑的standard和划痕明显的damstandard，用什么笔刷构造什么样的面，需要多实践总结</div> 
+
+
+<p>7.25更新</p>
+<p>5.腿部，脚趾的拉伸，切分。哪些用damstandard哪些用standard，应该很清楚了吧。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E8%84%9A%E6%8E%8C%E8%B6%BE%E5%A4%B4%E5%9C%A8%E8%85%BF%E6%A0%B9%E9%83%A8%E5%B0%B1%E6%9C%89%E5%88%86%E5%89%B2%E7%94%A8standard%E5%88%B6%E9%80%A0%E5%87%B9%E9%99%B7.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">脚掌趾头在腿根部就有分割用standard制造凹陷</div> 
+
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E6%88%91%E6%A8%A1%E4%BB%BF%E7%9A%84%E8%85%BF%E8%BF%99%E4%B8%AA%E5%9C%B0%E6%96%B9%E6%BB%A5%E7%AB%BD%E5%85%85%E6%95%B0%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%87%BA%E5%A4%A7%E9%97%AE%E9%A2%98.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">我模仿的腿这个地方滥竽充数也看不出大问题</div> 
+
+
+<p>6.眼睛的深化部分都是用damstandard，加以claybuildup把完全光滑的弧面加上一点点的纹理粗糙。眼睛这个微操应该是最考验功夫的部分了。<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E5%9C%A8standard%E5%87%B9%E9%99%B7%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%86%8D%E7%94%A8damstandard%E6%B7%B1%E5%8C%96%E5%87%B9%E9%99%B7.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">在standard凹陷基础上再用damstandard深化凹陷</div> 
+
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E6%88%91%E6%A8%A1%E4%BB%BF%E7%9A%84%E7%9C%BC%E6%A1%86%E9%9B%95%E5%88%BB.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">我模仿的眼框雕刻</div> 
+
+
+<p>7.为什么要zremesher目前不清楚，之前看过一个恐爪龙的zremesher，之后投射细节。推测算是在zbrush中的高模到低模的优化？<br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/zremesherguide%E5%88%86%E5%89%B2%E7%BA%BF%E4%B9%8B%E5%90%8E%E7%9A%84zremesher.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">zremesherguide分割线之后的zremesher</div> 
+
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/%E7%9B%B4%E6%8E%A5zremesher.jpg" alt="zbrush动物模型实录"></p>
+
+<div style="text-align:center">直接zremesher，从泥模上看不出区别，演示说在polyframe模式下可以看出布线的区别，引导线可以让布线更贴近结构？</div> 
+
+
+<p>8.projecting all，把高模90万面投射到经过zremesher之后只有15000面然后增加2级细分至90000面的模型上，结果得到20万面的新模型，之后再增加一级细分至90万面，对犀牛各个部位做光滑处理。</p>
+<p>通过<a href="https://www.bilibili.com/video/BV1H54y1d723?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">zbrush高低模细节映射</a>这个教学，搞明白了projecting的目的在于获得法线贴图，虽然remesher之后的模型需要很高的细分才能还原细节，但是最低细分配合法线贴图同样可以达到效果，这样就获取带有高模细节的低模了！</p>
+<p>8.3更新：</p>
+<p>昨天在状态不是很好的情况下复看了鹿的建模以及老虎建模，今天用了3个小时完成了鹿模型的大致造型，感觉比上次进步了，能直观察觉的是对z球的控制以及腿部造型的能力。但是目前对于肌肉的塑造，面部细节的处理依然可以说是空白，只是最后用高面数和smooth糊弄过去，所谓的细节变化都是蒙的，并不是根据参考自主意识下的刻画，因此还需要进一步的实践去提高，我觉得可能还需要30个模型左右再入手各种动物解剖学的书。</p>
+<p><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/d1.jpg" alt="zbrush动物模型实录"><br><img src="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/d2.jpg" alt="zbrush动物模型实录"></p>
+<p>前几天许下心愿争取今年能够掌握各种动物模型的雕塑能力，可以较好的还原他们，大体上我把它们分为鱼类、鸟类、爬行类、哺乳类有蹄、哺乳类人形、哺乳类毛茸茸这些，人体雕塑暂时不去尝试，这些分类下至少每种都要做10几个实践吧？一周做3个么一个月12个到年底差不多，不过就是50个模型能否达到期望的水平呢，好像太乐观了吧？</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/zbrush%E5%AD%A6%E4%B9%A0/">#zbrush学习</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/">8.4 3dsmax家具模型制作</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/02/2022-8-2%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/">8.2阶段总结</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

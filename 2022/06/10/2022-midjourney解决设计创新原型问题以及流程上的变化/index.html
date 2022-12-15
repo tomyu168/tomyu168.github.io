@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>midjourney解决设计创新原型问题以及流程上的变化 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="在绘画、插画艺术领域一直以来，我们都会和“原创”挂钩，把文创方面的一些专业工作者誉为“大师”。其实质是他们的工作内容高度集成，我们很少听闻xx名画是甲乙两人，甲乙丙丁四人合作完成的，但是仔细想一下作画这个事情难道就不能像造椅子一样拆分工序嘛？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="midjourney解决设计创新原型问题以及流程上的变化">
+<meta property="og:url" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="在绘画、插画艺术领域一直以来，我们都会和“原创”挂钩，把文创方面的一些专业工作者誉为“大师”。其实质是他们的工作内容高度集成，我们很少听闻xx名画是甲乙两人，甲乙丙丁四人合作完成的，但是仔细想一下作画这个事情难道就不能像造椅子一样拆分工序嘛？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/aaa.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/aa.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/cc.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/woo.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/ddd11.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/uyuy.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/re.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/hitecture.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/hall.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/ity.png">
+<meta property="article:published_time" content="2022-06-10T01:59:51.000Z">
+<meta property="article:modified_time" content="2022-12-14T09:09:27.840Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="midjourney">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/aaa.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            midjourney解决设计创新原型问题以及流程上的变化
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-10T01:59:51.000Z" itemprop="datePublished">6月 10 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            21 分钟 读完 (约 3200 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在绘画、插画艺术领域一直以来，我们都会和“原创”挂钩，把文创方面的一些专业工作者誉为“大师”。其实质是他们的工作内容高度集成，我们很少听闻xx名画是甲乙两人，甲乙丙丁四人合作完成的，但是仔细想一下作画这个事情难道就不能像造椅子一样拆分工序嘛？</p>
+<span id="more"></span>
+
+<p>当今我们有许多计算机辅助工具方便我们作图，比如photoshop可以对物体旋转角度，缩放，透视变形，按照路径复制散布，羽化边缘等等对物体做效果处理的工具，比如我们要画一副史前恐龙的场景图，那么我们可以找一些树木，通过色彩范围之类的蒙版调整树叶颜色，天空、湖泊找到参考之后按照一个透视参考放置，接下来是恐龙的形象参考百科全书拍照下来缩放调整位置、大小让他们“自然”的分布在树木、草地、湖泊组成的环境中，做一下透视参考，再微调大小关系。这样参考有了之后我们就可以开始依葫芦画瓢了，恐龙的体态在草稿修改中参考现有相似的爬行动物，再没有计算机辅助工具之前呢以上这些工作就是用手画草稿，不断调整，比如树木的分布要自然，这通过想象是及其费时费力的，一般也是观察已有的风景或照片参照它们画出大致的草稿，再不断地微调草稿，实际上计算机就是方便了这些步骤。</p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/aaa.png" alt="2022-midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/aa.png" alt="midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p>第二幅画的绘画草稿对于当今有计算机辅助工具的条件可能是如图一这样，通过photoshop“摆放”。</p>
+<p>进一步来说，现在有了比photoshop更多的3d工具，比如专门制作地形、大气、河流的gaia、vue，制作植物树木的speedtree，配合3dsmax的forest插件可以自由分布树木植物，多样化植物色彩。通过这些工具的应用，我们可以得到3d的草稿图，也就是说可以摄像头选取不同角度作为画面舞台，而zbrush中的z球模式建模可以快速生成动物模型，让画面主体角色恐龙能够3d呈现在3d场景中，供我们“摆放”。这样草稿的修改成本就大幅降低了，且修改的逻辑变了，在2d中我们修改一只恐龙需要把地面上的植物，其附近的阴影，水面反射，其身上的与前后景树木植物或是别的恐龙都需要修改。这里面涉及的知识、内容众多，但实际上都是与创作初期的草稿一样的重复过程，且所有工作都集中于一个人而无法分包。在3d工具的辅助下，我们完全可以将工作分模块分包，比如甲专门做恐龙模型，乙专门做恐龙肌肉骨骼绑定动态姿态控制，丙专门做大气、河流、天光，丁专门搞植被树木。当然这里面有个前提：这些人需要一个统筹的草图，根据草图去实现这些具体内容。以往的艺术、绘画设计集中于一人主要问题在于这个“全局的草图”往往是艺术家一点点堆积起来的，随着其余工作的展开同时在变化中，比如说我们做到了上图1的草稿，开始定稿画图并不一定是按照先画某几个植物或者先画河流、恐龙，从原理来说素描搞需要协调整体明暗，得一遍遍整体来图，但是实际中经常会是停留在某些物件上着重刻画，我们可以认为这种不严格符合绘画科学逻辑的步骤实际是个人艺术体现的精髓，也就是“不走寻常路”。然而按照这个定义，实际上也可以去刻意达成这种风格，比较著名的画派如naive art.</p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/cc.jpg" alt="midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p>昨天我了解到了一个不可思议的工具，说不可思议其实有些夸张了，尽管目前我不能断定它的机理，但局部的一些处理上还是可以找到头绪的。midjourney这个小程序解决了上文提到的“全局的草图”问题，通过关键字，设置参考图，物体的权重可以在一分钟内让程序绘制出4幅插图。这颠覆了我们以往的绘画艺术工作流程，也解决了许多绘画爱好者、初学者的一大烦恼——如何将创意落地于纸上？构思的麻烦与困难上文中我们提过了，这些问题其实主要出在需要人进行大量搜集素材和反复迭代，类似与仓管员在一个超大的仓库中兼职组装加验货打包，这种费时费力的工作为什么不交给机器人或者计算机辅助操作呢？</p>
+<p>我们所谓的创意往往是脑海中的一个模糊映像，这个映像是整个画面舞台的局部一小块，时而想不起来。用关键词去描述让电脑去落地一般来说是与你的映像大相径庭的，因此一种是找类似自己映像的参考，一种是将这个局部映像画出来，将这些参考给计算机根据参考绘制“全局的草图”。利用这个工具的过程同时也是追寻自己的创意，以及和自身创意碰撞的过程。</p>
+<p>比方说我很喜欢希腊建筑和人物雕塑的结合，我想搞我们中国人的建筑装饰也用希腊式的写实雕塑，但是呢要让观众觉得主体是我们中国文化的，那怎么搞呢？比方说我们传统有将狮子、凤凰、龙、鹿的雕塑立于建筑外立面，那么题材可以用神兽、动物代替人像，比方说希腊雕塑给我们的印象是大理石、白色，那么我们可以结合中国传统的太湖石作为材质，或者用金银，我们传统文物中唐朝有不少金银错的工艺品可以奢华放大，用观感相似的材质以假乱真去实现，雕塑的ornament装饰细节上我们可以加入中国传统特色的服饰、布料之类的，结合现代的几何建构主义抽象，选取部分解剖式的有机结合。</p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/woo.jpg" alt="midjourney解决设计创新原型问题以及流程上的变化"><br>如何将我们的丝绸布料与雕塑结合？，雕塑上体现我们自己的ornament装饰细节呢？<br><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/ddd11.jpg" alt="midjourney解决设计创新原型问题以及流程上的变化"><br>太湖石质感的动物雕塑似乎反应我们中国人的傲骨、清奇气质，青铜鎏金银是唐朝时期的拿手绝活，我们是否可以与龙、马等神兽结合去展示中国人的大气威仪？<br><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/uyuy.jpg" alt="midjourney解决设计创新原型问题以及流程上的变化"><br>第一幅图是否想到了抬轿子的动态剪影？其片段的动态形体美学可以作为中国劳动人民形象美学的一种姿势嘛？图二解读为一种形似华盖，外国人壁龛的中国特色楣饰如何？将奇石与传统服饰的大众形象结合，体现与天地灵气浑然天成的气概。图三外国人的硬实镶嵌细木镶嵌都是2d的我们来3d的镶嵌展示中国的布料与花卉艺术的结合怎么样呢？用云纹雕刻化为形体呈现轻盈、纤细，属于中国人的“仙飘飘”概念，显然这可以作为飞天类的装饰雕塑的一种表现技法。</p>
+<p>基于这个焦点去衍生配套的其他构件是个麻烦，我们只能参考这些结果再用关键词去定位含有这些ornament装饰细节的构件，结果应该是很难预测不尽如人意的，只能靠大量的试错。然而如果我们具备很强的设计衍生能力的话，这些焦点足以成为突破僵局的利剑！不管是哪条路线，大量收集这些图，形成一个参考库，对后期的创作是很有必要的，显然它已经在这个方面超越了pinterest。</p>
+<p>我们再来看看从全局角度得到的建筑大型，midjourney给出的结果简直毁天灭地了！</p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/re.png" alt="midjourney解决设计创新原型问题以及流程上的变化"><br>图1内置青砖外面用交错式立方体立柱构成回廊，其上的奇异木结构类似古罗马的第三类墙绘“ Ornate Style ”（装潢式）所描绘的奇异建筑构件以及结构。要是我们能够利用得当绝对是可以气死西方社会争夺话语权的利刃。</p>
+<p>图2檐口出挑有木雕延伸，有类似经幢的立柱支撑，柱头形似华冠或中国特色的花雕，错落连接削弱了立柱笨重的感觉。其门廊与出檐景深错落，红色木板、栅格与石雕饰带、木窗花、竹帘不规则交替，使得空间形成令人着迷的空间关系，美中不足的层高比例以及有机曲面式屋顶稍加改造绝对是一座精妙绝伦的文化宫。</p>
+<p>图4带有我们传统高台建筑与干阑式建筑的残影，其二层阑干、底层饰带交相辉映，曲折的回廊大气而内敛，巨石柱大小不一顶起外檐，隐隐透出内部的木结构，仿佛金屋藏娇，显然其下的柱廊外可以设置众多的动物、人物石雕、金属雕塑抑或木雕。其屋顶是大有可为的不规则曲面，呈现密檐式塔楼的檐口状如波浪式覆盖屋顶，这种大气致密的设计想法在调整雕琢一番，那又是前无古人后无来者的名片式屋顶样式。<br><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/hitecture.png" alt="midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/hall.png" alt="midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p><img src="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/ity.png" alt="midjourney解决设计创新原型问题以及流程上的变化"></p>
+<p>这些大型可以说任何一个都可以用一篇短文去评家其中装饰手法的奇妙构思，将他们加以利用可以延伸出许多名片式的建筑风格。其宏伟、精妙、传统、复兴、现代、大气，我甚至难以言喻。这应该是房地产、建筑工程行业的第二春，希望能够借助其不可思议的震撼掀起人们的思潮，颠覆西方建筑装饰及其衍生对我们的思想、美好生活追求的禁锢，能在这样的事业中有所贡献的话，我想是没有什么996、多少钱的概念的，只是想去证明什么而已。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/midjourney/">#midjourney</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/06/13/2022-6-6%E4%B8%80%E5%91%A8%E6%80%BB%E7%BB%93%E4%BB%A5%E5%8F%8A6-13%E5%BC%80%E5%A7%8B%E7%9A%84%E8%B0%83%E6%95%B4/">6.6一周总结以及6.13开始的调整</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/06/08/2022-%E5%85%B3%E4%BA%8E%E7%90%86%E8%AE%BA%E6%80%BB%E7%BB%93%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/">关于理论总结的进程与工作流程</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

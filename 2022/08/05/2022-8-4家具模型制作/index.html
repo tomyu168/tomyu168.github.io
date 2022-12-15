@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>8.4 3dsmax家具模型制作 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="昨天做了1个半模型，大概有一个月没碰3dsmax，一开始对操作有些陌生，第一个椅子磕磕绊绊自己通关了整个形体。总结一下几个技术点： 1.是转角腿（turned wood），通过x型布线切割矩形tessellation可以把点炸开，得到8边形的布线通过涡轮平滑可以模拟柱状。柱状面凹凸就是调整环状线的大小，仔细核对参考图就可以做的蛮精确了。  2.座椅左面木框架，正面这个实际没有技术难度，但是结构小了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8.4 3dsmax家具模型制作">
+<meta property="og:url" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="昨天做了1个半模型，大概有一个月没碰3dsmax，一开始对操作有些陌生，第一个椅子磕磕绊绊自己通关了整个形体。总结一下几个技术点： 1.是转角腿（turned wood），通过x型布线切割矩形tessellation可以把点炸开，得到8边形的布线通过涡轮平滑可以模拟柱状。柱状面凹凸就是调整环状线的大小，仔细核对参考图就可以做的蛮精确了。  2.座椅左面木框架，正面这个实际没有技术难度，但是结构小了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E7%8E%AF%E7%8A%B6%E7%BA%BF%E5%81%9A%E8%BD%AC%E8%A7%92%E8%85%BF.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E5%BA%A7%E6%A4%85%E5%BA%A7%E9%9D%A2%E6%9C%A8%E6%A1%86%E6%9E%B6.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%9B%B2%E9%9D%A2%E6%8A%8A%E6%89%8B.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E9%9D%A0%E8%83%8C%E6%B8%90%E8%BF%9B%E5%90%91%E4%B8%8A.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%B6%A1%E5%8D%B7%E5%87%B9%E6%A7%BD.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%9B%B2%E9%9D%A2%E8%BA%BA%E6%A4%85.jpg">
+<meta property="article:published_time" content="2022-08-05T01:39:30.000Z">
+<meta property="article:modified_time" content="2022-08-23T02:52:05.664Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="3dsmax学习与实践">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E7%8E%AF%E7%8A%B6%E7%BA%BF%E5%81%9A%E8%BD%AC%E8%A7%92%E8%85%BF.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            8.4 3dsmax家具模型制作
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-05T01:39:30.000Z" itemprop="datePublished">8月 5 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1018 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>昨天做了1个半模型，大概有一个月没碰3dsmax，一开始对操作有些陌生，第一个椅子磕磕绊绊自己通关了整个形体。总结一下几个技术点：</p>
+<p>1.是转角腿（turned wood），通过x型布线切割矩形tessellation可以把点炸开，得到8边形的布线通过涡轮平滑可以模拟柱状。柱状面凹凸就是调整环状线的大小，仔细核对参考图就可以做的蛮精确了。</p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E7%8E%AF%E7%8A%B6%E7%BA%BF%E5%81%9A%E8%BD%AC%E8%A7%92%E8%85%BF.jpg" alt="2022-8.4 3dsmax家具模型制作"></p>
+<p>2.座椅左面木框架，正面这个实际没有技术难度，但是结构小了就理解不能了，从图上看是阶梯下沉3次，上升2次，下沉2次再上升3次，只要做1/4通过镜像就好，甚至这个曲线形状的凸出也可以用ffd去变形构造，关键在于这个微小的阶梯面，如何保持应边缘。再确这个面构造出来之后，利用extrude along spline可以构造两侧包围背面的木框架。</p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E5%BA%A7%E6%A4%85%E5%BA%A7%E9%9D%A2%E6%9C%A8%E6%A1%86%E6%9E%B6.jpg" alt="8.4 3dsmax家具模型制作"></p>
+<p>3.这套难点较大的是两侧木框架把手，这个曲面很不规则，我是逐个点调整去模拟曲线，理论上来说最好是用一个曲线作为参考轮廓在left面用直接把这个坡面画出来之后在水平方向挤出，然后在正面用ffd形变将把手歪向一侧。然后通过拉点构造圆形涡卷，然后就是把手面上的凹槽了，我在这个例子中用单线条勾勒出来之后chamfer切分出双线向内挤出形成凹槽，效果很理想，奇怪的是我在第二套模型中想用同样的方法去做失败了，是做了一天模型没耐心了？总的而言，对这个凹槽的构造我今天居然是没有记忆的，根本想不起坡面昨天是怎么搞得，说明目前对这种面还没有清晰的技术手段和技术认识。</p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%9B%B2%E9%9D%A2%E6%8A%8A%E6%89%8B.jpg" alt="8.4 3dsmax家具模型制作"></p>
+<p>4.通过把手的面分离然后对面进行extrude along spline，这里卡了很久后想起来用ffd变形器局部变形构造出靠背的渐进向上。然后利用这个结构上的面detach分离extrude挤出面形成软包布艺。</p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E9%9D%A0%E8%83%8C%E6%B8%90%E8%BF%9B%E5%90%91%E4%B8%8A.jpg" alt="8.4 3dsmax家具模型制作"></p>
+<p>5.座面用spline画出形状后挤出，布线涡轮平滑，再利用cloth重力模拟。</p>
+<p>第一个模型基本就这样，关于布艺软包上的那些网孔、褶皱之类的需要配合marvelous designer在基本形状成型后，导出到那边制作。这个等建模技术进一步提升之后再玩。</p>
+<p>![8.4 3dsmax家具模型制作](marvelous designer做网孔设计.jpg)</p>
+<p>第二个模型下午到晚上把轮廓做好以后就不知道如何拓扑布线去做那两个涡卷了，后来看了教学演示的思路自己完成了布线，其做法是直接用面片去模拟所有的凹凸结构，这对于在一个平面上而言很好用，或许像前一个例子的那种转向的把手也可以在一个面上构造好之后利用ffd局部变形，在zbrush中可以通过遮罩模糊对局部做移动旋转拉伸变形，3dsmax的话似乎就是ffd？ffd能否设置一定权重模糊达到平滑变形呢？我想下午这两个案例在实验一下，然后再做1一个新的模型练习练习。</p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%B6%A1%E5%8D%B7%E5%87%B9%E6%A7%BD.jpg" alt="8.4 3dsmax家具模型制作"></p>
+<p><img src="/2022/08/05/2022-8-4%E5%AE%B6%E5%85%B7%E6%A8%A1%E5%9E%8B%E5%88%B6%E4%BD%9C/%E6%9B%B2%E9%9D%A2%E8%BA%BA%E6%A4%85.jpg" alt="8.4 3dsmax家具模型制作"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/3dsmax%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E8%B7%B5/">#3dsmax学习与实践</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/08/05/2022-8-5-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1%E5%AD%A6%E4%B9%A0/">8.5 3dsmax家具建模学习</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/03/2022-zbrush%E5%8A%A8%E7%89%A9%E6%A8%A1%E5%9E%8B%E5%AE%9E%E5%BD%95/">zbrush动物模型实录</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

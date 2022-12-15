@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>game character的制作流程 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="Full 3D Character Workflow Explained - Sculpting, Retopo &amp; Textures展示了角色从“基本模型”到高模（zbrush），重新拓扑（maya），到uv展开（maya），到绘制材质的流程。  一般而言就像zbrush灯箱里自带了一些动物，人物的“基本模型”，在这个基础上按照需求细化并完成人物、动物的高模制作。  zbrush中260">
+<meta property="og:type" content="article">
+<meta property="og:title" content="game character的制作流程">
+<meta property="og:url" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="Full 3D Character Workflow Explained - Sculpting, Retopo &amp; Textures展示了角色从“基本模型”到高模（zbrush），重新拓扑（maya），到uv展开（maya），到绘制材质的流程。  一般而言就像zbrush灯箱里自带了一些动物，人物的“基本模型”，在这个基础上按照需求细化并完成人物、动物的高模制作。  zbrush中260">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E5%85%B6%E6%9C%80%E7%BB%88%E5%BD%A2%E6%80%81.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E6%95%99%E7%A8%8B%E4%B8%AD%E6%BC%94%E7%A4%BA%E6%8A%8A530000%E9%9D%A2%E7%9A%84%E6%A8%A1%E5%9E%8B%E6%94%BE%E5%85%A5maya%E5%81%9A%E9%87%8D%E6%96%B0%E6%8B%93%E6%89%91.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E4%B8%89%E8%A7%92%E9%BE%99%E7%9A%84retopo.jpg">
+<meta property="article:published_time" content="2022-07-19T04:01:39.000Z">
+<meta property="article:modified_time" content="2022-12-14T09:09:15.736Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="zbrush学习">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="贴图">
+<meta property="article:tag" content="烘焙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            game character的制作流程
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-19T04:01:39.000Z" itemprop="datePublished">7月 19 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 561 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><a href="https://www.youtube.com/watch?v=ISgdREmFO7w" title="" target="">Full 3D Character Workflow Explained - Sculpting, Retopo &amp; Textures</a>展示了角色从“基本模型”到高模（zbrush），重新拓扑（maya），到uv展开（maya），到绘制材质的流程。
+
+<p>一般而言就像zbrush灯箱里自带了一些动物，人物的“基本模型”，在这个基础上按照需求细化并完成人物、动物的高模制作。<br><img src="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg" alt="2022-game character的制作流程"></p>
+
+<div style="text-align:center">zbrush中26000面的怪物看上去已经颇具形象了</div> 
+
+
+<span id="more"></span>
+
+<p><img src="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E5%85%B6%E6%9C%80%E7%BB%88%E5%BD%A2%E6%80%81.jpg" alt="game character的制作流程"></p>
+
+<div style="text-align:center">问题就在于能否把这个2290000面的高模细节投射回上图26000面的”基础怪物“？</div> 
+
+
+<p>发现：youtube上的角色uv展开教程、演示基本上都是maya和blender的。</p>
+<p>然后用zbrush中的decimation master之类的工具减面到一定程度（不然没法放进重新拓扑的软件，上百万面的模型进3dsmax会导致软件卡死），将模型导出obj，在别的3d软件中进行重新拓扑（retopo），这里介绍了像3dcoat，topogun这样的手动重新拓扑，一些视频中也有介绍诸如instant meshes（可以对三角龙这样的复杂动物模型进行重新拓扑）这样的自动重新拓扑软件，我想这些都需要实践操作一下。<br><img src="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E6%95%99%E7%A8%8B%E4%B8%AD%E6%BC%94%E7%A4%BA%E6%8A%8A530000%E9%9D%A2%E7%9A%84%E6%A8%A1%E5%9E%8B%E6%94%BE%E5%85%A5maya%E5%81%9A%E9%87%8D%E6%96%B0%E6%8B%93%E6%89%91.jpg" alt="game character的制作流程"></p>
+
+<div style="text-align:center">教程中演示把530000面的模型放入maya做重新拓扑</div> 
+
+<p><img src="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E4%B8%89%E8%A7%92%E9%BE%99%E7%9A%84retopo.jpg" alt="game character的制作流程"></p>
+
+<div style="text-align:center">会不会是三角龙表面没有那么剧烈的肌肉变化而是麻点一样的轻微凹凸所以可以如此操作呢？需要后期实验论证</div> 
+
+
+<p>这个演示中没有提及分uv的具体操作，就直接展示了uv展开。然后就是在substance painter中绘制贴图。根据演示所说，一般作为项目而言做模型和绘制贴图是分包给不同的人去制作的。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/zbrush%E5%AD%A6%E4%B9%A0/">#zbrush学习</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E6%A8%A1/">#建模</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%B4%B4%E5%9B%BE/">#贴图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%83%98%E7%84%99/">#烘焙</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/07/21/2022-%E6%9D%82%E4%BA%8B%E6%89%B0%E4%BA%BA/">杂事扰人</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/">2022-07-19 中模—高模—低模—分UV—贴图流程</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

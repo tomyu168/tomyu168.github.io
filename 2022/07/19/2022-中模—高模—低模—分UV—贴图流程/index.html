@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2022-07-19 中模—高模—低模—分UV—贴图流程 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="周末看了一个3dsmax uv编辑器关于uv切分的实操系列视频，然而一看完还没实操就发现这个工具可能过时了或者说不便于操作，在另一个中模—高模—低模—分UV—贴图的教程中用了unfold3d，对比maya的快捷键操作似乎3dsmax分割uv cluster确实效率不太行。另外在modeling and texturing animals for games系列教学中，作者用3dcoat这个软件完成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022-07-19 中模—高模—低模—分UV—贴图流程">
+<meta property="og:url" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="周末看了一个3dsmax uv编辑器关于uv切分的实操系列视频，然而一看完还没实操就发现这个工具可能过时了或者说不便于操作，在另一个中模—高模—低模—分UV—贴图的教程中用了unfold3d，对比maya的快捷键操作似乎3dsmax分割uv cluster确实效率不太行。另外在modeling and texturing animals for games系列教学中，作者用3dcoat这个软件完成">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%9C%A83dsmax%E4%B8%AD%E5%88%B6%E4%BD%9C%E4%B8%AD%E6%A8%A1.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/zbrush%E4%B8%8A%E9%9B%95%E5%88%BB%E5%88%B6%E4%BD%9C%E9%AB%98%E6%A8%A1%E7%BB%86%E8%8A%82.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/60000%E7%82%B9zbrush%E8%87%AA%E5%B8%A6%E7%9A%84%E7%94%B7%E6%80%A7%E4%BA%BA%E4%BD%93%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%85%B6%E6%9C%80%E7%BB%88%E5%BD%A2%E6%80%81.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%9C%A83dcoat%E4%B8%AD%E5%B1%95%E5%BC%80uv.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%83%98%E7%84%99%E5%89%8D.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%83%98%E7%84%99%E5%90%8E.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%BB%98%E5%88%B6%E6%9D%90%E8%B4%A8.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/yezhu.jpg">
+<meta property="article:published_time" content="2022-07-19T02:45:25.000Z">
+<meta property="article:modified_time" content="2022-12-09T08:54:56.619Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="贴图">
+<meta property="article:tag" content="烘焙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%9C%A83dsmax%E4%B8%AD%E5%88%B6%E4%BD%9C%E4%B8%AD%E6%A8%A1.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#中模">1&nbsp;&nbsp;<b>中模</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#高模">2&nbsp;&nbsp;<b>高模</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#低模">3&nbsp;&nbsp;<b>低模</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#uv展开">4&nbsp;&nbsp;<b>uv展开</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#烘焙并绘制材质">5&nbsp;&nbsp;<b>烘焙并绘制材质</b></a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2022-07-19 中模—高模—低模—分UV—贴图流程
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-19T02:45:25.000Z" itemprop="datePublished">7月 19 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1447 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>周末看了一个3dsmax uv编辑器关于uv切分的实操系列视频，然而一看完还没实操就发现这个工具可能过时了或者说不便于操作，在另一个中模—高模—低模—分UV—贴图的教程中用了unfold3d，对比maya的快捷键操作似乎3dsmax分割uv cluster确实效率不太行。另外在<a href="https://app.pluralsight.com/library/courses/9f3df14e-82b3-48f4-934b-e29904cb4c8b/table-of-contents" title="" target="">modeling and texturing animals for games</a>系列教学中，作者用3dcoat这个软件完成了重新拓扑以及uv展开（pluralsight有maya的retopo教程，可能要重新把maya捡起来？）。这也是我以往遇到的问题，学习一个分支技术，遇到还有更先进的，那么要不要先入手这个“原始”版的呢？会以该技术落后而始乱终弃，总是想找更“方便”的方法而逃避实践。这确实是个充满矛盾的问题。</p>
+<span id="more"></span>
+
+<p>回到正题，这周了解了中模—高模—低模—分UV—贴图的游戏场景制作流程。</p>
+<p>这个<a href="https://www.bilibili.com/video/BV1R64y1e7SV?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">教程</a>用了2个半小时左右从0对一个路灯进行了全套流程。</p>
+<h2 id="中模"><a href="#中模" class="headerlink" title="中模"></a>中模</h2><p>在3dsmax、maya等软件中通过多边形编辑加点、线面，拉伸得到物体的中模。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%9C%A83dsmax%E4%B8%AD%E5%88%B6%E4%BD%9C%E4%B8%AD%E6%A8%A1.jpg" alt="2022-中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">在3dsmax中制作中模</div> 
+
+
+<h2 id="高模"><a href="#高模" class="headerlink" title="高模"></a>高模</h2><p>为了使物体更真实，将其放入zbrush等雕刻软件加细分（雕刻的本质是对面做操作，中模面数少直接雕刻不能得到细节效果，面数不够雕刻起来都是马赛克一样的粗糙），在物体上做一些纹理雕刻。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/zbrush%E4%B8%8A%E9%9B%95%E5%88%BB%E5%88%B6%E4%BD%9C%E9%AB%98%E6%A8%A1%E7%BB%86%E8%8A%82.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">zbrush上雕刻制作高模细节</div> 
+
+
+<h2 id="低模"><a href="#低模" class="headerlink" title="低模"></a>低模</h2><p>然后用减面工具将高模的面数降到20万面左右再回到3dsmax，将低模“包裹”高模，这个过程叫重新拓扑，英文叫retopo，这里面涉及到一个问题，像建筑、一些道具、家具其模型出自3dsmax、maya，他们是多边形建模出来后去zbrush做雕刻。还有一种比如大型的人物、动物雕塑，这类模型一开始就是从zbrush中雕刻出来的，不存在低模（这点存疑，根据game character那个流程演示来看zbrush中的角色高模也是从面数不过几万的“基础模型”开始构造的，之前提到最新的次世代游戏角色的模型面数已经超过20万了，因此理论上可以备份这个开始的雏形作为低模）。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/60000%E7%82%B9zbrush%E8%87%AA%E5%B8%A6%E7%9A%84%E7%94%B7%E6%80%A7%E4%BA%BA%E4%BD%93%E6%A8%A1%E5%9E%8B.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">zbrush中显示60000点的自带男性模型，原先有3级细分我取了2级细分放入max，感觉已经是十分光滑了，其中60000点就是60000个面</div> 
+
+
+<p><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">zbrush中26000面的怪物看上去已经颇具形象了</div> 
+
+
+<p><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%85%B6%E6%9C%80%E7%BB%88%E5%BD%A2%E6%80%81.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">问题就在于能否把这个2290000面的高模细节投射回上图26000面的”基础怪物“？</div> 
+
+
+<p>复杂物体（去这篇看详情）的重新拓扑网上也有诸如三角龙直接自动重新拓扑的，关于这项技术，我想可以摆到相对较后的位置等科技发展，先在几何模型方面完成全流程就好了，毕竟动物、人物高模的绘制本身会是个很大的挑战。</p>
+<h2 id="uv展开"><a href="#uv展开" class="headerlink" title="uv展开"></a>uv展开</h2><p>有了低模之后对低模做uv展开，可以在3dsmax中做（具体操作可以通过这个教程<a href="https://app.pluralsight.com/library/courses/3ds-max-uv-mapping-fundamentals/table-of-contents" title="" target="">3ds Max UV Mapping Fundamentals</a>学习）也可以导出obj，用unfold3d、3dcoat之类的软件去做uv展开。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E5%9C%A83dcoat%E4%B8%AD%E5%B1%95%E5%BC%80uv.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">在3dcoat中展开uv</div> 
+
+
+<h2 id="烘焙并绘制材质"><a href="#烘焙并绘制材质" class="headerlink" title="烘焙并绘制材质"></a>烘焙并绘制材质</h2><p>展好uv之后需要做烘培，将高模的细节投射到低模上面，这一步可以用substance painter、marmoset toolbag等软件实现。</p>
+<p><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%83%98%E7%84%99%E5%89%8D.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">烘焙前</div> 
+
+<p><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%83%98%E7%84%99%E5%90%8E.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">烘焙后</div> 
+
+
+<p>最后就是利用substance painter直接在三维物体上绘制材质贴图了，以往是在ps里对展开的uv绘制材质贴图，可见随着科技发展，整个流程会越来越平民化，且制作效果会越来越逼真。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/%E7%BB%98%E5%88%B6%E6%9D%90%E8%B4%A8.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+
+<div style="text-align:center">在substance painter中对低模绘制材质</div> 
+
+
+<p>在<a href="https://app.pluralsight.com/library/courses/9f3df14e-82b3-48f4-934b-e29904cb4c8b/table-of-contents" title="" target="">modeling and texturing animals for games</a>系列教学中，作者最后一节用marmoset toolbag做了渲染展示。<br><img src="/2022/07/19/2022-%E4%B8%AD%E6%A8%A1%E2%80%94%E9%AB%98%E6%A8%A1%E2%80%94%E4%BD%8E%E6%A8%A1%E2%80%94%E5%88%86UV%E2%80%94%E8%B4%B4%E5%9B%BE%E6%B5%81%E7%A8%8B/yezhu.jpg" alt="中模—高模—低模—分UV—贴图流程"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E6%A8%A1/">#建模</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%B4%B4%E5%9B%BE/">#贴图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%83%98%E7%84%99/">#烘焙</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/">game character的制作流程</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/07/18/2022-7-16zbrush%E5%AD%A6%E4%B9%A0/">7.15zbrush学习</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

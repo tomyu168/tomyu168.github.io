@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2022 12 6 测试obsidian markdown搬运到hexo - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="这两天想起来要备份A History Of Interior Design。最好是一键复制解决，不然在hexo的md下面一个个图片存一个个链接上去那得累死。于是想到了markdown编辑器，于是遇到了obsidian，这个工具可以满足一键复制网页并转化为md格式，我测试了一下效果可以，问题是在于这样操作实际上图片是引用链接，如果平台倒了的话图也会一起挂掉。 一早上被hexo的timed out问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022 12 6 测试obsidian markdown搬运到hexo">
+<meta property="og:url" content="http://zhudian.xyz/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="这两天想起来要备份A History Of Interior Design。最好是一键复制解决，不然在hexo的md下面一个个图片存一个个链接上去那得累死。于是想到了markdown编辑器，于是遇到了obsidian，这个工具可以满足一键复制网页并转化为md格式，我测试了一下效果可以，问题是在于这样操作实际上图片是引用链接，如果平台倒了的话图也会一起挂掉。 一早上被hexo的timed out问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/aaa.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/7be0443c6fdb7909ce5c903b9b8754a.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/d38012cdc7f88c99ad69568a3f368b8.png">
+<meta property="article:published_time" content="2022-12-06T02:47:30.000Z">
+<meta property="article:modified_time" content="2022-12-14T09:09:59.532Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="知识库搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/aaa.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2022 12 6 测试obsidian markdown搬运到hexo
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-12-06T02:47:30.000Z" itemprop="datePublished">12月 6 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 580 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这两天想起来要备份A History Of Interior Design。最好是一键复制解决，不然在hexo的md下面一个个图片存一个个链接上去那得累死。于是想到了markdown编辑器，于是遇到了obsidian，这个工具可以满足一键复制网页并转化为md格式，我测试了一下效果可以，问题是在于这样操作实际上图片是引用链接，如果平台倒了的话图也会一起挂掉。</p>
+<p>一早上被hexo的timed out问题整的很惨，什么repo地址，代理设置，host，ssh keygen。也不知道咋搞，这会儿似乎好了，也不知道是我弄好的，还是网顺畅了。如果是我改的话那么有几个点：</p>
+<p>1.ssh-keygen -t rsa重新生成ssh key然后在id_rsa.pub复制key给github的ssh key重新生成一个</p>
+<p>2.git config –global https.proxy 127.0.0.1:7890</p>
+<p>git config –global http.proxy 127.0.0.1:7890</p>
+<p>端口为clash代理的端口</p>
+<p>3.在git的ssh host里面改一个ip</p>
+<p>4.在system32里面改一个host ip</p>
+<p>以后做工作学习笔记要转到obsidian上了，一时间似乎脑子还没转过来，这一篇还在记事本里面搞，直到要截图obsidian的界面了才发现别扭。</p>
+<p><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/aaa.png"></p>
+<p>obsidian中可以截图自动保存到目录下面，它内置了全文索引的功能，相当于本地建立了知识库，界面可以调整颜色，别的功能暂时还没研究，这种编辑器的功能会在word之上，日后摸索。</p>
+<p><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/7be0443c6fdb7909ce5c903b9b8754a.png"><br><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/d38012cdc7f88c99ad69568a3f368b8.png"><br>通过local images插件解决了平台图片本地保存避免平台暴雷后链接失效的问题。</p>
+<p>以后在obsidian中写一篇日记设定一个文件夹对应存图，全部完了图从文件夹批量复制到hexo的图片文件夹即可，然后source mode下复制到md文件里，即可以远程备份。在hexo的本地电脑不在时也可以在远程平台写笔记到时候通过local images插件即可解决图片本地化问题。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA/">#知识库搭建</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/12/06/A-History-Of-Interior-Design-%E5%AE%A4%E5%86%85%E8%AE%BE%E8%AE%A1%E5%8E%86%E5%8F%B2%E5%8F%98%E8%BF%81-%E5%9F%83%E5%8F%8A%E7%AF%87%E4%B8%8A/">A History Of Interior Design 室内设计历史变迁(埃及篇上)</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/12/05/2022-12-5-%E9%9B%95%E5%A1%91%E7%9A%84%E5%87%A0%E4%B8%AA%E9%98%B6%E6%AE%B5flipnormal%E7%B3%BB%E5%88%97%E4%B8%AD%E7%9A%84mid-frequency%E6%A6%82%E5%BF%B5/">2022 12 5 雕塑的几个阶段flipnormal系列中的mid frequency概念</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2022-8-25-动物解剖学与zbrush雕刻part2 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="Sculpting Anatomy: from Animal to Creature系列教学p11继续前进。  头骨雕塑基本大形： 创建一个参考集合面板设置zbrush开始雕塑 作者准备雕塑一个猞猁（猞猁的骨骼图在网上有个公益组织专门弄了一个网站详解，我不知道其他动物有没有类似的那么全面的素材），因此寻找猫科动物各个视图的骨骼作为参考。猞猁的毛发很多，其实拍照片无法辨析骨骼标志以及肌肉形态，所以作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022-8-25-动物解剖学与zbrush雕刻part2">
+<meta property="og:url" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="Sculpting Anatomy: from Animal to Creature系列教学p11继续前进。  头骨雕塑基本大形： 创建一个参考集合面板设置zbrush开始雕塑 作者准备雕塑一个猞猁（猞猁的骨骼图在网上有个公益组织专门弄了一个网站详解，我不知道其他动物有没有类似的那么全面的素材），因此寻找猫科动物各个视图的骨骼作为参考。猞猁的毛发很多，其实拍照片无法辨析骨骼标志以及肌肉形态，所以作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E5%8F%82%E8%80%83%E5%9B%BE.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/pureref%E5%8F%82%E8%80%83%E5%9B%BE.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/zbrush%E7%9B%AE%E5%89%8D%E6%88%91%E7%9A%84%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E6%B2%A1%E8%B7%9F%E7%9D%80%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA%E5%AE%8C%E5%85%A8%E8%B7%9F%E7%9D%80%E5%8F%82%E8%80%83%E5%9B%BE%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A8%E5%92%8C%E4%B8%8B%E9%A2%8C%E9%AA%A8.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E4%B8%80%E5%9C%88%E6%8E%92%E5%88%B7claytube%E5%8D%81%E5%88%86%E5%8C%80%E7%A7%B0.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%89%8D.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%90%8E.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%BB%86%E5%8C%96%E9%9B%95%E5%88%BB%E7%9A%84%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A81.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A82.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A81.png">
+<meta property="og:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A82.png">
+<meta property="article:published_time" content="2022-09-12T05:53:02.000Z">
+<meta property="article:modified_time" content="2022-09-12T17:25:36.245Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="zbrush学习">
+<meta property="article:tag" content="解剖学">
+<meta property="article:tag" content="动物雕塑">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E5%8F%82%E8%80%83%E5%9B%BE.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2022-8-25-动物解剖学与zbrush雕刻part2
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-12T05:53:02.000Z" itemprop="datePublished">9月 12 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2366 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><a href="https://www.bilibili.com/video/BV1Xy4y1B7yJ?p=11&amp;spm_id_from=pageDriver&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">Sculpting Anatomy: from Animal to Creature</a>系列教学p11继续前进。
+
+<p>头骨雕塑基本大形：</p>
+<p>创建一个参考集合面板<br>设置zbrush<br>开始雕塑</p>
+<p>作者准备雕塑一个猞猁（猞猁的骨骼图在网上有个公益组织专门弄了一个网站详解，我不知道其他动物有没有类似的那么全面的素材），因此寻找猫科动物各个视图的骨骼作为参考。猞猁的毛发很多，其实拍照片无法辨析骨骼标志以及肌肉形态，所以作者选用无毛的sphynx cat作为实拍形态参考。猫科动物都可以用sphynx cat，犬科动物则是Peruvian dog。作者还加入了许多动物肌肉解剖学的参考图，比如狮子的（这部分来源于atlas of animal anatomy）。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">atlas animal anatomy狮子参考图，淘宝上花了一块钱买的扫描版。</div> 
+
+
+<p>8.29更新</p>
+<p>轮到我设置参考图了，前两天用的是xnview，这个窗口利用率还不够，参考图需要分窗口。相对而言pureref可以无限在一个窗口中堆积参考图，空格切换最大化，右键拖动窗口，数位板1键配合笔拖动可以缩小放大当前参考图，这就很强。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/pureref%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">pureref堆积参考图，窗口置顶ctrl shift a可取消，可以直接复制网上的图片在窗口中黏贴使用。</div> 
+
+
+<p>参考图我去猞猁公益网站截图了，1块钱购买了atlas of animal anatomy的扫描版。</p>
+<p>关于zbrush设置作者提到了背景色与轮廓，我觉得这个意义不是很大。然后是一键调用常用笔刷菜单这个倒是不错，今天抽空研究一下zbrush界面布局吧，我看很多教学里面布局上十分花哨，反正就是怎么方便习惯怎么来。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/zbrush%E7%9B%AE%E5%89%8D%E6%88%91%E7%9A%84%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">zbrush目前我的界面布局</div> 
+
+
+<p>终于轮到雕刻了：</p>
+<p>第一步：先从颅骨（cranial）开始，从一个cube开始move拉大形，这一步把各个方向参考图的长短轴拉到位置，模型的面很少，拓扑方面会很诡异，不必介意。有时候move拉动的区域不够完整可以用smooth推平，大的轮廓尽量move拉出样子来，比如眼窟窿，颧骨的这一圈外凸。</p>
+<p>第二步：dynamesh 32像素重构拓扑，之后都可以通过control拉方框做dynamesh快捷处理重构拓扑，这个很重要，在模型初始阶段move拉面造型时局部的拓扑会十分凌乱，这时需要dynamesh重构。32像素dynamesh之后，颅骨和下颌骨模型恰巧都在10000点左右，不知道是巧合还是这个像素下dynamesh对饮这个面数。接下来要把轮廓上明显的骨骼标志（bony landmark）都刻画出来，骨头面不能太薄，以免造成破面烂面，对较薄的骨骼面用inflat可以加厚，然后dynamesh重构拓扑即可修复破面。骨骼上的棱角、凹槽、凸出究竟怎样表达呢？不能用move，move是用来确定轮廓的，而这些凹凸则是用claybuild、claytube叠加厚度或者“挖除”（消减面的厚度）。对于十分棱角分明的转折（也就是很小的长条的面转折，这时用claybuild塑造效果不明显表达不好）需要用dem standard刻画。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E6%B2%A1%E8%B7%9F%E7%9D%80%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA%E5%AE%8C%E5%85%A8%E8%B7%9F%E7%9D%80%E5%8F%82%E8%80%83%E5%9B%BE%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A8%E5%92%8C%E4%B8%8B%E9%A2%8C%E9%AA%A8.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">我没跟着教学演示完全跟着参考图自己做的头骨和下颌骨，可以看出眼眶前侧有明显的骨骼轮廓，而眼眶后侧则不明显，根据参考图来看眼眶上半部分的骨头边缘是“上翘”，内部凹陷的，可以对边缘加厚或者内侧“挖除”。下颌骨部分可以观察到一个明显的类似三角形的凹陷，这部分也是claybuild“挖除”。</div> 
+
+
+<p>在理解了这些原理后，我比较满意的完成了颅骨和下颌骨的塑形。下颌骨部分我甚至都没细看作者的示范，现在看来用transpose做大型的雕塑也是需要掌握的特点之一，局部用mask遮罩transpose拉伸可以做出比较规则的多边形几何体，而move拉伸造型相对而言很不规则，尤其不可能对一个侧面做拉伸，毕竟选取的是圆形区域而目标则是矩形面所以会影响另一个面。</p>
+<p>第三步：ctrl d增加细分层级，对骨骼纹理做刻画。<br>用claytube在第二细分层级上做纹理刻画，在alpha编辑器里增加rf值5-7，intensity调整6-9，这时会发现笔刷可以构造出十分柔和的渐进纹理，平铺密集排刷不会觉得凌乱，而是很匀称。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E4%B8%80%E5%9C%88%E6%8E%92%E5%88%B7claytube%E5%8D%81%E5%88%86%E5%8C%80%E7%A7%B0.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">一圈排刷claytube十分匀称。</div> 
+
+
+<p>细微局部的形状、体积厚度要用move topology小intensity做微调，这时用claybuild的话会造成体积厚度连续性不协调一致。<br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%89%8D.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">movetopo调整前</div> 
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%90%8E.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">movetopo调整后，我们可以观察到上端颧骨那个边缘的轮廓更立体有质感、纤细了</div> 
+
+
+<p>这一阶段的细化对观察能力，以及个人理解要求比较高，不对着教学演示的话恐怕我自己很难找到要去做的部分，第一遍看下来本来以为是要做骨骼表面纹理，但现在又觉得不完全是，结尾处好像用dam standard来明确骨骼分界？</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%BB%86%E5%8C%96%E9%9B%95%E5%88%BB%E7%9A%84%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">细化雕刻的依据是什么呢，在secondary也就是细分层级后的雕刻，似乎参考了atlas of animal anatomy</div> 
+
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A81.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"><br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A82.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">atlas of animal anatomy狮子的头骨上可以看到教程演示中，几个较为明显的dem standard断痕。</div> 
+
+
+<p>2022.9.6我完成了初步的头骨模型制作如下，实际增加细分1级后面数不到10万，用教学中的笔刷设置并不能做出好的效果，需要增加2级细分才行。</p>
+<p>我暂时没有像教学中那样使用zremesher重构拓扑并投射细节（projecting）。我的细分由于dynamesh丢失了，这里面就涉及几个问题了，如果后期对物体做大形的调整导致布线问题，使用dynamesh会丢失细分，那是不是意味着无法调节大形了呢？我记得教学中多次切换到低层级细分重新调整大形，好像没有用到dynamesh，这是因为微调的关系吗？有必要实验证实一下。</p>
+<p>在preference edit 下Inactive Subtool Dimming设置为1可以使得未激活的subtool亮度与激活的subtool一致。这解决了初步预览模型，亮度不一致问题。</p>
+<p>see through模式下对照参考调整大形是个不错的工作方式。应该在起初就使用，我不明白为什么作者是放到最后阶段使用。似乎他不受面布线问题，或许到时候只要zremesher，这样布线就正常了，高模投射细节即可？</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A81.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">claytube在高细分层级上对一个面做强调，以短轴方向密集排线刷笔刷而非长轴方向拉长线，后者无法制造丰富纹理，看上去像是欲盖弥彰的多层胶带。比如头部后侧，顶骨和颞骨之间的凹槽外延展面的构造，在2级细分下细化雕刻效果十分理想。</div> 
+
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A82.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">阶段性而言还是蛮满意的，可以说成功吃下了第二课，这个月需要完成2个其他动物的头骨来验证独立制作能力。不过这样的话似乎第三课就有些遥遥无期了。</div> 
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/zbrush%E5%AD%A6%E4%B9%A0/">#zbrush学习</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%A7%A3%E5%89%96%E5%AD%A6/">#解剖学</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%8A%A8%E7%89%A9%E9%9B%95%E5%A1%91/">#动物雕塑</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/">2022-9-12 难过却无能为力</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/">8.31张衡西京赋 生吃</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

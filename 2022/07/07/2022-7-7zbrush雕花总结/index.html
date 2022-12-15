@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>7.7zbrush雕花总结 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="通过半天的实验：遮罩用lasso选取目前已经成熟，局部旋转也可以了。zremesher一半面、相同面、二倍面，多次切换，初始状态下polish、half zremesher，使它成为面数较少的曲面，对于局部旋转移动后使用zremesher似乎会导致整个线条缩小，这时不管它，继续对局部首末端做调整，最后用inflat笔刷对缩小的曲面放大即可。 这样最后做出来的曲线面雕刻是单调的，有整体弧度，但没有抛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7.7zbrush雕花总结">
+<meta property="og:url" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="通过半天的实验：遮罩用lasso选取目前已经成熟，局部旋转也可以了。zremesher一半面、相同面、二倍面，多次切换，初始状态下polish、half zremesher，使它成为面数较少的曲面，对于局部旋转移动后使用zremesher似乎会导致整个线条缩小，这时不管它，继续对局部首末端做调整，最后用inflat笔刷对缩小的曲面放大即可。 这样最后做出来的曲线面雕刻是单调的，有整体弧度，但没有抛">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/polygroup%E5%87%B9%E9%9D%A21.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/polygroup%E5%87%B9%E9%9D%A22.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/claybuild%E6%89%93%E7%A3%A8.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/snakehook%E6%8B%89%E8%A7%92.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/hpolish%E6%89%93%E7%A3%A8%E5%87%BA%E5%80%92%E8%A7%92.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/sphere%E6%88%91%E5%B0%9D%E8%AF%95%E5%8E%8B%E6%89%81%E6%8E%A8%E6%8B%89%E5%BD%A2%E6%88%90%E7%9A%84%E9%9B%95%E8%8A%B1%E7%94%A8hpolish%E6%89%93%E7%A3%A8.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8pinchcurve%E6%8B%89zguide%E5%81%9A%E5%87%BA%E7%9A%84%E6%95%88%E6%9E%9C.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8pinchcurve%E6%8B%89zguide%E5%81%9A%E5%87%BA%E7%9A%84%E6%95%88%E6%9E%9C2.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8sphere%E6%8B%89%E4%BC%B8%E6%9C%89%E6%9C%BA%E7%9A%84%E8%97%A4%E6%9B%BC%E9%9B%95%E8%8A%B1.jpg">
+<meta property="article:published_time" content="2022-07-07T05:43:37.000Z">
+<meta property="article:modified_time" content="2022-08-23T02:52:39.912Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="zbrush学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/polygroup%E5%87%B9%E9%9D%A21.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="https://pic3.zhimg.com/v2-f1f619359375521011665602b69341be.jpeg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            7.7zbrush雕花总结
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-07T05:43:37.000Z" itemprop="datePublished">7月 7 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1347 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>通过半天的实验：<br>遮罩用lasso选取目前已经成熟，局部旋转也可以了。zremesher一半面、相同面、二倍面，多次切换，初始状态下polish、half zremesher，使它成为面数较少的曲面，对于局部旋转移动后使用zremesher似乎会导致整个线条缩小，这时不管它，继续对局部首末端做调整，最后用inflat笔刷对缩小的曲面放大即可。</p>
+<p>这样最后做出来的曲线面雕刻是单调的，有整体弧度，但没有抛光倒角，根据直播课里面使用局部遮罩可以选取曲线面的样条线放样局部，但是我自己用这个手法选取出来的遮罩是不规则的，另外我的遮罩灰色很浅不知道如何调整。在选取局部遮罩后，直播课使用了polygroup这个概念，然后通过polish feature曲线面就形成了鲜明的倒角。目前这个原理不明。7.10这个问题已经探明，主要是细分面不够，大概在20000面朝上，则可以对物体对半遮罩并用polish feature做出倒角面，不过效果很不明显，还有一种操作是绘制zguide曲线然后pinchcurve，这个可以根据压力做出很明显效果，倒角可以用morph笔刷光滑柔化，但是目前没有解决局部雕刻问题，也就是精确选取遮罩局部以后该用什么操作雕刻可以刻画比较好看的曲线面物体。</p>
+<p>这似乎和polygroup有关系，今天的zb官方直播课里有一段操作了分割三个polygroup用遮罩和claybuild做出雕花大块凹面的效果。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/polygroup%E5%87%B9%E9%9D%A21.jpg" alt="2022-7.7zbrush雕花总结"><br>公开课中的示范，整个曲面非常光滑。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/polygroup%E5%87%B9%E9%9D%A22.jpg" alt="7.7zbrush雕花总结"><br>我的尝试，可以看到细节上有许多粗糙以及整个曲面粗糙，具体还要跟着教学多尝试几次。</p>
+<p>另外公开课可以用claybuild打磨出倒角斜面，目前我用claybuild刷出来十分粗糙。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/claybuild%E6%89%93%E7%A3%A8.jpg" alt="7.7zbrush雕花总结"></p>
+<p>公开课示范，其中的龙翼、叶片边缘效果用了snakehook笔刷。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/snakehook%E6%8B%89%E8%A7%92.jpg" alt="7.7zbrush雕花总结"></p>
+<p>snakehook拉小角没毛病，似乎没有细节障碍。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/hpolish%E6%89%93%E7%A3%A8%E5%87%BA%E5%80%92%E8%A7%92.jpg" alt="7.7zbrush雕花总结"></p>
+<p>上图中间的蛇头型雕花起始于一个球，用pivot调整拉伸出一个压扁的圆盘，然后用moveinfintedeform拉出大型，最后用hpolish打磨出倒角。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/sphere%E6%88%91%E5%B0%9D%E8%AF%95%E5%8E%8B%E6%89%81%E6%8E%A8%E6%8B%89%E5%BD%A2%E6%88%90%E7%9A%84%E9%9B%95%E8%8A%B1%E7%94%A8hpolish%E6%89%93%E7%A3%A8.jpg" alt="7.7zbrush雕花总结"></p>
+<p>hpolish打磨倒角，倒角的曲线线条弯弯曲曲的不平滑。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8pinchcurve%E6%8B%89zguide%E5%81%9A%E5%87%BA%E7%9A%84%E6%95%88%E6%9E%9C.jpg" alt="7.7zbrush雕花总结"></p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8pinchcurve%E6%8B%89zguide%E5%81%9A%E5%87%BA%E7%9A%84%E6%95%88%E6%9E%9C2.jpg" alt="7.7zbrush雕花总结"></p>
+<p>比起hpolish，pinchcurve拉倒角面要光滑些，但是倒角面不明显。不过第二张感觉光滑的很好了。</p>
+<p>这个<a href="https://www.youtube.com/watch?v=OWCiM7Zcd2E" title="" target="">演示</a>中比较强调用pivot拉伸旋转构造雕刻线条，高手似乎能轻易的用一个球体做出一个线条。（我目前实验了一下效果很不理想（上文截图对比点脸），这显然是需要练习的非知识点的微操技术，和雕刻人头，3dsmax布线拉点、线做雕花一样需要积累细节经验）如何快速移动pivot，对局部做变形？目前我可以通过切换到y gizmo模式拉出控制杆再切换回pivot即可移动pivot，但是这样的pivot并不能局部变形，之前公开课需要配合遮罩才能局部变形，不知道为什么这个视频演示中可以在无遮罩的情况下对局部做如此行云流水的形变。<br>7.11补充按alt键可以对物体的pivot移动，在<a href="https://www.youtube.com/watch?v=l7BPeFpbid4" title="" target="">ZBrush 2022 - Gizmo Focal Shift Falloff!</a>的演示中表明用focal shift可以对局部变形起到权重作用，<code>但是我实验了没用不知道是不是版本的问题</code>。</p>
+<p><img src="/2022/07/07/2022-7-7zbrush%E9%9B%95%E8%8A%B1%E6%80%BB%E7%BB%93/%E7%94%A8sphere%E6%8B%89%E4%BC%B8%E6%9C%89%E6%9C%BA%E7%9A%84%E8%97%A4%E6%9B%BC%E9%9B%95%E8%8A%B1.jpg" alt="7.7zbrush雕花总结"></p>
+<p>视频里介绍了2022版新的ScribeStandard and ScribeChisel笔刷用于制作线条上的局部凸起和凹陷。这种凸起和凹陷都是刀刃型倒角似乎。这周替换zbrush2022版本。</p>
+<a href="https://space.bilibili.com/368991876/video" title="" target="">120节课系列</a>21课教了selectrect可以对局部选取，ctrl shift alt可以继续减选当前已减选面的物体的面。ctrl shift在任意区域再次框选可以起到反选另一部分，想要恢复全貌则是要用ctrl shift对减选部分完全框选，如果局部的话则是选中减选部分的被框选局部。
+
+<p>selectlasso的选取和遮罩lasso一样，在边上显示edge时点击这条边可以隐藏其环形边。</p>
+<p>selectrect框选物体局部。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/zbrush%E5%AD%A6%E4%B9%A0/">#zbrush学习</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/07/11/2022-7-8-9-3dsmax%E9%9B%95%E8%8A%B1/">7.8 9 3dsmax雕花</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2022/07/04/2022-7-4zbrush%E7%BE%8A%E8%A7%92%E6%80%AA%E4%BA%BA%E6%A8%A1%E5%9E%8B/">7.4zbrush羊角怪人模型</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

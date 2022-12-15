@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>分类: gallery - 记录伟大征程</title>
+<title>分类: CG技术 - 记录伟大征程</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -18,7 +18,7 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="记录伟大征程">
-<meta property="og:url" content="http://zhudian.xyz/categories/gallery/page/9/index.html">
+<meta property="og:url" content="http://zhudian.xyz/categories/CG%E6%8A%80%E6%9C%AF/page/4/index.html">
 <meta property="og:site_name" content="记录伟大征程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="John Doe">
@@ -116,7 +116,7 @@
     <section class="section section-heading">
     <div class="container">
         <div class="content">
-            <h5><i class="far fa-folder"></i>gallery</h5>
+            <h5><i class="far fa-folder"></i>CG技术</h5>
         </div>
     </div>
 </section>
@@ -126,39 +126,36 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/" itemprop="url">6.2完成情况汇报</a>
+            <a href="/2022/06/13/2022-midjourney%E6%9E%84%E4%BB%B6%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E5%8E%9F%E5%9E%8B%E5%BA%93%E7%9A%84%E6%80%9D%E8%B7%AF/" itemprop="url">midjourney构件建筑装饰原型库的思路</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-02T05:08:29.000Z" itemprop="datePublished">6月 2 2022</time>
+                <time datetime="2022-06-13T08:10:43.000Z" itemprop="datePublished">6月 13 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            5 分钟 读完 (约 741 字)
+            3 分钟 读完 (约 476 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>6.2早上完成一个简单的现代北欧座椅模型，第一天上来遇到个插曲vray的材质库一启动就卡退，目前用管理员权限启动3dsmax可以解决这个问题就是每次启动麻烦些。</p>
-<p>知识点一个是设置透视关系，目前还没有找到感觉，似乎设置消失点后的建模还是对应不好。不规则圆形缺口用ngon拉伸成柱体，再用taper编辑器压缩一端制造出被斜切的柱体。把面删除了再用轮廓线复制拉出面。<br><img src="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/1.jpg" alt="2022-6-2完成情况汇报"><br>从这个角度看显然这个八字趴开的底座不应该有前突，这在固定参考图视角中看不出来，只有通过旋转后可以看明显这种问题要在切分倒角前调整形状不然拉点就麻烦了，会造成曲面不连续。<br><img src="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/2.jpg" alt="6-2完成情况汇报"><br>上面这个绿色环状靠垫是外框架内侧面通过工具栏上的loop ring选项对几个连续面进行扩选，然后detach as new，再通过push中心收缩，shell两侧拉伸出体块。<br><img src="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/3.jpg" alt="6-2完成情况汇报"><br>坐垫用靠垫的底面detach as new 拉点形成坐垫轮廓，再用cap填充中心轮廓，cut连接点，调整。最后所有物体turbosmooth 3层，效果还是可以的。</p>
-<p>接下来再做个古典四腿的椅子看看吧，然后是vray的教学。</p>
-<p>古典椅子造型一开始卡了，依稀记得之前有一种loft路径插入shape不断分段变形的方法。不用这个的话就是tessellate将面切成棋盘状连接斜线再chamfer中心点制造6边形。关于chamfer分边的应用需要看几个教学深入理解下。6角形是用来模拟椅子腿的柱状，到时候用turbosmooth自然会变成圆柱，细节部分按照自己的理解做的，其关键考核要素在于chamfer制造硬边缘，该有棱角的地方要有棱角。椅子扶手处有个圆形圈圈羊角状的图案，我用8边形ngon轮廓复制拉伸镜像桥接之后再和扶手长段以互相4个面桥接。</p>
-<p><img src="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/4.jpg" alt="6-2完成情况汇报"></p>
-<p>目前来看turbosmooth之后效果不好，关于硬边缘处理还是看视频再复习下。教学中都是用ring 边，connect两条线顶到棱角处来解决边缘硬化问题。注意连接处做成手帕一样的四角小方格切割这样不会让连接处光滑后变成“小脚”。<br><img src="/2022/06/02/2022-6-2%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5%E6%B1%87%E6%8A%A5/5.jpg" alt="6-2完成情况汇报"></p>
-<p>另外六边形柱体光滑不会在连接处异样。</p>
-</body></html>
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://jieduanxin.com/From/Discord">https://jieduanxin.com/From/Discord</a></p>
+<p>这个网站可以接收discord验证短信，每天大概申请2-3个邮箱用于获取原型。关键词从metmuseum和之前写的学习总结中提取。貌似一个号只能invite5个号试用。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/06/13/2022-midjourney%E6%9E%84%E4%BB%B6%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E5%8E%9F%E5%9E%8B%E5%BA%93%E7%9A%84%E6%80%9D%E8%B7%AF/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -172,36 +169,35 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/01/2022-6-2%E5%88%B0%E6%AD%A3%E5%BC%8F%E8%AF%95%E9%AA%8C%E5%89%8D%E7%9A%844%E5%A4%A9%E6%81%A2%E5%A4%8D%E5%BC%BA%E5%BA%A6%E5%AE%89%E6%8E%92/" itemprop="url">6.2到正式试验前的4天恢复强度安排</a>
+            <a href="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/" itemprop="url">midjourney解决设计创新原型问题以及流程上的变化</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-01T08:57:55.000Z" itemprop="datePublished">6月 1 2022</time>
+                <time datetime="2022-06-10T01:59:51.000Z" itemprop="datePublished">6月 10 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分钟 读完 (约 152 字)
+            21 分钟 读完 (约 3200 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>6.2早上120个俯卧撑去做下核酸，3dsmax家具模型制作教学，下午地形软件摸索，vray系列教学，晚上买包薯条烤鸡翅跑步苏州河</p>
-<p>6.3早上120个俯卧撑，3dsmax家具模型制作教学，下午sketchup教学，vray系列教学，画图规划晚上120个俯卧撑学俄语</p>
-<p>6.4早上120个俯卧撑，画图，下午看罪与罚、画图，晚上120个俯卧撑</p>
-<p>6.5早上做下核酸，120个俯卧撑，学俄语，下午画图，苏州河跑步，晚上120个俯卧撑</p>
-</body></html>
+        <html><head></head><body><p>在绘画、插画艺术领域一直以来，我们都会和“原创”挂钩，把文创方面的一些专业工作者誉为“大师”。其实质是他们的工作内容高度集成，我们很少听闻xx名画是甲乙两人，甲乙丙丁四人合作完成的，但是仔细想一下作画这个事情难道就不能像造椅子一样拆分工序嘛？</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/06/10/2022-midjourney%E8%A7%A3%E5%86%B3%E8%AE%BE%E8%AE%A1%E5%88%9B%E6%96%B0%E5%8E%9F%E5%9E%8B%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E4%B8%8A%E7%9A%84%E5%8F%98%E5%8C%96/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -215,39 +211,37 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/01/2022-6-6%E5%BC%80%E5%A7%8B%E8%AF%95%E9%AA%8C%E4%B8%80%E5%91%A8%E8%AE%A1%E5%88%92%E5%AE%89%E6%8E%92/" itemprop="url">6.6开始试验一周计划安排</a>
+            <a href="/2022/03/24/2022-railclone%E7%9A%84%E5%BA%94%E7%94%A8%E9%9B%86%E9%94%A61/" itemprop="url">railclone的应用集锦1</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-01T02:42:58.000Z" itemprop="datePublished">6月 1 2022</time>
+                <time datetime="2022-03-24T06:27:33.000Z" itemprop="datePublished">3月 24 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分钟 读完 (约 149 字)
+            3 分钟 读完 (约 451 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>6.6 早上sketchup教学，下午秦汉建筑总结，晚上学俄语</p>
-<p>6.7早上阅读罪与罚 地形软件摸索，下午家具模型，晚上画图</p>
-<p>6.8早上跑步，railclone城市摸索，下午zbrush教学，晚上学俄语</p>
-<p>6.9早上阅读sketchup教学，下午哥特建筑总结，zbrush教学</p>
-<p>6.10早上3dsmax家具模型，下午railclone城市摸索，晚上学俄语</p>
-<p>6.11早上跑步，zbrush教学，下午秦汉建筑总结，晚上画图</p>
-<p>6.12早上阅读罪与罚sketchup教学，下午哥特建筑总结</p>
-</body></html>
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z7L700EGVBs">https://www.youtube.com/watch?v=Z7L700EGVBs</a><br>railclone制作鱼骨地板教学</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watchs?v=vPQ2x7EWfpU">https://www.youtube.com/watchs?v=vPQ2x7EWfpU</a><br>railclone制作木板桥</p>
+<p>涉及corner bevel模式避免corner部分的元素异常，其不规则可以通过增加曲线细分度解决。surface可以使得railclone物体附着于某一平面上。sync offset可以使mirror的对象在路径上严格对称而不受偏移后影响。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/03/24/2022-railclone%E7%9A%84%E5%BA%94%E7%94%A8%E9%9B%86%E9%94%A61/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -261,43 +255,38 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/06/01/2022-6-1%E4%B8%8A%E6%AC%A1%E6%9B%B4%E6%96%B0%E8%BF%98%E6%98%AF%E4%B8%A4%E4%B8%AA%E6%9C%88%E4%B9%8B%E5%89%8D%EF%BC%8C%E4%BB%8A%E5%A4%A9%E8%A7%84%E5%88%92%E4%B8%80%E4%B8%8B%E4%B9%8B%E5%90%8E%E7%9A%84%E5%AE%89%E6%8E%92/" itemprop="url">6.1上次更新还是两个月之前，今天规划一下之后的安排</a>
+            <a href="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/" itemprop="url">一个沙漠建筑场景的整体制作思路</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-06-01T01:53:45.000Z" itemprop="datePublished">6月 1 2022</time>
+                <time datetime="2022-03-23T07:22:21.000Z" itemprop="datePublished">3月 23 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            1 分钟 读完 (约 180 字)
+            8 分钟 读完 (约 1187 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>大的规划</p>
-<p>家具模型教学5天一次（2-3小时左右）</p>
-<p>隔天晚上学俄罗斯语（2小时左右），早上看罪与罚（1小时左右）</p>
-<p>哥特式建筑1个月内完结（5天用一个半天写总结）</p>
-<p>秦汉、魏晋南北朝2个月（5天用一个半天写总结）</p>
-<p>gaia、vue做地形熟悉2个月3天一实验（1、2小时）</p>
-<p>railclone城市2天一实验（1、2小时）</p>
-<p>zbrush雕刻等数位板到位每天练习，第一阶段是雕刻图案，然后是z球动物（每天2小时左右）</p>
-<p>sketchup教学3天一次（1、2小时）</p>
-<p>3天一跑步</p>
-<p>每天120个俯卧撑</p>
-</body></html>
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=i4JMV2LU4Jw">https://www.youtube.com/watch?v=i4JMV2LU4Jw</a></p>
+<p>灵感来自电影沙丘《Dune》，先设想一个布局和运镜（layout&amp;camera）。</p>
+<p><img src="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/layout.jpg" alt="2022-一个沙漠建筑场景的整体制作思路"></p>
+<p>基本地形是怎么做的并没有提及，在基本地形设置完毕后，于其上规划建筑群组分布。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -311,41 +300,37 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/03/10/2022-%E8%B5%B5%E6%B3%A0%E5%90%8C%E4%BA%BA%E6%96%87%E7%9A%84%E6%9E%84%E6%80%9D%E4%BB%A5%E5%8F%8A%E6%A8%A1%E5%9E%8B/" itemprop="url">赵泠同人文的构思以及模型</a>
+            <a href="/2022/03/21/2022-railclone%E7%8E%B0%E4%BB%A3%E5%BB%BA%E7%AD%91%E4%B8%8E%E8%A1%97%E9%81%93%EF%BC%8C%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E5%AD%A6%E4%B9%A0railclone%E5%9F%BA%E7%A1%80/" itemprop="url">railclone现代建筑与街道，循序渐进学习railclone基础</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-03-10T02:11:20.000Z" itemprop="datePublished">3月 10 2022</time>
+                <time datetime="2022-03-21T02:47:10.000Z" itemprop="datePublished">3月 21 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            10 分钟 读完 (约 1462 字)
+            9 分钟 读完 (约 1323 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>从赵泠初三的生活开始故事</p>
-<p>顺序发展概括</p>
-<p>有慢性病比如咽炎、哮喘、胃病什么的，经常需要去医院看病但是治标不治本让它有点难受</p>
-<p>学习考试成绩很好，但并不看重这个，上xx知道平台答题乐在其中，接单做discuss的php论坛、购买租用机房提供域名、虚拟空间远程服务因此赚了不少钱，结实了一些站长，并混迹于一些论坛。在xx知道上答题获得月度荣誉让它很有成就感，然而在观看其他答题者的记录时它感到了知识的差距，自己的回答也常有热心人指出片面和错误，这让赵泠吃瘪的同时提升了信息搜索的能力，对一些学科的发展分支有了深入了解，它觉得自己继续在平台上答题有些惭愧自己的能力、知识不足，于是淡出了答题平台。而在论坛上，随着它的搜索信息能力提高，同步国外发展的消息，受到了一些网友的钦佩。</p>
-<p>赵泠在升学的暑假意外接触到了在线虚拟世界，这让它思考是否可以将在线社区、论坛移植到虚拟世界呢？它开始尝试接触制作虚拟场景，不过这个领域对它而言是完全陌生的，在暑假学习外出跟着培训就业班学习两个月后，尽管在初期与和有着基础背景们的同学有着巨大差距，但最后逐渐掌握到了方方面面可以说和就业班的能力平分秋色，赵泠在此期间也结交了这个圈子中的朋友。</p>
-<p>和妈妈关系不是很好，妈妈看重成绩与赵泠价值观偏差大，和身边的同学几乎没有做朋友的，有些轻视他们。由于经常慢性病发作，虽然平时异常冷静，却时而厌世感到痛苦焦躁，爷爷或者外婆让其学习书道、茶道练习心境，赵泠小时候很听长辈话但是练毛笔字喝茶并不解决病痛的困扰，于是日渐对长辈反感、叛逆，以至于高二时长辈去世并没有去见最后一面，成了赵泠日后永远的痛。</p>
-<p>赵泠进入了一个大学升学率不错的但非顶尖的高中，由于它不喜欢考试竞争所以分班时故意考差分入一个普通班。意外的赵泠觉得在这个新的环境里感觉不错，虽然同学们都比较笨，经常请教它笨笨的问题，但是赵泠并不觉得反感，反而觉得很亲和，不过它依旧拒绝了休息日的同学聚会、外出活动。班里不少同学挺看重成绩但是学习能力一般，在分数至上的教学环境中，同学们经常议论提高班表示羡慕，而提高班多多少少展现出了高人一等的姿态，赵泠泠看在眼里心里不是很爽快。</p>
-<p>xa,xb,xc公司在互联网世界日益茁壮，论坛文化逐渐衰亡，赵泠原先做站点、提供域名、部署服务的生意基本不做了。网络上的灌水信息逐渐形成趋势，赵泠在论坛上的朋友走了一批又一批，不知不觉中赵泠感到了网络上的寂寥。</p>
-<p>班级里祸事接二连三，有同学放学出门飙自行车出了车祸重伤要休学半年，有同学为了高分不择手段作弊被抓，在全校的绘画大赛上很热爱画画的同学没能比过提高班，大家心情很失落，有些破罐子破摔，一个经常请教赵泠的热血混蛋小子大声质问赵泠，你明明有能力为我们证明什么，还是说你也看不起我们嘛？赵泠有些触动，可是随着课业加重，以及它对虚拟现实技术的钻牛角尖，使它的慢性病加剧了。我可以做些什么呢？他们应该也会在今后的日子渐渐离我而去吧？赵泠回想以往的日子，爸妈不了解自己，没有朋友，爷爷奶奶对自己很好但是帮不了它忙，有很多想去做的事情，不知不觉开始感到了瓶颈、无力。它没有想到自己的病居然在一场手术后彻底好了，是爸爸经人介绍找的医院用了国外新的治疗方法。赵泠回想起自己一次次生病爸爸妈妈都忙里忙外接送，没有一点怨言，爷爷奶奶甚至也会背着自己穿梭于诊室。是自己一直以来太自私了，为什么不尽力去对身边的人好一些？我做得到的，让这个社会更美好灿烂。爷爷车祸弥留之际赵泠发自内心觉得命中如此，不想看到生命逝去的丑态，找借口走出诊室，到现在也不曾打开爷爷留下的遗物。原来那是记录赵泠每次高兴的日记字帖。</p>
-</body></html>
+        <html><head></head><body><p>railclone物体如果没有太多变化要部署在多个路径曲线上，则在绘制曲线时取消重新创建形状（start new shape）。</p>
+<p>对railclone构件导出分离，对其edit poly可以重塑部件细节，调整长宽高，对pivot做调整可以对整个railclone物体做类似offset的沿着原路径的伸缩（这点的原理不是太清楚，通过任意曲线实验成立）。<br><img src="/2022/03/21/2022-railclone%E7%8E%B0%E4%BB%A3%E5%BB%BA%E7%AD%91%E4%B8%8E%E8%A1%97%E9%81%93%EF%BC%8C%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E5%AD%A6%E4%B9%A0railclone%E5%9F%BA%E7%A1%80/railclone1%E7%A7%BB%E5%8A%A8pivot.jpg" alt="2022-railclone现代建筑与街道，循序渐进学习railclone基础"></p>
+<p>railclone的部件通过object可以在建立替换、取消显示。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/03/21/2022-railclone%E7%8E%B0%E4%BB%A3%E5%BB%BA%E7%AD%91%E4%B8%8E%E8%A1%97%E9%81%93%EF%BC%8C%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B%E5%AD%A6%E4%B9%A0railclone%E5%9F%BA%E7%A1%80/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -359,33 +344,36 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/03/06/2022-3-6%E7%AC%AC%E4%B8%80%E5%A4%A9/" itemprop="url">3.6第一天</a>
+            <a href="/2022/03/16/2022-forest%E9%80%BC%E7%9C%9F%E8%8D%89%E5%9C%B0%E8%8D%89%E5%9D%AA%E5%88%B6%E4%BD%9C/" itemprop="url">forest逼真草地草坪制作</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-03-06T03:14:34.000Z" itemprop="datePublished">3月 6 2022</time>
+                <time datetime="2022-03-16T02:44:09.000Z" itemprop="datePublished">3月 16 2022</time>
             
         </span>
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            几秒 读完 (约 50 字)
+            2 分钟 读完 (约 251 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>原来的东西就别再纠结了，着眼当下吧。vue xstream还有很多东西需要挖掘，暂时先放一放，开始了解railclone参数化建模吧。</p>
-</body></html>
+        <html><head></head><body><p>参考下面这个教程制作草坪效果<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_0MeIRhEQI4">https://www.youtube.com/watch?v=_0MeIRhEQI4</a></p>
+<p>复制多层forest preset,似乎forest物体群组只能在图层模式下右键clone，直接ctrl v会出问题。层层叠加可以堆积不同的鲜草细节，使得草坪展示多样化的草种。一般选取第一层lawn grass large作为底，再其上加细节，对铺设草坪的区域绘制曲线，加入subdivide细分，再用noise生成一定的凹凸上下，要注意这个区域的实际尺寸大小，会影响到草坪的相对细节。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/03/16/2022-forest%E9%80%BC%E7%9C%9F%E8%8D%89%E5%9C%B0%E8%8D%89%E5%9D%AA%E5%88%B6%E4%BD%9C/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -400,20 +388,22 @@
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
-        <a href="/categories/gallery/page/8/">上一页</a>
+        <a href="/categories/CG%E6%8A%80%E6%9C%AF/page/3/">上一页</a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
-        <a href="/categories/gallery/page/10/">下一页</a>
+    <div class="pagination-next">
+        <a href="/categories/CG%E6%8A%80%E6%9C%AF/page/5/">下一页</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
-        <li><a class="pagination-link" href="/categories/gallery/">1</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">1</a></li>
         
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/2/">2</a></li>
         
-        <li><a class="pagination-link" href="/categories/gallery/page/8/">8</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/3/">3</a></li>
         
-        <li><a class="pagination-link is-current" href="/categories/gallery/page/9/">9</a></li>
+        <li><a class="pagination-link is-current" href="/categories/CG%E6%8A%80%E6%9C%AF/page/4/">4</a></li>
+        
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/5/">5</a></li>
         
     </ul>
 </nav>

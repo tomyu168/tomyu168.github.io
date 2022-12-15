@@ -222,14 +222,14 @@
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 分钟 读完 (约 357 字)
+            2 分钟 读完 (约 358 字)
         </span>
         
     </div>
@@ -238,19 +238,10 @@
         <html><head></head><body><p>上周试验了直接对人物照片用一个球做zbrush模型，效果很不理想。实际上这等于素描写生，我在素描学习时不具备这种能力。</p>
 <p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r1.jpg"></p>
 
-<div style="text-align:center">完全不像。</div> 
-
-
-<p>后来我试了下对半身雕塑照片用一个球做zbrush模型，效果不理想。一眼可以看出比例不对，五官相对位置不对。</p>
-<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/z1.jpg"></p>
-<p>周六我试着用zbrush自带的半身像为基础原型对半身雕塑照片做模型，效果还可以。通过see through模式，和自定义相机把大形做的很准确了，表情表现力比较到位，但是人物似乎依旧不像。不知道问题出在哪里。</p>
-<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r2.jpg"><br><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r3.jpg"><br><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r4.jpg"></p>
-
-<div>
-<p style="color: red">我估计可以做到45分钟一个，不过这类雕塑属于抽象简化的，如何抽象提取出这些人物特征目前没有思路。这其实属于后期艺术加工了，像metahuman、makehuman之类的工具可以快速生成逼真的角色，但是不具备那种雕塑艺术效果，有blender教学里面可以通过材质或者ps之类的滤镜做特殊的效果，不知道是不是个思路，尽量能够自己掌握提取特征的能力。
-</p>
-
-</div></body></html>
+<div style="text-align:center">完全不像。</div></body></html>
+        <p class="article-more-link">
+            <a href="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -276,39 +267,24 @@
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            4 分钟 读完 (约 585 字)
+            4 分钟 读完 (约 586 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><p>周末效率比较差，本来是想入门一下人物雕塑肌肉质感的，结果一笔都没有动，主要是消耗在了mixamo这个在线绑定角色的平台上，这是一个去年底上线的平台，提供了大量的动作。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/mixamo1.jpg"></p>
-<p>网上有好几个zbrush摆pose的教学指向使用mixamo，都不能用zbrush直接上传再回传zbrush。有用blender、maya的，我大概看了4个教学，再其中3个里面折腾了很久。直到昨晚10点多才成功。</p>
-<p>我用的方法是<a href="https://www.youtube.com/watch?v=lYZgBzQ1Vek&amp;t=74s" title="" target="">这个教学</a>，不过教学并不是手把手的，需要注意在blender中安装goz、gob插件，配置好zbrush路径，在点亮import按钮后，同时打开zbursh和blender，它们就能互相导入模型了。</p>
-<p>这里有几个点要注意：</p>
-<p>1.zbrush导入blender的模型是低细分层级的，并且也必须保证导入的是含细分层级的低模，如果是dynamesh或者高细分层级会导致在mixamo中产生未知问题。</p>
-<p>2.zbrush中有subtool不需要合并，在blender导出fbx的时候全部选中这些subtool即可，导出选项要勾选selected。</p>
-<p>3.如果要对多个模型做导出，每做一次要关闭blender重新打开，不然mixamo那边会报错绑定失败，mixamo回传的fbx不必重启blender，只要删除原来的，导入即可，然后点export，会自动到zbrush生成一个带细分层级的模型，把细分设置到最高就会发现，带有pose的模型保有我们基础人物雕塑的细节。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/blender1.jpg"></p>
-
-<div style="text-align:center">mixamo回传blender的fbx，带有动画，利用blender的mixamo插件还可以对角色的动作、造型在骨骼层面上做控制调整，比zbrush操作要方便多了。</div> 
-
-
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/zbrush1.jpg"></p>
-
-<div style="text-align:center">zbrush中需要在低细分层级中做调整一下衣服装备。</div> 
-
-
-<p>mixamo回传blender的模型没有贴图材质，但是uv还在所以重新赋予贴图材质就好了，网上有相关的手把手教学。</p>
-</body></html>
+<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/mixamo1.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/#more">阅读更多</a>
+        </p>
     
     </div>
     
@@ -334,27 +310,23 @@
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 分钟 读完 (约 335 字)
+            2 分钟 读完 (约 336 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><a href="https://www.bilibili.com/video/BV15p4y1Q7kF?p=1&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">次世代手办的详细制作流程</a>b站这个系列教学比较速成，其中用到的designdoll等于免去了头身、解剖学、绑定，直接生成了人物角色的造型、体态，作为建筑装饰的雕塑可以快速先摆出需要的造型姿势基于其上再来做细节雕刻。对于动物雕塑而言似乎没有这样快速生成体态的工具，人对动物的细节辨识度没有那么高，但是通过单个角度照片是没办法生成一个合理的3d模型，还得多看几个zbrush官方的示范看看艺术家是怎么搞动物雕塑的。
-
-<p>头发衣服都用到了曲线编辑器这个笔触下的菜单设置，具体需要实操体会一下。</p>
-<p>头发是利用笔刷做的二次元效果的海带条状，可以学习下，对装饰雕塑意义不大。</p>
-<p><img src="/2022/10/12/2022-10-22-%E6%89%8B%E5%8A%9E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E5%A4%B4%E5%8F%91%E5%88%B6%E4%BD%9C1.jpg"></p>
-<p>服饰直接对躯干做遮罩inflat balloon即挤出了一层衣服，大形调整好，standard笔刷在curve模式下生成衣服的褶皱。</p>
-<p><img src="/2022/10/12/2022-10-22-%E6%89%8B%E5%8A%9E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/%E8%A1%A3%E6%9C%8D%E8%A4%B6%E7%9A%B1%E5%88%B6%E4%BD%9C1.jpg"></p>
-</body></html>
+        <html><head></head><body><a href="https://www.bilibili.com/video/BV15p4y1Q7kF?p=1&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">次世代手办的详细制作流程</a>b站这个系列教学比较速成，其中用到的designdoll等于免去了头身、解剖学、绑定，直接生成了人物角色的造型、体态，作为建筑装饰的雕塑可以快速先摆出需要的造型姿势基于其上再来做细节雕刻。对于动物雕塑而言似乎没有这样快速生成体态的工具，人对动物的细节辨识度没有那么高，但是通过单个角度照片是没办法生成一个合理的3d模型，还得多看几个zbrush官方的示范看看艺术家是怎么搞动物雕塑的。</body></html>
+        <p class="article-more-link">
+            <a href="/2022/10/12/2022-10-22-%E6%89%8B%E5%8A%9E%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
+        </p>
     
     </div>
     

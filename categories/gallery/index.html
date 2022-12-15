@@ -126,13 +126,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/" itemprop="url">2022 11 28 人物头像zbrush模型</a>
+            <a href="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/" itemprop="url">2022-10-12-中文版zbrush人物角色建模解析</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-11-29T01:52:17.000Z" itemprop="datePublished">11月 29 2022</time>
+                <time datetime="2022-10-12T01:47:11.000Z" itemprop="datePublished">10月 12 2022</time>
             
         </span>
         
@@ -145,169 +145,29 @@
         <span class="column is-narrow">
             
             
-            2 分钟 读完 (约 357 字)
+            4 分钟 读完 (约 563 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>上周试验了直接对人物照片用一个球做zbrush模型，效果很不理想。实际上这等于素描写生，我在素描学习时不具备这种能力。</p>
-<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r1.jpg"></p>
+        <html><head></head><body><p>物体的面数、dynamesh、大小之间有关系，物体越大dynamesh所得面数越大，面数越大smooth效果越不明显。按shift点subtool的“眼睛”可以全选显示或隐藏subtool。按住alt可以移动pivot</p>
+<p>总的而言这个<a href="https://www.bilibili.com/video/BV1xb4y1k7Rc?p=18&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">系列教学</a>作者对人体比例大形抓的很好，但是缺乏细节导致了这种对大形的精确把握似乎没太大意义？还是说没有大形定位可能更加不堪入目、四不像了？教学包含骨骼大形、肌肉填充。</p>
+<p>作者先准备了一个zbrush自带的人体骷髅带肌肉的模型作为参考，在tool中导入，这样可以在同一个工程界面通过切换不同的tool，这点我觉得没有see through模式来的方便。</p>
+<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/zbrush%E8%87%AA%E5%B8%A6%E4%BA%BA%E4%BD%93%E8%A7%A3%E5%89%96%E6%A8%A1%E5%9E%8B%E4%BD%9C%E4%B8%BA%E5%8F%82%E8%80%83.jpg"></p>
+<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E4%BD%9C%E8%80%85%E7%94%A8%E4%B8%80%E4%B8%AA%E9%95%BF%E6%96%B9%E5%BD%A2%E4%BB%A3%E8%A1%A8%E8%BA%AF%E5%B9%B2%E5%B9%B6%E5%88%86%E5%A4%B4%E9%95%BF.jpg"></p>
 
-<div style="text-align:center">完全不像。</div> 
-
-
-<p>后来我试了下对半身雕塑照片用一个球做zbrush模型，效果不理想。一眼可以看出比例不对，五官相对位置不对。</p>
-<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/z1.jpg"></p>
-<p>周六我试着用zbrush自带的半身像为基础原型对半身雕塑照片做模型，效果还可以。通过see through模式，和自定义相机把大形做的很准确了，表情表现力比较到位，但是人物似乎依旧不像。不知道问题出在哪里。</p>
-<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r2.jpg"><br><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r3.jpg"><br><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r4.jpg"></p>
-
-<div>
-<p style="color: red">我估计可以做到45分钟一个，不过这类雕塑属于抽象简化的，如何抽象提取出这些人物特征目前没有思路。这其实属于后期艺术加工了，像metahuman、makehuman之类的工具可以快速生成逼真的角色，但是不具备那种雕塑艺术效果，有blender教学里面可以通过材质或者ps之类的滤镜做特殊的效果，不知道是不是个思路，尽量能够自己掌握提取特征的能力。
-</p>
-
-</div></body></html>
-    
-    </div>
-    
-    
-</article>
+<div style="text-align:center">作者用一个长方形代表躯干并分头长</div> 
 
 
+<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B%E4%B8%AD%E6%9D%A5%E5%9B%9E%E5%88%87%E6%8D%A2%E4%BC%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%94%E7%9B%B8%E5%AF%B9%E5%A4%A7%E5%B0%8F%E4%B9%9F%E6%98%AF%E4%B8%80%E8%87%B4%E7%9A%84.jpg"></p>
+
+<div style="text-align:center">在一个工程中来回切换会在同一位置且相对大小也是一致的，旋转视角也会保持同步。</div> 
 
 
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/14/2022-11-15-%E9%95%BF%E6%9C%9F%E5%8A%A8%E7%89%A9%E9%9B%95%E5%A1%91%E4%BD%9C%E4%B8%9A/" itemprop="url">2022 11 15 长期动物雕塑作业</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-14T02:45:52.000Z" itemprop="datePublished">11月 14 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 读完 (约 491 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div>
-<p style="color: red">2022.11.3写的计划：
-</p>
-
-
-
-<p>主流的动物牛、马、狮虎、鹿、水鸟、家禽、猛禽、龙凤、一些爬行动物龟、鳄鱼、科莫多龙、鱼类海豚、鲸鱼、鲨鱼、金枪鱼什么的都要过一遍。</p>
-<p>人物做3-5个。</p>
-<p>能够顺畅做这些东西就算动物模型基本到位。</p>
-
-<div>
-<p style="color: red">到2022.11.14，我能够在2小时左右做一个恐龙模型了。现在有点飘，想直接上人物了，教学示范还是要多看，对各种细节怎么处理的学学各门专家。
-</p>
-
-
-<p>把动物解剖学躯体肌肉部分做一下慢放录一下视频</p>
-
-<div>
-<p style="color: red">2022.11.14目前还没看，这个感觉是最高难度的，解剖学zbrush系列暂时先放一放吧，有点太科班了。
-</p>
-
-
-<p>牛的视频慢放看一下</p>
-
-<div>
-<p style="color: red">牛这个做的不顺利，主要是在四肢上面耗了太多时间，这周再重新做一下试试看。
-</p>
-
-
-<p><img src="/2022/11/14/2022-11-15-%E9%95%BF%E6%9C%9F%E5%8A%A8%E7%89%A9%E9%9B%95%E5%A1%91%E4%BD%9C%E4%B8%9A/niu1.jpg"></p>
-
-<div style="text-align:center">这个牛头好像折腾了2个小时？感觉15分钟就要做到这样，其实没多少细节。</div> 
-
-
-
-<p>几个长期作业：</p>
-<p>火鸡、科莫多龙、鲸鱼、哥斯拉、翼龙、火烈鸟、朱鹮、考拉、老虎、犀牛、鹿、仙鹤、狼、水母、章鱼、鹦鹉、鸵鸟</p>
-<p>照理来说在学成之后2-3小时就可以完成一个，目前阶段争取1周能攻克2个，也就是两个月内试着完成这些。</p>
-
-<div>
-<p style="color: red">目前已经可以2个小时完成一个恐龙了，效果也是自己比较满意的，看来比预期的要好，不过贵在坚持不同的动物门类应该区别还很大吧，可能爬行动物的肌肉特征明显好塑造刻画。
-</p>
-
-
-<p><img src="/2022/11/14/2022-11-15-%E9%95%BF%E6%9C%9F%E5%8A%A8%E7%89%A9%E9%9B%95%E5%A1%91%E4%BD%9C%E4%B8%9A/long1.jpg"></p>
-</div></div></div></div></div></body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/" itemprop="url">2022 11 14 人物雕塑pose造型利用mixamo在blender与zbrush中互导</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-14T02:03:37.000Z" itemprop="datePublished">11月 14 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 585 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>周末效率比较差，本来是想入门一下人物雕塑肌肉质感的，结果一笔都没有动，主要是消耗在了mixamo这个在线绑定角色的平台上，这是一个去年底上线的平台，提供了大量的动作。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/mixamo1.jpg"></p>
-<p>网上有好几个zbrush摆pose的教学指向使用mixamo，都不能用zbrush直接上传再回传zbrush。有用blender、maya的，我大概看了4个教学，再其中3个里面折腾了很久。直到昨晚10点多才成功。</p>
-<p>我用的方法是<a href="https://www.youtube.com/watch?v=lYZgBzQ1Vek&amp;t=74s" title="" target="">这个教学</a>，不过教学并不是手把手的，需要注意在blender中安装goz、gob插件，配置好zbrush路径，在点亮import按钮后，同时打开zbursh和blender，它们就能互相导入模型了。</p>
-<p>这里有几个点要注意：</p>
-<p>1.zbrush导入blender的模型是低细分层级的，并且也必须保证导入的是含细分层级的低模，如果是dynamesh或者高细分层级会导致在mixamo中产生未知问题。</p>
-<p>2.zbrush中有subtool不需要合并，在blender导出fbx的时候全部选中这些subtool即可，导出选项要勾选selected。</p>
-<p>3.如果要对多个模型做导出，每做一次要关闭blender重新打开，不然mixamo那边会报错绑定失败，mixamo回传的fbx不必重启blender，只要删除原来的，导入即可，然后点export，会自动到zbrush生成一个带细分层级的模型，把细分设置到最高就会发现，带有pose的模型保有我们基础人物雕塑的细节。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/blender1.jpg"></p>
-
-<div style="text-align:center">mixamo回传blender的fbx，带有动画，利用blender的mixamo插件还可以对角色的动作、造型在骨骼层面上做控制调整，比zbrush操作要方便多了。</div> 
-
-
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/zbrush1.jpg"></p>
-
-<div style="text-align:center">zbrush中需要在低细分层级中做调整一下衣服装备。</div> 
-
-
-<p>mixamo回传blender的模型没有贴图材质，但是uv还在所以重新赋予贴图材质就好了，网上有相关的手把手教学。</p>
+<p>在initial中可以初始化基本几何体球体、立方体、网格、圆柱体，并为这些几何体分段。作者用7段圆柱体作为躯干长度的参考，并用polygroup对这7段分组，我不知道为什么control选中遮罩会精确对每段作用，正常情况下不会做到这种精确分割的。</p>
+<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E5%88%86%E6%88%907%E4%B8%AApolygroup%E7%9A%84%E8%BA%AF%E5%B9%B2%E5%8F%82%E8%80%83.jpg"></p>
+<p>作者在示范中对圆柱做变形，500面的情况下完成胸腔的大形，move笔刷大小是个位数。然后做了128像素的dynamesh，调整到10000面。之后做了平滑以及继续塑造大形，骨盆好像也是差不多操作，并没有镂空仅仅是做出形状。</p>
 </body></html>
     
     </div>
@@ -322,13 +182,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/" itemprop="url">2022.11.10 zbrush动物速写owen s和Pablo Muñoz Gómez</a>
+            <a href="/2022/09/28/2022-9-28-subdivision-dynamesh-zremesher/" itemprop="url">2022 9 28 subdivision dynamesh zremesher</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-11-10T06:08:25.000Z" itemprop="datePublished">11月 10 2022</time>
+                <time datetime="2022-09-28T06:10:44.000Z" itemprop="datePublished">9月 28 2022</time>
             
         </span>
         
@@ -341,26 +201,21 @@
         <span class="column is-narrow">
             
             
-            3 分钟 读完 (约 375 字)
+            2 分钟 读完 (约 287 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>上次做鹤鸵雕塑学习了Pablo Muñoz Gómez的直播示范，收获蛮大的，在塑形大的结构方面用sculpture pro模式，可以对一些细节做很好的塑造，用snake hook笔刷拉伸可以保证有足够的面数，不会像move那样产生破面之类的问题，像素不够了在pro模式下直接smooth一下需要刻画的区域就有足够面数了。</p>
-<p><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E7%81%AB%E7%83%88%E9%B8%9F1.jpg"><br><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E7%81%AB%E7%83%88%E9%B8%9F2.jpg"></p>
+        <html><head></head><body><a href="https://www.ryankingslien.com/blog/correctly-using-the-dynamesh-and-zremesher-options-of-zbrush" title="" target="">一篇关于dynamesh和zremesher在雕塑步骤中不同应用的介绍</a>
 
-<div style="text-align:center">之前没有看示范教学，自己做的时候大概一整天做一头牛、老虎，并且体现不出肌肉结构</div> 
-
-
-<p>进一步看了owen s的教学后，现在对snake hook做大形，damstandard塑造棱角、眼睑有点感觉了。目前可以做到1.5小时左右做一个动物造型，下面是这两天的尝试。</p>
-<p><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E9%B1%BC%E9%BE%991.jpg"><br><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E8%80%81%E8%99%8E1.jpg"><br><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E8%80%81%E8%99%8E2.jpg"></p>
-
-<div style="text-align:center">在1-2小时内可以独立塑造出这样的动物造型我还是蛮满意的，接下来每天练习一个，坚持2周看看，再挑战人物造型。</div> 
-
-
-<p>动物解剖学系列那个肌肉塑造难度太高了，要对肌肉的起止点有充分的理解才行，抽空这个月看一下这个慢放后的操作感受一下这个系列的肌肉纹理塑造。</p>
-<p>明后天把下载的笔刷测试一下。</p>
+<p>根据flipnormal的教学，dynamesh用于做大形重构拓扑，subdivision用于增加分辨率抠细节。</p>
+<p>那么zremesher和dynamesh呢？再看两个教学介绍学习一下。</p>
+<p>9.21更新：<br>zremesher也是重构拓扑，相比dynamesh，它的重构更规则。一般最终模型使用zremesher做动画，骨骼绑定，低模在上高模在下，投射（project）之后可以将高模的细节投射到zremesher之后规则网格的低模上。</p>
+<p>9.28更新：<br>zremesher主要看Target Polygons Count和它下面的AdaptiveSize</p>
+<p>target polygons count越大则重拓扑后的面数越大，似乎一般默认的5就蛮好，adaptiveSize越大则面数越大会尽可能保持高模的造型而不扭曲或变形省略掉。</p>
+<p>zremesherguide引导线会影响zremesher重构拓扑的布线。不过通常情况下zremesher本身的重拓扑布线就很完美用不着做引导线。</p>
+<p><img src="/2022/09/28/2022-9-28-subdivision-dynamesh-zremesher/zremesher%E7%9A%84%E6%8B%93%E6%89%91.jpg"></p>
 </body></html>
     
     </div>
@@ -375,13 +230,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/" itemprop="url">2022.11.2 zbrush动物学习肌肉塑造</a>
+            <a href="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/" itemprop="url">2022-9-16 动物解剖学与zbrush雕刻part3 脊椎骨 胸腔 四肢</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-11-02T09:14:47.000Z" itemprop="datePublished">11月 2 2022</time>
+                <time datetime="2022-09-16T02:33:11.000Z" itemprop="datePublished">9月 16 2022</time>
             
         </span>
         
@@ -394,61 +249,194 @@
         <span class="column is-narrow">
             
             
-            7 分钟 读完 (约 1014 字)
+            25 分钟 读完 (约 3720 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>昨天用了约2小时做了个狮子头，实际上根据教学示范来看可以压缩到半小时甚至更少。这一版做的狮子头细节更多了，并不是我的手法进步了，只不过找了现成的雕塑作为参考图，比起解剖学的参考图可以更直观观察肌肉特征。</p>
-<p>claytube、claybuildup用方块的默认alpha适合做素描，塑形刻画，06alpha适合做肌肉刻画，后者没有那种噪波感。</p>
-<p><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/alpha06%E6%9B%B4%E5%9C%86%E6%B6%A6%E6%97%A0%E5%99%AA%E7%82%B9.jpg"></p>
-<p>豹子造型示范中用orb crack代替damstandard刻画出那种有倒角的阴刻来划分肌肉块，在animal anatomy系列的示范中是用一个个球move拉伸塑形成肌肉块，也就是说出现了两种塑造肌肉的思路，显然这和外星昆虫人的塑造方式不同，还有第三种形式。sk_trimpolish这种进一步打磨倒角。</p>
-<p><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E4%B8%AD%E6%96%87%E7%8C%8E%E8%B1%B9%E8%82%8C%E8%82%891.jpg"><br><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E4%B8%AD%E6%96%87%E7%8C%8E%E8%B1%B9%E8%82%8C%E8%82%892.jpg"></p>
+        <html><head></head><body><p>头骨勉强完成了，说勉强其实也有些谦虚，合计用的时间和课程设置周期差不多，毕竟当中穿插了很多建筑理论的学习总结，还有各种各样的日常生活。做到这个程度蛮满意了。</p>
+<p>第三周的课程是脊椎骨、前后肢、胸腔的塑造。理论部分我发现之前做的骨骼英文词汇对应的txt好像误删了，算了反正对着解剖图还是可以很快找回来的。到时候对着艺用解剖学的书过一遍可能开帖记录了一下吧。这里我想不再对应着课程副标题一一记录了，仅凭听的过程中的记载直接归纳下来。</p>
+<p>几个重要的知识点是骨骼与运动关系，骨骼与肌肉附着关系，食草、食肉逃避捕食者与捕猎猎物所需要的结构。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/0.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+<p>scapula 肩胛骨</p>
+<p>马的肩胛骨朝向与前肢一致，而人的肩胛骨在手臂的侧面因此人的手可以朝多个方向运动，而马专注于向前奔跑</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E4%B8%8D%E5%90%8C%E5%8A%A8%E7%89%A9%E7%9A%84%E5%89%8D%E8%82%A2.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
 
-<div style="text-align:center">orb crack切分开来的肌肉块配合claybuildup</div> 
-
-
-
-<div>
-<p style="color: red">这里预留我的复盘，用z球做的躯体做一下。可能是因为没有orb crack笔刷，做出来的切割肌肉群太平了。
-</p>
+<div style="text-align:center">注意这些四肢爬行的动物，他们的肱骨都与前进方向一致，而人的肱骨则与前进方向水平，这些动物做前肢旋转运动。</div> 
 
 
-<p><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E8%82%8C%E8%82%891.jpg"></p>
+<p>humerus 肱骨</p>
+<p>马、羊、猪、狗的肩胛骨朝前，肱骨朝后都是为了便于前肢向前走。这些动物很难驱使四肢做外伸（abduction exercise）动作。所以我们看到狗睡觉一般也是前肢朝前伸展趴着</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/1.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
 
-<div style="text-align:center">用一个个球move拉伸塑形成肌肉块</div> 
-
-
-<p><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E8%82%8C%E8%82%892.jpg"><br><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E8%82%8C%E8%82%893.jpg"></p>
-
-<div style="text-align:center">动物解剖学系列教学的肌肉纹理</div> 
+<div style="text-align:center">狗睡觉四肢朝前趴着</div> 
 
 
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E4%B8%A4%E4%BE%A7%E5%A4%96%E7%BF%BB%E8%BF%90%E5%8A%A8.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
 
-<div>
-<p style="color: red">这里预留我的复盘，用之前的脊椎做。
-</p>
-
-
-<p>zebra zebra的系列zbrush教学中dynamesh 1、2演示了做一个人形怪物什么时候用dynamesh，dynamesh塑造到什么程度，一般来说对于一个人头10-20万面左右，整个人物在150万面左右以内，我昨天试了一下超过100万面后dynamesh会有点卡，在这个演示中不会反复dynamesh，基本形状和骨骼标志确认好了肌肉添加到位了，连接部分准备融合再dynamesh，我做的过程中经常dynamesh属于废笔没有意义，问题在于不知道肌肉的起始点插入位置，这个东西没必要记忆，但要理解能根据解剖图去绘制。</p>
-
-<div>
-<p style="color: red">我11.2看的zebra zebra的外星人形怪物建模居然记忆不起它是如何塑造肌肉的。
-</p>
+<div style="text-align:center">狗、马不能像人这样将前肢往身体两侧外翻</div> 
 
 
-<p><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/zebra%E8%82%8C%E8%82%891.jpg"><br><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/zebra%E8%82%8C%E8%82%892.jpg"></p>
+<p>ulna 尺骨</p>
+<p>radius 桡骨</p>
+<p>马的尺骨、桡骨合二为一支撑性更好，有助于持久高速奔跑。但这样的话无法像人一样旋转前臂（supination and pronation）。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E5%89%8D%E8%87%82%E7%BF%BB%E8%BD%AC.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+<p>carpus 腕骨</p>
+<p>metacarpal 掌骨</p>
+<p>vertebral column 脊椎骨</p>
+<p>脊椎骨能作为确定动物大形的基准，比如头部与四肢的位置，第一课中我记得作者用肱骨作为整个躯体的构成单位画出大形。</p>
+<p>spinal column 脊柱</p>
+<p>rib cage 肋架、胸腔</p>
+<p>马需要长跑快，因此需要更持久的呼吸，更大的肺部，因此肋架长、大</p>
+<p>马吃草对消耗能力要求高，胃部对肋架有相应要求</p>
+<p>femoris 股骨</p>
+<p>limb 肢体</p>
+<p>不同物种之间比较，都有肩胛骨、肱骨、尺骨、桡骨、腕骨、掌骨等，只不过造型特征不同，这说明了物种演化的关联性。</p>
+<p>cervical vertebrae 颈椎骨</p>
+<p>哺乳动物几乎都是7根，颈椎骨用于移动头部，食草动物需要长的颈椎骨用于食草。</p>
+<p>thoracic vertebrae 胸椎骨</p>
+<p>人有12根胸椎骨头，猫狗有13根，马有18根，作用是稳定性。猎食者需要一定的弯曲能力用于捕猎</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/kk.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+<p>lumbar vertebrae 腰椎</p>
+<p>猎食者的腰椎运动能力需要比较强，这个部分猎食动物与食草动物的区别很大。马的背部很平，有利于长跑稳定。而猎豹奔跑时背部会弯曲，腰椎的弯曲是为了四肢收缩可以抓住猎物。因此我们不能骑狮子。</p>
+<p>sacrum 骶骨</p>
+<p>coccygeal 尾骨</p>
+<p>马的手指原来有3根后来逐渐退化变成一个蹄子，狗的大拇指相对其他捕食者而言退化了.</p>
 
-<div style="text-align:center">zebra系列教学中dynamesh1、2里面有在dynamesh模式下用claytube刻画也有在subdivision模式下低细分层级用damstandard配合dynamesh这就让我很困惑了，到底流程是什么意的。</div> 
+<div><h2>p22开始搭建参考图板，用z球做出脊椎骨、肋架和四肢大形。</h2><h2> </h2></div>
 
 
-<p>在豹子演示中从头到尾作者都是用的dynamesh而没有进入subdivision去刻画细节。</p>
-<p>dynamesh下做刻画到一定程度要增加像素，不然再次dynamesh会丢失细节。</p>
-<p>11.3对zeezoo的狮子做了躯体肌肉刻画，效果看上去比较平，我才用了damstandard画线分区再用claybuildup堆积肌肉体积，经实验发现低像素下（整个躯体用128像素，共20万面不到）默认的alpha28做出的噪波体现的质感比较好，用alpha06太光滑了没有质感。随着像素增大，alpha28的噪波愈发明显从而感觉不太好了。需要回看一下。</p>
-<p><img src="/%E6%88%91%E5%81%9A%E7%9A%84%E7%8B%AE%E5%AD%90%E8%82%8C%E8%82%891.jpg"><br><img src="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E5%81%9A%E5%87%BA%E6%9D%A5%E7%9A%84%E8%82%8C%E8%82%89.jpg"></p>
-<p>有了一点点进步，至少可以观察解剖学图做到切分肌肉群块（不过由于不懂解剖学以及观察能力不构目前在肌肉塑造上还是混沌无序的），select 配合lasso模式取消x对称，可以将四肢单独分离出来这样可以处理侧面和背面。不过和动物解剖学系列教学的躯体肌肉差距还很大。</p>
-</div></div></div></body></html>
+<p>参考图板需要完整骨架图，脊椎骨分段图，以及动物实拍。</p>
+<p>按照骨骼解剖图快速把z球叠上去，move拉好,q、w、e切换作图、移动、缩放z球，记得一开始就开x对称。结构做完以后用see through模式与参考图对着调整大小、位置，先是骨架图，作者在示范中将z球大形与多个骨架图对照调整，最后与动物实拍图对照（不过带毛皮的动物实拍看不出结构，且其透视关系不清晰，不太好对照）。</p>
+<p>设置了j和k键作为5步长单位旋转，这可以对xyz轴设置单向旋转，演示中用x轴旋转在see through模式中调整每根骨头的尺寸。目前一个问题是如何在z球模式中生成手指、脚趾，如何等大拉伸z球。按住alt再点z球可以删除选中的z球，画出z球画笔未松开时按shift可以生成与上一个z球等大的z球，在操作z球时笔刷最好设定为1，因为笔刷大了当移动时会影响到其他z球。目前看来手指脚趾并没什么秘法操作，就是在一个z球上生成5个z球，似乎一个个来先拉长然后调整再做下一根手指比较好。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E7%A4%BA%E8%8C%83%E5%81%9A%E7%9A%84%E8%84%9A%E8%B6%BEz%E7%90%83.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">示范做的脚趾z球</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E6%88%91%E5%81%9A%E7%9A%84%E8%84%9A%E8%B6%BEz%E7%90%83.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">我做的脚趾z球</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/z%E7%90%83%E5%9B%9B%E8%82%A2%E8%84%8A%E6%A4%8E%E9%AA%A8.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">我做的z球四肢脊椎骨，最早是跟120节课教学做恐龙，z球操作是没有任何难度的，就是要根据解剖图参考在z球阶段就把大形关键表达清楚，考察的是观察和表达能力</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/z%E7%90%83adaptive_skin%E7%94%9F%E6%88%90poly.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">z球adaptive skin生成poly，这个时候脚趾粘合在一起了，我看教学示范也有类似情况，似乎并不打紧。最低细分8像素dynamesh。</div> 
+
+
+
+<div><h2>p23雕塑脊椎骨、骨盆、胸腔，分离结构、塑造大形</h2><h2> </h2></div>
+
+
+<p>先对结构分组polygroup用mask选取后ctrl w，分组。ctrl shift两次隐藏选中成组的polygroup，在subtool下分离隐藏（split hidden）。<br><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/polygroup%E5%88%86%E7%A6%BB%E5%9B%9B%E8%82%A2.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">polygroup分离四肢</div> 
+
+
+<p>z球形成topology之后使用zremesher会使得一些相邻的结构粘合，不知道为什么示范中这种问题相对小很多，像素越大就不容易产生这个问题。如果要将这些粘合处切开可以用trim工具切开再用modify topology 的mirror and weld工具完成对称式开口。</p>
+<p>从实操来看应该在z球成面后就分离颈椎，骨盆后面append上去，只有胸腔、腰椎、尾骨作为一个整体，分离开也可以。</p>
+<p>胸腔、肋架的塑形。8万面用demstandard划分后，claytube切分出比较粗的凹凸分割带表示胸腔骨骼和软骨。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E7%A4%BA%E8%8C%83%E4%B8%AD%E7%9A%848%E4%B8%87%E9%9D%A2%E8%82%8B%E6%9E%B6.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">示范中的8万面肋架</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E6%88%91%E5%81%9A%E7%9A%848%E4%B8%87%E9%9D%A2%E8%82%8B%E6%9E%B6.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">我做的8万面肋架，基本满意，这里是跟着教学做的，并没有独立观察意识到在什么面数情况下用什么笔刷去塑形。犯了不敢下笔的问题，claytube蜻蜓点水似的用很小的压力去叠，实际需要压力较大去刻画肋架的凹凸，笔刷技法上没有问题。</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/p23%E6%9C%80%E7%BB%88%E8%82%8B%E6%9E%B6.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">p23最终肋架</div> 
+
+
+<p>骨盆这个部分和骶骨相结合一开始示范中是和尾部相粘合的，但这不利于雕塑。其实一开始就可以单独一层做。它的造型有点类似下颌骨，但是我做的不理想。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E9%AA%A8%E7%9B%86%E6%98%A8%E5%A4%A9%E5%81%9A%E4%BA%86%E5%8D%8A%E6%99%9A.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">半晚我做的骨盆，形还算过得去，但是质感方面不行，没有塑造出骨骼标志。</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E6%88%91%E5%81%9A%E7%9A%84%E9%A2%88%E6%A4%8E%E9%AA%A8%E8%83%B8%E6%A4%8E%E9%AA%A8.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">我做的颈椎骨胸椎骨，没有质感，但是形状蛮到位的，不过像这种模型应该设法概括细节，不然花太多时间在这种小细节上效率太差，一方面可以用复制合并的方式利用相同构件去做这个部分，示范中是逐个调节的</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E7%A4%BA%E8%8C%83%E7%9A%84%E8%83%B8%E6%A4%8E%E8%85%B0%E6%A4%8E.jpg" alt="2022-9-16 动物解剖学与zbrush雕刻part3"></p>
+
+<div style="text-align:center">示范的胸椎腰椎，归纳细节并没有完全照搬解剖参考，但是效果上看上去符合我们的想象，把重点放在大的构件上刻画</div> 
+
+
+<p>9.26更新：</p>
+<p>今天的更新写的是9.23的工作，晚上再看一节四肢的教学，明天根据记忆实操，这样就算基本完成了第三周的课程。目前看来一个月大概完成3周的课程，年底可以完成这个系列的教学。</p>
+<p>![2022-9-16 动物解剖学与zbrush雕刻part3]我没看教学独立做的脊椎骨1.jpg)<br>![2022-9-16 动物解剖学与zbrush雕刻part3]我没看教学独立做的脊椎骨2.jpg)</p>
+
+<div style="text-align:center">我没看教学独立做的脊椎骨，折腾了5个小时，还完成了一个骨盆，不过都是低模，没有细节刻画。按照教学演示的10倍速来看，完成脊椎骨、骨盆的中模应该在2个小时左右。我花了很多时间在一个个椎骨上做调整，后期再重新看一下作者是怎么概括这些细节快速调整的。</div> 
+
+
+<p>9.28更新：</p>
+<p>目前zbrush的两个大问题：</p>
+<p>1.什么面数下做什么样的造型、细节，这可能需要大量教学课程观察、实操总结后才能心中有数。</p>
+<p>2.提高细分后如何用claytube塑造骨骼质感</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E6%88%91%E7%94%A8%E4%BA%86%E5%A4%A7%E6%A6%822%E5%B0%8F%E6%97%B6%E5%81%9A%E7%9A%84%E5%89%8D%E8%82%A225000%E5%83%8F%E7%B4%A0.jpg"></p>
+
+<div style="text-align:center">我用了大概2小时做的25000面数前肢，细分加一层是10万面数，两层40万面数拉近了看不会看到方格拓扑，这个前肢一开始我是想对着lynx网上的独立骨骼去造型，结果完全离谱，后来是对着An Atlas of Animal Anatomy for Artists里的狮子顶、侧、前视图参考做的感觉大型蛮满意的，今天重看教学示范发现作者在2万面数左右的时候对肢体的塑造要比我简化很多，诸多细节是在6万面数时去塑造的，另外6万面数是用dynamesh去调的，毕竟增加细分对面数不可控。</div> 
+
+
+<p>教学示范中在1000000面上对胸腔、椎骨细节做细化（示范中椎骨那个鲨鱼鳍一样的尖角凸出是用claytube削出来的），调整椎骨造型则回到最低细分60000面用move topology。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E6%A4%8E%E9%AA%A8%E7%BB%86%E8%8A%821000000%E9%9D%A2%E7%BB%98%E5%88%B6.jpg"></p>
+
+<div style="text-align:center">椎骨细节1000000面绘制</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/250000%E9%9D%A2%E7%9A%84%E9%AA%A8%E7%9B%86%E8%BF%99%E4%B8%AA%E8%B4%A8%E6%84%9F%E5%B0%B1%E7%89%B9%E5%88%AB%E5%A5%BD.jpg"></p>
+
+<div style="text-align:center">250000面的骨盆这个质感就特别好，貌似作者用的z intensity为10 claytube.</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/zintensity5%E7%9A%84claytube%E6%8E%92%E7%BA%BF1.jpg"><br><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/zintensity5%E7%9A%84claytube%E6%8E%92%E7%BA%BF2.jpg"></p>
+
+<div style="text-align:center">zintensity5的claytube排线，目标是要做出这种质感来，通过慢放教学来看排线都是大笔触刷的，没有一小笔一小笔，所以看起来连续性很好</div> 
+
+
+<p>胸腔的质感主要是claytube在高细分上塑造的，而不是damstandard，damstandard最后阶段画龙点睛而已。<br><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/damstandard%E5%81%9A%E6%9C%80%E5%90%8E%E7%9A%84%E7%BB%86%E8%8A%82.jpg"></p>
+
+<div style="text-align:center">damstandard做最后的细节</div> 
+
+
+<p>10.9更新:</p>
+<p>目前看来今年想把动物zbrush雕刻系列的教学按照原先穿插建筑理论学习总结完成似乎不太现实了，目前主要问题大概有3个</p>
+<p>1.在什么细分层级上做什么细节？比方说四肢的骨头，那些凹凸是在dynamesh的阶段先做好形状还是说放到zremesher后增加细分后再做？在教学示范中，我发现脊椎向上突起与胸腔的肋架间那个水平凸出的骨头是在100万面高细分下用claytube堆积出来的。</p>
+<p>2.当zremesher之后增高细分后造成破面、烂面怎么解决？似乎不能用dynamesh，这样会丢失之前的细节，但是不可能保证每个细节的塑造都不出幺蛾子，虽然低细分下可以重新调整大形然而由于不能dynamesh一些拉伸导致缺面会在高细分下依旧看出不匀称的现象。这些是zbrush基础操作的问题，有必要学习基础系列教学，看看中文教学中怎么走整个流程的。</p>
+<p>3.像脚趾多个复制使用的，如何对这种对象进行操作呢？ctrl在transpose模式下可以在同一个subtool下进行遮罩式复制，通过groupvisible可以将脚趾掌骨合并一个组，复制出来的在用ctrl遮罩ctrl+w分成一个个组。</p>
+<p>这两天用2个小时左右完成了脊椎、胸腔，1个小时完成了前肢除脚趾，1个小时完成了脚趾掌骨，以前画素描石膏像差不多折腾一天4-5个小时，是在练习了近半年的情况下，而zbrush我都没有学好基础。</p>
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E8%83%B8%E8%85%94%E8%84%8A%E6%A4%8E2%E5%B0%8F%E6%97%B6.jpg"></p>
+
+<div style="text-align:center">胸腔脊椎2小时</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E5%9B%9B%E8%82%A21%E5%B0%8F%E6%97%B6.png"></p>
+
+<div style="text-align:center">四肢1小时</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E8%84%9A%E8%B6%BE1%E5%B0%8F%E6%97%B6.jpg"></p>
+
+<div style="text-align:center">脚趾1小时</div> 
+
+
+<p><img src="/2022/09/16/2022-9-16-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart3/%E9%AA%A8%E7%9B%86%E7%8B%AC%E7%AB%8B%E5%88%B6%E4%BD%9C.jpg"></p>
+
+<div style="text-align:center">骨盆独立制作，claytube rf8 intensity 15左右做出来的效果，我感觉十分满意。</div> 
+
+
+</body></html>
     
     </div>
     
@@ -462,13 +450,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/" itemprop="url">2022 10 30 zbrush动物黑神话以及人体肌肉虫等等</a>
+            <a href="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/" itemprop="url">2022-9-12 难过却无能为力</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-10-31T02:44:44.000Z" itemprop="datePublished">10月 31 2022</time>
+                <time datetime="2022-09-12T16:59:52.000Z" itemprop="datePublished">9月 13 2022</time>
             
         </span>
         
@@ -481,54 +469,324 @@
         <span class="column is-narrow">
             
             
-            7 分钟 读完 (约 1058 字)
+            24 分钟 读完 (约 3574 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><div>
-<p style="color: red">不知不觉从我第一天接触zbrush到现在已经过了4个半月了，这期间穿插了4篇万字以上的建筑装饰理论总结，每篇至少占用了10天时间且打乱了节奏，这是我目前面对的一个比较大的矛盾，是否应该交叉推进？理论总结部分偏向摘抄，搜索技巧，以及一些思想提炼，没有那种需要全身心去实践的环节。而zbrush则是要全身心高度集中，分设节点多次复盘才可能获得进步的。我觉得接下来应该提高自己设置节点的能力，提前布局好每周需要复盘的教学示范数量，以及复盘次数。这样可以更直观的察觉自己的学习进度历程。这样看来的话我还是应该坚持多学科交叉学习的，目前的话就分为建筑理论、zbrush建模和俄语三个部分吧。
-</p>
+        <html><head></head><body><p>外婆去世了，是我生日那天，事实上我甚至搞不清外婆究竟几岁了只是印象很深90岁生日那天一起拍了一张照，可能是93还是95？但是90生日那次她还很健康，我清楚的记得她是2018年12月我考完驾照后的3、4天脑梗发作卧病在床到现在快4年。在殡仪馆送别厅盖棺前我很难过，可能是音乐和场地有加成，我确信不是因为畏惧死亡，而是怀念过去，夏天在外公外婆的房间打地铺和外婆吹空调睡觉，抬眼可以看到带着城市光污染的夜空，那可能是我小时候最深刻的记忆了，甚至我都记不起我的老师同学叫什么。</p>
+<p>9.8号那天晚上我试图想收尾魏晋南北朝篇，最后一部分和印度文化传播融合有关系，蛮有意思的，算是勉强看完了但是一个字没有做记录。回家的时候听闻英国女王要驾崩了饶有兴致刷手机，没想到最后这种恶作剧心理被反噬了，还没等来女王的消息，我刚入睡被妈妈叫起来通知外婆过世了，开始并没有难过只是有些害怕，这么晚驱车会不会厄运连连呢？理想one每次坐都难受的要命，又是深夜未睡，爸爸这么辛劳有点担心他。等到了花桥看到外婆，害怕变成了极度的难过，困意缠身，但我一直幻想着她有一天能恢复意识，我这辈子没有为她做任何事情，似乎我对所有人都这样，嘴上说着要去报答他们却什么都没有做，一拖再拖。幸好爸爸60岁生日，也就是两周前我去看了她一次，那次我就觉得有种不太好的预感，也不知道是幸运还是不幸，我好难过万一她是因为半年疫情来总算我去看她而安心走了呢？写到这里，我真该想想，平时别再刷手机看无聊无关的事儿了，我不是什么官员不用心系天下看那些新闻键政，至少有恩必报吧？哪怕报不了么，我得完成事业，扬名立万，也算是对得起这些支持我的人。我想哪怕去上坟，受不了烟味么，至少可以在心里对他们说我最近做了什么，而不是时刻想着看看手机刷个新闻打发时间，玩玩无聊游戏。</p>
+<p>这两天家里烧香，气味太重于是又到办公室住了，不禁想起高一的时候外婆拉我去庙里烧香回来后就慢性咽炎折腾了3年，那时一直对这个事情耿耿于怀，确实我是对烟味过敏严重，不过我想更要命的是我对他人做的太少了，于是很多时候留下的记忆都是怎么怎么吃亏了，而没有想到别人对我的好，这很大程度上是因为我自己没有成就感吧，所以即使是前两年侥幸赚了点钱，也不会觉得怎么样。我一向觉得我认为好才算好，可能对于身边的人而言没有意义，这往往会造成痛苦，一方面我没有按照常规认识那样去谋求文凭、好的工作机会、赚钱的出路，一方面我在寻找一条未知的道路要寻求不可估量的成就。</p>
+<p>读书总结：</p>
+<p>上上周一起去书店买了多年萦绕心头的《2666》，曾经下载过电子书，看了几页弃了，解封后去外滩的书店本想买的但是骑车过来觉得把书背回去不方便，又嫌贵于是放弃了。这次算是甩个派头，最终还是在外滩的书店买了，其实如果有《酒吧长谈》或许我会选择这本。</p>
+<p>目前《2666》读完了第一部分，掠过了第二部分。第一部分《文学评论家》让我想起了《罪与罚》，后者是对善恶评判的看法，通过不同的人（学历、出身？），不同的社会阶级或者说经济条件，谁有资格去决定善恶的标准，谁应该遵从这个标准。《文学评论家》是全书的第一部分，通过简介得知，5个部分互相有交集，第一部分围绕阿琴波尔迪这个作家展开，主要刻画4个西欧的文学大学教授对作家的追逐，我们可以看到四人的成长背景以及对作家追逐的“变味”过程，一开始可能是热爱或者说在高等学府中要混出名堂而挖掘作家变相互吹，形成自己的“圈子”，从而坐稳“文学地位”，全文穿插了墨西哥的知识分子被政府任命为官员，文学评论家在欧洲、墨西哥开讲座上涌现青年学生仿佛和当初的他们一样，这些细枝末节都在表现这4位主角的人生，我们可以想象听讲座的大学生和他们当初一样野心勃勃、奋发图强，找寻优秀的作品翻译出版，拉帮结派形成圈子。四人从最初的探讨文学，到频繁的公费旅游、做爱寻欢，显然对作家的追逐不是他们的首要任务，更不是理想（可以看到他们在有了地位之后参加学术活动、讲座时，那些和他们曾经一样苦读、钻研文学的年轻人充满了过去的身影）。与之形成对比的是80岁的作家，在墨西哥文人官僚口中是如此的低调，神龙见首不见尾，准确来说应该叫纯粹吧。通过介绍我们知道作家去墨西哥的小城是应了其妹妹的请求要去找到其被怀疑为连环杀人案嫌疑人的侄子，作家在欧洲闻名于学术界，不少人通过评论研究他发迹，而他本人淡泊名利，对世俗的这些活动、评价毫不在意，与之形成对比的是切断手的画家，文中特意写了画家在破败社区创作后来切断手做实物装置成名了，4个文学评论家去拜访他时似乎透露出的意思是，画家是为了出名、钱而一时兴起这么做的（可能这一段我没搞清楚）。很多人寻找作家，各种评奖都未能使他露面，但是妹妹找侄子的请求，他欣然答应了，去一个未知、陌生的国家（我不知道作家是否会墨西哥语），面对暴力、凶杀，可能是二战以来风风雨雨都经历过了，他早已超然物外。</p>
+<p>通过简介来看第五部分阿琴波尔迪可以单独作为一部小说来看，但显然同一个背景和事件下其他人物的态度、做法、精神状态作为参照，就大大饱满了作家的形象和境界。</p>
+<p>我掠过第二部分是因为完全不理解这部分在写什么，好像主角阿尔玛菲塔诺一直处于发疯状态，直到看了<a href="https://mookseandgripes.com/reviews/2014/10/03/2666-read-along-part-2-the-part-about-amalfitano" title="" target="">2666第二部分导读</a>。没错就是发疯、混乱、不安，智利国家政变动荡不安，移居西班牙，而妻子不知为何迷上了精神病诗人抛家弃子成了流浪癖，自己又为何从西班牙去了墨西哥边境上充满凶险的小城？疯狂是具有传染性的（不知道R0是多少），总之教授其实疯了，我们可以观察到他逐渐疯狂的过程，以至于越到后面这些不经意间的胡思乱想越来越多，搞不清楚是现实发生的还是他幻想的，也完全不知道他为什么会想这些。这正是这部分、以及书中所述的墨西哥小城可怕之处，上一章中可以通过丽兹的梦境、幻想感受到此地的凶险与西欧生活环境的孑然不同，使得丽兹早早打道回府躲避这里的凶险，而另外两位教授则是通过寻欢做爱、坚定日常阅读设法去回避异国的不安，但终究他们早早的都离去了。而阿尔玛菲塔诺常居此地，慢慢的他的精神状态就开始了剧变。可以看到面对同一个凶险的墨西哥小城，不同主角在不同遭遇成长下面对它的态度和行动，这种全景立体式的描绘称得上大作，一幅画画中有诗诗中有画，横看成岭侧成峰。关于《2666》暂时写到这里吧，到时候在开一篇，把这部分搬运过去。</p>
+<p>新鲜事：</p>
+<p>之前抱怨过中文网络中关于建筑装饰的图片信息太少且像素质量差，我意外发现小红书里有许多博物馆藏品的精美照片，一些闻所未闻的isolated工艺品照片，传统建筑模型的速写、水彩、建模。恐怕搜索引擎真的要逐渐淘汰了？我好奇为什么小红书不做网页版。当然主要的问题是为什么这些优质内容似乎只出现在小红书？</p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/t1.jpg" alt="2022-9-12 难过却无能为力"></p>
+
+<div style="text-align:center">汉代陶楼，无论在百度还是谷歌都搜不到这种质感的照片</div> 
 
 
-<p>10.30在粗粗看了下黑神话悟空2.5小时版（大概看了30分钟？）后，昨天大概用了1个多小时自己尝试用网上找的参考做黑神话悟空模型。昨天的一大收获是用屏幕标尺定位五官的位置。</p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/t3.jpg" alt="2022-9-12 难过却无能为力"></p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/c2.jpg" alt="2022-9-12 难过却无能为力"></p>
 
-<div>
-<p style="color: red">通过几次看模型制作录像我觉得太浪费时间了，必须边看边练或者看完以后去复盘练习一下，不然看了基本没啥用。</p>
-
-
-<p><img src="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/%E6%82%9F%E7%A9%BA%E5%AF%B9%E6%AF%94.jpg"></p>
-
-<div style="text-align:center">示范大概在边讲解的情况下用了30分钟左右制作到这一步</div> 
+<div style="text-align:center">这种质感的单件工艺品照片百度是搜不出来的，谷歌也不行，pinterest的推荐可能会有，我觉得小红书在一定程度上已经有一系列这样的单品足以构成像pinterest上的那种mood board，而且是带有中国传统特色的，可以说这些单品的摄影”气氛“也具有中国气息</div> 
 
 
-<p><img src="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/%E6%82%9F%E7%A9%BA%E6%8E%A5%E8%BF%91%E6%88%90%E5%93%81.jpg"></p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/c1.jpg" alt="2022-9-12 难过却无能为力"><br><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/c3.jpg" alt="2022-9-12 难过却无能为力"></p>
+<p>ai画图方面之前就说过，似乎ai与我们的先人在境界”氛围“上的追求不谋而合。通过对ai作图的探索是可以指导传统艺术造像的，比如四神的形象，龙生九子的九龙，山海经中各种异兽的形象。小红书上的ai绘画似乎在中国风方面的建筑、造景、装饰方面远超pinterest,并且高于ai architecture/midjourney architecture /新古典 /巴洛克 这些关键词的结果集。是否意味着我们的建筑装饰审美有弯道超车的可能呢？</p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a1.jpg" alt="2022-9-12 难过却无能为力"><br><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a3.jpg" alt="2022-9-12 难过却无能为力"></p>
 
-<div style="text-align:center">这个是示范在2小时制作后接近成品的状态，抛开纹理是一些笔刷效果，可以看出来示范的凹凸对比度要比我强很多，我的塑造十分不明显看上去很平。这靠自己做再复盘看重做会有进步改观嘛？</div> 
-
-
-
-
-<div>
-<p style="color: red">问题还是出在对肌肉的不理解，所以在凹凸上不知道如何表现，看示范觉得理所当然但是自己做就不知道怎么做。在外星人形虫的示范中，仅仅用了20分钟不到就塑造出了效果不错的四肢肌肉，因此用很少的时间就可以复盘自己有没有进步。这其实可以对比俄语学习，通常单词部分老师读我会跟读，在复盘时也会很有目的性的一遍遍过，而zbrush的教学看了一遍几乎等于没看，原因在于没有“跟读”这样的操作，进一步说问题出在我不知道怎么抓重点，“跟读”什么东西？</p>
+<div style="text-align:center">建筑与山水的布局模拟。</div> 
 
 
-<p><img src="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/waixingchong1.jpg"></p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a4.jpg" alt="2022-9-12 难过却无能为力"></p>
 
-<div style="text-align:center">我用了1小时左右做的模拟看上去十分僵硬，我完全不知道要如何去塑造肌肉</div> 
-
-
-<p><img src="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/waixingd1.jpg"></p>
-<p><img src="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/waixingd2.jpg"></p>
-
-<div style="text-align:center">示范中用不到20分钟就塑造了四肢肌肉，我可以试试看跟做，能不能体会到作者的思路。还是说需要完整的看看人体解剖学的zbrush系列教学。</div> 
+<div style="text-align:center">四神的造型。</div> 
 
 
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a2.jpg" alt="2022-9-12 难过却无能为力"></p>
 
-<div>
-<p style="color: red">因此目前对于zbrush学习应该改一下方式，严禁在家看录像，要看也是在办公室的投影看，一边看了马上上机模拟，随时思考自己设定节点，比如像前文提到的，20分钟塑造四肢结构以及肌肉，那么我可以给自己设定用30分钟去复盘这一操作，对比录像，如果我能够复盘了是不是意味着我掌握了作者的技法？事实上在骨骼部分的塑造我是用类似的想法去学习的，但是到了肌肉部分就乱套了，主要是那个系统教学中的做法感觉非常费事费力，不是我需要去掌握的那种程度，所以想投机取巧，无论如何</p>
-</div></div></div></div></body></html>
+<div style="text-align:center">把龙凤与阶梯结合。</div> 
+
+
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a6.jpg" alt="2022-9-12 难过却无能为力"></p>
+
+<div style="text-align:center">我特别喜欢这只龙凤的眼神、神态，很睿智的感觉。</div> 
+
+
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/a5.jpg" alt="2022-9-12 难过却无能为力"></p>
+
+<div style="text-align:center">这种山水与建筑结合的行文描写似乎只有中国古文有吧，外国人的建筑似乎没有这种考量方向。</div> 
+
+
+<p>不过仍要清醒认识，精美建筑的模型应用仍然是外国遥遥领先，无论影视还是游戏我们在这些领域的数字自产还是落后的，国外也不乏如<a href="https://www.laurasheridan.com/store?category=Made+With+AI" title="" target="">laura shedidan的ai纹样</a>这种的对ai利用开发新纹样的先锋。可以看出我们有许多巧夺天工的想法，但是不像国外的装饰美学形成体系，我预计随着ai的推动这几年会开始逐步落实体系。</p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/Deus+Ex+Machina.jpg" alt="2022-9-12 难过却无能为力"></p>
+<p>再者今天在查看下面两个图册（也是来源于小红书）时意外发现了一个”高端“圈子，我方才了解到最大的中国古董商居然在国外，而这种古董拍卖的名录居然都没有盗版印刷品，无论淘宝、咸鱼都是1000块左右一本。</p>
+<p><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/b1.jpg" alt="2022-9-12 难过却无能为力"><br><img src="/2022/09/13/2022-9-12-%E9%9A%BE%E8%BF%87%E5%8D%B4%E6%97%A0%E8%83%BD%E4%B8%BA%E5%8A%9B/b2.jpg" alt="2022-9-12 难过却无能为力"></p>
+<p>eskenazi早在50多年前就开始经营古董了 ，它是目前最大的中国古董商，同类的还有christy和sotheby，这对我而言是个未知领域，看到<a href="https://www.eskenazi.co.uk/en-gb/publications" title="" target="">eskenazi的官网</a>让我联想起了5年前刚开始搞decorfavor参考<a href="https://www.waterworks.com/us_en/" title="" target="">waterworks</a>的那些日子了（现在版面设计完全变了，采用了潮流的全屏自适应大图幻灯和大图栏目，不过页脚还是保留了原来那个味道）。</p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/" itemprop="url">2022-8-25-动物解剖学与zbrush雕刻part2</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-09-12T05:53:02.000Z" itemprop="datePublished">9月 12 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2366 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><a href="https://www.bilibili.com/video/BV1Xy4y1B7yJ?p=11&amp;spm_id_from=pageDriver&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">Sculpting Anatomy: from Animal to Creature</a>系列教学p11继续前进。
+
+<p>头骨雕塑基本大形：</p>
+<p>创建一个参考集合面板<br>设置zbrush<br>开始雕塑</p>
+<p>作者准备雕塑一个猞猁（猞猁的骨骼图在网上有个公益组织专门弄了一个网站详解，我不知道其他动物有没有类似的那么全面的素材），因此寻找猫科动物各个视图的骨骼作为参考。猞猁的毛发很多，其实拍照片无法辨析骨骼标志以及肌肉形态，所以作者选用无毛的sphynx cat作为实拍形态参考。猫科动物都可以用sphynx cat，犬科动物则是Peruvian dog。作者还加入了许多动物肌肉解剖学的参考图，比如狮子的（这部分来源于atlas of animal anatomy）。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">atlas animal anatomy狮子参考图，淘宝上花了一块钱买的扫描版。</div> 
+
+
+<p>8.29更新</p>
+<p>轮到我设置参考图了，前两天用的是xnview，这个窗口利用率还不够，参考图需要分窗口。相对而言pureref可以无限在一个窗口中堆积参考图，空格切换最大化，右键拖动窗口，数位板1键配合笔拖动可以缩小放大当前参考图，这就很强。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/pureref%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">pureref堆积参考图，窗口置顶ctrl shift a可取消，可以直接复制网上的图片在窗口中黏贴使用。</div> 
+
+
+<p>参考图我去猞猁公益网站截图了，1块钱购买了atlas of animal anatomy的扫描版。</p>
+<p>关于zbrush设置作者提到了背景色与轮廓，我觉得这个意义不是很大。然后是一键调用常用笔刷菜单这个倒是不错，今天抽空研究一下zbrush界面布局吧，我看很多教学里面布局上十分花哨，反正就是怎么方便习惯怎么来。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/zbrush%E7%9B%AE%E5%89%8D%E6%88%91%E7%9A%84%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">zbrush目前我的界面布局</div> 
+
+
+<p>终于轮到雕刻了：</p>
+<p>第一步：先从颅骨（cranial）开始，从一个cube开始move拉大形，这一步把各个方向参考图的长短轴拉到位置，模型的面很少，拓扑方面会很诡异，不必介意。有时候move拉动的区域不够完整可以用smooth推平，大的轮廓尽量move拉出样子来，比如眼窟窿，颧骨的这一圈外凸。</p>
+<p>第二步：dynamesh 32像素重构拓扑，之后都可以通过control拉方框做dynamesh快捷处理重构拓扑，这个很重要，在模型初始阶段move拉面造型时局部的拓扑会十分凌乱，这时需要dynamesh重构。32像素dynamesh之后，颅骨和下颌骨模型恰巧都在10000点左右，不知道是巧合还是这个像素下dynamesh对饮这个面数。接下来要把轮廓上明显的骨骼标志（bony landmark）都刻画出来，骨头面不能太薄，以免造成破面烂面，对较薄的骨骼面用inflat可以加厚，然后dynamesh重构拓扑即可修复破面。骨骼上的棱角、凹槽、凸出究竟怎样表达呢？不能用move，move是用来确定轮廓的，而这些凹凸则是用claybuild、claytube叠加厚度或者“挖除”（消减面的厚度）。对于十分棱角分明的转折（也就是很小的长条的面转折，这时用claybuild塑造效果不明显表达不好）需要用dem standard刻画。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E6%B2%A1%E8%B7%9F%E7%9D%80%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA%E5%AE%8C%E5%85%A8%E8%B7%9F%E7%9D%80%E5%8F%82%E8%80%83%E5%9B%BE%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A8%E5%92%8C%E4%B8%8B%E9%A2%8C%E9%AA%A8.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">我没跟着教学演示完全跟着参考图自己做的头骨和下颌骨，可以看出眼眶前侧有明显的骨骼轮廓，而眼眶后侧则不明显，根据参考图来看眼眶上半部分的骨头边缘是“上翘”，内部凹陷的，可以对边缘加厚或者内侧“挖除”。下颌骨部分可以观察到一个明显的类似三角形的凹陷，这部分也是claybuild“挖除”。</div> 
+
+
+<p>在理解了这些原理后，我比较满意的完成了颅骨和下颌骨的塑形。下颌骨部分我甚至都没细看作者的示范，现在看来用transpose做大型的雕塑也是需要掌握的特点之一，局部用mask遮罩transpose拉伸可以做出比较规则的多边形几何体，而move拉伸造型相对而言很不规则，尤其不可能对一个侧面做拉伸，毕竟选取的是圆形区域而目标则是矩形面所以会影响另一个面。</p>
+<p>第三步：ctrl d增加细分层级，对骨骼纹理做刻画。<br>用claytube在第二细分层级上做纹理刻画，在alpha编辑器里增加rf值5-7，intensity调整6-9，这时会发现笔刷可以构造出十分柔和的渐进纹理，平铺密集排刷不会觉得凌乱，而是很匀称。</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E4%B8%80%E5%9C%88%E6%8E%92%E5%88%B7claytube%E5%8D%81%E5%88%86%E5%8C%80%E7%A7%B0.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">一圈排刷claytube十分匀称。</div> 
+
+
+<p>细微局部的形状、体积厚度要用move topology小intensity做微调，这时用claybuild的话会造成体积厚度连续性不协调一致。<br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%89%8D.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">movetopo调整前</div> 
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%90%8E.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">movetopo调整后，我们可以观察到上端颧骨那个边缘的轮廓更立体有质感、纤细了</div> 
+
+
+<p>这一阶段的细化对观察能力，以及个人理解要求比较高，不对着教学演示的话恐怕我自己很难找到要去做的部分，第一遍看下来本来以为是要做骨骼表面纹理，但现在又觉得不完全是，结尾处好像用dam standard来明确骨骼分界？</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%BB%86%E5%8C%96%E9%9B%95%E5%88%BB%E7%9A%84%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">细化雕刻的依据是什么呢，在secondary也就是细分层级后的雕刻，似乎参考了atlas of animal anatomy</div> 
+
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A81.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"><br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A82.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">atlas of animal anatomy狮子的头骨上可以看到教程演示中，几个较为明显的dem standard断痕。</div> 
+
+
+<p>2022.9.6我完成了初步的头骨模型制作如下，实际增加细分1级后面数不到10万，用教学中的笔刷设置并不能做出好的效果，需要增加2级细分才行。</p>
+<p>我暂时没有像教学中那样使用zremesher重构拓扑并投射细节（projecting）。我的细分由于dynamesh丢失了，这里面就涉及几个问题了，如果后期对物体做大形的调整导致布线问题，使用dynamesh会丢失细分，那是不是意味着无法调节大形了呢？我记得教学中多次切换到低层级细分重新调整大形，好像没有用到dynamesh，这是因为微调的关系吗？有必要实验证实一下。</p>
+<p>在preference edit 下Inactive Subtool Dimming设置为1可以使得未激活的subtool亮度与激活的subtool一致。这解决了初步预览模型，亮度不一致问题。</p>
+<p>see through模式下对照参考调整大形是个不错的工作方式。应该在起初就使用，我不明白为什么作者是放到最后阶段使用。似乎他不受面布线问题，或许到时候只要zremesher，这样布线就正常了，高模投射细节即可？</p>
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A81.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">claytube在高细分层级上对一个面做强调，以短轴方向密集排线刷笔刷而非长轴方向拉长线，后者无法制造丰富纹理，看上去像是欲盖弥彰的多层胶带。比如头部后侧，顶骨和颞骨之间的凹槽外延展面的构造，在2级细分下细化雕刻效果十分理想。</div> 
+
+
+<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A82.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
+
+<div style="text-align:center">阶段性而言还是蛮满意的，可以说成功吃下了第二课，这个月需要完成2个其他动物的头骨来验证独立制作能力。不过这样的话似乎第三课就有些遥遥无期了。</div> 
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/" itemprop="url">8.31张衡西京赋 生吃</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-08-31T04:55:57.000Z" itemprop="datePublished">8月 31 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            32 分钟 读完 (约 4803 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>读汉赋该记录些什么东西，这种古文与译文核对着看应该达到什么效率。已经完全记不得上一次做文言文阅读理解是什么时候了，就像记不起来最后一次和同学踢足球，打篮球是什么时候，甚至和谁玩都记不起来了。这是当前其他一些技术学习也遇到的困惑，无法衡量每天的进度是否合适，是否摸鱼过度，还是需要休息了，且行且看吧。</p>
+<p>在秦汉篇提到要读一下古籍体会下作者团队考据复原的过程，之前word上下载了一份带注释的西京赋一共是18页，不带注释原文则只有4页不到。然而不管带不带注释我都看不懂，后来在知乎提示下得知了《文选》这个东西，据说《昭明文选》集合了南北朝之前古代文学的精华，俗话说“文选烂，秀才半”，可见古人对《文选》在古代文化中的评价之高。</p>
+<p>6册文选3000多页，选录的这些诗赋骈文，都有注释与译文。我打算看一下张衡的二京赋、左思的三都赋，据说这些都是汉赋的精品。以西京赋为例，带注释译文一共有60页，不知道需要多少天看完。这5篇赋应该都包含了对当时都城环境、建筑装饰、日常生活的描写，可以对照着看看。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sandufu.jpg" alt="8.31张衡西京赋 生吃"></p>
+<p>今天一上午等于把之前一晚看的西京赋几段又过了一遍。</p>
+<p>第一段：一方水土养一方人，以小见大的说明了帝王应该在哪里选址建业。</p>
+<p>第二段：介绍了古都西安所在地的自然环境，包括山水、地势险阻、气候、土地性质、特产玉石，并伴有“君权神授”的意味，将自然与神话传说捆绑，神圣化西安，说秦统一中国乃“奉天承运”。</p>
+<p>这一段对地貌的介绍可以为我在日后做地形、大气、水流的文案依据，要做建筑装饰尤其是继承中国传统文化的话，要对自然风景与建筑的结合有十分“花哨”的一套和而不同的理论指导。以当今来说搜索”中国房子山水“、”美国房子山水“、”瑞典房子山水“、”瑞士房子山水“，我们会发现几乎没有中国房子山水的图片搜索结果，也就是说我们所谓的山水园林式建筑传统在当今是不被世人所认可的，我们自己也抛弃了，反观这几个搜索中，瑞士房子山水是最有特点，或者说最能引起我们共鸣的是瑞士房子山水。进一步用sothebyrealty去考据，也能说明这一问题，我们中国要结合山水的建筑、住宅似乎只有在携程上找价位1000朝上的那种。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw8.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw9.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">瑞士与山水结合的房子，所谓很多富人要run国外，往往其具象化的图像对应的大抵就是这些。你问我是不是喜欢、痴迷这种居住环境，我说是，确实好看。不过还是那句老话，我觉得世上对美的追求、看法，不应该是唯独一种的，甚至和而不同这种底层的美学思维也不应该是唯一的评判框架。尤其是山水以小见大的园林建筑，我们在1500多年前就有了思想高度上的认识，我们这代人要有使命感去复兴、超越。</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn2.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这两个酒店的照片以正视图视角把大门或类似大门的长廊通道、水景与远山融合，意图大概是想表达宅院之大、伟岸，与瑞士房子山水的典型照片比较会发现瑞士的一般是群山环绕或者山头林立或者住宅、建筑星罗棋布</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn4.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn8.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn9.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">我们的园林或者说与山水配套的建筑摄影往往是苍白的、饱和度低的、带有“雾霾”、“薄暮”的，相对而言瑞士山水房子一般湖面呈现海蓝、天空明媚、草木鲜亮，建筑多彩。这从文化角度来说我们的山水园林本身带有隐逸避世，所以包括前面提到的瑞士往往是建筑群落，而我们是单体大宅院，也是处于精神追求上的不同。从起源来看，我们的这种美学是脱离世俗、大多数人的，经济性方面没有考虑能让大众一起享受，当然这不是说就不好，要通盘否定，而是说我们缺少市井气的房子山水，那么这又是一个研究领域方向。</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn18.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这个时常被用来吹捧新中式的农民房建设与山水是不相容的，苍白、饱和度低，不过拥挤倒是制造了一些生气</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn19.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这是比较典型的符合魏晋以小见大的隐士山水园林，理论上来说通过多进多跨嵌套可以形成瑞士房子山水群落式的效果</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn11.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn12.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn13.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn14.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn15.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn16.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn17.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn20.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn21.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这些项目有许多值得我们思考的，带有群聚生气的中国传统样式建筑与山水如何结合，带有生气和色彩的。佛塔可以类比写字楼、地标，建筑群落不应该像瑞士那样都是矮房子，缺少精神归属、聚集性地标，市政、商场应该有规模层级，这些公共建筑要像假山、小池、雕塑这些造景一样穿插在居住建筑群。可以说瑞士房子山水是基于秦汉时期皇家宫殿的模式，以山水为园林。我们换个思路可以发现是现代工程技术发展使得居住建筑群的环境可以比拟古代皇家宫殿的模式了，但瑞士房子山水的美是以图识图的，说不出我们古代那种结合“神话”、“教化”故事的。
+</div> 
+
+
+<p>结合神话故事可以作为日后造景的文案依据，比方说这段中巨灵赑屃，将山一分为二疏通河流。秦穆公在梦境中与天帝宴饮，获赐下土世祚（国运），尽有鹑首（十二星次之一，源于中国人民对远古的星辰自然崇拜。十二星次是中国古代天文学家对星辰的划分）分野（指将天上星空区域与地上的国、州互相对应）河山。</p>
+<p>第三段：古人对建筑装饰的⁮描写，如果不是夸张、吹嘘的话，那么是真的太会玩了。其中提到了不少宫殿是平整了山头建造于其上，宫门口有高大的阙台，藻井倒垂红花绿叶样的雕饰，玉做的瓦当流光溢彩还配有彩色浮雕，立柱也有用玉石做的也配有彩雕，“绣栭云楣”被翻译为藻绘如织云气我想翻译的人真的也是想象不能，要怎样实现这种装饰。另外还有背负钟架的虡，所幸在海昏侯博物馆中有虡的形象文物。显然这个一落实么，我们对当时的雕塑造型能力就有大概的判断，但这不妨碍文人、思想方面的高度对装饰设计的指导。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/mengju.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">鎏金神兽形青铜虡
+</div> 
+
+
+
+<p>以上这些都超出想象范围了，倒是不少ai作图里好像很是符合赋中描述的一些特征。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong2.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这两张ai绘画比目前任何写中国传统文化、建筑的书都要有力、形象的描述了什么是“表南山之颠以为阙，络樊川以为池。”“天人合一”。这是在维度上完全超出西方建筑装饰体量的。因此有效利用ai能够很好的服务我们做传统建筑到当代的升级、融合，使文化复兴。
+</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong4.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong5.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">这三张ai涉及到了第三段总结中提到的红花绿叶调式的可能样式。当然我完全不信古人能达到如此复杂的藻井倒挂彩色浮雕。对比下面两张图是巴洛克风格的天花板装饰，这些花叶浮雕ornament会是汉代宫殿达到的平行高度吗？还有新材料与”云“、”飘渺“精神意向的塑造，颠覆传统的立体有机造型。
+</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/bar1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/bar2.jpg" alt="8.31张衡西京赋 生吃"></p>
+<p>第四段没啥好说的讲了宫中侍卫、戒备。</p>
+<p>第五段：后宫的建筑装饰是怎么样的呢？译文中提到彩饰精致繁缛（繁缛同意复用）。藻绣环绕，华彩红绿。翡翠玫瑰，美玉缭束。悬黎之玉，夜光烁烁；隋侯之珠，相缀为烛。反正就是五光十色，各种视觉美的材质交织，但是我实在想象不出来，译文我看着都像古文，难以理解，后面还提到了台阶、阑干用黄金、玉石，珊瑚、玳瑁这些奇珍随处罗列。总之也像前文一样，这些要靠我们自己去想象一个“基调”、“氛围”太难了，光是材质堆积是完全没有”方向“的，需要让ai帮助我们去定这个”基调“。目前我对ai作图还没啥概念，不过可以发觉大部分ai的作图都是建筑外立面配合大的场景，却很少有建筑内饰、花园的。这里我好不容易找了几个，还有我自己生成的，包含了局部的装饰氛围。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int4.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">“藻绣环绕，华彩红绿。”是指植物、花卉与水体、建筑交织？比如植物爬藤环绕建筑，水中有荷叶、浮萍，伴随薄暮？
+</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/falang.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">“悬黎之玉，夜光烁烁；隋侯之珠，相缀为烛。”总之就是很多珍贵的玉石、珍珠，其中隋侯之珠是古代与和氏璧其名有传说加成的宝物。玉石么我们可以理解为各式各样的硬石，我们可以认为不锈钢、铬、led灯、玻璃、陶瓷，玻璃钢，陶瓷，珐琅（上图中的珐琅显然可以作为玉石的一种增添蓝、金两色）等等可以构成不同层次的色彩与光泽。比如上图这个ai构造，显然不是我们现实中的灯光效果可以构造的。当然这也不禁让我思考，过度的铺排这些宝物堆砌层次是不是一种奇观亡国呢？
+</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int6.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">最后一张可能比较符合我们想象中的中式皇家苑囿。那个氛围有了，不过建筑还不到位。
+</div> 
+
+
+<p>第六段：又提到了将建筑（阁馆）立于山冈上，高台建筑高的小鸟飞不到上面，扶着阑干有俯视下界的感觉。（应该是夸张了）建章宫的营建，屋脊上雕有振翅高翔的凤凰，宫内总之就是宫殿、高台、阁楼都十分高耸，借助了山崖、云雾、飞鸟、日月来形容描述。上文我们看过了ai营造的“天宫”所表达的高耸氛围。这里不赘述，重点看下凤鸟的雕塑。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f8.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">人类做的凤鸟雕塑，网上粗粗一扫没看到那种生动富有张力，美感、威仪、神力都表达不出来。
+</div> 
+
+
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f10.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">ai做的凤凰小红书上有个十分令人拍案叫绝的案例，还有一个是外网上dragon phoenix的回眸，灵气爆表。我实验了好几次midjourney初级录入关键词，没有一个理想的结果，似乎midjourney刻画集中于鸟类的翅膀，或者说在动物雕塑方面它的基本单元是类似鸟类羽毛或者鱼鳞一般的面片。
+</div> 
+
+
+<p>第七段：写了宫中宽阔可以空那驷马并驾齐驱，门户千万，辗转通连，像迷宫一般，西方园林中的概念应是绿塑雕（topiary，下图1为其基本元素）。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g3.jpg" alt="8.31张衡西京赋 生吃"></p>
+
+<div style="text-align:center">用cloister这个关键词运行midjourney似乎可以得到类似迷宫，门户千万的迷幻空间效果。
+</div> 
+
+
+<p>宫中的园林有著名的太液池和三神山，以古代的技术来说能在西安构造多大的人工湖呢？下面这个ai图不知道是不是有那么点意思，这个倒是一次性效果就很好，说明ai在造景上面有优势，造物方面像龙凤似乎我应该先去看几个教学。作者在这里又穿插了一些关于神仙、长生的故事来体现神圣性。</p>
+<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g4.jpg" alt="8.31张衡西京赋 生吃"></p>
+<p>第八、九、十段：“徒观其城郭之制……所好生毛羽，所恶成创痏”介绍城市布局，民居外貌、市井营商、社会大哥、都市传说、八卦。看到这里会觉得这篇文章和东京梦华录很像。</p>
+<p>第十一、十二段：秦汉篇提到的以山川、江湖为园林在这段得以验证，离宫别馆有145处，苑中植物树木、鸟兽无所不有，这显然不是人工可以打理的，最多就是让侍卫划个界限，对于我们造景没有什么帮助，但是可以打开格局，将城市园林化。</p>
+<p>第十三、十四、十五、十六、十七段：”天子乃驾雕轸,六骏驳。……取乐今日，遑恤我后。“介绍了天子驾车在广袤的皇家苑囿中游猎，细致描绘了马车的装饰，包括车盖，马冠，旌旗，装饰部分又是很多与“神授”相关的故事，古语说“上有所好”，我们当今所谓奢侈品会想到国外的汽车、名牌包、手表、音响其实都是一种上行下效，我们本土没有自己的奢侈品说到底就是“上无所好”，我们的上流社会没有自己的品味，只是一味跟风的暴发户罢了，当然还有一种可能是我们的上流社会没有那么奢靡从而形成专属服务他们的阶级，我比较相信是前者，毕竟上海一套房子就有几百万了，动不动10几套房子的人一拉一大把。</p>
+<p>第十八、十九、二十段：”既定且宁，焉知倾陁。……王闳争坐于侧,汉载安而不渝。“各种在打猎后发生在野外帐篷、别馆中的表演，我们可以把它和希腊的剧院比较。通过译文来看我完全无法体会这些娱乐表演，显然承载这些表演的建筑装饰现在失传了，而希腊的戏剧不断演化在当今继续传承，甚至在我们的大城市市中心建造剧院，登上舞台表演。以后用ai尝试想象一下文中所谓的这些表演活动。</p>
+<p>第二十一、最后一段：搞了半天话锋一转，说到当今天子节俭到了吝啬的地步，与汉室百年前的都市传说比起来似乎太猥琐了，叙述者想不通是为什么，是当今东汉的国立不如当年呢，还是不想这么做，从而引出下篇东京赋。</p>
+</body></html>
     
     </div>
     
@@ -556,7 +814,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/gallery/page/9/">9</a></li>
+        <li><a class="pagination-link" href="/categories/gallery/page/7/">7</a></li>
         
     </ul>
 </nav>

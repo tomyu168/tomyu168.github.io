@@ -126,62 +126,6 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/" itemprop="url">2022-10-12-中文版zbrush人物角色建模解析</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-10-12T01:47:11.000Z" itemprop="datePublished">10月 12 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 563 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>物体的面数、dynamesh、大小之间有关系，物体越大dynamesh所得面数越大，面数越大smooth效果越不明显。按shift点subtool的“眼睛”可以全选显示或隐藏subtool。按住alt可以移动pivot</p>
-<p>总的而言这个<a href="https://www.bilibili.com/video/BV1xb4y1k7Rc?p=18&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">系列教学</a>作者对人体比例大形抓的很好，但是缺乏细节导致了这种对大形的精确把握似乎没太大意义？还是说没有大形定位可能更加不堪入目、四不像了？教学包含骨骼大形、肌肉填充。</p>
-<p>作者先准备了一个zbrush自带的人体骷髅带肌肉的模型作为参考，在tool中导入，这样可以在同一个工程界面通过切换不同的tool，这点我觉得没有see through模式来的方便。</p>
-<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/zbrush%E8%87%AA%E5%B8%A6%E4%BA%BA%E4%BD%93%E8%A7%A3%E5%89%96%E6%A8%A1%E5%9E%8B%E4%BD%9C%E4%B8%BA%E5%8F%82%E8%80%83.jpg"></p>
-<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E4%BD%9C%E8%80%85%E7%94%A8%E4%B8%80%E4%B8%AA%E9%95%BF%E6%96%B9%E5%BD%A2%E4%BB%A3%E8%A1%A8%E8%BA%AF%E5%B9%B2%E5%B9%B6%E5%88%86%E5%A4%B4%E9%95%BF.jpg"></p>
-
-<div style="text-align:center">作者用一个长方形代表躯干并分头长</div> 
-
-
-<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B%E4%B8%AD%E6%9D%A5%E5%9B%9E%E5%88%87%E6%8D%A2%E4%BC%9A%E5%9C%A8%E5%90%8C%E4%B8%80%E4%BD%8D%E7%BD%AE%E4%B8%94%E7%9B%B8%E5%AF%B9%E5%A4%A7%E5%B0%8F%E4%B9%9F%E6%98%AF%E4%B8%80%E8%87%B4%E7%9A%84.jpg"></p>
-
-<div style="text-align:center">在一个工程中来回切换会在同一位置且相对大小也是一致的，旋转视角也会保持同步。</div> 
-
-
-<p>在initial中可以初始化基本几何体球体、立方体、网格、圆柱体，并为这些几何体分段。作者用7段圆柱体作为躯干长度的参考，并用polygroup对这7段分组，我不知道为什么control选中遮罩会精确对每段作用，正常情况下不会做到这种精确分割的。</p>
-<p><img src="/2022/10/12/2022-10-12-%E4%B8%AD%E6%96%87%E7%89%88zbrush%E4%BA%BA%E7%89%A9%E8%A7%92%E8%89%B2%E5%BB%BA%E6%A8%A1%E8%A7%A3%E6%9E%90/%E5%88%86%E6%88%907%E4%B8%AApolygroup%E7%9A%84%E8%BA%AF%E5%B9%B2%E5%8F%82%E8%80%83.jpg"></p>
-<p>作者在示范中对圆柱做变形，500面的情况下完成胸腔的大形，move笔刷大小是个位数。然后做了128像素的dynamesh，调整到10000面。之后做了平滑以及继续塑造大形，骨盆好像也是差不多操作，并没有镂空仅仅是做出形状。</p>
-</body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
             <a href="/2022/09/28/2022-9-28-subdivision-dynamesh-zremesher/" itemprop="url">2022 9 28 subdivision dynamesh zremesher</a>
         
     </h1>
@@ -542,13 +486,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/" itemprop="url">2022-8-25-动物解剖学与zbrush雕刻part2</a>
+            <a href="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" itemprop="url">3dsmax关于家具表面的雕花几个案例分析</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-09-12T05:53:02.000Z" itemprop="datePublished">9月 12 2022</time>
+                <time datetime="2022-08-09T04:53:42.000Z" itemprop="datePublished">8月 9 2022</time>
             
         </span>
         
@@ -561,83 +505,18 @@
         <span class="column is-narrow">
             
             
-            16 分钟 读完 (约 2366 字)
+            3 分钟 读完 (约 439 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><a href="https://www.bilibili.com/video/BV1Xy4y1B7yJ?p=11&amp;spm_id_from=pageDriver&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">Sculpting Anatomy: from Animal to Creature</a>系列教学p11继续前进。
+        <html><head></head><body><p>实际上现有商用模型上家具的雕花并没有我想象中的那么触不可及，其涡卷如图4也没那么圆润，像图2、3这种很僵硬的雕刻算是主流。关于复杂雕刻影响布线问题实际上是用了分离面成单个物体再在其上单独建模，甚至某个我们看起来是整体的雕花也可以拆分成几部分通过位移形变调整到一个位置上看起来是和谐整体。</p>
+<p><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/dd1.jpg" alt="2022-3dsmax关于家具表面的雕花几个案例分析"><br><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/dd2.jpg" alt="3dsmax关于家具表面的雕花几个案例分析"><br><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/dd3.jpg" alt="3dsmax关于家具表面的雕花几个案例分析"><br><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/dd4.jpg" alt="3dsmax关于家具表面的雕花几个案例分析"></p>
+<p>雕花最高境界莫非本帖首图这种凹凸变化令人应接不暇的，像这样一个我们完全没有拼接缝隙的雕花是否也能拆解？从下图中rubens这个沙发的腿部雕花来看，我推测是zbrush中用笔刷引导线合成在用move做的调整之后导入回3dsmax的，毕竟通过拆解模型可以看出这些雕花并不在腿本身的面上，图中的几个雕花都是独立通过位置关系拼接起来的。</p>
+<p><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/dd5.jpg" alt="3dsmax关于家具表面的雕花几个案例分析"><br><img src="/2022/08/09/2022-3dsmax%E5%85%B3%E4%BA%8E%E5%AE%B6%E5%85%B7%E8%A1%A8%E9%9D%A2%E7%9A%84%E9%9B%95%E8%8A%B1%E5%87%A0%E4%B8%AA%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/preview1.jpg" alt="3dsmax关于家具表面的雕花几个案例分析"></p>
 
-<p>头骨雕塑基本大形：</p>
-<p>创建一个参考集合面板<br>设置zbrush<br>开始雕塑</p>
-<p>作者准备雕塑一个猞猁（猞猁的骨骼图在网上有个公益组织专门弄了一个网站详解，我不知道其他动物有没有类似的那么全面的素材），因此寻找猫科动物各个视图的骨骼作为参考。猞猁的毛发很多，其实拍照片无法辨析骨骼标志以及肌肉形态，所以作者选用无毛的sphynx cat作为实拍形态参考。猫科动物都可以用sphynx cat，犬科动物则是Peruvian dog。作者还加入了许多动物肌肉解剖学的参考图，比如狮子的（这部分来源于atlas of animal anatomy）。</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">atlas animal anatomy狮子参考图，淘宝上花了一块钱买的扫描版。</div> 
-
-
-<p>8.29更新</p>
-<p>轮到我设置参考图了，前两天用的是xnview，这个窗口利用率还不够，参考图需要分窗口。相对而言pureref可以无限在一个窗口中堆积参考图，空格切换最大化，右键拖动窗口，数位板1键配合笔拖动可以缩小放大当前参考图，这就很强。</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/pureref%E5%8F%82%E8%80%83%E5%9B%BE.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">pureref堆积参考图，窗口置顶ctrl shift a可取消，可以直接复制网上的图片在窗口中黏贴使用。</div> 
-
-
-<p>参考图我去猞猁公益网站截图了，1块钱购买了atlas of animal anatomy的扫描版。</p>
-<p>关于zbrush设置作者提到了背景色与轮廓，我觉得这个意义不是很大。然后是一键调用常用笔刷菜单这个倒是不错，今天抽空研究一下zbrush界面布局吧，我看很多教学里面布局上十分花哨，反正就是怎么方便习惯怎么来。</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/zbrush%E7%9B%AE%E5%89%8D%E6%88%91%E7%9A%84%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">zbrush目前我的界面布局</div> 
-
-
-<p>终于轮到雕刻了：</p>
-<p>第一步：先从颅骨（cranial）开始，从一个cube开始move拉大形，这一步把各个方向参考图的长短轴拉到位置，模型的面很少，拓扑方面会很诡异，不必介意。有时候move拉动的区域不够完整可以用smooth推平，大的轮廓尽量move拉出样子来，比如眼窟窿，颧骨的这一圈外凸。</p>
-<p>第二步：dynamesh 32像素重构拓扑，之后都可以通过control拉方框做dynamesh快捷处理重构拓扑，这个很重要，在模型初始阶段move拉面造型时局部的拓扑会十分凌乱，这时需要dynamesh重构。32像素dynamesh之后，颅骨和下颌骨模型恰巧都在10000点左右，不知道是巧合还是这个像素下dynamesh对饮这个面数。接下来要把轮廓上明显的骨骼标志（bony landmark）都刻画出来，骨头面不能太薄，以免造成破面烂面，对较薄的骨骼面用inflat可以加厚，然后dynamesh重构拓扑即可修复破面。骨骼上的棱角、凹槽、凸出究竟怎样表达呢？不能用move，move是用来确定轮廓的，而这些凹凸则是用claybuild、claytube叠加厚度或者“挖除”（消减面的厚度）。对于十分棱角分明的转折（也就是很小的长条的面转折，这时用claybuild塑造效果不明显表达不好）需要用dem standard刻画。</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E6%B2%A1%E8%B7%9F%E7%9D%80%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA%E5%AE%8C%E5%85%A8%E8%B7%9F%E7%9D%80%E5%8F%82%E8%80%83%E5%9B%BE%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A8%E5%92%8C%E4%B8%8B%E9%A2%8C%E9%AA%A8.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">我没跟着教学演示完全跟着参考图自己做的头骨和下颌骨，可以看出眼眶前侧有明显的骨骼轮廓，而眼眶后侧则不明显，根据参考图来看眼眶上半部分的骨头边缘是“上翘”，内部凹陷的，可以对边缘加厚或者内侧“挖除”。下颌骨部分可以观察到一个明显的类似三角形的凹陷，这部分也是claybuild“挖除”。</div> 
-
-
-<p>在理解了这些原理后，我比较满意的完成了颅骨和下颌骨的塑形。下颌骨部分我甚至都没细看作者的示范，现在看来用transpose做大型的雕塑也是需要掌握的特点之一，局部用mask遮罩transpose拉伸可以做出比较规则的多边形几何体，而move拉伸造型相对而言很不规则，尤其不可能对一个侧面做拉伸，毕竟选取的是圆形区域而目标则是矩形面所以会影响另一个面。</p>
-<p>第三步：ctrl d增加细分层级，对骨骼纹理做刻画。<br>用claytube在第二细分层级上做纹理刻画，在alpha编辑器里增加rf值5-7，intensity调整6-9，这时会发现笔刷可以构造出十分柔和的渐进纹理，平铺密集排刷不会觉得凌乱，而是很匀称。</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E4%B8%80%E5%9C%88%E6%8E%92%E5%88%B7claytube%E5%8D%81%E5%88%86%E5%8C%80%E7%A7%B0.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">一圈排刷claytube十分匀称。</div> 
-
-
-<p>细微局部的形状、体积厚度要用move topology小intensity做微调，这时用claybuild的话会造成体积厚度连续性不协调一致。<br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%89%8D.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">movetopo调整前</div> 
-
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/movetopo%E8%B0%83%E6%95%B4%E5%90%8E.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">movetopo调整后，我们可以观察到上端颧骨那个边缘的轮廓更立体有质感、纤细了</div> 
-
-
-<p>这一阶段的细化对观察能力，以及个人理解要求比较高，不对着教学演示的话恐怕我自己很难找到要去做的部分，第一遍看下来本来以为是要做骨骼表面纹理，但现在又觉得不完全是，结尾处好像用dam standard来明确骨骼分界？</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%BB%86%E5%8C%96%E9%9B%95%E5%88%BB%E7%9A%84%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">细化雕刻的依据是什么呢，在secondary也就是细分层级后的雕刻，似乎参考了atlas of animal anatomy</div> 
-
-
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A81.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"><br><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E7%8B%AE%E5%AD%90%E7%9A%84%E5%A4%B4%E9%AA%A82.jpg" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">atlas of animal anatomy狮子的头骨上可以看到教程演示中，几个较为明显的dem standard断痕。</div> 
-
-
-<p>2022.9.6我完成了初步的头骨模型制作如下，实际增加细分1级后面数不到10万，用教学中的笔刷设置并不能做出好的效果，需要增加2级细分才行。</p>
-<p>我暂时没有像教学中那样使用zremesher重构拓扑并投射细节（projecting）。我的细分由于dynamesh丢失了，这里面就涉及几个问题了，如果后期对物体做大形的调整导致布线问题，使用dynamesh会丢失细分，那是不是意味着无法调节大形了呢？我记得教学中多次切换到低层级细分重新调整大形，好像没有用到dynamesh，这是因为微调的关系吗？有必要实验证实一下。</p>
-<p>在preference edit 下Inactive Subtool Dimming设置为1可以使得未激活的subtool亮度与激活的subtool一致。这解决了初步预览模型，亮度不一致问题。</p>
-<p>see through模式下对照参考调整大形是个不错的工作方式。应该在起初就使用，我不明白为什么作者是放到最后阶段使用。似乎他不受面布线问题，或许到时候只要zremesher，这样布线就正常了，高模投射细节即可？</p>
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A81.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">claytube在高细分层级上对一个面做强调，以短轴方向密集排线刷笔刷而非长轴方向拉长线，后者无法制造丰富纹理，看上去像是欲盖弥彰的多层胶带。比如头部后侧，顶骨和颞骨之间的凹槽外延展面的构造，在2级细分下细化雕刻效果十分理想。</div> 
-
-
-<p><img src="/2022/09/12/2022-8-25-%E5%8A%A8%E7%89%A9%E8%A7%A3%E5%89%96%E5%AD%A6%E4%B8%8Ezbrush%E9%9B%95%E5%88%BBpart2/%E6%88%91%E5%81%9A%E7%9A%84%E5%A4%B4%E9%AA%A82.png" alt="2022-8-25-动物解剖学与zbrush雕刻part2"></p>
-
-<div style="text-align:center">阶段性而言还是蛮满意的，可以说成功吃下了第二课，这个月需要完成2个其他动物的头骨来验证独立制作能力。不过这样的话似乎第三课就有些遥遥无期了。</div> 
+<div style="text-align:center">rubens沙发渲染效果图，从效果上来说rubens沙发完全满足了我对家具雕花工艺的要，向着这个目标前进。</div> 
 </body></html>
     
     </div>
@@ -652,13 +531,13 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/" itemprop="url">8.31张衡西京赋 生吃</a>
+            <a href="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/" itemprop="url">3d荣耀战魂次世代场景全流程系列教学总结未完</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             
-                <time datetime="2022-08-31T04:55:57.000Z" itemprop="datePublished">8月 31 2022</time>
+                <time datetime="2022-07-13T01:47:02.000Z" itemprop="datePublished">7月 13 2022</time>
             
         </span>
         
@@ -671,121 +550,99 @@
         <span class="column is-narrow">
             
             
-            32 分钟 读完 (约 4803 字)
+            6 分钟 读完 (约 873 字)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><p>读汉赋该记录些什么东西，这种古文与译文核对着看应该达到什么效率。已经完全记不得上一次做文言文阅读理解是什么时候了，就像记不起来最后一次和同学踢足球，打篮球是什么时候，甚至和谁玩都记不起来了。这是当前其他一些技术学习也遇到的困惑，无法衡量每天的进度是否合适，是否摸鱼过度，还是需要休息了，且行且看吧。</p>
-<p>在秦汉篇提到要读一下古籍体会下作者团队考据复原的过程，之前word上下载了一份带注释的西京赋一共是18页，不带注释原文则只有4页不到。然而不管带不带注释我都看不懂，后来在知乎提示下得知了《文选》这个东西，据说《昭明文选》集合了南北朝之前古代文学的精华，俗话说“文选烂，秀才半”，可见古人对《文选》在古代文化中的评价之高。</p>
-<p>6册文选3000多页，选录的这些诗赋骈文，都有注释与译文。我打算看一下张衡的二京赋、左思的三都赋，据说这些都是汉赋的精品。以西京赋为例，带注释译文一共有60页，不知道需要多少天看完。这5篇赋应该都包含了对当时都城环境、建筑装饰、日常生活的描写，可以对照着看看。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sandufu.jpg" alt="8.31张衡西京赋 生吃"></p>
-<p>今天一上午等于把之前一晚看的西京赋几段又过了一遍。</p>
-<p>第一段：一方水土养一方人，以小见大的说明了帝王应该在哪里选址建业。</p>
-<p>第二段：介绍了古都西安所在地的自然环境，包括山水、地势险阻、气候、土地性质、特产玉石，并伴有“君权神授”的意味，将自然与神话传说捆绑，神圣化西安，说秦统一中国乃“奉天承运”。</p>
-<p>这一段对地貌的介绍可以为我在日后做地形、大气、水流的文案依据，要做建筑装饰尤其是继承中国传统文化的话，要对自然风景与建筑的结合有十分“花哨”的一套和而不同的理论指导。以当今来说搜索”中国房子山水“、”美国房子山水“、”瑞典房子山水“、”瑞士房子山水“，我们会发现几乎没有中国房子山水的图片搜索结果，也就是说我们所谓的山水园林式建筑传统在当今是不被世人所认可的，我们自己也抛弃了，反观这几个搜索中，瑞士房子山水是最有特点，或者说最能引起我们共鸣的是瑞士房子山水。进一步用sothebyrealty去考据，也能说明这一问题，我们中国要结合山水的建筑、住宅似乎只有在携程上找价位1000朝上的那种。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw8.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/sw9.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">瑞士与山水结合的房子，所谓很多富人要run国外，往往其具象化的图像对应的大抵就是这些。你问我是不是喜欢、痴迷这种居住环境，我说是，确实好看。不过还是那句老话，我觉得世上对美的追求、看法，不应该是唯独一种的，甚至和而不同这种底层的美学思维也不应该是唯一的评判框架。尤其是山水以小见大的园林建筑，我们在1500多年前就有了思想高度上的认识，我们这代人要有使命感去复兴、超越。</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn2.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">这两个酒店的照片以正视图视角把大门或类似大门的长廊通道、水景与远山融合，意图大概是想表达宅院之大、伟岸，与瑞士房子山水的典型照片比较会发现瑞士的一般是群山环绕或者山头林立或者住宅、建筑星罗棋布</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn4.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn8.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn9.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">我们的园林或者说与山水配套的建筑摄影往往是苍白的、饱和度低的、带有“雾霾”、“薄暮”的，相对而言瑞士山水房子一般湖面呈现海蓝、天空明媚、草木鲜亮，建筑多彩。这从文化角度来说我们的山水园林本身带有隐逸避世，所以包括前面提到的瑞士往往是建筑群落，而我们是单体大宅院，也是处于精神追求上的不同。从起源来看，我们的这种美学是脱离世俗、大多数人的，经济性方面没有考虑能让大众一起享受，当然这不是说就不好，要通盘否定，而是说我们缺少市井气的房子山水，那么这又是一个研究领域方向。</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn18.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">这个时常被用来吹捧新中式的农民房建设与山水是不相容的，苍白、饱和度低，不过拥挤倒是制造了一些生气</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn19.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">这是比较典型的符合魏晋以小见大的隐士山水园林，理论上来说通过多进多跨嵌套可以形成瑞士房子山水群落式的效果</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn11.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn12.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn13.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn14.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn15.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn16.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn17.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn20.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/cn21.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">这些项目有许多值得我们思考的，带有群聚生气的中国传统样式建筑与山水如何结合，带有生气和色彩的。佛塔可以类比写字楼、地标，建筑群落不应该像瑞士那样都是矮房子，缺少精神归属、聚集性地标，市政、商场应该有规模层级，这些公共建筑要像假山、小池、雕塑这些造景一样穿插在居住建筑群。可以说瑞士房子山水是基于秦汉时期皇家宫殿的模式，以山水为园林。我们换个思路可以发现是现代工程技术发展使得居住建筑群的环境可以比拟古代皇家宫殿的模式了，但瑞士房子山水的美是以图识图的，说不出我们古代那种结合“神话”、“教化”故事的。
-</div> 
-
-
-<p>结合神话故事可以作为日后造景的文案依据，比方说这段中巨灵赑屃，将山一分为二疏通河流。秦穆公在梦境中与天帝宴饮，获赐下土世祚（国运），尽有鹑首（十二星次之一，源于中国人民对远古的星辰自然崇拜。十二星次是中国古代天文学家对星辰的划分）分野（指将天上星空区域与地上的国、州互相对应）河山。</p>
-<p>第三段：古人对建筑装饰的⁮描写，如果不是夸张、吹嘘的话，那么是真的太会玩了。其中提到了不少宫殿是平整了山头建造于其上，宫门口有高大的阙台，藻井倒垂红花绿叶样的雕饰，玉做的瓦当流光溢彩还配有彩色浮雕，立柱也有用玉石做的也配有彩雕，“绣栭云楣”被翻译为藻绘如织云气我想翻译的人真的也是想象不能，要怎样实现这种装饰。另外还有背负钟架的虡，所幸在海昏侯博物馆中有虡的形象文物。显然这个一落实么，我们对当时的雕塑造型能力就有大概的判断，但这不妨碍文人、思想方面的高度对装饰设计的指导。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/mengju.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">鎏金神兽形青铜虡
-</div> 
+        <html><head></head><body><p>2年专业水平2天完成如图模型</p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/m1.jpg" alt="2022-3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p>场景制作流程：</p>
+<p>第一阶段</p>
+<p>分析原画：一个是建筑isolated，一个是大的环境草稿图</p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8E%9F%E7%94%BB.jpg" alt="3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8E%9F%E7%94%BB%E5%8F%82%E8%80%832.jpg" alt="3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p>环境草稿效果图，一个微微俯视的场景，可以标出需要什么建筑</p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/%E5%9C%BA%E6%99%AF%E7%9A%84%E5%8E%9F%E7%94%BB%E5%8F%82%E8%80%833.jpg" alt="3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p>估计需要多少工时制作，看看哪些模型构件是公用的</p>
+<p>找参考：原画上不清晰的部分，一些需要强调的细节去找参考，比如图中的山墙和瓦当，公开课中是到类似的游戏场景中去找参考</p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/%E6%89%BE%E5%8F%82%E8%80%83%E6%AF%94%E5%A6%82%E5%9B%BE%E4%B8%AD%E7%9A%84%E5%B1%B1%E5%A2%99%E9%9B%95%E8%8A%B1%E4%BB%A5%E5%8F%8A%E7%93%A6%E5%BD%93.jpg" alt="3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p>zb高模质量 新旧破损程度 贴图颜色、风格、新旧、花纹</p>
+<p>这就是我之前推测的游戏中的建筑建模设计属于以图识图。</p>
+<p>中模场景轮不到新人搭</p>
+<p>快速搭建比例模型，设定好分派给团队，按照能力让各个人员去细化</p>
+<p>比例模型快速确定场景中每个建筑的位置，放一个人身模型来确定尺寸比例</p>
+<p><img src="/2022/07/13/2022-3d%E8%8D%A3%E8%80%80%E6%88%98%E9%AD%82%E6%AC%A1%E4%B8%96%E4%BB%A3%E5%9C%BA%E6%99%AF%E5%85%A8%E6%B5%81%E7%A8%8B%E7%B3%BB%E5%88%97%E6%95%99%E5%AD%A6%E6%80%BB%E7%BB%93%E6%9C%AA%E5%AE%8C/%E6%AF%94%E4%BE%8B%E6%A8%A1%E5%9E%8B1.jpg" alt="3d荣耀战魂次世代场景全流程系列教学总结未完"></p>
+<p>ps：二方四方转角没有法线的情况下，贴图有间断，比如碎石高台，公开课中说用模型堆砌遮住这个部分看起来自然。</p>
+<p>第二阶段：</p>
+<p>确定公用模型 比如这个场景中大门左右的门板，檐口每根托梁，斗拱都只要做一份，之后可以用参数化建模的思维去摆放定位。实际上就是对构件有很明确的认识。</p>
+<p>确定贴图数量（目前对贴图的概念还是一片空白，希望跟随这个项目教学能够深入了解模型与贴图的流程）</p>
+<p>这两个如果是在公司团队做的话会放在第一阶段确认，个人制作和公司制作差别较大</p>
+<p>中模做好了，如果是游戏场景则会立刻放到引擎中开始设置关卡、互动的设计与模型细化同步进行，游戏引擎方面会根据场景提一些要求做模型调整，个人做没有必要先去摆放，因为还要展开uv，等中模完成后确认无误就可以开始加保护线，这个是为光滑保护硬边缘用。</p>
+<p>第三阶段：</p>
+<p>zb：确定哪些进zb，哪些要雕多少，有些可以用贴图</p>
+<p>确定</p>
+<p>建一个细化古建筑模型专业游戏建模从业人员需要两天，假设这算是一种功能建筑，那么建设一个风格系列下全属性建筑如果有20个则需要2个月。</p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
 
 
 
-<p>以上这些都超出想象范围了，倒是不少ai作图里好像很是符合赋中描述的一些特征。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong2.jpg" alt="8.31张衡西京赋 生吃"></p>
 
-<div style="text-align:center">这两张ai绘画比目前任何写中国传统文化、建筑的书都要有力、形象的描述了什么是“表南山之颠以为阙，络樊川以为池。”“天人合一”。这是在维度上完全超出西方建筑装饰体量的。因此有效利用ai能够很好的服务我们做传统建筑到当代的升级、融合，使文化复兴。
-</div> 
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/07/13/2022-3d%E8%A1%8C%E4%B8%9A%E5%9B%BD%E5%86%85%E7%9A%84%E5%87%A0%E4%B8%AA%E6%9C%AF%E8%AF%AD/" itemprop="url">3d行业国内的几个术语</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-07-13T01:38:23.000Z" itemprop="datePublished">7月 13 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分钟 读完 (约 839 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.保护线：就是光滑细分前用于保持应边缘的临近loop edge</p>
+<a href="https://www.bilibili.com/video/BV1Di4y197BM?spm_id_from=333.999.0.0" title="" target="">模型布线教程第四弹【保护线锁边到底是什么】</a>
 
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong4.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/gong5.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">这三张ai涉及到了第三段总结中提到的红花绿叶调式的可能样式。当然我完全不信古人能达到如此复杂的藻井倒挂彩色浮雕。对比下面两张图是巴洛克风格的天花板装饰，这些花叶浮雕ornament会是汉代宫殿达到的平行高度吗？还有新材料与”云“、”飘渺“精神意向的塑造，颠覆传统的立体有机造型。
-</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/bar1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/bar2.jpg" alt="8.31张衡西京赋 生吃"></p>
-<p>第四段没啥好说的讲了宫中侍卫、戒备。</p>
-<p>第五段：后宫的建筑装饰是怎么样的呢？译文中提到彩饰精致繁缛（繁缛同意复用）。藻绣环绕，华彩红绿。翡翠玫瑰，美玉缭束。悬黎之玉，夜光烁烁；隋侯之珠，相缀为烛。反正就是五光十色，各种视觉美的材质交织，但是我实在想象不出来，译文我看着都像古文，难以理解，后面还提到了台阶、阑干用黄金、玉石，珊瑚、玳瑁这些奇珍随处罗列。总之也像前文一样，这些要靠我们自己去想象一个“基调”、“氛围”太难了，光是材质堆积是完全没有”方向“的，需要让ai帮助我们去定这个”基调“。目前我对ai作图还没啥概念，不过可以发觉大部分ai的作图都是建筑外立面配合大的场景，却很少有建筑内饰、花园的。这里我好不容易找了几个，还有我自己生成的，包含了局部的装饰氛围。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int4.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">“藻绣环绕，华彩红绿。”是指植物、花卉与水体、建筑交织？比如植物爬藤环绕建筑，水中有荷叶、浮萍，伴随薄暮？
-</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/falang.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">“悬黎之玉，夜光烁烁；隋侯之珠，相缀为烛。”总之就是很多珍贵的玉石、珍珠，其中隋侯之珠是古代与和氏璧其名有传说加成的宝物。玉石么我们可以理解为各式各样的硬石，我们可以认为不锈钢、铬、led灯、玻璃、陶瓷，玻璃钢，陶瓷，珐琅（上图中的珐琅显然可以作为玉石的一种增添蓝、金两色）等等可以构成不同层次的色彩与光泽。比如上图这个ai构造，显然不是我们现实中的灯光效果可以构造的。当然这也不禁让我思考，过度的铺排这些宝物堆砌层次是不是一种奇观亡国呢？
-</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/int6.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">最后一张可能比较符合我们想象中的中式皇家苑囿。那个氛围有了，不过建筑还不到位。
-</div> 
-
-
-<p>第六段：又提到了将建筑（阁馆）立于山冈上，高台建筑高的小鸟飞不到上面，扶着阑干有俯视下界的感觉。（应该是夸张了）建章宫的营建，屋脊上雕有振翅高翔的凤凰，宫内总之就是宫殿、高台、阁楼都十分高耸，借助了山崖、云雾、飞鸟、日月来形容描述。上文我们看过了ai营造的“天宫”所表达的高耸氛围。这里不赘述，重点看下凤鸟的雕塑。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f3.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f7.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f8.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">人类做的凤鸟雕塑，网上粗粗一扫没看到那种生动富有张力，美感、威仪、神力都表达不出来。
-</div> 
-
-
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f5.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f6.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/f10.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">ai做的凤凰小红书上有个十分令人拍案叫绝的案例，还有一个是外网上dragon phoenix的回眸，灵气爆表。我实验了好几次midjourney初级录入关键词，没有一个理想的结果，似乎midjourney刻画集中于鸟类的翅膀，或者说在动物雕塑方面它的基本单元是类似鸟类羽毛或者鱼鳞一般的面片。
-</div> 
-
-
-<p>第七段：写了宫中宽阔可以空那驷马并驾齐驱，门户千万，辗转通连，像迷宫一般，西方园林中的概念应是绿塑雕（topiary，下图1为其基本元素）。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g1.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g2.jpg" alt="8.31张衡西京赋 生吃"><br><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g3.jpg" alt="8.31张衡西京赋 生吃"></p>
-
-<div style="text-align:center">用cloister这个关键词运行midjourney似乎可以得到类似迷宫，门户千万的迷幻空间效果。
-</div> 
-
-
-<p>宫中的园林有著名的太液池和三神山，以古代的技术来说能在西安构造多大的人工湖呢？下面这个ai图不知道是不是有那么点意思，这个倒是一次性效果就很好，说明ai在造景上面有优势，造物方面像龙凤似乎我应该先去看几个教学。作者在这里又穿插了一些关于神仙、长生的故事来体现神圣性。</p>
-<p><img src="/2022/08/31/2022-8-31%E5%BC%A0%E8%A1%A1%E8%A5%BF%E4%BA%AC%E8%B5%8B-%E7%94%9F%E5%90%83/g4.jpg" alt="8.31张衡西京赋 生吃"></p>
-<p>第八、九、十段：“徒观其城郭之制……所好生毛羽，所恶成创痏”介绍城市布局，民居外貌、市井营商、社会大哥、都市传说、八卦。看到这里会觉得这篇文章和东京梦华录很像。</p>
-<p>第十一、十二段：秦汉篇提到的以山川、江湖为园林在这段得以验证，离宫别馆有145处，苑中植物树木、鸟兽无所不有，这显然不是人工可以打理的，最多就是让侍卫划个界限，对于我们造景没有什么帮助，但是可以打开格局，将城市园林化。</p>
-<p>第十三、十四、十五、十六、十七段：”天子乃驾雕轸,六骏驳。……取乐今日，遑恤我后。“介绍了天子驾车在广袤的皇家苑囿中游猎，细致描绘了马车的装饰，包括车盖，马冠，旌旗，装饰部分又是很多与“神授”相关的故事，古语说“上有所好”，我们当今所谓奢侈品会想到国外的汽车、名牌包、手表、音响其实都是一种上行下效，我们本土没有自己的奢侈品说到底就是“上无所好”，我们的上流社会没有自己的品味，只是一味跟风的暴发户罢了，当然还有一种可能是我们的上流社会没有那么奢靡从而形成专属服务他们的阶级，我比较相信是前者，毕竟上海一套房子就有几百万了，动不动10几套房子的人一拉一大把。</p>
-<p>第十八、十九、二十段：”既定且宁，焉知倾陁。……王闳争坐于侧,汉载安而不渝。“各种在打猎后发生在野外帐篷、别馆中的表演，我们可以把它和希腊的剧院比较。通过译文来看我完全无法体会这些娱乐表演，显然承载这些表演的建筑装饰现在失传了，而希腊的戏剧不断演化在当今继续传承，甚至在我们的大城市市中心建造剧院，登上舞台表演。以后用ai尝试想象一下文中所谓的这些表演活动。</p>
-<p>第二十一、最后一段：搞了半天话锋一转，说到当今天子节俭到了吝啬的地步，与汉室百年前的都市传说比起来似乎太猥琐了，叙述者想不通是为什么，是当今东汉的国立不如当年呢，还是不想这么做，从而引出下篇东京赋。</p>
+<p>2.低中高模：3dsmax里面做的算是中模，大型。然后一些需要刻画的构件放入zbrush里面做雕刻变成高模，为了控制面数利用之前zremesherguide划分结构重构面数成低模，不然面数太多场景会十分卡，貌似是这么理解？</p>
+<p><img src="/2022/07/13/2022-3d%E8%A1%8C%E4%B8%9A%E5%9B%BD%E5%86%85%E7%9A%84%E5%87%A0%E4%B8%AA%E6%9C%AF%E8%AF%AD/%E8%BF%99%E4%B8%AA%E5%B0%B1%E6%98%AF%E5%9C%A8%E6%AF%94%E4%BE%8B%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%88%BB%E7%94%BB%E5%87%BA%E7%9A%84%E4%B8%AD%E6%A8%A1.jpg" alt="2022-3d行业国内的几个术语"></p>
+<p>3.<a href="#">Post not found: 高模低模法线贴图烘焙相关原理与实操 烘焙</a>：因为游戏行业做的模型在一个大的场景中运行，模型数多，面数、贴图信息多会导致硬件无法带动，因此需要把高面数模型（高模）上的贴图、光影信息投射到低模上，这个工作就是烘培。使用烘焙器把高模的细节烘在低模的UV上，所以高模不用做UV，低模需要做UV。</p>
+<p>做烘焙的软件：8猴（Marmoset Toolbag）、substance painter</p>
+<p>4.法线贴图：一张蓝紫色的图片，我们常用的法线贴图是切线空间法线贴图。</p>
+<p>5.UV Mapping：它的本质是创建uv坐标。uv坐标告诉软件如何分割材质并将它贴在物体表面。严格来说物体本身有一套uv坐标，比如在3dsmax中用unwrap uvw，修改uv坐标。</p>
+<p>cluster/shell：物体其中一片展开的UV map，尽量少切分cluster。</p>
+<p>Seam：接缝将物体的UV分割成多份cluster。</p>
+<p>Overlapping：cluster互相重叠，一般不建议这样，除非是那种看不到的面，不影响观感。重叠的uv可以做对称图案的效果。</p>
+<p>Texture space：UV编辑器打开以后那个方格子。</p>
+<p>Packing：整理UV cluster把他们排列在Texture space中。</p>
+<p>UV checker mode中棋盘格子大小代表材质的分辨率、精细度，越大越模糊，越小越清晰，尽量使整个物体各个UV cluster的格子大小一致。当然也可以强调部分。</p>
+<p>6.凹凸贴图（bump map）、法线贴图（normal map）、置换贴图（displacement map）：</p>
+<p>在<a href="#">Post not found: 高模低模法线贴图烘焙相关原理与实操</a>这一篇中认识到低模通过高模投射细节到法线贴图，使得低模能具有一定的立体细节。</p>
+<p>这3种贴图都是用来表现物体立体细节的，其中凹凸和法线贴图并不会改变物体本身的形体，只是在视觉上感觉到立体，法线贴图更为逼真。而置换贴图在法线贴图之上，它甚至改变了低模的形体，具体目前还不清楚，似乎在游戏方面一般用法线贴图，而在影视动画上用置换贴图，具体还有待学习研究。</p>
+<p>4.ao贴图</p>
+<p>5.二方/四方连续贴图</p>
 </body></html>
     
     </div>
@@ -814,7 +671,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/gallery/page/7/">7</a></li>
+        <li><a class="pagination-link" href="/categories/gallery/page/5/">5</a></li>
         
     </ul>
 </nav>

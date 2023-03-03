@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023.3.3 关于我把自己即将到期的网站部署到本地而引发的感悟 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="转眼3年过去了，依稀记得那是淘宝销售开始走下坡路了，一直有个想做网站展示画和软装搭配的想法，想搞houzz那样的东西。于是选择了magento2这个网店插件，一贯讲究“样子”的我找了好几个主题，在ps上摆了摆页面效果，可能那时钱多就毫不犹豫的买了一个3年期的服务器，腾讯名曰1折好像是1000多块来着？还是3000？我也忘记了，反正这个后台想看交易记录是麻烦的很，续费的通道那是有10几个，邮箱，短信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023.3.3 关于我把自己即将到期的网站部署到本地而引发的感悟">
+<meta property="og:url" content="http://zhudian.xyz/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="转眼3年过去了，依稀记得那是淘宝销售开始走下坡路了，一直有个想做网站展示画和软装搭配的想法，想搞houzz那样的东西。于是选择了magento2这个网店插件，一贯讲究“样子”的我找了好几个主题，在ps上摆了摆页面效果，可能那时钱多就毫不犹豫的买了一个3年期的服务器，腾讯名曰1折好像是1000多块来着？还是3000？我也忘记了，反正这个后台想看交易记录是麻烦的很，续费的通道那是有10几个，邮箱，短信">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-89a77a388feacff606d7d2047892ee69_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-d6a3ad21a09e081b6dd52933266c3b98_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-125b00d9a6a678937d706c029a1327e4_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-a47c59b6810544035cb2f79e4261b01c_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-34ec5f4f1699ddefec70797cc08862c0_1440w.jpeg.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-a751025659d6c07edbfb7993a9997fd9_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023.3.3/v2-13a5b234c0749238322d9c0138137483_1440w.png">
+<meta property="article:published_time" content="2023-03-03T16:07:58.000Z">
+<meta property="article:modified_time" content="2023-03-03T16:10:49.376Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="精神思考">
+<meta property="article:tag" content="新鲜事">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023.3.3/v2-89a77a388feacff606d7d2047892ee69_1440w.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023.3.3 关于我把自己即将到期的网站部署到本地而引发的感悟
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-03-03T16:07:58.000Z" itemprop="datePublished">3月 4 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 3060 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>转眼3年过去了，依稀记得那是淘宝销售开始走下坡路了，一直有个想做网站展示画和软装搭配的想法，想搞houzz那样的东西。于是选择了magento2这个网店插件，一贯讲究“样子”的我找了好几个主题，在ps上摆了摆页面效果，可能那时钱多就毫不犹豫的买了一个3年期的服务器，腾讯名曰1折好像是1000多块来着？还是3000？我也忘记了，反正这个后台想看交易记录是麻烦的很，续费的通道那是有10几个，邮箱，短信，qq微信随时提醒你。我看了下接下来续费是400一个月。一贯的舍不得丢弃以前的东西，编了很多理由，总之就是要把它转移到本地。</p>
+<p><img src="/2023.3.3/v2-89a77a388feacff606d7d2047892ee69_1440w.png"></p>
+<span id="more"></span>
+
+<p>作为实用主义者我肯定不会去搞明白这里面的原理，最简短的安装教程也有40分钟，里面碰到的bug各个都可以牵出一大堆知识来，走一步看一步吧，先把整个项目下载下来，直接拖文件夹复制，不知道要到什么时候于是查了下tar的命令打包以后拖。一个小插曲是当时downkyi在下载让我误以为flashfxp的下载速度只有几十kb，索性后来关闭了能到600kb左右，大概2个多小时完成了5gb的项目下载，当然在这之前利用我的hexo笔记排雷，删除了将近5gb的日志文件。同时看了下如何在mysql导出sql文件以便后期导入生成数据库。</p>
+<p>mysqldump -u root -p magento &gt; /root/202332.sql</p>
+<p>这些都完事了，开始查如何在本地windows搭建magento，这里主要靠这个教学<a target="_blank" rel="noopener" href="https://www.thecoachsmb.com/100-working-step-by-step-guide-to-install-magento-2-4-4-on-windows/">一步一步教你windows搭建magento站点</a></p>
+<p>xammp、elasticsearch、composer。这个elasticsearch似乎是没有必要的，也折腾了很久它的jdk版本适配问题，然后是composer上面下载magento这步是跟着其他教学盲人摸象，实际上我已经有了项目文件包没必要从composer上面下载，这里平白无故浪费了很多时间，教学里面是直接外部下载的看到这里我才知道完全没必要。然后就是下面这个命令。</p>
+<p>php bin/magento setup:install –base-url=”<a target="_blank" rel="noopener" href="http://tomyu168.magento.com/">http://tomyu168.magento.com/</a>“ –db-host=”localhost” –db-name=”magento” –db-user=”root” –db-password=”xxx” –admin-firstname=”yu” –admin-lastname=”yang” <a href="mailto:--admin-email=%221689225503@qq.com">–admin-email=”1689225503@qq.com</a>“ –admin-user=”tomyu167” –admin-password=”xxx” –language=”en_US” –currency=”USD” –timezone=”America/Chicago” –use-rewrites=”1” –backend-frontname=”admin”</p>
+<p>这里似乎没办法修改root的用户名，我本来在centos上用的tomyu，也懒得创建了就修改了root的密码，phpmyadmin里面会有个密码转换机制。phpmyadmin创建magento数据库，运行sql，composer十分顺利，但是项目启动该出问题了arealist.php什么之类的，查了一大圈，网上说是php版本问题，这么些破事从中午一直搞到下午。</p>
+<p><a target="_blank" rel="noopener" href="https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements.html">System requirements</a>后来发现了这个版本适配。重新下载之后还是出了些问题。主要是路径方面，进入数据库调整下面这个字段</p>
+<p>SELECT * FROM core_config_data WHERE path=’web/unsecure/base_url’</p>
+<p><img src="/2023.3.3/v2-d6a3ad21a09e081b6dd52933266c3b98_1440w.png"></p>
+<p>validator.php下面有一行关于路径的通配符要修改，\lib\internal\Magento\Framework\View\Element\Template\File 这个路径。网上有好几个版本路径不知道是不是不同版本的magento</p>
+<p><img src="/2023.3.3/v2-125b00d9a6a678937d706c029a1327e4_1440w.png"></p>
+<p>貌似默认的web80端口不能用得在httpd把listen改成8080</p>
+<p>magento后台stores栏目进入configuration要改secure base url，这个涉及首页和logo的路径，不过不需要8080端口，也是蛮诡异的。</p>
+<p>添加图片注释，不超过 140 字（可选）</p>
+<p>别的也就没什么要点了，就这么个破事儿，我搞了一整天，时隔一年也不知道多久上传了几个图，忘记了url要定义（导致url冲突），数量不能为0（没有在分类和搜索中显示），原先能一整天搞得事情完全没有什么印象了。</p>
+<p>比较神奇的是本地的magento后台登陆似乎没有会话时长限制，不像远程的基本上5分钟没操作就掉线需要重新登陆。</p>
+<p>这一天下来蛮感慨的，我曾经给图片做标注，chatgpt的公司也是请了很多人做标注，我做这个网站想搞电子商城，而电子商城在20年前开始兴起，如今有形形色色的插件、模板可以快速启动。也就是说其实我做这些是借用着快速成熟的生产工具，好比开卡车运输货物的司机，我们实际上都对手中的生产资料并不熟悉，都是实用主义者而已。而真正在世界上掀起风浪的那些人往往是生产这些平台的人，但是一直以来我没有意识到的是我经常嘲讽说我可以做出淘宝，houzz这样的平台，但却并不明白这些平台的实际掌控人的核心技术并不在于构建平台而是倒腾资金，组织利用钱。换句话来说：即使不是搞淘宝、京东、酷家乐，比如搞市政工程、房地产、ktv，刘强东、贾跃亭等人恐怕也能做，他们有能力去弄到钱，然后用钱组织合适的人去干这些事。而我的视线聚焦在怎么去实现平台，怎么去解决生产，推广。显然一个人要搞定这些不可能，在钱不充裕的情况下就不能把目光放在需要许多未知技术的项目上，这也是为什么大部分小买卖是开个便利店、卖早餐、门窗、或者某个家具品牌的代理，要往上一级比如地区性代理、加工厂、旅馆等等这些要解决的技术环节多了，就需要更多的钱来以备不时之需，不然资金链断了就全完了。我潜意识里很清楚这些，所以做装饰画的时候并没有再往上一级走，因为那样我就要面对弄钱的问题了，而我应该是觉得没必要为了装饰画买卖这个事业集中精力去弄钱，另一方面弄钱并不是我热衷的事情，我想大概贾跃亭这样的人对弄钱十分乐在其中且颇有成就感吧？</p>
+<p>同时这也更加说明了如果哪一天我会为了事业去弄钱，那说明我是真心喜爱这个事情了，所以哪怕并不喜欢弄钱也会硬着头皮去想办法弄，哪怕后面有更大的风险也想去趟，我会不会促成一个越来越大的雪球呢？</p>
+<p>另一方面，我发现自己在做搭建网站部署这种事儿上似乎十分不知疲倦，能够很长时间耗在上面与一个又一个bug缠斗，这并不是好事，我并没有深入去研究计算机程序，目前阶段也不应该去做这些，我只是这方面的实用主义者而已，就像卡车司机，没必要去搞明白卡车怎么设计。但是最近学习blender建模很打不起劲道，以前3dsmax也是，总是很难坚持练习，总想找插件或者什么投机取巧的办法，诚然建模应该也不是我的核心任务，但却是必须要掌握的技术，才能去实现对ai设计的实现以及改造。而这10年来，建模技术确实如同搭建网站一般有了天翻地覆的变化，这也是我能有胆量去尝试挑战做原创建筑装饰的筹码，我的想法就是要用卡车司机开卡车那样去利用建模的工具最小代价的驾驭它。比如在blender水桶机器人的教学里，大量的操作还是在布线、拓扑上挣扎、折磨，而在半球机器人里通过hardops、boxcutter等插件完全将操作集中在了数学几何层面上的布尔操作，这在思维概念和操作上是完全不同的两回事了，就像用zbrush做硬表面通过clip、slice不断的划分区块打磨抛光，重构拓扑形成一个个构件抑或是如同捏橡皮泥、画素描一般，一点点把结构特征塑造出来，在zbrush画人像上的体验证明我对这种模式是乐此不疲的，而对于3dsmax拉点着重搞拓扑那一套是3分钟热度都坚持不了，太反人类了。（前者我搞了一天，后者半个小时，前者大部分时间不是在造型上，而是怎么搞拓扑）</p>
+<p><img src="/2023.3.3/v2-a47c59b6810544035cb2f79e4261b01c_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023.3.3/v2-34ec5f4f1699ddefec70797cc08862c0_1440w.jpeg.jpg"></p>
+<p>​</p>
+<p>对比部署网站而言面对一个个bug，每跑通一个会有一种如释重负的感觉，小有成就。这是不知疲倦的原因，每天耗在上面怕是吃不消会厌恶的，而建模是很长一段时间里我要一直面对的，因此必须得调整好心态，能够保持乐此不疲的去练习，而不是那种如临大敌，裹足不前的抗拒心理。部署网站可以说是傻瓜式的，一个个bug都可以通过搜索找到对应的方案，但是建模没有明确的说法，即使有方向、思路，需要自己花很多时间去实践感悟，我踩过多少坑真是一言难尽了。不过到今天，至少知道应该往哪种手法去发展，选择哪些技能树了。不至于看教学都不知道辨别其技术分支，不知道要不要继续看下去，毕竟现在大把的教学都是10小时的串烧。而我今后要做的东西是这些技术中的部分整合，所以必须要有识别，怎样为自己所用，哪些技术能做什么效率如何得清楚。(第一个机器人是最近几天在折腾的，比较传统的拉点、挤出、最上面那个铁桶旁边4个不规则镂空搞了很久的拓扑布线，折腾半天附近的法线问题多多，导致着色器有问题，还动用了法线数据传输这么不可思议的技术结果还是有明显的问题，第二个机器人几乎没有任何涉及拓扑的问题，其倒角过程也十分顺畅，没有要考虑细分的烦恼，不过目前没有看到多少不规则曲面的造型，这可能是这种技术的局限性？要不先看看它的下篇另一个复杂的机器人上面会不会涉及到相关的问题)</p>
+<p><img src="/2023.3.3/v2-a751025659d6c07edbfb7993a9997fd9_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023.3.3/v2-13a5b234c0749238322d9c0138137483_1440w.png"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E6%A8%A1/">#建模</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%B2%BE%E7%A5%9E%E6%80%9D%E8%80%83/">#精神思考</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%96%B0%E9%B2%9C%E4%BA%8B/">#新鲜事</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/02/16/2023-2-16-zbrush%E7%A1%AC%E8%A1%A8%E9%9D%A23%E5%A4%A9%E5%B0%8F%E7%BB%93/">2023.2.16 zbrush硬表面3天小结</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

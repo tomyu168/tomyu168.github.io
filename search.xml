@@ -5315,7 +5315,7 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p>这里似乎没办法修改root的用户名，我本来在centos上用的tomyu，也懒得创建了就修改了root的密码，phpmyadmin里面会有个密码转换机制。phpmyadmin创建magento数据库，运行sql，composer十分顺利，但是项目启动该出问题了arealist.php什么之类的，查了一大圈，网上说是php版本问题，这么些破事从中午一直搞到下午。</p>
 <p><a href="https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements.html">System requirements</a>后来发现了这个版本适配。重新下载之后还是出了些问题。主要是路径方面，进入数据库调整下面这个字段</p>
 <p>SELECT * FROM core_config_data WHERE path=’web/unsecure/base_url’</p>
-<p><img src="/v2-d6a3ad21a09e081b6dd52933266c3b98_1440w.png"></p>
+<p><img src="/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/2023.3.3/v2-d6a3ad21a09e081b6dd52933266c3b98_1440w.png"></p>
 <p>validator.php下面有一行关于路径的通配符要修改，\lib\internal\Magento\Framework\View\Element\Template\File 这个路径。网上有好几个版本路径不知道是不是不同版本的magento</p>
 <p><img src="/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/2023.3.3/v2-125b00d9a6a678937d706c029a1327e4_1440w.png"></p>
 <p>貌似默认的web80端口不能用得在httpd把listen改成8080</p>

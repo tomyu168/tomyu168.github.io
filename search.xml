@@ -5605,4 +5605,143 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>建模</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-4-8-zbrush人体雕刻必备知识系列课程</title>
+    <url>/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/</url>
+    <content><![CDATA[<html><head></head><body><p>zbrush人体雕刻必备知识系列课程有30几节，每节2小时左右原本打算1天看1集，现在说不好，可能先看了跟着它练习能更好的提升，不然练习量实际并不会有进步，因为观察方法没有提升。 第1节课：</p>
+<p>前半段评讲作业，提到了“概括”,包含了这么几个点</p>
+<p>1.用直线分割形体的曲线，转折部分做一下倒角。用直线把物体的结构、转折表现出来。</p>
+<p>2.用trimdynamic、hpolish把物体的面明确出来。</p>
+<p>这种做法反映了自身对形体的理解，没有任何摸棱两可浑水摸鱼。我之前做模型从未达到这种能力，对这种初期造型有畏惧感，感觉做不出样子来，一方面我的想法是不用这种思维，如果浑水摸鱼也能做到形体上的相似，”以假乱真“岂不是很省事呢？事实上来说，目前我觉得很多时间浪费在中后期调整形体，可能是前期造型上的摸棱两可导致的，也可能是这种浑水摸鱼的思路导致观察能力不足。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-0441c3232355a07cf3232ffa1e00fd81_1440w.png"></p>
+<p>​</p>
+<span id="more"></span>
+
+
+
+
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-bb13925ddbdd1dd0c62360e10a660ad0_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-b194197fc909915766f944943f3a1b7d_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-8659ccf4b1da42af5e4fe2c63c788ce1_1440w.png"></p>
+<p>​</p>
+<p>第1节课第2部分讲骨骼和肌肉</p>
+<p>所谓bony landmark中文大概是骨点的意思，骨点是无论如何运动还是静止，我们都可以观察的到的骨头特征。比如锁骨、肋骨、膝关节、盆骨。骨点部分几乎没有肌肉和脂肪覆盖，同时它又处在形体的转折部位，所以对造型起着至关重要的作用。骨点对于绘画雕塑都是关键点，抓准它的位置可以确定大的形体。</p>
+<p>骨头可以确认动物的整体比例，关节的转动，以及几个大的体块。</p>
+<p>骨骼内部并不重要比如胫骨腓骨，我们要注意的是它们的四个骨点凸出的位置即可。不影响外观的部分不用研究。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-e303bd6122e94247b758b222f7ecafc3_1440w.png"></p>
+<p>​</p>
+<p>长骨、短骨、扁骨、不规则骨。</p>
+<p>骨头的两种连接方式，主要研究间接连接。胫骨的旋转中心在股骨末端。</p>
+<p>肌肉的种类分三种，做雕塑只研究骨骼肌。肌肉的附着一般在两根骨头之间跨越关节。</p>
+<p>肌肉的命名按照形状、位置、起始点、作用、部位纤维方向、作用和形态结合。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-a357679c03d119c3a66aa842a4d36637_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-d35b4d21a6c874728568cac87d99fa6c_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-c9a158a17eb82b9ab6049c212b4002eb_1440w.png"></p>
+<p>​</p>
+<p>第5节课：</p>
+<p>以一个z球开始做怪人头部模型，以极低的面数做概括，z球起形的好处是可以明确各个结构自动分组polygroup，这意味着再开始时就十分明确大型。我如果用这种办法做的话会担心结构位置问题偏离过大move调整导致polygroup错乱，比如说像耳朵的位置我在制作时在后期做了很大的位置改动，不过从模型干净角度来说，应该要养成开始时确认清楚结构位置再去雕刻的习惯，目前来说这个惯性依旧没改过来。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-fabb2b9df960a9b78988956d3d2816b7_1440w.png"></p>
+<p>​</p>
+<p>注意塑造大型时需要不断的切换视图观察，另外不能盯住一个部位做注意整体相对大小和位置，所以还需要我们不断切换不同位置结构做调整。能在低面数情况下完成的绝不拖到下一个细分层级、添加面数去做。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-21b1168844b18fdab585ce8738b3fce1_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-fdb6901d06177466ec670fe39305eaa0_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-7e2046e20b17e56bac8d9e5fb0ee9028_1440w.png"></p>
+<p>​</p>
+<p>我做模型大型时有惯性，习惯于到至少下面这个面数去做，对像示范中的那种几何形态不适应、不确定、害怕尝试。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-eb4c80ed1d151a5d140f8c22da06c9e7_1440w.png"></p>
+<p>​</p>
+<p>示范中为了保持几何特征在细分时取消smt，在第二细分级别1600面下做下一步。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-b1fb024f4d700be6dfdf34702b31162c_1440w.png"></p>
+<p>​</p>
+<p>这时用smooth配合standard笔刷做形体，我推测这就是所谓的直线模拟结构后补充倒角的过程。在第二层级细分过程中也会用move调整大型。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-7c7d1e885b4992ee88ffbf8f494c72d7_1440w.png"></p>
+<p>​</p>
+<p>第3层级6600面塑造的样子，这时用的claytube笔刷，从这个阶段起开始逐渐的将结构“倒角化”圆润。目前我还没有能力确认什么样的面数能做什么样的效果，因此总是先将面数提升到3万面左右开始起型，当然这并不是说完全不对，很多示范中也是这么做的，配合zremesher重构拓扑是完全可以解决类似耳朵位置错了，拉拽导致的“脏”。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-95942a1341313494ed1522d1e0ff2ccc_1440w.png"></p>
+<p>​</p>
+<p>进入第5细分级别10万面，用claybuildup“概括”结构特征，比如颧骨、鼻子形状，鼻唇沟，细分模式下可以切换回低细分模式调整大型，不会影响高细分级别做的细节。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-a7c38942c3a017db25fd0d62e25a896b_1440w.png"></p>
+<p>​</p>
+<p>示范zremesher重构拓扑后再次用standard笔刷勾勒结构，并用hpolish打磨强调体块。这个过程也是“概括”，这个示范到这一步结束没有后续。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-16dab1440877b1f60b3521ca98f7f78b_1440w.png"></p>
+<p>​</p>
+<p>我在没有复盘课程示范时根据“概括”思维做的。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-b83d8fe4ba59ce2c6fe056affab7ae37_1440w.png"></p>
+<p>​</p>
+<p>第6课大关系结构概括讲解上：</p>
+<p>上来提到了像我这样的很多人在做模型时容易按照自己以往的经验起手，无法适应一套规范的方法去做。接下来以一个作业为例。示范认为做人体结构需要有1、2、3级“关系”。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-a860ce4a39665c29b42913c36d546573_1440w.png"></p>
+<p>​</p>
+<p>第一耳朵的形状就错了，不应该是平的，示范通过遮罩操控感旋转调整，这是他所谓的第一级关系。他强调进步是要突破自己，大多数人做模型是在迎合自己过往的审美，按照原来的习惯，在学习过程中一定要突破这种惯性。打破习惯是一个大的进步，突破不一定做的好看，需要一定时间适应，思维改变还需要手上跟进。基础造型并不是艺术创作，基础造型是有规范、规律框定的，所谓练习是要适应这种规范。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-03750aa1e468718d6435ab367a86e81f_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-c200388293b70eb007e7f9929b4dcc39_1440w.png"></p>
+<p>​</p>
+<p>造型要用直线方方正正的去“概括”曲线，而不是“描摹”。以往我起型也是曲线“描摹”，没有意识到“概括”。曲线描摹的问题在于坑坑洼洼，其中不少与物体实际的线条不符合，曲线是在直线概括后加入“倒角”拟合。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-43f4288615d63fd2d215d926c819fb58_1440w.png"></p>
+<p>​</p>
+<p>修改前（上），修改后（下）</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-6ef3e7ed59ac591d72d302b302735de4_1440w.png"></p>
+<p>​</p>
+<p>找参考图的过程其实是做模型思维的体现过程之一，比如要做耳朵只有下面这个角度，那么就会疑惑其厚薄、深度等问题，继而需要其他角度参考图去确认这些问题。放到做动物模型上，比如之前做土狼，我找的参考图实际上大多没有给到我任何帮助，我无法通过观察参考图去引导自己修改模型。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-373b023ccf828111cd5affc66c13936a_1440w.png"></p>
+<p>​</p>
+<p>示范中用直线确定耳朵的大型，通过遮罩涂抹操纵杆旋转出来大型。建立5级细分，在第三级上做，视频上看不出面数。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-98a4114f82d2dac6a37df5b329d0d4a8_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-5a27852b54d2a44be15f7131ce09133e_1440w.png"></p>
+<p>​</p>
+<p>示范说他的示范并不是平时做的过程而是体现心里思考的过程。这是第一级别的概括。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-4f7e882f422e207357f8b025b3b102c6_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-ddf136c04492589b2d09c463ad8954c2_1440w.png"></p>
+<p>​</p>
+<p>第二级别概括，一级是一个面，二级是多个面。做不好是观察不到位，理解不到位，不懂如何用线和面去概括造型。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-1fff2c2c6a5f2850e22fda6e999b7b60_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-58c97dd9a47bebf354ac6b4f63faa99f_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-32951c49e1c961f84cbf2ff28008ef4b_1440w.png"></p>
+<p>​</p>
+<p>第三级别概括，这时候就能看出耳朵的样子了，我没法按照这么做实际上是对于1和2级别的概括说服不了自己这么做是在塑造耳朵。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-7a118223898b9947d20da27c8d691eac_1440w.png"></p>
+<p>​</p>
+<p>基本完成可以看出来整体上很立体很有“雕塑”的感觉，示范作者又开始“概括”——用trimdynamic“定义”面。不要做小的细节</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-a5f70ee30f67796d350229d0a2c83fcc_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-e96611b5b189b9dfddf4eff4ee4653f1_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-c64a1f6499310ae80b16decd71d7fb51_1440w.png"></p>
+<p>​</p>
+<p>第7课做鼻子和嘴的造型，先是遮罩拉、旋转、然后用claybuildup确认几个大的面转折，用trimdynamic“概括”。第一级别概括</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-5b0ac2242e7e04fbe107a25772ce78ba_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-89e2064d1c26d78a945bd47cb3e4f5a0_1440w.png"></p>
+<p>​</p>
+<p>第8课类似做第4课做怪人，做了一个带有人形特征的恐龙半身像，似乎是同一个老师的演示，从z球开始做起，慢慢增加细分，做到每个细分级别都没法再深入刻画了由于subd是4倍面数，于是此刻打破subd模式zremesher再进入dynamesh模式找合适的面数开始做。这个示范重点说明大型是靠低细分拉的，然后慢慢用雕刻笔刷补充直线拟合曲线的“倒角”，再做到一定程度后再用trimdynamic“概括”强化对面的“理解认识”。下面是局部对面上轻微转折面构造实现到“概括”的过程。概括的面用的trimdynamic笔刷大小与该面的大小一致。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-77b885ffb62bf862cf6c47a5f1cdf49e_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-9af11e954b0030bf36ca6324f96789a5_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-6a4c2c1b11053173f541a78f5c983b26_1440w.png"></p>
+<p>​</p>
+<p>作者画线标识出他对参考物体的“面”的“认识理解”。</p>
+<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-1d99095776a95ce4bd2918850b6e2688_1440w.png"></p>
+<p>​</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>zbrush学习</tag>
+        <tag>人物雕塑</tag>
+        <tag>解剖学</tag>
+      </tags>
+  </entry>
 </search>

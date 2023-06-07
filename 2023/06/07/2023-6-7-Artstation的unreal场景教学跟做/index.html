@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-6-7-Artstation的unreal场景教学跟做 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="这个系列有70几集，原计划是10天可以啃完，现在看来貌似一个月都要打个问号。撇开开场白、简历介绍、项目介绍、参考收集，开始的maya blockout场景雏形我用blender做还是很快的，然后是下载asset摆放、landmass，这一块也不难，要点是在landscape mode下，blueprint创建layer会产生一个曲线，按上面的vertex alt键可以拖出新的vertex，配合其f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-6-7-Artstation的unreal场景教学跟做">
+<meta property="og:url" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="这个系列有70几集，原计划是10天可以啃完，现在看来貌似一个月都要打个问号。撇开开场白、简历介绍、项目介绍、参考收集，开始的maya blockout场景雏形我用blender做还是很快的，然后是下载asset摆放、landmass，这一块也不难，要点是在landscape mode下，blueprint创建layer会产生一个曲线，按上面的vertex alt键可以拖出新的vertex，配合其f">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-fcd9ba2d499a452aa4695cb628d0f8e8_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-21dfad4cff01139b6de4e865352a5cb5_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-23eeb0e5b760d9abff8a5095a7ce160d_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-967fb81679fb112f78df2cd905f59e52_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-c0c14decaf9afcb53e8eaf6e60a55de3_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-caaf9fe18d53cb2ed180c0b51a4940de_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-46d98dd80de7db5a8d6e3c9ec00f6afc_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-1011a2c00d9897cd5009871fbad91b35_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-9836623726a199e1b45f87258063d35e_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-13ebeac3f72c2cbcf71c4b398bf4562c_1440w.png">
+<meta property="article:published_time" content="2023-06-07T11:07:55.000Z">
+<meta property="article:modified_time" content="2023-06-07T11:10:41.499Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="substancedesigner">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-fcd9ba2d499a452aa4695cb628d0f8e8_1440w.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-6-7-Artstation的unreal场景教学跟做
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-06-07T11:07:55.000Z" itemprop="datePublished">6月 7 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1251 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这个系列有70几集，原计划是10天可以啃完，现在看来貌似一个月都要打个问号。撇开开场白、简历介绍、项目介绍、参考收集，开始的maya blockout场景雏形我用blender做还是很快的，然后是下载asset摆放、landmass，这一块也不难，要点是在landscape mode下，blueprint创建layer会产生一个曲线，按上面的vertex alt键可以拖出新的vertex，配合其falloff angle,curl strength,displacement height，可以对山丘的坡度、散步小山丘、细节凹凸做调整，这些都是随机性的。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-fcd9ba2d499a452aa4695cb628d0f8e8_1440w.png"></p>
+<p>​​<span id="more"></span></p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-21dfad4cff01139b6de4e865352a5cb5_1440w.png"></p>
+<p>​</p>
+<p>再创建一个layer在其上可以smooth、sculpt、flatten，之前用brushify smart system，应该也可以用类似的方法去对一个个alpha生成的landscape做微调。下图中的水面是australia pack中的一个材质实例，做了简单的参数修改，赋予一个unreal的plane，利用地形的凹凸即可表现出河流、湖面的效果。为了营造水岸的特点使用flatten将地面与水面的距离拉的非常近即会产生那种涟漪、波动的感觉。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-23eeb0e5b760d9abff8a5095a7ce160d_1440w.png"></p>
+<p>​</p>
+<p>这个教学与Joe Garth 系列不同，它认为地面需要手动去做出来，利用quixel 里自带材质的displacement map在substance designer中对一个high res plane做normal的调整，然后导出scene即可将材质生成对应其质感的地面。比如这种树叶、与碎石的材质，通过这个技术可以将其投射到一个平面mesh上产生真实凹凸。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-967fb81679fb112f78df2cd905f59e52_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-c0c14decaf9afcb53e8eaf6e60a55de3_1440w.png"></p>
+<p>​</p>
+<p>4k的材质对应的就是高清显示4x4米的一个方块区域，但这样解决不了平铺放远了看重复的问题，这是在brushify系统中貌似无解的，而在substance designer中利用不同的遮罩等其他技术（我暂时还不清楚）可以做出不同的plane mesh以及对应的normal map，我不知道这样做的话在平铺（tiling）时会不会接缝有穿帮的问题，如果没有的话即可解决这个重复平铺痕迹的问题。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-caaf9fe18d53cb2ed180c0b51a4940de_1440w.png"></p>
+<p>​</p>
+<p>然后是材质混合，blend节点可以通过opacity来控制上下两个输入的混合比例，白色为全都是输入1黑色为全都是输入2，这里使用了height blend，直接用cloud作为opacity也可以控制混合，但是貌似黑的部分起不来所以基本都是输出输入1，而height blend根据简易教学说其height offset控制输入1和输入2的混合比例，我的测试中目前没有验证这一点，找不到规律，似乎仅仅是无序的、强对比度的，0时为全黑、1时为全白，抛开这一点通过这个height blend连接output输出一个tgar纹理作为mask。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-46d98dd80de7db5a8d6e3c9ec00f6afc_1440w.png"></p>
+<p>​</p>
+<p>对megascan材质使用的material function做修改，复制它的default material作为master material将两个material function利用blendmaterialattributes通过那个mask作为alpha融合。将这个修改的master material，把其中一个用来融合的megascan的材质拿过来将修改好的master material添加到parent material使其成为material instance。此时我们将两个材质对应的color、normal、ao、roughness连接到位。就可以得到混合材质的plane mesh，理论上来说可以不断地混合如果有需要的话，限制似乎是layer mask最多提供4个通道因此只能做四重混合。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-1011a2c00d9897cd5009871fbad91b35_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-9836623726a199e1b45f87258063d35e_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-13ebeac3f72c2cbcf71c4b398bf4562c_1440w.png"></p>
+<p>​</p>
+<p>这一部分涉及到了很多新的概念、新的软件，所以消化起来特别吃力，仅仅是依葫芦画瓢我觉得意义不大，必然是要和之前的brushify做对比参照的，后期还要看看gaea和world creator，是不是有什么值得吸收的地方，综合这些东西去对地形做布置。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/substancedesigner/">#substancedesigner</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/05/24/2023-5-23-%E8%A3%85%E4%BF%AE-%E7%8A%B6%E6%80%81%E8%B0%83%E6%95%B4-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9/">2023-5-23-装修-状态调整-blender几何节点</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -6051,4 +6051,43 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>几何节点</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-6-7-Artstation的unreal场景教学跟做</title>
+    <url>/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/</url>
+    <content><![CDATA[<html><head></head><body><p>这个系列有70几集，原计划是10天可以啃完，现在看来貌似一个月都要打个问号。撇开开场白、简历介绍、项目介绍、参考收集，开始的maya blockout场景雏形我用blender做还是很快的，然后是下载asset摆放、landmass，这一块也不难，要点是在landscape mode下，blueprint创建layer会产生一个曲线，按上面的vertex alt键可以拖出新的vertex，配合其falloff angle,curl strength,displacement height，可以对山丘的坡度、散步小山丘、细节凹凸做调整，这些都是随机性的。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-fcd9ba2d499a452aa4695cb628d0f8e8_1440w.png"></p>
+<p>​​<span id="more"></span></p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-21dfad4cff01139b6de4e865352a5cb5_1440w.png"></p>
+<p>​</p>
+<p>再创建一个layer在其上可以smooth、sculpt、flatten，之前用brushify smart system，应该也可以用类似的方法去对一个个alpha生成的landscape做微调。下图中的水面是australia pack中的一个材质实例，做了简单的参数修改，赋予一个unreal的plane，利用地形的凹凸即可表现出河流、湖面的效果。为了营造水岸的特点使用flatten将地面与水面的距离拉的非常近即会产生那种涟漪、波动的感觉。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-23eeb0e5b760d9abff8a5095a7ce160d_1440w.png"></p>
+<p>​</p>
+<p>这个教学与Joe Garth 系列不同，它认为地面需要手动去做出来，利用quixel 里自带材质的displacement map在substance designer中对一个high res plane做normal的调整，然后导出scene即可将材质生成对应其质感的地面。比如这种树叶、与碎石的材质，通过这个技术可以将其投射到一个平面mesh上产生真实凹凸。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-967fb81679fb112f78df2cd905f59e52_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-c0c14decaf9afcb53e8eaf6e60a55de3_1440w.png"></p>
+<p>​</p>
+<p>4k的材质对应的就是高清显示4x4米的一个方块区域，但这样解决不了平铺放远了看重复的问题，这是在brushify系统中貌似无解的，而在substance designer中利用不同的遮罩等其他技术（我暂时还不清楚）可以做出不同的plane mesh以及对应的normal map，我不知道这样做的话在平铺（tiling）时会不会接缝有穿帮的问题，如果没有的话即可解决这个重复平铺痕迹的问题。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-caaf9fe18d53cb2ed180c0b51a4940de_1440w.png"></p>
+<p>​</p>
+<p>然后是材质混合，blend节点可以通过opacity来控制上下两个输入的混合比例，白色为全都是输入1黑色为全都是输入2，这里使用了height blend，直接用cloud作为opacity也可以控制混合，但是貌似黑的部分起不来所以基本都是输出输入1，而height blend根据简易教学说其height offset控制输入1和输入2的混合比例，我的测试中目前没有验证这一点，找不到规律，似乎仅仅是无序的、强对比度的，0时为全黑、1时为全白，抛开这一点通过这个height blend连接output输出一个tgar纹理作为mask。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-46d98dd80de7db5a8d6e3c9ec00f6afc_1440w.png"></p>
+<p>​</p>
+<p>对megascan材质使用的material function做修改，复制它的default material作为master material将两个material function利用blendmaterialattributes通过那个mask作为alpha融合。将这个修改的master material，把其中一个用来融合的megascan的材质拿过来将修改好的master material添加到parent material使其成为material instance。此时我们将两个材质对应的color、normal、ao、roughness连接到位。就可以得到混合材质的plane mesh，理论上来说可以不断地混合如果有需要的话，限制似乎是layer mask最多提供4个通道因此只能做四重混合。</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-1011a2c00d9897cd5009871fbad91b35_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-9836623726a199e1b45f87258063d35e_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-13ebeac3f72c2cbcf71c4b398bf4562c_1440w.png"></p>
+<p>​</p>
+<p>这一部分涉及到了很多新的概念、新的软件，所以消化起来特别吃力，仅仅是依葫芦画瓢我觉得意义不大，必然是要和之前的brushify做对比参照的，后期还要看看gaea和world creator，是不是有什么值得吸收的地方，综合这些东西去对地形做布置。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>unrealengine</tag>
+        <tag>substancedesigner</tag>
+      </tags>
+  </entry>
 </search>

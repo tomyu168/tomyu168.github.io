@@ -126,6 +126,58 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/" itemprop="url">2023-6-22-unreal-engine官方出品的黑客帝国场景学习分析</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-06-21T16:53:24.000Z" itemprop="datePublished">6月 22 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 小时 读完 (约 8582 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>之前的教程都是很小范围的景观或者小镇局部，这对展示建筑场景而言是不足够的，做出来的话顶多选几个摄像机位置截图一下，这样的话有没有ue的实时渲染没啥区别，在max、blender中做也差不多，顶多就是制作过程中ue可以通过实时渲染观察效果，但搞了半天最后就是为几张静态的图。</p>
+<p>第一篇：基于官方字幕《[技术演讲]黑客帝国觉醒：创造世界》的总结</p>
+<p>matrix这个项目基于一个4x4平方公里的城市局部，其制作目的是要创建一个介于影视与游戏之间的实时大型场景,使用程序化工具和工作流让小团队能做大场景.</p>
+<p>用ue的MassAI生成行人和车流，MetaSounds生成环境声音。</p>
+<p>3d assets（资产/模型）</p>
+<p>matrix这个项目用了1000多个组件，每个由50000-500000个polygons组成。所有的资产都是nanites。尽可能使用megascan的资产。</p>
+<p>textures（纹理）:</p>
+<p>纹理方面都使用4k分辨率，如果需要更高的像素，则把uv分割为udims，然后增加更多的4k纹理。</p>
+<p>所有的纹理都被转换为虚拟纹理（virtual textures）,关于这个概念b站上有很多教程有介绍，目前基础还差很多类似这样的概念、技术分支需要逐个突破。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f4c8af9da3c9fc78ceb5f53ce90f2374_1440w.png"></p>
+<p>​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/10/19/2022-10-19-ue5-Large-Game-Environment-Creation%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/" itemprop="url">2022-10-19-ue5 Large Game Environment Creation第一部分</a>
         
     </h1>
@@ -376,51 +428,23 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+    
         
-            <a href="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/" itemprop="url">一个沙漠建筑场景的整体制作思路</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-03-23T07:22:21.000Z" itemprop="datePublished">3月 23 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1187 字)
-        </span>
-        
+<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+    <div class="pagination-previous is-invisible is-hidden-mobile">
+        <a href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/page/0/">上一页</a>
     </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=i4JMV2LU4Jw">https://www.youtube.com/watch?v=i4JMV2LU4Jw</a></p>
-<p>灵感来自电影沙丘《Dune》，先设想一个布局和运镜（layout&amp;camera）。</p>
-<p><img src="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/layout.jpg" alt="2022-一个沙漠建筑场景的整体制作思路"></p>
-<p>基本地形是怎么做的并没有提及，在基本地形设置完毕后，于其上规划建筑群组分布。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/03/23/2022-%E4%B8%80%E4%B8%AA%E6%B2%99%E6%BC%A0%E5%BB%BA%E7%AD%91%E5%9C%BA%E6%99%AF%E7%9A%84%E6%95%B4%E4%BD%93%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF/#more">阅读更多</a>
-        </p>
-    
+    <div class="pagination-next">
+        <a href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/page/2/">下一页</a>
     </div>
-    
-    
-</article>
-
-
-
-
-    
+    <ul class="pagination-list is-hidden-mobile">
+        
+        <li><a class="pagination-link is-current" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">1</a></li>
+        
+        <li><a class="pagination-link" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/page/2/">2</a></li>
+        
+    </ul>
+</nav>
     
     </div>
 </section>

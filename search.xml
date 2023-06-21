@@ -6090,4 +6090,280 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>substancedesigner</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-6-22-unreal-engine官方出品的黑客帝国场景学习分析</title>
+    <url>/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<html><head></head><body><p>之前的教程都是很小范围的景观或者小镇局部，这对展示建筑场景而言是不足够的，做出来的话顶多选几个摄像机位置截图一下，这样的话有没有ue的实时渲染没啥区别，在max、blender中做也差不多，顶多就是制作过程中ue可以通过实时渲染观察效果，但搞了半天最后就是为几张静态的图。</p>
+<p>第一篇：基于官方字幕《[技术演讲]黑客帝国觉醒：创造世界》的总结</p>
+<p>matrix这个项目基于一个4x4平方公里的城市局部，其制作目的是要创建一个介于影视与游戏之间的实时大型场景,使用程序化工具和工作流让小团队能做大场景.</p>
+<p>用ue的MassAI生成行人和车流，MetaSounds生成环境声音。</p>
+<p>3d assets（资产/模型）</p>
+<p>matrix这个项目用了1000多个组件，每个由50000-500000个polygons组成。所有的资产都是nanites。尽可能使用megascan的资产。</p>
+<p>textures（纹理）:</p>
+<p>纹理方面都使用4k分辨率，如果需要更高的像素，则把uv分割为udims，然后增加更多的4k纹理。</p>
+<p>所有的纹理都被转换为虚拟纹理（virtual textures）,关于这个概念b站上有很多教程有介绍，目前基础还差很多类似这样的概念、技术分支需要逐个突破。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f4c8af9da3c9fc78ceb5f53ce90f2374_1440w.png"></p>
+<p>​​​<span id="more"></span></p>
+<p>建筑造型的参考：</p>
+<p>想要做一个充满高楼的都市，有标志性建筑以及许多变种，有细节。建筑有摩天大楼、商业、住宅。</p>
+<p>从旧金山、芝加哥和纽约获得灵感、参考。希望能够用一些建筑的上半部分与另一些技术的下半部分搭配也就是可以模块化。</p>
+<p>building、street props诸如遮阳篷、路牌、广告牌等等，点缀在建筑外立面。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-da97fefc389db50e4c24bc13b665f1aa_1440w.png"></p>
+<p>​</p>
+<p>团队找了24个独立建筑，10个来自芝加哥、8个纽约、6个旧金山。以及一个megascan里的建筑资产来验证模块化建筑的可行性。</p>
+<p>Asset pipeline：</p>
+<p>确定了建筑和道具后，ue创建一个content library,这个内容库将为houdini的程序化城市生成器提供元数据。城市生成器产生的结果再回传到ue。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-57df1b12d745050fa4b7a0da896cc034_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-8fe3fc816457534e7bdc98dd6307f876_1440w.png"></p>
+<p>​</p>
+<p>在内容库最先添加的是建筑模型，由于有了nanite，可以将建筑模型的细节都做到位而不用考虑使用置换贴图做凹凸。建筑模型包括了瑕疵、破损、倒角线（cornice）、浮雕。当然模型不是一个完整的建筑单体，这样会限制整个城市的建筑多样性，需要考虑部件复用。建筑有许多、墙和窗适合被实例化，尽量使用实例化，这样会减少内存和显存的使用。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-90a49b8b93fc062915a9dbc780a5656c_1440w.png"></p>
+<p>​</p>
+<p>把建筑像ui、网页设计那样切图分块，这在“UE5大型概念游戏环境场景创建”这个教学里也有提到过，这一步是构件模块化部件复用的指导。matrix分的依据是所在的高度相同的元素、部件为一级。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-0377811ac23b58a3b1c1acabfc5f68ab_1440w.png"></p>
+<p>​</p>
+<p>说起来简单，但是到一些复杂建筑上可以看到切分层级十分多，不过也正是因为这些不同的模块使得建筑看起来丰富有趣而不单调乏味，实际上之前我写建筑装饰分析总结也是大致在用这种思路。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-4f90947e49c1e42c7ca522bd67700bb6_1440w.png"></p>
+<p>​</p>
+<p>在切分建筑时，作者团队发现即使一眼看上去很简单的建筑实际上也很复杂。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-a9f44d4fdddd8cd7943a1c9124a66172_1440w.png"></p>
+<p>​</p>
+<p>现实中的建筑为了迎合地形与周边环境，它的四个面的特征的尺寸规格往往是不一样的（这里的意思应该是在说不同方向上的房型），远处看上去一样，但是尺寸规格不同。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-1252a3262358cd0b71c378f51a5369bc_1440w.png"></p>
+<p>​</p>
+<p>尽可能合并大小差不多的模块包括立柱、窗户。或者让模块的宽度翻倍。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-9acc27d15424aa518cb0697e87953c27_1440w.png"></p>
+<p>​</p>
+<p>当确定了一种建筑风格所有的模块的形状后，使用自定义模块模板生成器来创建各模块的代理（低模）。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-9e7ce349745005a0a6d2ecc8ce524e2c_1440w.png"></p>
+<p>​</p>
+<p>模块模板生成器还能定义模块名称、尺寸、地面、变体（不太理解这里的地面、变体是什么意思，这里所谓的基于houdini的模块模板生成器是从houdini engine里搞出来的东西吗？）。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-49013d22c9b5addb50f5d4c0687c17a2_1440w.png"></p>
+<p>​</p>
+<p>我在sidefx官网上下载了unreal starter kit，导入了一个houdini hda文件启动houdini session，可以看到选中houdiniAssetActor后编辑面板里面有houdini的参数，不过这些参数和matrix项目中的不一样，暂时不清楚这个是在unreal中创建的还是说在houdini中创建的然后导入到ue（我偏向于后者）。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-41090642961a2f77451101efefdb4363_1440w.png"></p>
+<p>​</p>
+<p>所有用于搭建那24个独立建筑的模块化模板像joe garth教学中的asset zoo那样排开，这一套是用来完成其中一个建筑的。作者团队用这些模板作为起点，用来打造各种建筑风格（就是将他们排列组合），并构思程序化建筑生成器的原型。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-d686c8a0f8f322b1cec7ae958c8a70cf_1440w.png"></p>
+<p>​</p>
+<p>并且用这些模块化模板在maya中做高模，模板限定了基本形状和尺寸。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-ec45eb57674e831758d7dcd47238cf64_1440w.png"></p>
+<p>​</p>
+<p>由于每个建筑由上百个模块组成，为确保团队的一致性，他们开发了一个自定义导入器，批量导入建筑模块。团队说他们有个building look development的talk我暂时没找到。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-0c13710833e49d1361e9b31a6b5632a2_1440w.png"></p>
+<p>​</p>
+<p>团队做的24个独立建筑包含了2333个部件，2558个纹理和5707个材质实例。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-d0dafbc03d1c0a7e1494b8aad42e78b4_1440w.png"></p>
+<p>​</p>
+<p>团队利用kits存储模块和props的元数据，来生成BDF，它相当于生成建筑的工作台。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-a1a52a64ee7357ff0a9897d9c9f1d58a_1440w.png"></p>
+<p>​</p>
+<p>模块的描述：</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-e63a0d826e4b8d95714d12f190c9ab23_1440w.png"></p>
+<p>​</p>
+<p>举例corner模块，它又被分为这些类别：</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-a56ea75895b189e541d9c46e6cc556dd_1440w.png"></p>
+<p>​</p>
+<p>当所有模块都完成后，利用一套语法规则来把它们组合起来形成建筑外立面。它支持水平方向的排列、重复、循环、定义规格缩放，另外也可以对垂直方向做排列，其中蓝色、红色不可重复，紫色为楼顶、绿色可重复。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-69122303a2d302c570d3039fe394070a_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-4aab42cb8674a34a920e67698bc56082_1440w.png"></p>
+<p>​</p>
+<p>作者团队手动在模块上添加了一些道具锚点，道具被注册到模块和分组，以便程序化生成，随机赋予道具锚点和道具。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-d63c1c0a2009f0e34754d4cef73f0305_1440w.png"></p>
+<p>​</p>
+<p>道具库的分类：</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-6691d7a4f91331e1d3edb6df90630af5_1440w.png"></p>
+<p>​</p>
+<p>前文一直提到的metadata（元数据），就是houdini engine中的parameters，在生成对象后会储存为其tags，目前暂时不知道houdini engine的使用方法，不清楚是如何转换的，bake 又是什么意思？是生成对象实例吗？</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-cb670a0bd584d115f3d0c66f3a359ae7_1440w.png"></p>
+<p>​</p>
+<p>坐标轴的位置也很重要，之前很多做建筑场景的教学都是手动在blender、maya、max里面将其置于左侧角落，这样方便吸附对齐各个模块。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-97e944e14ccc7578873a9f61d3d5c966_1440w.png"></p>
+<p>​</p>
+<p>之前提及的形状语法、排列语法以json形式用houdini的building generator构造建筑。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-2ffc7a7a8393d06714f22d56418c96e4_1440w.png"></p>
+<p>​</p>
+<p>暂时没有找到这里所谓的程序化生成城市的讲座在哪儿。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-436efabc59dcf01ccb173144855631df_1440w.png"></p>
+<p>​</p>
+<p>群落是指屋顶和街道上的一些道具，比如路灯、长椅等，这些是用ue5的新功能“level instance packed blueprint”实现的，我不知道这个是不是和joe garth的蓝图创建一个地块街区是同一个东西。这里提到artist-generated意味着这些组件的拼装是手动而非用语法规则生成的，这里还包含hero building，这个概念和ue artstation中提到的hero asset应该是一个意思，就是重点展示的资产对象，这些对象是场景中的焦点，包含更多的细节。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f2390c545513d449b2f0db9b8ccc5070_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-fadecc0632e0ee46b74cfc92c1b6285b_1440w.png"></p>
+<p>​</p>
+<p>值得注意的是biomes和hero buildings在整个城市的创建中也是通过houdini的city generator去排布的，并非手动指定位置。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-763858546e0d8aebe16daffb2ac9c867_1440w.png"></p>
+<p>​</p>
+<p>当城市生成后，点云（point cloud）会保存到alembic文件中，根据chatgpt介绍：</p>
+<p>Alembic文件是一种用于三维计算机图形的开放文件格式。它主要用于在不同的计算机图形软件之间交换场景、模型和动画数据。Alembic文件以.abc扩展名保存，它可以包含几何体、材质、动画和其他相关信息。</p>
+<p>Alembic文件的主要优势在于它是一个独立于特定软件的中间格式，可以方便地在不同的计算机图形软件之间进行数据传输和共享。这使得艺术家和技术人员能够使用自己喜欢的软件创建内容，并将其传输到其他软件中进行进一步的处理和渲染。</p>
+<p>Alembic文件可以包含复杂的几何体，如网格和曲面，以及这些几何体的拓扑结构和变形信息。它还可以捕捉动画数据，包括骨骼、变形器和相机的动画。此外，Alembic文件还可以保存与几何体和动画相关的其他属性和元数据。</p>
+<p>许多专业的计算机图形软件，如Autodesk Maya、Pixar RenderMan、SideFX Houdini等，都支持Alembic文件的导入和导出。这使得不同软件之间进行场景交换和协作变得更加容易，无论是在电影制作、电视动画、游戏开发还是其他领域。</p>
+<p>在matrix这个案例中，Alembic文件包含点信息和创建建筑、街道、碰撞物体所需的几何体。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-e5fc61cc67c1cfa9ce986c7a5c63ccb3_1440w.png"></p>
+<p>​</p>
+<p>这里提到的open world工具主要有两大功能world partition和one file per actor，可能在下面这个视频里有针对性的介绍。初步来说这里面涉及level（关卡）相关的东西，根据位置动态加载actor（可能是考虑到性能？），作者说这样做就可以不用考虑子关卡的复杂逻辑（不懂）来控制场景中被激活的区域。one file per actor可以解耦actor和关卡，让多人同时编辑一个关卡。似乎这部分是用来方便团队协作用的。</p>
+<p><a href="https://www.bilibili.com/video/BV1mr4y1y7bP/?spm_id_from=333.999.0.0&amp;vd_source=9211ca883c846624ea76e0f08321331f">[功能介绍]UE5中的大世界：一个全新的（开放）世界(官方字幕)_哔哩哔哩_bilibili</a></p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-89de328f158a7d2b156213988c098cda_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-071ea4a349efb2a97a01bbbd79f6db7b_1440w.png"></p>
+<p>​</p>
+<p>以下为chatgpt对ue中actor和instance概念的解释。</p>
+<p>在Unreal Engine中，Actor（角色）和Instance（实例）是两个不同的概念。</p>
+<p>Actor是Unreal Engine中的基本实体，代表游戏世界中的一个独立个体。它可以是可见物体（如角色、道具）或不可见的逻辑实体（如触发器、游戏规则等）。每个Actor都有自己的位置、旋转和缩放，并可以在游戏世界中自由移动和交互。Actor可以具有各种组件（Components），用于赋予其外观、行为和功能。</p>
+<p>Instance（实例）是指使用实例化技术复制并生成的具体实例。在Unreal Engine中，当需要在场景中生成多个相似的对象时，可以使用模型实例化技术（Model Instancing）来生成实例。这些实例共享相同的模型资源，但可以具有不同的位置、旋转和缩放。通过实例化，可以减少资源开销并提高性能。</p>
+<p>区别：</p>
+<ul>
+<li><p>Actor是一个基本概念，代表游戏世界中的独立实体，可以是可见物体或不可见的逻辑实体。</p>
+</li>
+<li><p>Instance是指使用实例化技术生成的具体实例，用于减少资源开销和提高性能。</p>
+</li>
+<li><p>Actor是一种通用概念，而Instance是一种特定的生成方式。</p>
+</li>
+<li><p>Actor可以直接使用蓝图或代码进行创建和控制，而Instance是通过模型实例化技术生成的。</p>
+</li>
+<li><p>一个Actor可以有多个Instance，每个Instance可以具有不同的位置、旋转和缩放。</p>
+</li>
+</ul>
+<p>总之，Actor是表示游戏世界中的独立实体的概念，而Instance是一种特定的生成方式，用于复制和生成具体的实例。</p>
+<p>作者说101959actor还不包含交通人流，这里提到的instances包括所有建筑模块、道具、道路、交通，我理解为一个建筑是一个actor，而它包含了许多的建筑模块instances。</p>
+<p>暂时不清楚有了nanite为什么还有HLOD的概念，以下是chatgpt对HLOD的解释。</p>
+<p>在Unreal Engine中，HLOD是”Hierarchical Level of Detail”（分层细节级别）的缩写，它是一种用于优化大型场景和复杂模型的技术。HLOD系统通过在远处使用较低的细节级别并逐渐增加细节来实现更高的性能和更好的渲染效果。</p>
+<p>HLOD的工作原理是将场景或模型分解成多个层次结构，每个层次结构都具有不同的细节级别。在远处观察场景时，HLOD系统会选择使用较低细节级别的代表性网格来代替原始高细节网格。这样可以减少渲染和计算的负载，并提高帧率。</p>
+<p>当玩家接近一个HLOD对象时，系统会逐渐替换为更高细节级别的网格，以提供更多的细节和更真实的外观。这种逐级细化的过程可以通过使用静态网格合并技术来实现，将多个网格合并为一个单一的网格，从而进一步减少渲染调用。</p>
+<p>通过使用HLOD，开发人员可以在不牺牲画面质量的情况下处理更大规模和复杂度的场景，同时保持较高的性能和流畅的游戏体验。这对于开发开放世界游戏或需要处理大量细节的环境非常有用。</p>
+<p>场景的加载控制在方圆128米的范围内。HLOD0用蓝色表示，范围是方圆768米，在128-768米范围内都是HLOD层级的。HLOD1为超过方圆768米范围的区域，以红色表示。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-45845232d7fd8d31c5b611237f5166ff_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-04eaa86b21e1f9d23bcf88e1f18b39a8_1440w.png"></p>
+<p>​</p>
+<p>作者说在了解open world的机制后就可以开始设定rule processor来生成城市。可以发现rule processeor是window菜单下的一个选项卡，但是经查阅，这个功能在ue中并不存在，插件也没有，在官方论坛上目前说是city sample这个项目专属的。关于city sample创建点云、生成城市、导入ue，在中文网络中有5篇系列介绍，可以说是手把手带的。</p>
+<p><a href="https://www.zhihu.com/people/666-64-57-65-87/posts">《WorkWithUE5》CitySampleZoneGraph剖析系列</a></p>
+<p>另外在youtube上有一个系列的视频教学关于如何利用city sample使用houdini生成城市.</p>
+<p><a href="https://www.youtube.com/watch?v=AIkO4OzL0Mo&amp;list=PLkUyT51oR-IcK7sDlFkv1eut857-vzCdJ&amp;index=2">Generate your custom City With Houdini and Unreal Engine 5</a></p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-5d62ec51ec744fc0419875bc043d7cc6_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-124962b32504fa5706002afc54e39781_1440w.png"></p>
+<p>​</p>
+<p>根据中文的那篇文字教程来看生成一次城市要“睡一觉”，可见其中的计算非常复杂。在制作团队的介绍中，一共生成了50座城市，我这里推断他们是反复修正用于这个项目的城市，这也验证了文字教程所言非虚，不过他马上又补充每天会生成几次城市，这似乎让结论又有了偏差，只能到时候做了再说。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-0071d84162b6a70df23148a03c298b17_1440w.png"></p>
+<p>​</p>
+<p>building look development：</p>
+<p>在视频27分左右貌似就是前文我说没找到的building look development.</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-4b2618890a2a025e5a3cc28da1fc904c_1440w.png"></p>
+<p>​</p>
+<p>项目要求近景、行人视角、远景都看起来很好，团队考察了18个建筑参考，并将他们拆解成建筑模块部件。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-5e339fb9e76120acd531ee438ec23203_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-7f43726395e7b5568e9b45d5ae06b7dd_1440w.png"></p>
+<p>​</p>
+<p>一个建筑的外立面可以被拆解成70-500左右的部件数量。这18个建筑最后拆解出了2333个建筑部件，也就是说要对2333个部件做着色（纹理、贴图、材质）。这里还提到了灯光校准，暂时跳过。重点好像是hdri环境贴图和后期体积处理（postvolumnprocess）.</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-daf145a53bb2f580ad152ea7ef9bdf61_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-45a05e8d081d44968176f894543e40b6_1440w.png"></p>
+<p>​</p>
+<p>当我们开发一个模型外观时可以把他分解成3个独立步骤。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-41a164081b1dbce6926c87fa1e2779ec_1440w.png"></p>
+<p>​</p>
+<p>base substance从quixel megascan的一个tiling textures库中获取，移除了部分重复，增加了一些特征。导出4k的rgba albedo(rgb) normal(rgb) aormd(rgba这个我猜是ao roughness metalness displacement)贴图。作者接着说将这些贴图作为虚拟流纹理（virtual streaming textures）回传到ue，这个概念前文提到过，暂时不清楚。使用virtual streaming textures可以避免内存中纹理数的限制，接着通过这些贴图创建ue的材质。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-1103480c89288b1cabad398c87aa548b_1440w.png"></p>
+<p>​</p>
+<p>这里提到一个概念Pixel Inspector（像素检查器），作者认为虽然离完成版的材质还有很多工作要做但在这一阶段要时刻用Pixel Inspector来校准颜色，以下是chatgpt的介绍：</p>
+<p>在Unreal Engine中，Pixel Inspector（像素检查器）是一种用于分析和调试像素级别信息的工具。它提供了一种可视化方式，可以查看渲染过程中每个像素的详细信息，包括颜色、深度、法线等。Pixel Inspector可以帮助开发人员识别渲染问题、优化渲染性能以及进行纹理和材质调试。</p>
+<p>使用Pixel Inspector，您可以选择在编辑器或游戏运行时查看像素数据。以下是Pixel Inspector的一些常见用途：</p>
+<ol>
+<li><p>颜色调试：您可以选择检查屏幕上的特定像素，并查看其RGB颜色值，从而分析渲染结果是否符合预期。这对于检查材质的颜色输出或光照计算等方面非常有用。</p>
+</li>
+<li><p>深度调试：您可以查看像素的深度值，了解哪些物体位于其他物体之前或之后。这对于检查深度缓冲区的正确性以及遮挡关系非常有用。</p>
+</li>
+<li><p>法线调试：您可以查看像素的表面法线信息，以确保光照计算和着色器的法线变换正确无误。</p>
+</li>
+<li><p>纹理调试：您可以查看像素采样的纹理信息，以便识别纹理映射问题、纹理采样错误或纹理过滤等。</p>
+</li>
+</ol>
+<p>Pixel Inspector可以在Unreal Engine的Viewport（视口）中使用，通过选择相应的模式或工具栏选项来激活。具体的操作方式可能会根据不同的Unreal Engine版本而有所不同。使用Pixel Inspector，开发人员可以更深入地分析渲染结果，并进行调试和优化，以获得更好的图形效果和性能。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-32743fd24217d4b44b1a1384b7abcf2d_1440w.png"></p>
+<p>​</p>
+<p>manufacturing阶段例如砂浆线和砖块颜色变化可以从两个砖块贴图中提取。block variation给每一个砖块不同的数值，砂浆线指示砖块是如何砌成的。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-fdca1c65e487dd4a9f3527e2e925822d_1440w.png"></p>
+<p>​</p>
+<p>除此之外还需要一些缝隙遮罩来达到水渍、风化的效果。这些会在第三阶段环境影响建筑表面上进一步提及。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f489bab9716ebf48445ea694005b672b_1440w.png"></p>
+<p>​</p>
+<p>把这些贴图组合在一起，不清楚bc7纹理压缩是什么东西，这里应该是4通道混合。不得不说技术虽然不断在更新，但妄想上来就可以很舒服的用新技术是不可能的，这其中必然包含了许多以往的工作流、老技术，毫无基础直接啃这个系列，光这个视频我从昨晚到现在几乎一天了都只推进了半个小时，可见其信息量之大。</p>
+<p>作者选取了5种石块和3种砖块纹理贴图，提问要如何保存这些图案，我不明白是什么意思，推测是同一个模块上要混用这些纹理，因此要将这些纹理合并起来，于是提到了udim 纹理的概念。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-245508e8395ae453fb04b66fffa93272_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-061912e5bcb6eef77c9dea6c4e9a1f51_1440w.png"></p>
+<p>​</p>
+<p>每个图案有10个变种把它放在2x5的格子里。每个砖边缘都用相同的砖块使他们之间的衔接是无缝、和谐的。进一步，作者把5个图案各自的10个变种一起放到udim里。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-3279ee84b401b34d39fd36d1299151da_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-1ca85e8e6ce7c957f7dec94e63fe8714_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-0ea61b6ba985cb9bf50b9a45ee835dea_1440w.png"></p>
+<p>​</p>
+<p>接着处理模型的uv,作者说这里用到的方法是trim sheet，这应该是个业内的术语，在youtube上搜有一堆教学.将模块unwrap之后平铺在巨大的uv island上。目标是使模块的表面纹理具备细节，可以和多种砖块无缝衔接。之前似乎也看过几个类似的视频，到时候操作的时候见招拆招吧，目前对建筑面片上面的uv盖如何展，浮雕又怎么处理都是一头雾水。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-2ff3fb8c8264b00c15446f9b4a4ce422_1440w.png"></p>
+<p>​</p>
+<p>添加函数来使用砖块图案的udim纹理，这里似乎并不是说材质函数。这里提到了perinstancerandom随机挑选不同的udim排列移除变化和重复（我不明白为什么移除变化？），参考chatgpt：</p>
+<p>“PerInstanceRandom” 是 Unreal Engine 中的一个材质节点（Material Node），用于在每个实例化对象之间生成随机数值。</p>
+<p>当在场景中使用实例化技术（例如实例化静态网格组件）生成多个实例化对象时，每个实例的材质可以使用 “PerInstanceRandom” 节点来生成独立的随机值。这些随机值可以用于实现一些效果，如随机化颜色、位置、旋转等，使每个实例化对象具有一定的差异性。</p>
+<p>“PerInstanceRandom” 节点生成的随机数基于每个实例的唯一 ID（Instance ID）和材质实例的随机种子。这确保了相同实例多次渲染时生成的随机数值是一致的。您可以将 “PerInstanceRandom” 节点与其他材质节点（如颜色节点、变换节点）结合使用，以实现更多样化和随机化的效果。</p>
+<p>使用 “PerInstanceRandom” 节点，您可以在材质中为每个实例化对象创建一些独特的变化，以增加视觉上的多样性和细节。这对于创建自然环境中的多样化元素（如植被、岩石等）或随机化场景中的物体（如杂草、碎石等）非常有用。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-a413d8daf853e0428a7d13d0d852b084_1440w.png"></p>
+<p>​</p>
+<p>最后用了4个udim virtual texture解决了2000多个建筑部件的石块、砖块建造纹理。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-7e751ec9bd8b56c324ffd69aa165703e_1440w.png"></p>
+<p>​</p>
+<p>对于环境侵蚀表面，作者说添加另一套uv来应用环境贴图，通过烘焙生成ao、curvature、position贴图，再把他们打包起来做成一个rgba贴图？每个模块都有自己的环境侵蚀贴图，作者说这些都可以自动生成而不用艺术家去做，不知道是咋搞的，纹理贴图材质这块还欠缺很多。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-b29fa2380f5d90edf93b804af6c015bf_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-96bcad3bfefab0102303d5629b164cd0_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-97ad50749a2f6474c7f556f9173a1917_1440w.png"></p>
+<p>​</p>
+<p>沿着下面这条长轴使用材质函数，在不同材质之间共用这些图层。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-e2922e12a0cad7d3f5a1cf2ea7e4e350_1440w.png"></p>
+<p>​</p>
+<p>材质有了，接下来就是把材质分派给各个建筑模块部件了。就是master material到instance的层级递进，这里有好几层的instance继承。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-fa31126ccdbe437bc507d8ea0a32622c_1440w.png"></p>
+<p>​</p>
+<p>建筑本身有一个层级，kit有一个层级（kit的概念还不清楚），每个模块有一个层级。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f6b87c30a43d2d4ebcf962aeea2b86d2_1440w.png"></p>
+<p>​</p>
+<p>材质都完成以后如何导入到ue，并分派给整个城市的建筑模块呢？这里使用了assetingest editor utility控件自动处理。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-1d1c0f9442efc80b5d238dce61fadec6_1440w.png"></p>
+<p>​</p>
+<p>建筑与地面间的过渡作为prop处理，也可以定义规则程序化生成。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-8dbfd4f7948d5255903eb245cb8bb4b8_1440w.png"></p>
+<p>​</p>
+<p>窗户内景不是真的建模而是一种贴图可以用2d以假乱真。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-e486fd8e569884c1ecbf9e5b98c40ff9_1440w.png"></p>
+<p>​</p>
+<p>窗户的材质，以及如何创建它的变种。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-fb5db068cdfac9b4c63bb7045509bfde_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-67d35844d851e67d0f01549197252adc_1440w.png"></p>
+<p>​</p>
+<p>道路起初只使用了asphalt（柏油沥青）纹理，可以看到明显的重复平铺的痕迹。使用纹理单元爆炸材质函数可以改变uv的重复排布。在youtube上通过cell bomb texture搜索可以看到许多关于解决tiling重复的视频教学。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-3bd06d952edb21f17b285aef010708a7_1440w.png"></p>
+<p>​</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-d8e5ea73b25901eef5310c98196a846f_1440w.png"></p>
+<p>​</p>
+<p>路面还添加了碎石、污渍、裂缝、斑块、积水和贴花。《Udemy - UE5：材质纹理技术》的案例中有做类似的路面材质，可以通过那个系列重新回顾一下基础知识。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-927f7242b49f4093c1fccb8d09ba5d47_1440w.png"></p>
+<p>​</p>
+<p>以上为这篇47分钟的tech talk中我觉得对我有用的部分。后续实践在补上碰到的问题。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+      </tags>
+  </entry>
 </search>

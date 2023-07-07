@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-7-4-blendertoue西部世界案例 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="qq截图黏贴的话默认还是png，另外obsidian上直接黏贴用local命令反而没法把图保存到文件夹中，那还是知乎上写完再转移。 我想西部世界和artstation那个神庙遗迹场景两个教学能在这两周里完成，十分大的挑战啊！话不多说先来看看西部世界案例。 这个系列一共80节包含了西部小镇建筑建模、建筑部件模块化手动拼装、uv unwrap、基本纹理材质、顶点着色、substance painter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-7-4-blendertoue西部世界案例">
+<meta property="og:url" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="qq截图黏贴的话默认还是png，另外obsidian上直接黏贴用local命令反而没法把图保存到文件夹中，那还是知乎上写完再转移。 我想西部世界和artstation那个神庙遗迹场景两个教学能在这两周里完成，十分大的挑战啊！话不多说先来看看西部世界案例。 这个系列一共80节包含了西部小镇建筑建模、建筑部件模块化手动拼装、uv unwrap、基本纹理材质、顶点着色、substance painter">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-80f7bed2fc50cb8cf72dfe560c4226e9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-92691c2f7fbb80f7ae755d7e948b9545_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-63944b1678076d07b32ba52169bce61c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f28d8e376b3c0693d574df4885b228c1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-558582e13e153b613aba0dbe6ec90578_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6a3b409ca979146ef304e25e3ff27c0c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-871d8e13fbc64b052de7b01f1f6a33dd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-82e01e7b06cd64d1533caa48463c5613_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-031013b64c68383ada590fcd2f30677f_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-3bc5af69b92e0e5842cb4e6d5734b215_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-06718a530a41d1cfec6b2db929f2d62c_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-5a756a796818bcd1f59f11ca05cecab3_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a5cdb1f8e7ddfb053db7328f8c1f599b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-362131829d0ad9631a3e4263c6c9cf28_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d808655a046545990394ea60f3311365_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-21c10f853e2a52e961873751e4802019_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b5891f7d5c8b5d4dc8cb70e138c7efb8_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-386033d9f66a83422e4bb4f0ca53aa26_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-42df8adf6f684c0fc55b2b26bc06949b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b4ad9c1623eb551976c13758b9982866_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-201057a6196144c330187aa076310a40_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-18c8a53ffa9baf1edf85c090c5300f55_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b802ba956013f2dd32a647f301217c72_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-905f73ec6ff16ebd848c20f0b1857432_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6f6219101d0ac49a2a7bb27108188a70_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0ca3d695dcf4e84bbd0d9f9c25c844af_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f3129240054c592c97b4f8efc4addb3f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a0c62f1f86c6f9c4798f1273533b36a8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-21b713aee67f614c3d19124b133ec6c7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8f4748f18856d8bc37ea6afe4353ed19_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-476c5239a3802256c852c1676d75623e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-43f18dabfea427d518b6d1309209c968_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-820c99e67fd43ea78d53320cc84d42be_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-fdf0e8b9f7248d327289c4998657a8d5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1b4e57331d663b4235953531048605c4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c47ae6159139528d43e80c3f326f56ea_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-83317fc17cb60396705d3457f947f703_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-e92596dd63904194bd6adfa2e9fa8c0c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4a6cf378692b7afc4965fdaaba043f69_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-84e5d2b2d92fcc68e043ba6ec566388c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c9a9ee5a4572fda13a2489c853d8dd2a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-2baa41504075b614d23bf81238fb1d20_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-334ad98171ffafa833411e0a3ebeb52b_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-5fc300deee848da657dd04aa378b092d_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a68757edf22fc5b28871a441106f2d20_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-56504680eddd3c291bc3165464e81ac8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-2b691ad73e21f017674b9124c1d39329_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0860ec881be900ed6865bb2ef9d12fff_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-277c85e972aa9a9b2f21a403cec92ae1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d797c77c6c92347284acdd41153acacf_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1889145a72f0cef80b64555ddcdf488c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-dee8ef91c97a673cb60b0231878d802b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-3ab90f72c70800bde5059e3c889978cb_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-20202719d8fe6baadeef9ac4adb8fe3b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8e76310bd2bf80fbcc356c29c9f1833f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8668d095d891917c8aaaa673d3c060b7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c7e1e7c66242036542dbc579ba750daf_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-43a829be00cdcefc709328e82f879ed4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d2bb65b51a22e80a6e2e6575d7758acc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-70ee0eb9820a4ac86a3f3c0bb14f066a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4b629901156fce0f5f3c2dd643c1ac6b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d145605d553950a4cf7831959b203aa1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0cdbc8ea55aa4a72409e31694d0d77c4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d709113bf921f406a250a298792e76ce_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a577f2bf99243b5ecc6c63e39e31063e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-9ce3638e7d1e8a779d361b8953fd97e8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7a5f535c5b61eb2854331e822845f5ac_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-38707eb866be4b55113a5c20c6a7a9a7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-afc3b9f8100c36e0440cd2b15915388a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a07b68ddc7bda116e27ba3f9214d10e4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6554314fead5e547bb4a36406e61b310_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4abef23b6335b12cb52b34b5fad99ec1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-52a34d2a56970cac3bea613b3eeab327_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d909b80727e2895663eed54da85585f5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-24f20f0d58501a0ddae83285e3c187c7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7a02d8db931d4446efd5cef30965c18a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1d331d199c1419dec80eca3d1faa7ec9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a21464ec02c00fd3f12ec053507762f1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-054b926038819b8a49f42603725040cb_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-bd96a9d80b5b1fa17ad72c4582325d13_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f4f655e5bedfa8ca658b0a90cc961838_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-298d9862a3abc2a5e11f661e2c26245a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f1a165544c84983802b07afcf599485a_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-e65811df9aa0e520262927f4190d51da_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7abe57fa1f05f87237694069534de0d0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1cd4254107428121d5ceff8dd6740914_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-fe2d44b02248e7ea875f299a98bd8668_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-07-07T08:41:59.000Z">
+<meta property="article:modified_time" content="2023-07-07T08:44:15.966Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="blender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-80f7bed2fc50cb8cf72dfe560c4226e9_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-7-4-blendertoue西部世界案例
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-07T08:41:59.000Z" itemprop="datePublished">7月 7 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            42 分钟 读完 (约 6306 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>qq截图黏贴的话默认还是png，另外obsidian上直接黏贴用local命令反而没法把图保存到文件夹中，那还是知乎上写完再转移。</p>
+<p>我想西部世界和artstation那个神庙遗迹场景两个教学能在这两周里完成，十分大的挑战啊！话不多说先来看看西部世界案例。</p>
+<p>这个系列一共80节包含了西部小镇建筑建模、建筑部件模块化手动拼装、uv unwrap、基本纹理材质、顶点着色、substance painter遮罩纹理添加表面的污渍、高光、油漆、marmoset/substance designer制作木板纹理贴图、地形编辑、人流、骑马动画。目前我看到37节左右，暂时好像就这么多，后续有新的再加上。</p>
+<p>为了后期做地形的水沟、脚印等等需要地形有很高的像素用来雕刻细节?</p>
+<p>建立场景先用一个部件导入ue测试相对尺寸大小并以此为标准制作接下来的部件，相对尺寸大小的参照是ue中的mannequin，这个角色180cm左右。作者分析整个小镇建筑后在脑中切图，将部件模块列了一个清单并以此在blender中建模，所有部件按照collection分块，pivot移动到左下角点便于在ue中平铺吸附。这样做十分的模块化，不过应该对想象力、模数比例有很高的要求，在blender中没有可视化的组装等于说建筑的拼装是数值上计算好的，一旦ue中发现不对就要回去改再reimport这还不算多个组件的相对关系问题。3-7节都在做建筑模块部件的block out，然后在ue中摆放组装建筑。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-80f7bed2fc50cb8cf72dfe560c4226e9_1440wtuya.jpg"></p>
+<p>​</p>
+<p>​​​<span id="more"></span></p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-92691c2f7fbb80f7ae755d7e948b9545_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-63944b1678076d07b32ba52169bce61c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>第8节在ue中将建筑部件实例对象分派到组装好的建筑打包一个文件夹，此时以“房子”（house）文件夹为单位，然后复制这些文件夹用其组件实例做调整生产房子的变种。第9-10节通过立方体概括建筑的大小、位置，摆放小镇街道，再复制现有的建筑对其做variation.甚至在ue里面做了建筑立面斜切变化……，想想角点对齐就头皮发麻。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f28d8e376b3c0693d574df4885b228c1_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-558582e13e153b613aba0dbe6ec90578_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6a3b409ca979146ef304e25e3ff27c0c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-871d8e13fbc64b052de7b01f1f6a33dd_1440wtuya.jpg"></p>
+<p>​</p>
+<p>11节做substance designer、marmoset的界面设置准备做木头材质。从12-22节都是做材质的过程marmoset是预览材质效果，制作发生在substance designer，其中用到了许多匪夷所思的节点的使用、遮罩、噪点、模糊、混合、对比度、灰度等等，这种十分专业的纹理制作暂时先放一放，作者自己也说了是为了教学可以给材质的考量，直接用bridge里的材质10分钟不到就能搞定，我就暂时先用市面上的材质库。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-82e01e7b06cd64d1533caa48463c5613_1440wtuya.jpg"></p>
+<p>​</p>
+<p>23-33节将资产由block out推进到定稿的最终版并做了uv unwrap。这里面涉及一些基础建模、倒角的技巧。西部世界场景里目前看到所有的部件都是由立方体组成的除了一个门把手，因此几乎没有关于mark seam的东西，作者用了sure uvmap这个插件，全是box mapping，我试了下blender默认的cube projection无视物体的旋转，并且内置创建的物体比如圆柱体，另外圆锥最好用圆柱去拟合，不然它的uv unwrap会很奇怪。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Fr2SX1rZZM0">硬表面模型uv unwrap的四个要点</a></p>
+<p>34、35节将最终版的建筑模块部件reimport替代block out并做摆放上的微调。列出材质需要控制的元素、纹理清单</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-031013b64c68383ada590fcd2f30677f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里添加了第二套uv，这套uv整体使用了一次average islands scaling，根据下面这个教学说这个命令可以让texel density均匀，水桶机器人算是个入门级的角色，之前做了一半弃疗了，以后补上。这里用到一个uv tool的插件，可以决定uv maps的顺序，在substance painter中只能使用第一套uv因此需要变换uv的顺序。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8qv6DbWr6zw">水桶金属机器人uv展开</a></p>
+<p><img src="https://pica.zhimg.com/80/v2-3bc5af69b92e0e5842cb4e6d5734b215_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-06718a530a41d1cfec6b2db929f2d62c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>进入substance designer，这里有3个事儿要做，一是生成一个项目模板，二是建立智能材质，三是配置导出预设。</p>
+<p><img src="https://pica.zhimg.com/80/v2-5a756a796818bcd1f59f11ca05cecab3_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a5cdb1f8e7ddfb053db7328f8c1f599b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在做纹理前需要先烘焙，建立4个fill层，分别对应不同的通道，每个纹理层都加上黑色mask，在smart mask中拖一个过去即可得到如下效果。在参数栏可以调节强度、对比度来控制遮罩的效果。选一个画笔按x键切换绘制和擦除，对遮罩进行绘制编辑。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-362131829d0ad9631a3e4263c6c9cf28_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d808655a046545990394ea60f3311365_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-21c10f853e2a52e961873751e4802019_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b5891f7d5c8b5d4dc8cb70e138c7efb8_1440wtuya.jpg"></p>
+<p>​</p>
+<p>右键这个项目文件夹创建智能材质，以后即可随意调用。导出前先建立一个导出模板，把对应的通道拖过去。</p>
+<p><img src="https://pica.zhimg.com/80/v2-386033d9f66a83422e4bb4f0ca53aa26_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-42df8adf6f684c0fc55b2b26bc06949b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b4ad9c1623eb551976c13758b9982866_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-201057a6196144c330187aa076310a40_1440wtuya.jpg"></p>
+<p>​</p>
+<p>37节开始制作master material这里需要实现控制color tint（色调）、粗糙度和发现强度的控制。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-18c8a53ffa9baf1edf85c090c5300f55_1440wtuya.jpg"></p>
+<p>​</p>
+<p>想要对局部做调整有两种办法一个是做遮罩一个是顶点绘制。作者先演示顶点绘制，在blender的texture paint栏目下给不想添加顶点绘制的部分填充颜色，然后在想添加的部分根据通道上色。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-b802ba956013f2dd32a647f301217c72_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-905f73ec6ff16ebd848c20f0b1857432_1440wtuya.jpg"></p>
+<p>​</p>
+<p>污渍、高光、油漆都是颜色上的变化，那么自然是在base color这里不断地用lerp做文章，把遮罩通道连接lerp，alpha，则遮罩纹理中黑色部分显示a，白色部分显示b，显然我们希望的是黑色部分显示base color作者这里连错了，后来通过1-x函数跌倒了关系修正。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6f6219101d0ac49a2a7bb27108188a70_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0ca3d695dcf4e84bbd0d9f9c25c844af_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f3129240054c592c97b4f8efc4addb3f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过multiply可以增强遮罩，也可以回substance painter调整。</p>
+<p>38节导入wood plank的base color、normal、roughness、paint mask，然后每一项加布尔参数届时让材质实例去判断要的是整片木板材质还是长条wood plank材质。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a0c62f1f86c6f9c4798f1273533b36a8_1440wtuya.jpg"></p>
+<p>​</p>
+<p>如果使用base color paint作为base color这里再添加paint mask，用lerp来混合木板的上漆颜色。注意这里的paint_mask_invert实际上是木门上的mask，在墙面wood plank上并不希望使用这些mask，到这儿在逻辑上已经很复杂了，可以说是强行为了使用单一master material而不得不增加许多判断，这样的话材质实例上也会有诸多的选项，即使有注释一些类似的概念可能会混淆。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-21b713aee67f614c3d19124b133ec6c7_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8f4748f18856d8bc37ea6afe4353ed19_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-476c5239a3802256c852c1676d75623e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>把顶点绘制用绿通道拖过来，这里实质上是混合两种材质Base_Color和Base_Color_Paint（在添加遮罩lerp混合paint color之后）。不要搞混了，之前的paint color是不具备顶点绘制功能的，只是单纯的通过mask混合了一层颜色，演示中看似涂抹上漆实质上是把整个带遮罩的Base_Color_Paint覆盖Base_Color材质，可以看到Vertex_Paint_Removal还拉出两根线是连接到normal、roughness，也就是说在绘制颜色纹理的同时也在绘制对应的粗糙度、法线，这样才能起到整个材质效果的绘制覆盖。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-43f18dabfea427d518b6d1309209c968_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-820c99e67fd43ea78d53320cc84d42be_1440wtuya.jpg"></p>
+<p>​</p>
+<p>再添加了无斑驳上漆遮罩的纹理层，引入蓝色通道做顶点绘制，这样就等于混合了三种材质。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-fdf0e8b9f7248d327289c4998657a8d5_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1b4e57331d663b4235953531048605c4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c47ae6159139528d43e80c3f326f56ea_1440wtuya.jpg"></p>
+<p>​</p>
+<p>39-40节从substance designer导入多个木头变种的纹理贴图，调整环境灯光。这里暂时不明白为什么有的只导入base color而有的则带上了normal、roughness，没有具体看sd里面的操作不知道是否存在几套normal。旋转directional light调整整个环境的时间点（清晨、正午、傍晚、夜间）。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-83317fc17cb60396705d3457f947f703_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-e92596dd63904194bd6adfa2e9fa8c0c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里提到了GI global illumination的概念，ue5中修改directional light会影响GI，以下是chatgpt的介绍。</p>
+<p>在 Unreal Engine 中，GI 表示全局光照（Global Illumination）。全局光照是一种计算方法，用于模拟光在场景中的间接反射和漫射传播，从而增强场景的真实感和光照效果。</p>
+<p>GI 在游戏引擎中是一个重要的渲染技术，它可以使场景中的物体和环境相互交互，通过间接的光照效果，使场景更加逼真。在传统渲染中，只有直接光照（由光源直接照射到物体表面）会被考虑，而忽略了物体间的光影互动，使得场景显得较为平面和不真实。</p>
+<p>GI 使用各种算法来模拟光的传播和反射，其中最常用的方法之一是光线追踪（Ray Tracing）。Unreal Engine 通过其内置的光线追踪技术和其他一些预计算和近似计算的方法，实现了高质量的全局光照效果。这些技术可以提供更真实的阴影、间接光照、环境光遮蔽等效果，让场景看起来更加逼真。</p>
+<p>需要注意的是，GI 是一种计算密集型任务，对硬件性能要求较高。因此，在较早的游戏引擎版本中，全局光照可能是一个相对较昂贵的操作。随着硬件技术的发展和引擎优化，GI 的计算效率逐渐提高，使得越来越多的游戏可以使用这种高质量的光照技术来提升视觉效果。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4a6cf378692b7afc4965fdaaba043f69_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在directional light中可以改变当前时点的灯光强度，为环境光叠加色调，作者似乎就调整了这两个，然后是sky light，里面的intensity scale会增强环境光对比度。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-84e5d2b2d92fcc68e043ba6ec566388c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c9a9ee5a4572fda13a2489c853d8dd2a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对云彩控制，也会影响环境光。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-2baa41504075b614d23bf81238fb1d20_1440wtuya.jpg"></p>
+<p>​</p>
+<p>postprocessvolumn是在所有效果之后再添加的，其中min max bright似乎是控制亮度统一。我记得在joe garth的场景制作中也有设置这两个参数。不过最终看来好像设置的东西都看不出来，基本可以跳过。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-334ad98171ffafa833411e0a3ebeb52b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置雾气，强度、起始位置、颜色、体积。</p>
+<p><img src="https://pica.zhimg.com/80/v2-5fc300deee848da657dd04aa378b092d_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a68757edf22fc5b28871a441106f2d20_1440wtuya.jpg"></p>
+<p>​</p>
+<p>41、41节通过sd做屋顶板的材质，暂时跳过，这里是直接将一个坡面用瓦片组材质覆盖，显然要做好的效果得通过建模、雕刻和添加材质，这在之前荣耀战魂的那个教学示范里有。我想相关的教学应该有不少。屋顶板方面做了一些模型上的分离挤出，这和45小时环境设计大师班里面做鹅卵石路面的手法差不多。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-56504680eddd3c291bc3165464e81ac8_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-2b691ad73e21f017674b9124c1d39329_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0860ec881be900ed6865bb2ef9d12fff_1440wtuya.jpg"></p>
+<p>​</p>
+<p>44节介绍用parallax occlusion mapping做出屋顶板的高度效果，把pixel depth offset连接。我去查了height map和normal map、displacement map的区别，感觉chatgpt也在捣糨糊……。暂时不是太清楚，总之height map是不改变物体的几何特征的，因此属于一种节约性能的替代手法。其中heightmap channel作者自己都不知道为啥要这么连。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-277c85e972aa9a9b2f21a403cec92ae1_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d797c77c6c92347284acdd41153acacf_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1889145a72f0cef80b64555ddcdf488c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者做了一半，控制台报错了，他解释说是sample map不能超过10几个，这也是无限叠加master material中的逻辑想要所有材质都继承的弊端吧？这可能也是为什么会有多通道贴图的原因吧？作者提到要规避贴图数量的话就得合并贴图了也就是打包成多通道贴图。不过到这里为止我突然又发现这么做master material也没毛病啊，虽说墙面用不到门的油漆、高光、污渍遮罩贴图，但贴图是可以改的比如屋顶板可以有自己的油漆、高光、污渍，我一开始是把墙面的上漆和门的局部上漆给搞混了，一个是大片的一个是局部的，因此大片上漆的逻辑是和clean（无漆）绑定的，这么看来要在起初就构想好所有的参数（表面效果）不可能，只有随着不断的增加对象给材质实例时才会补完整。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-dee8ef91c97a673cb60b0231878d802b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>直接复制了木板的材质实例改个名变屋顶板材质实例，然后把屋顶板的各个对应纹理贴图拖上去就完事了。由于parallax occlusion map较近、和中距离看都能感觉到一定的厚度。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-3ab90f72c70800bde5059e3c889978cb_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-20202719d8fe6baadeef9ac4adb8fe3b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8e76310bd2bf80fbcc356c29c9f1833f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>45节给场景中的各个static mesh上材质。像这个木托梁直接用bare wood连参数都不用改，毕竟在一个不起眼的位置加遮罩做细节污渍、高光、上漆似乎没啥意义？</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-8668d095d891917c8aaaa673d3c060b7_1440wtuya.jpg"></p>
+<p>​</p>
+<p>把阳台的栏杆和地板各自ctrl j打包，似乎打包后会导致脱离原来的collection，再丢回去就是了。注意阳台地板只有上面那块大面打包了，却没有打包四周，我暂时不清楚为啥。在blender中不同物体可以一起进入uv模式，设置第二套uv用来做sp上漆、污渍、高光的遮罩。最早在36节对木门做过了一遍，直接打开之前设定好的模板，烘焙后添加之前设定好的智能材质。注意这里之所以要将其分开距离，是为了在sp中好上色遮罩不会互相碰到，打包一起导出是方便同时绘制。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-c7e1e7c66242036542dbc579ba750daf_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-43a829be00cdcefc709328e82f879ed4_1440wtuya.jpg"></p>
+<p>​</p>
+<p>高光遮罩是内置的选项驱动的基本通用，这种边缘也不太可能手绘调整。污渍层我不明白为什么地板这块只往一侧，这是确定那一层靠室外所以容易脏吗？因为我没仔细观察不确认作者绘制的是不是靠外的一层。上漆遮罩的绘制集中在两侧。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d2bb65b51a22e80a6e2e6575d7758acc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-70ee0eb9820a4ac86a3f3c0bb14f066a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4b629901156fce0f5f3c2dd643c1ac6b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者复制了一个门的材质实例，base color是那种浅的咖啡色，第一版遮罩的效果，可以看出来远不如遮罩样板的预期，也可能是视频中的黑白对比度高？总之paint removal看上去就是浅浅的刮掉一些，栏杆上更是几乎没有，污渍层也看不出来。不过它这个污渍的颜色和base color是相近的咖啡色，因此720p画质好像是看不大出来。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d145605d553950a4cf7831959b203aa1_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-0cdbc8ea55aa4a72409e31694d0d77c4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d709113bf921f406a250a298792e76ce_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这是修改了污渍的色阶加强了对比度以及重新加强了上漆遮罩绘制后的效果。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a577f2bf99243b5ecc6c63e39e31063e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-9ce3638e7d1e8a779d361b8953fd97e8_1440wtuya.jpg"></p>
+<p>​</p>
+<p>45节结尾给栅栏做了个变种，取消了整体上漆（has_Painted_Version），替换了base color，效果中所见的白色即high light。从这个角度隐约可以看出污渍与base color咖啡色的不同。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7a5f535c5b61eb2854331e822845f5ac_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-38707eb866be4b55113a5c20c6a7a9a7_1440wtuya.jpg"></p>
+<p>​</p>
+<p>46节给门把手添加材质，texture.com上面直接下载的。这里出现了material slots复数elements，之前下载了一套kitbash碰到了这个我以为是在ue中merge actor产生的，今天搜了下ue导出资产到blender发现有相关的插件用gltf格式，可以看出来导入到blender后其部件就拆解了，实质上这是在blender中多个物体打包导入到ue才会产生复数elements。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-afc3b9f8100c36e0440cd2b15915388a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a07b68ddc7bda116e27ba3f9214d10e4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-6554314fead5e547bb4a36406e61b310_1440wtuya.jpg"></p>
+<p>​</p>
+<p>7.6测试发现将物体打包在一个collection添加不同的材质导出即可拥有复数elements。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-4abef23b6335b12cb52b34b5fad99ec1_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-52a34d2a56970cac3bea613b3eeab327_1440wtuya.jpg"></p>
+<p>​</p>
+<p>回到46节教学视频接着为门的变种添加材质，这里就很清楚了，在blender中有划分材质，导入到ue就会按照这种划分形成复数elements。立柱添加bare wood材质。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-d909b80727e2895663eed54da85585f5_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-24f20f0d58501a0ddae83285e3c187c7_1440wtuya.jpg"></p>
+<p>​</p>
+<p>三角山墙也用了高度贴图配合parallax occlusion.</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7a02d8db931d4446efd5cef30965c18a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>47节给墙面、小屋、cornice加上材质，作者提到目前所有的建筑部件看起来着色都一样很无趣，之后会通过变化顶点绘制、遮罩等等来处理。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1d331d199c1419dec80eca3d1faa7ec9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-a21464ec02c00fd3f12ec053507762f1_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-054b926038819b8a49f42603725040cb_1440wtuya.jpg"></p>
+<p>​</p>
+<p>给3个窗加上上漆、污渍、高光遮罩。窗户给的材质没有激活上漆，因此paint removal遮罩没起到作用，黑色部分是污渍遮罩。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-bd96a9d80b5b1fa17ad72c4582325d13_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f4f655e5bedfa8ca658b0a90cc961838_1440wtuya.jpg"></p>
+<p>​</p>
+<p>48节给楼梯、过道加上上漆、污渍、高光遮罩。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-298d9862a3abc2a5e11f661e2c26245a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-f1a165544c84983802b07afcf599485a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>49-51节开始制造着色变化先是墙面换了个base color，每做一种新的着色效果本质就是复制一个材质实例修改里面的几个选项属性。阳台正面的墙使用顶点绘制，fill可以整个填充，等于说是完全切换了一种材质。</p>
+<p><img src="https://pica.zhimg.com/80/v2-e65811df9aa0e520262927f4190d51da_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p>这里在明确一下带斑驳的上漆、不带斑驳的上漆、无漆原木色各自是base color通过顶点绘制去决定三者的比例，原木色base color带有上漆、污渍、高光遮罩。作者进行顶点绘制时失败，暂时没能解决问题。先给各个部件上基础着色。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-7abe57fa1f05f87237694069534de0d0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-1cd4254107428121d5ceff8dd6740914_1440wtuya.jpg"></p>
+<p>​</p>
+<p>材质的逻辑是master material控制所有参数选项，然后延伸出第一层级的实例，比如door bare wood、wall plank wood，这些是在normal上、roughness等纹理上与对应建筑部件配位的，再然后是添加颜色变化的最终实例如wood bare blank painted gray、wood bare blank red（用于柱子）。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-fe2d44b02248e7ea875f299a98bd8668_1440wtuya.jpg"></p>
+<p>​</p>
+<p>51-52节添加顶点绘制，顶点绘制这部分逻辑叠加几层在脑中构想太烧脑了还是实战到时候总结吧。我想这篇差不多到这里，剩下的放第二部分，这个作者的建筑模块化主要的科技树应该都差不多了，我得看看其余作者是怎么做这个流程的。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/07/02/2023-7-2-blender%E5%AF%BC%E5%85%A5ue%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/">2023-7-2-blender导入ue模块化建筑部件制作流程</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-7-10-blender几何节点buildingnodes-osm插件 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。 目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-7-10-blender几何节点buildingnodes-osm插件">
+<meta property="og:url" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。 目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-312d7ca22b7f899605f9727b98827c3d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-ca8e528d10c1355f28f942197205723e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-36789d165019169057a3b1ee0335e866_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-01b5cd0288af5e9693842c77c2ce75f1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-9b9c9ee0fabe2166af6b3c20c3201ed8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-753c1508b21ea4d70550a51e829128e3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-bdb57bd9b8859dfb501272e31887ce59_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-12386c221787559396054cff6a165d7c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-a44c65c13f84c0b5c3ba507d1fa205c2_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-07-19T08:26:03.000Z">
+<meta property="article:modified_time" content="2023-07-19T08:47:43.706Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="blender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-7-10-blender几何节点buildingnodes-osm插件
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-19T08:26:03.000Z" itemprop="datePublished">7月 19 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1108 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。</p>
+<p>目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固定写死的，无法变化。另外buildify中每个墙面模块尺寸必须相同不然会出现拼接问题，它的错落高度阶梯式房屋效果无法用面模式挤出，而是选择面复制分离在几何节点属性参数中调节高度，我不知道重叠的mesh会不会产生什么问题或者是性能上不好。buildify的building节点是可以输出几何体的利用join geometry可以在osm中散布不同风格的建筑。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg"></p>
+<p>​​​​​<span id="more"></span></p>
+<p>building nodes不支持osm批量生成建筑群，不过可以用osm生成的白模一键转化将其变成指定风格的建筑。f3键利用make instance real这个命令可以使所选的building nodes转化为建筑部件实例，在选中的情况下可以批量导入到unreal engine。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-312d7ca22b7f899605f9727b98827c3d_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-ca8e528d10c1355f28f942197205723e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-36789d165019169057a3b1ee0335e866_1440wtuya.jpg"></p>
+<p>​</p>
+<p>实测150栋建筑没有任何卡顿。相对于ue procedural building generator而言，building nodes的好处是逻辑清晰，支持立面的随机散布，支持多段bevel曲面化外立面（一般而言4段bevel足矣），在blender中操作便捷，不存在部件的坐标轴问题导致回blender返工，建模到拼装、散布都在blender中一气呵成，要对模型修改很快。</p>
+<p>缺点是不支持屋顶的散布（不过如上图所示即使4-5层，角色在平原步行模式下就不可能看到屋顶）；不支持外立面上的装饰物散布，这意味着需要通过建模的方式产生许多重复立面带不同装饰物的版本来达到外立面装饰物散布的效果；不支持坡面屋顶；必须一次性大批量导入，有一点问题要全部删除重新再导入，亲测相同实例部件导入ue会变成名字一样的static mesh，导致部件重复逻辑混乱。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-01b5cd0288af5e9693842c77c2ce75f1_1440wtuya.jpg"></p>
+<p>​</p>
+<p>osm可以获得真实地形、以及较为模糊的顶视图贴图参考以及道路曲线。理想中的情况是利用这些曲线一键生成道路，次一级是手动一个个曲线转换成道路，最倒霉则是只能以顶视图作为参考重新绘制，而这些曲线派不上用处。谷歌地球可以将3d的卫星地图多角度呈现配合render doc可以在blender中做出局部场景的3dmesh 参考，但是国内不能使用此技术，没有3d卫星地图。基于osm，道路设计可以更灵活，但是费事费力更大，区块（plot）需要自己划分建模做出路沿，对于大型场景应该是不少工作量，优点是plot的布置可以灵活。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-9b9c9ee0fabe2166af6b3c20c3201ed8_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-753c1508b21ea4d70550a51e829128e3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-bdb57bd9b8859dfb501272e31887ce59_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-12386c221787559396054cff6a165d7c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-a44c65c13f84c0b5c3ba507d1fa205c2_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2023/07/19/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/">2023-7-8-欧洲小镇街道场景解析-1</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/">2023-7-4-blendertoue西部世界案例</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

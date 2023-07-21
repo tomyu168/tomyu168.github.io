@@ -126,6 +126,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/" itemprop="url">2023-7-19-procedural-building-generator使用总结1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-21T12:51:15.000Z" itemprop="datePublished">7月 21 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1397 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>花了大概1-2整天查看了procedural building generator(pbg)和procdural city creator(pcc).前者我在很早以前就看过它的使用教学，不过那时没有上手，这回主要是有matrix项目的高精模型和贴图加成，整套插件对matrix项目的还原让我十分感兴趣。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-bfb3cc5145f83b521c57fc77b85b8b67_1440wtuya.jpg"></p>
+<p>​<br>​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/19/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/" itemprop="url">2023-7-8-欧洲小镇街道场景解析-1</a>
         
     </h1>
@@ -357,58 +401,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/" itemprop="url">2023-6-22-unreal-engine官方出品的黑客帝国场景学习分析</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-06-21T16:53:24.000Z" itemprop="datePublished">6月 22 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 小时 读完 (约 8582 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>之前的教程都是很小范围的景观或者小镇局部，这对展示建筑场景而言是不足够的，做出来的话顶多选几个摄像机位置截图一下，这样的话有没有ue的实时渲染没啥区别，在max、blender中做也差不多，顶多就是制作过程中ue可以通过实时渲染观察效果，但搞了半天最后就是为几张静态的图。</p>
-<p>第一篇：基于官方字幕《[技术演讲]黑客帝国觉醒：创造世界》的总结</p>
-<p>matrix这个项目基于一个4x4平方公里的城市局部，其制作目的是要创建一个介于影视与游戏之间的实时大型场景,使用程序化工具和工作流让小团队能做大场景.</p>
-<p>用ue的MassAI生成行人和车流，MetaSounds生成环境声音。</p>
-<p>3d assets（资产/模型）</p>
-<p>matrix这个项目用了1000多个组件，每个由50000-500000个polygons组成。所有的资产都是nanites。尽可能使用megascan的资产。</p>
-<p>textures（纹理）:</p>
-<p>纹理方面都使用4k分辨率，如果需要更高的像素，则把uv分割为udims，然后增加更多的4k纹理。</p>
-<p>所有的纹理都被转换为虚拟纹理（virtual textures）,关于这个概念b站上有很多教程有介绍，目前基础还差很多类似这样的概念、技术分支需要逐个突破。</p>
-<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f4c8af9da3c9fc78ceb5f53ce90f2374_1440wtuya.jpg"></p>
-<p>​​​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -426,7 +418,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/8/">8</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/9/">9</a></li>
         
     </ul>
 </nav>

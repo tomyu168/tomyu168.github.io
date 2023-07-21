@@ -7175,4 +7175,53 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>unrealengine</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-7-19-procedural-building-generator使用总结1</title>
+    <url>/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/</url>
+    <content><![CDATA[<html><head></head><body><p>花了大概1-2整天查看了procedural building generator(pbg)和procdural city creator(pcc).前者我在很早以前就看过它的使用教学，不过那时没有上手，这回主要是有matrix项目的高精模型和贴图加成，整套插件对matrix项目的还原让我十分感兴趣。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-bfb3cc5145f83b521c57fc77b85b8b67_1440wtuya.jpg"></p>
+<p>​<br>​​​​<span id="more"></span></p>
+<p>关于pcc我感觉用划分街区自动生成plot的方式有一定局限性，不方便扩展，plot的摆放方面也不太自由。暂时不知道有没有用spline直接生成plot的方法。如果不能用spline圈定plot那么在有明显高差的区域就不太好搞了。因此pcc先放一边。</p>
+<p>pbg相对building nodes而言，不能配合osm的白模快速大批量散布，目前不清楚有没有办法把spline转化为prefab蓝图，因此每个建筑需要手动放置blueprint，其流程是定义mesh list、grammar list可以比building nodes更方便快捷的产生建筑立面，并且execution flow可以采用多套grammar来定义spline上每个segment从而产生截然不同的立面。building nodes的facade join工作流将建筑从竖向切割成块，每个floor装配好之后join floor，floor好了之后join facade.最后是facade join.这样的结果是随着spline的拉伸，facade逐一循环。当然这只是基于下面这个例子，显然也可以只定义一个facade，在其中做足所有部件的编排，这种模式即pbg的工作流。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-ddcf284a30833b85a07df05059c82761_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-de401d23bf74c0b9977babe20adf19af_1440wtuya.jpg"></p>
+<p>​</p>
+<p>相比于buildingnodes，pbg的逻辑明确是按照层来堆积的，通过语法可以让层中的建筑部件做多样的变换，虽然是逐个生成建筑，不过对spline蓝图复制也可以很快获得变种，spline的点有相对位置可以数值化修改从而精确立面的尺寸、形状，相对于blender中可以用snapping而言不方便，但经过多个样例之后相当于有好几个尺寸的样板了，只要在此基础上修改grammar和mesh list即可生成不同样式的建筑。现实中建筑部件的模数、比例是比较规整精确的，或许pbg在spline规划建筑形状、尺寸方面的不便倒是规范模数、比例的一种约束，二层与一层部件不同时如何互相“对接”？跨层的部件如何与上层“融洽”？这些都需要在精确的尺寸计算约束中完成，不能完全放飞自我。这就是上升到“和而不同”的问题了，能跳出软件的使用而专注于思考美学，才是软件使用的终极目标。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-bfb3cc5145f83b521c57fc77b85b8b67_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-1d4a30ad555b983fa33aa106f1e39a14_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过一个个点的alt挤出也可以做出多段bevel曲面过渡的效果，可以用现成模型作为一个bevel参照的底板依葫芦画瓢？</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-f6a85d4e6e003a26a3972efdc1960eb0_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在只有一条语法时，如果segment长度不够似乎默认使用第一个出现的部件（下图为例就是w2）平铺，可以设置多个语法让系统对不同长度segment去匹配。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-87c8855140ead24e3342faa59409bd0b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-037b33d89577426334aa33825f066c8e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>pbg生成建筑有个很需要注意的地方是建筑部件的pivot朝向，实际上building nodes虽然我没有用别的mesh去摆放但肯定也有相同的问题。在mesh list中可以对pivot做旋转调整，这样的话如果都是从blender中导出的模型那么只要保证pivot都在角点即可，即使朝向错了到时候在mesh list中可以调整。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-9b33b42de58b7b6cf9b0d94f0e26a5f3_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这俩玩意儿虽然在quixel直接导入ue的坐标体系不同（害我折腾一晚上）但是在blender中只要角点一样其pivot朝向就一样，所以pivot问题就不是问题了。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-c1c39444d45464af04f6ef7988b08841_1440wtuya.jpg"></p>
+<p>​</p>
+<p>昨天折腾了一天的gable roof 问题似乎是版本的bug，在6.23的版本中修复了！不得不说开发者十分热情敬业，弄得我都不好意思要买套正版了。目前来看这套工具的正版以及技术支持是很有必要的，以及之后用于装饰的human zbuilder，这些成本是必须的。</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-2f49f49d02cce18de99593f757847630_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-77c92b906996586a5a9dec862d9a4bdd_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-5ece5f9a7b677fec00426d0d88fbf6e4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/07/21/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/2023-7-19-procedural-building-generator%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%931/v2-be31b50fd775f76ce4f8cc01818f2f48_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+      </tags>
+  </entry>
 </search>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-7-不规则多分叉小路-路肩栅栏-草地绿化的技术实现 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="今日测试画好的曲线能不能转化为spline mesh，发现可以用road replace widget的prop mesh来完成curb的制作，最后bake mesh即可以获得curb instance构成的近乎闭环，不过角点处需要手动修改大小来调整穿模。那么就可以实现在blender中用曲线定义随机分布物体的位置，blender中alt c闭合曲线，这个技术验证通过后接下来就要找一下blende">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-7-不规则多分叉小路-路肩栅栏-草地绿化的技术实现">
+<meta property="og:url" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="今日测试画好的曲线能不能转化为spline mesh，发现可以用road replace widget的prop mesh来完成curb的制作，最后bake mesh即可以获得curb instance构成的近乎闭环，不过角点处需要手动修改大小来调整穿模。那么就可以实现在blender中用曲线定义随机分布物体的位置，blender中alt c闭合曲线，这个技术验证通过后接下来就要找一下blende">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-880884a014e52063c7b1889d6a1f5573_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c1e10418f9c6151b97dd9f18840a6b93_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c78035451b6a8c9fa1aa20a08e95be18_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-76c607f27f54e28fe12af23378513ac4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-bafa2ecd8247c2b93cba7c24edd78976_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-8b5af0cc864b8245ee366e5772deb5d0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-9afed097adce9e5a7272c9dbd80485bc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-a1f767efc38bdf373b581c3a8a3efb39_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-4d674b5c431b632c0fe44bea53111d24_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-4c954178992faf442e67bf682cc34ffa_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-0d4583b6ac4410c006ccf78fef3a14cd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c1b84fb83da1eaeed64f84f6f2f2f273_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-3f5af4bcfdd52ce0329ade982184c8fa_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-3531f215da48e983a074d2af5a0f85d5_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-08-07T16:01:14.000Z">
+<meta property="article:modified_time" content="2023-08-07T16:07:29.618Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-880884a014e52063c7b1889d6a1f5573_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-7-不规则多分叉小路-路肩栅栏-草地绿化的技术实现
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-08-07T16:01:14.000Z" itemprop="datePublished">8月 8 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1126 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>今日测试画好的曲线能不能转化为spline mesh，发现可以用road replace widget的prop mesh来完成curb的制作，最后bake mesh即可以获得curb instance构成的近乎闭环，不过角点处需要手动修改大小来调整穿模。那么就可以实现在blender中用曲线定义随机分布物体的位置，blender中alt c闭合曲线，这个技术验证通过后接下来就要找一下blender中有什么生成“奇异”curve的插件了，在blender中尽情绘制匪夷所思的路径排布。</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-880884a014e52063c7b1889d6a1f5573_1440wtuya.jpg"></p>
+<p>​<br>​​​​​<span id="more"></span></p>
+<p>到时候做一个设定好的prg road to use，将选中的曲线转化，即可获得需要的物体沿着曲线的随机分布，可以对物体的大小、位置做随机偏移。实测中不知为何路肩在bezier的手柄为0时（棱角的正方形）卡了。另外默认的prg road转化为将原有的棱角型曲线变形，不过呢这些spline可以任意复制，所以棱角曲线手动搞一次后面可以复用的。卡的话先都搞成spline only模式就好了，逐个调整再bake mesh。另外这个spline mesh还支持landscape deform，按perform landscape adjustment即可。</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c1e10418f9c6151b97dd9f18840a6b93_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c78035451b6a8c9fa1aa20a08e95be18_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-76c607f27f54e28fe12af23378513ac4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-bafa2ecd8247c2b93cba7c24edd78976_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-8b5af0cc864b8245ee366e5772deb5d0_1440wtuya.jpg"></p>
+<p>​</p>
+<p>另一方面经过对cityParkEnviroment的研究发现，一些地砖、道路、草地绿化都可以用landscape笔刷去实现，这样的话就解决了多分叉小路的制作。</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-9afed097adce9e5a7272c9dbd80485bc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-a1f767efc38bdf373b581c3a8a3efb39_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在unoptimized版本的map中，小路都是用landscape做的，不过目前尚不清楚其原理是什么，在绘制模式下可以发现很大一部分的landscape不受绘制影响，但在显示隐藏中它们会受影响。在sculpt模式下可以发现，将landscape加高会显现出绘制的材质，也就是说有一层东西覆盖在landscape上，它既是landscape又不受landscape的绘制影响。</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-4d674b5c431b632c0fe44bea53111d24_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-4c954178992faf442e67bf682cc34ffa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-0d4583b6ac4410c006ccf78fef3a14cd_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-c1b84fb83da1eaeed64f84f6f2f2f273_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在优化版本中，小路是一整个mesh，由于路面低于路肩可以被landscape的草坪覆盖所以，路面不用很精确与路肩对齐。其上的标记是在dcc软件中完成的并非在unreal中逐个decal。这种思路可以利用max、sketchup方案中一些现成画好的道路面片，提取曲线做路肩无压力，可以得到十分自然的道路。后期还可以结合顶点着色，添加多重材质。</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-3f5af4bcfdd52ce0329ade982184c8fa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/v2-3531f215da48e983a074d2af5a0f85d5_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/07/2023-7-28-UE5-%E6%9D%90%E8%B4%A8%E5%AE%9D%E5%85%B8-%E5%88%9D%E5%AD%A6%E8%80%85%E6%9D%90%E8%B4%A8%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">2023-7-28-UE5-材质宝典-初学者材质基础入门系列</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

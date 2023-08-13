@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-11-近几天ue-pbg中的一些问题总结 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="landscape deform只在showcase map中有效，到了其他landscape就无效了，然后其他landscape能用landscape patch但是在showcase map中无效  ​​​​​​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-11-近几天ue-pbg中的一些问题总结">
+<meta property="og:url" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="landscape deform只在showcase map中有效，到了其他landscape就无效了，然后其他landscape能用landscape patch但是在showcase map中无效  ​​​​​​">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-af3cf6e8ba6fbee44b90a1a9a230297b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d447fa40bf6cc08c15ec64246e4742b4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-1573b8e9abc2b66f77cafbacb51c6855_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8656da69bc946630041d3c0971ddc73e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0cf6f566ecefff8dd185854499b65680_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-22065733c127fbe97811d321755c661f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-3b834edcf68c7b3fbe520c8a312e6aab_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-c9cb96080c1855c5e0f1bae5d960a22f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d60640b4a6a0071ba063909b964074f6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d436db95c1b05eae125873ca93845f61_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-45c3af59e5e138d03f7e9c6c6339e34a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-57008e6242e94d61b4685c92b823e31d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-f6892b71a3134622a6de85551e40b6e0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-19fffb8f7514a77a4662939b71c4eda3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-38dfa614f6642efb5c49cf13d915b99e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-11d59497e9ea8f378f9b9a7f269246bf_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-3a25f152333c52c18b457da97f5611b1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-402910b45bd688ee39fb4dcfd36e840f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-f00ea41da9a09407a4892dd6a221322a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-dccb1b57831e0a307a4c69b7d9687542_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-afdcf579f561164a9d19bd52ae925160_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-dd1f179c6b90d93a95a6493d532b38db_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-1eb51a75cee61ffddf356c325b1f8c93_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2eb4af91b374e0b90b80412b2b14c0e9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8dcb318068d62c7e254baac8217acdef_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-7b894f56133f3422d8ffa09fc2a9a562_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0bd4e9c6b72d8fb90af9a073e6cd330b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-e1b773e5a48edf0dae30f17ecb5064e8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-b4e1d5de79eccd6a4adfff3c64576cd3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-bee1eb544c67aea01de38df45bf18cd0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-a0ee37c27b593302b55420ecfe0ca6d0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-df2d6bf34685a7da7b83e7df6201c179_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-648a1a392af8ca1f721c0800a31e6bfe_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2f92a538b5435ac9f10fd9848f277d60_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8f69d5563292a61304ff23929da6a9ab_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-64bc029d27d0a521ae2328ebedb1faa0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-072e789b643a0300a2ce86782b4b7300_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-10a0d5a2613be3caebf9d1a553c5e90b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-55c9fbc9efee1b83ca27667622049df9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2fa27a507763d3c0850607842cbd6280_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-a09b455e5dec72e479947261d47b4b12_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0bf3577cae08fe0bb0016a8a7b2abb5e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-9fca46f9a84bd667d9e5bf5cf4d8f9dc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-69109a5cc2d3be5e9304faa5578e913c_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-08-13T15:15:07.000Z">
+<meta property="article:modified_time" content="2023-08-13T15:17:50.495Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="PBG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-af3cf6e8ba6fbee44b90a1a9a230297b_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-11-近几天ue-pbg中的一些问题总结
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-08-13T15:15:07.000Z" itemprop="datePublished">8月 13 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 2993 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>landscape deform只在showcase map中有效，到了其他landscape就无效了，然后其他landscape能用landscape patch但是在showcase map中无效</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-af3cf6e8ba6fbee44b90a1a9a230297b_1440wtuya.jpg"></p>
+<p>​<br>​​​​​<span id="more"></span></p>
+<p>通过discord上查看过往的技术探讨，发现在blueprint中修改perform landscape adjustment最后一个函数，把它的edit layer name改成landscape在paint mode下的那个layer name即可，不过deform之后的效果很诡异，还有待技术支持。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d447fa40bf6cc08c15ec64246e4742b4_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对于static mesh用landscape patch插件可以解决地面平行，不过目前看来它仅仅适用于物体底面平坦的情况如果物体不平就不行了，在我应用的场景里问题不大。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-1573b8e9abc2b66f77cafbacb51c6855_1440wtuya.jpg"></p>
+<p>​</p>
+<p>blender导入ue用fbx scene可以大批量导入blender的物体并保持实例状态只对static mesh修改材质可以影响所有实例，但是前后两次导入在blender中相同物体的实例ue是无法自动匹配的，必须对fbx scene中的实例选取后重新指定其static mesh。</p>
+<p>注意下图2的圆柱几何体完全一样两次导入还是会生成两个static mesh。我估计coordikngiht那个插件也会有这个问题，必须做到一次性全部导入。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8656da69bc946630041d3c0971ddc73e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0cf6f566ecefff8dd185854499b65680_1440wtuya.jpg"></p>
+<p>​</p>
+<p>关于blender到ue的实例,我是想如下这种8角面，高度不同的pbg会自动拉伸使得高度一致，目前暂时不清楚如何解决这个问题。2023.8.13更新：昨天下载了完整得city sample，pbg matrix demo可以用了，可以看出来通过添加socket height，height所在得高度位置即为floor height，以上部分不会被压制，从而产生不同高度。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-22065733c127fbe97811d321755c661f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-3b834edcf68c7b3fbe520c8a312e6aab_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-c9cb96080c1855c5e0f1bae5d960a22f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d60640b4a6a0071ba063909b964074f6_1440wtuya.jpg"></p>
+<p>​</p>
+<p>socket加入length可以解决cornermesh缝隙问题。socket dim既可以解决height也能解决length，socket a能确认屋顶盖板得位置。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-d436db95c1b05eae125873ca93845f61_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-45c3af59e5e138d03f7e9c6c6339e34a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>语法对每段segment都继承，设置多套语法对应不同版本的segment长度，暂时还没有测试它的精确度。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-57008e6242e94d61b4685c92b823e31d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>Right corner mesh 是向外凸的角落mesh，Left corner mesh是向内凹的角落mesh，下图1为Right corner mesh，下图2为注意他们的pivot设置。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-f6892b71a3134622a6de85551e40b6e0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-19fffb8f7514a77a4662939b71c4eda3_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对于十分简易的立面，4个block用10分钟不到即可完成。其中大概用到了12个部件，可以推测30个部件的房子大概半小时可以完成。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-38dfa614f6642efb5c49cf13d915b99e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>blender 快捷键 shift r重复</p>
+<p>city sample中的建筑是packed level actor也就是说建筑部件static mesh通过pbg合成整栋建筑bake抑或是在blender中用instance拼装起来以后导入，它们都是零散的要整体操作需要使用packed level actor把它们打包成一个blueprint。由于是blueprint，还可以在它的基础上做修改，下图通过修改blueprint对雕塑做了实例输入替换。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-11d59497e9ea8f378f9b9a7f269246bf_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-3a25f152333c52c18b457da97f5611b1_1440wtuya.jpg"></p>
+<p>​</p>
+<p>增加floor grammar再未设置的情况下，segement会为空。这里的s0 s1即对应的grammar下标，invalid index指语法中的sx没有对应的grammar，那么指定用哪个。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-402910b45bd688ee39fb4dcfd36e840f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-f00ea41da9a09407a4892dd6a221322a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>可以对每个floor（每层）设置不同的语法。从结果来看高层默认继承最大index数的语法设置。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-dccb1b57831e0a307a4c69b7d9687542_1440wtuya.jpg"></p>
+<p>​</p>
+<p>使用pbg datatable material list可以对建筑的材质做替换，其原理是把要替换的slot name键入，上面放替换的材质列表。材质替换的作用域可以是整个floor，或者每个floor、每个segment（这个不懂，照理来说segment和per building side应该都是指一个segment啊？）、每个mesh。</p>
+<p>这个对窗户作用应该可以解决对多个interior mapping合并随机调用的技术问题。material为none则不改变原来的材质。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-afdcf579f561164a9d19bd52ae925160_1440wtuya.jpg"></p>
+<p>​</p>
+<p>屋顶prop需要用get actor size获取prop的尺寸，黏贴正确尺寸。这里只演示了添加blueprint prop不知道mesh要不要像这样获取尺寸。不过第三个blueprint是另起一行新开roof prop这和在同一个roof prop新增blueprint field的区别是什么呢？另外为了保证不重叠，roof prop必须pivot设置居中。randomize prop似乎可以让prop的大小也随机变化？</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-dd1f179c6b90d93a95a6493d532b38db_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-1eb51a75cee61ffddf356c325b1f8c93_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2eb4af91b374e0b90b80412b2b14c0e9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8dcb318068d62c7e254baac8217acdef_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-7b894f56133f3422d8ffa09fc2a9a562_1440wtuya.jpg"></p>
+<p>​</p>
+<p>晚上实践操作了一下，推测roof prop分两个index，一个是center prop，从index [0]中可以看到都是skycrape blueprint，对其进行random prop多次实验后可以发现屋顶中心总是index 0里面的blueprint，其余的是index 1里面的，pbg初始状态下roof prop不可见，得激活general中的add collision才行，在floor system中random prop可以对roof prop重排。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0bd4e9c6b72d8fb90af9a073e6cd330b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>为建筑物外立面增添prop/decor，在static mesh的socket中添加banner，复制socket对prop做位置调整，在deco per socket中添加socket name、deco mesh，修改presence probility可以改动出现的概率。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-e1b773e5a48edf0dae30f17ecb5064e8_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-b4e1d5de79eccd6a4adfff3c64576cd3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-bee1eb544c67aea01de38df45bf18cd0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-a0ee37c27b593302b55420ecfe0ca6d0_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置多个socket。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-df2d6bf34685a7da7b83e7df6201c179_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-648a1a392af8ca1f721c0800a31e6bfe_1440wtuya.jpg"></p>
+<p>​</p>
+<p>deco在socket中可以预览不同mesh的效果，一个socket对应多个mesh，在deco per socket中设置deco mesh。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2f92a538b5435ac9f10fd9848f277d60_1440wtuya.jpg"></p>
+<p>​</p>
+<p>deco per socket下每个index对应一个socket，和楼层无关。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-8f69d5563292a61304ff23929da6a9ab_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在建筑周围沿着其spline散布prop</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-64bc029d27d0a521ae2328ebedb1faa0_1440wtuya.jpg"></p>
+<p>​</p>
+<p>下图中看似corner mesh穿越两层，实际上是把它一分为二，这样就解决了跨层部件，作者提到还有一种思路是合并两个mesh，比如有那种跨两层的大门，那么这两层的其他部件就合并起来，最终跨两层的大门作为一个floor。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-072e789b643a0300a2ce86782b4b7300_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-10a0d5a2613be3caebf9d1a553c5e90b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>spline在拉伸过程中，mesh部件具有一定的“伸缩”空间，如下图可以发现图1的部件左起右起第3根pillar明显比其他的粗最当中那个wall mesh明显比两旁的小，图2同样是7个wall mesh所有部件的排布全部相同但是大小相对图1要均衡不少，暂时不清楚这种“伸缩”机制，不过我感觉也用不着搞明白。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-55c9fbc9efee1b83ca27667622049df9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-2fa27a507763d3c0850607842cbd6280_1440wtuya.jpg"></p>
+<p>​</p>
+<p>途中展示的错位是部件的长度不同导致的。</p>
+<p>8层柱子176 墙352，5-7层柱子127 墙400。如果在“柱”-“墙”排列的情况下176+352约等于127+400，所以不会有明显的错位。而在“柱”-“墙”排列中混入“柱”-“墙”-“墙”-“柱”的话，等于多了一个352和400的比较于是双方差了8cm。</p>
+<p>可以看出来这种有错位的情况属于语法1，若想让这个排布不错位，那么要改动（w0-p0-d0）和（d0-p0-w0），把短的w0、p0改成加长的。也就是(127+400x2-176-352x2)/2，为此我重新修改了局部的语法做了下测试，发现仍有错位，问题出在了上述的“伸缩”空间，这种伸缩应该是指定某个部件优先伸缩而不是对所有部件平均，因此通过相加相等的排列在这种伸缩下会露出“狐狸尾巴”，另外为了要达到“平衡”而特意构造特殊语法显然也让维护变得十分费力，因此，所有部件必须尺寸完全相同！</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-a09b455e5dec72e479947261d47b4b12_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-0bf3577cae08fe0bb0016a8a7b2abb5e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-9fca46f9a84bd667d9e5bf5cf4d8f9dc_1440wtuya.jpg"></p>
+<p>​</p>
+<p>屋顶不一定要是roof，也可以用floor来做，屋顶本身可以和楼面一体。</p>
+<p><img src="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/v2-69109a5cc2d3be5e9304faa5578e913c_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PBG/">#PBG</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/08/2023-8-7-%E4%B8%8D%E8%A7%84%E5%88%99%E5%A4%9A%E5%88%86%E5%8F%89%E5%B0%8F%E8%B7%AF-%E8%B7%AF%E8%82%A9%E6%A0%85%E6%A0%8F-%E8%8D%89%E5%9C%B0%E7%BB%BF%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0/">2023-8-7-不规则多分叉小路-路肩栅栏-草地绿化的技术实现</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

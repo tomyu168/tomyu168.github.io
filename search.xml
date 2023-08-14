@@ -7749,4 +7749,92 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>PBG</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-8-3-Ben-Building-Worlds-In-Unreal地形材质系列1</title>
+    <url>/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/</url>
+    <content><![CDATA[<html><head></head><body><p>1节提出3个要点要做什么类型的环境、收集相关的参考图、识别这种环境中的特征。比如说下图中溪流呈现阶梯状。有大型的石块布满青苔、树枝与叶子混合在土壤上。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-2e722174143aedbce8d3522dd2f204c3_1440wtuya.jpg"></p>
+<p>​​​​​​<span id="more"></span></p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-ede3ca1c9101f2f32cb1937cf650bd27_1440wtuya.jpg"></p>
+<p>​</p>
+<p>2节在unreal engine中创建landscape，overall resolution是以米为单位的尺寸，比如图中505x505就是505米x505米大小的地形。图2亮绿色的大格子是component，它越多占用的cpu阅多。改变component整个地形尺寸也会改变。section的quad是一个个小格子，一个component可以是一个section也可以是4个。大的component占据gpu多，因此需要平衡性能。unreal engine官方给出了建议，直接按照那个做就可以。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-982a5ca37b5c076ece1f5c7da235ddab_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1739e64243c39d1100a168d08ddf4c09_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1aeb97605e42582c5b79db6aafd24fea_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者建议从小的landscape做起，然后再做大的。创建完地形后为了使地形的变化、材质更能展现细节，需要进一步增加像素，这里要考虑到加载的问题，较远的地方自动降低像素，进的地方展示最大像素，调整LOD distribution即可。放置一个工程自带的人体作为尺寸参考。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-be2e5aa971b21566994cb724662bdbb9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-25e0176c231cb9e0f832822ace57da81_1440wtuya.jpg"></p>
+<p>​</p>
+<p>3节texture sample越多，内存占用越多，因此设法打包到4个通道里面，示范如何在substance designer打包quixel下载的纹理。法线只用xy来生生z，ao和cavity混合、displacement（高度），4个打一包，颜色rgb和粗糙度打一包。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-03bfc19d28e3bf1051d7fc77b1e64a20_1440wtuya.jpg"></p>
+<p>​</p>
+<p>左边有高光、ao右边没有，有一些细微的差别，这里看不明白高光是如何利用ao和cavity混合的贴图去转换的，也不知道为啥ao贴图要设置一个下限0.3亮度。最后将它们打包成材质函数，以便让master material整洁。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-e2cc02548051447c05bda692b1eaf755_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-9dcb836e8e72de311f297ab06f94e52b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-179a5edaecde8a2ac5806b23c744d378_1440wtuya.jpg"></p>
+<p>​</p>
+<p>4节对材质函数再套一层，做纹理的uv变化，这里以世界位置的xy坐标除以一个常量去设置平铺数？看不懂是什么原理。所有的quixel材质是1x1米大小如果没有特殊说明的话</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-377ad0f737b071df811536db59ccba54_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-b6f91847244e9dfa7756b85b7704505c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里不清楚图layer blend是做什么的，通过加载这些材质和高度通道可以将材质以高度混合，赋予地形后显示黑色，来到landscape mode发现6个材质加载到了地形的layer。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f691f04721fdd0695bd3305b3706cdfa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-56770930fdc04ab405e3982ed40e792f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>开始粗略绘制地形材质，再次审阅参考图。作者观察到河底的石头干净没有泥沙、苔藓。苔藓生长在沿着河岸的垂直坡面上。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-957876f1c9f39f6710578c356b23c5c9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-45a733066a2593fd5e6839f0ed3bd577_1440wtuya.jpg"></p>
+<p>​</p>
+<p>花了10-15分钟用大笔刷搞了概括。估计这里的边缘融合程度和绘制的falloff设置有关系。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-72449ada32aae59fea0d7accf15ec55f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-af5b91f4ff68e52e076bd21998ccf272_1440wtuya.jpg"></p>
+<p>​</p>
+<p>5节介绍4种打破tiling的技术，作者指出如果后期在地面上添加大量的foliage或者别的什么总之把地面都覆盖了，那么就用不着做de-tiling。图1展示旋转uv用16平米的noise贴图lerp决定用哪一种纹理，这个方法只在16平米的范围内可以打破tiling，但是远景看上去就是以16平米的noise贴图样式在tiling重复。另外旋转后法线要互换通道。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c726e9e5ea14dde2a614168b0fc68c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-4a83b41b57926724441fe0a7689459ff_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3f42489eadc934186a6f5fde2ccc390d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置摄像机远近遮罩，使用两套材质分别对应远近。这个在中景范围可以有效打破tiling，但是拉远了似乎就不行了。第三种方法是对材质本身在substance designer中做disorder处理，本身变得不规则，但似乎它依旧是个无缝贴图，拉远了还是以单位图案在重复平铺。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3932e9a86f34e1124c0808b4ecf73547_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-5ca6810da669f071f78c39f7db7b04b9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1e477856ea9f2162af71c90d7d465174_1440wtuya.jpg"></p>
+<p>​</p>
+<p>第4个方法是添加一个投射在整个landscape上的颜色noise与basecolor相加，这里我感到疑惑颜色叠加不应该用相乘吗？</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c879e0b7ce504f374403783d2d3369_1440wtuya.jpg"></p>
+<p>​</p>
+<p>6节介绍displacement和tessellation,ue5没有这个功能，似乎只能在substance desigener里面做高度图tessellation生成带几何特征的平面然后一个个在ue里面拼接？大型场景这么做肯定不得行。</p>
+<p>7节foliage mode下添加static mesh批量spawning。可以设置密度、大小的范围、随机旋转，关闭投射阴影可以提高运行性能。culling distance设置当摄像机拉远时这些foliage会消失，为了不让所有物体齐刷刷出现消失，要对这些物体分别设置这个参数。树木也是foliage模式，不过作者可能考虑到性能问题是在single模式下一个个添加，复制黏贴移动布局的，显然这么搞大场景要弄死人的，还得探索其他办法。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-c3b21bb0813143c7239c541dcc589edc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-928b8a6ced17a5a1e446f63a24fdd540_1440wtuya.jpg"></p>
+<p>​</p>
+<p>8节继续用foliage添加目标环境的特征mesh，蕨类植物、断木log、树桩、水草、带苔藓的大石头。摆放的顺序是从大到小，对大石头、log、树桩设置碰撞，这样角色不会对它们穿模。大石头的摆放设置single的cycle模式循环拾取选中的mesh逐个摆放。而log则是直接复制实例，一个个微操。对一些log附近摆放树桩，营造根源关系。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1d708408518aa889a963cdd2bc43a4af_1440wtuya.jpg"></p>
+<p>​</p>
+<p>蕨类植物设置其坡度方向垂直。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-39daf07864c540632cb342d1f0cee5a1_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>unrealengine</tag>
+        <tag>材质</tag>
+      </tags>
+  </entry>
 </search>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-3-Ben-Building-Worlds-In-Unreal地形材质系列1 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="1节提出3个要点要做什么类型的环境、收集相关的参考图、识别这种环境中的特征。比如说下图中溪流呈现阶梯状。有大型的石块布满青苔、树枝与叶子混合在土壤上。  ​​​​​​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-3-Ben-Building-Worlds-In-Unreal地形材质系列1">
+<meta property="og:url" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="1节提出3个要点要做什么类型的环境、收集相关的参考图、识别这种环境中的特征。比如说下图中溪流呈现阶梯状。有大型的石块布满青苔、树枝与叶子混合在土壤上。  ​​​​​​">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-2e722174143aedbce8d3522dd2f204c3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-ede3ca1c9101f2f32cb1937cf650bd27_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-982a5ca37b5c076ece1f5c7da235ddab_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1739e64243c39d1100a168d08ddf4c09_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1aeb97605e42582c5b79db6aafd24fea_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-be2e5aa971b21566994cb724662bdbb9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-25e0176c231cb9e0f832822ace57da81_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-03bfc19d28e3bf1051d7fc77b1e64a20_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-e2cc02548051447c05bda692b1eaf755_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-9dcb836e8e72de311f297ab06f94e52b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-179a5edaecde8a2ac5806b23c744d378_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-377ad0f737b071df811536db59ccba54_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-b6f91847244e9dfa7756b85b7704505c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f691f04721fdd0695bd3305b3706cdfa_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-56770930fdc04ab405e3982ed40e792f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-957876f1c9f39f6710578c356b23c5c9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-45a733066a2593fd5e6839f0ed3bd577_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-72449ada32aae59fea0d7accf15ec55f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-af5b91f4ff68e52e076bd21998ccf272_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c726e9e5ea14dde2a614168b0fc68c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-4a83b41b57926724441fe0a7689459ff_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3f42489eadc934186a6f5fde2ccc390d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3932e9a86f34e1124c0808b4ecf73547_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-5ca6810da669f071f78c39f7db7b04b9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1e477856ea9f2162af71c90d7d465174_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c879e0b7ce504f374403783d2d3369_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-c3b21bb0813143c7239c541dcc589edc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-928b8a6ced17a5a1e446f63a24fdd540_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1d708408518aa889a963cdd2bc43a4af_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-39daf07864c540632cb342d1f0cee5a1_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-08-14T08:53:03.000Z">
+<meta property="article:modified_time" content="2023-08-14T08:54:49.763Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-2e722174143aedbce8d3522dd2f204c3_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-3-Ben-Building-Worlds-In-Unreal地形材质系列1
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-08-14T08:53:03.000Z" itemprop="datePublished">8月 14 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2050 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1节提出3个要点要做什么类型的环境、收集相关的参考图、识别这种环境中的特征。比如说下图中溪流呈现阶梯状。有大型的石块布满青苔、树枝与叶子混合在土壤上。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-2e722174143aedbce8d3522dd2f204c3_1440wtuya.jpg"></p>
+<p>​​​​​​<span id="more"></span></p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-ede3ca1c9101f2f32cb1937cf650bd27_1440wtuya.jpg"></p>
+<p>​</p>
+<p>2节在unreal engine中创建landscape，overall resolution是以米为单位的尺寸，比如图中505x505就是505米x505米大小的地形。图2亮绿色的大格子是component，它越多占用的cpu阅多。改变component整个地形尺寸也会改变。section的quad是一个个小格子，一个component可以是一个section也可以是4个。大的component占据gpu多，因此需要平衡性能。unreal engine官方给出了建议，直接按照那个做就可以。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-982a5ca37b5c076ece1f5c7da235ddab_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1739e64243c39d1100a168d08ddf4c09_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1aeb97605e42582c5b79db6aafd24fea_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者建议从小的landscape做起，然后再做大的。创建完地形后为了使地形的变化、材质更能展现细节，需要进一步增加像素，这里要考虑到加载的问题，较远的地方自动降低像素，进的地方展示最大像素，调整LOD distribution即可。放置一个工程自带的人体作为尺寸参考。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-be2e5aa971b21566994cb724662bdbb9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-25e0176c231cb9e0f832822ace57da81_1440wtuya.jpg"></p>
+<p>​</p>
+<p>3节texture sample越多，内存占用越多，因此设法打包到4个通道里面，示范如何在substance designer打包quixel下载的纹理。法线只用xy来生生z，ao和cavity混合、displacement（高度），4个打一包，颜色rgb和粗糙度打一包。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-03bfc19d28e3bf1051d7fc77b1e64a20_1440wtuya.jpg"></p>
+<p>​</p>
+<p>左边有高光、ao右边没有，有一些细微的差别，这里看不明白高光是如何利用ao和cavity混合的贴图去转换的，也不知道为啥ao贴图要设置一个下限0.3亮度。最后将它们打包成材质函数，以便让master material整洁。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-e2cc02548051447c05bda692b1eaf755_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-9dcb836e8e72de311f297ab06f94e52b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-179a5edaecde8a2ac5806b23c744d378_1440wtuya.jpg"></p>
+<p>​</p>
+<p>4节对材质函数再套一层，做纹理的uv变化，这里以世界位置的xy坐标除以一个常量去设置平铺数？看不懂是什么原理。所有的quixel材质是1x1米大小如果没有特殊说明的话</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-377ad0f737b071df811536db59ccba54_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-b6f91847244e9dfa7756b85b7704505c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里不清楚图layer blend是做什么的，通过加载这些材质和高度通道可以将材质以高度混合，赋予地形后显示黑色，来到landscape mode发现6个材质加载到了地形的layer。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f691f04721fdd0695bd3305b3706cdfa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-56770930fdc04ab405e3982ed40e792f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>开始粗略绘制地形材质，再次审阅参考图。作者观察到河底的石头干净没有泥沙、苔藓。苔藓生长在沿着河岸的垂直坡面上。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-957876f1c9f39f6710578c356b23c5c9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-45a733066a2593fd5e6839f0ed3bd577_1440wtuya.jpg"></p>
+<p>​</p>
+<p>花了10-15分钟用大笔刷搞了概括。估计这里的边缘融合程度和绘制的falloff设置有关系。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-72449ada32aae59fea0d7accf15ec55f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-af5b91f4ff68e52e076bd21998ccf272_1440wtuya.jpg"></p>
+<p>​</p>
+<p>5节介绍4种打破tiling的技术，作者指出如果后期在地面上添加大量的foliage或者别的什么总之把地面都覆盖了，那么就用不着做de-tiling。图1展示旋转uv用16平米的noise贴图lerp决定用哪一种纹理，这个方法只在16平米的范围内可以打破tiling，但是远景看上去就是以16平米的noise贴图样式在tiling重复。另外旋转后法线要互换通道。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c726e9e5ea14dde2a614168b0fc68c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-4a83b41b57926724441fe0a7689459ff_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3f42489eadc934186a6f5fde2ccc390d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置摄像机远近遮罩，使用两套材质分别对应远近。这个在中景范围可以有效打破tiling，但是拉远了似乎就不行了。第三种方法是对材质本身在substance designer中做disorder处理，本身变得不规则，但似乎它依旧是个无缝贴图，拉远了还是以单位图案在重复平铺。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-3932e9a86f34e1124c0808b4ecf73547_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-5ca6810da669f071f78c39f7db7b04b9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1e477856ea9f2162af71c90d7d465174_1440wtuya.jpg"></p>
+<p>​</p>
+<p>第4个方法是添加一个投射在整个landscape上的颜色noise与basecolor相加，这里我感到疑惑颜色叠加不应该用相乘吗？</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-f0c879e0b7ce504f374403783d2d3369_1440wtuya.jpg"></p>
+<p>​</p>
+<p>6节介绍displacement和tessellation,ue5没有这个功能，似乎只能在substance desigener里面做高度图tessellation生成带几何特征的平面然后一个个在ue里面拼接？大型场景这么做肯定不得行。</p>
+<p>7节foliage mode下添加static mesh批量spawning。可以设置密度、大小的范围、随机旋转，关闭投射阴影可以提高运行性能。culling distance设置当摄像机拉远时这些foliage会消失，为了不让所有物体齐刷刷出现消失，要对这些物体分别设置这个参数。树木也是foliage模式，不过作者可能考虑到性能问题是在single模式下一个个添加，复制黏贴移动布局的，显然这么搞大场景要弄死人的，还得探索其他办法。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-c3b21bb0813143c7239c541dcc589edc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-928b8a6ced17a5a1e446f63a24fdd540_1440wtuya.jpg"></p>
+<p>​</p>
+<p>8节继续用foliage添加目标环境的特征mesh，蕨类植物、断木log、树桩、水草、带苔藓的大石头。摆放的顺序是从大到小，对大石头、log、树桩设置碰撞，这样角色不会对它们穿模。大石头的摆放设置single的cycle模式循环拾取选中的mesh逐个摆放。而log则是直接复制实例，一个个微操。对一些log附近摆放树桩，营造根源关系。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-1d708408518aa889a963cdd2bc43a4af_1440wtuya.jpg"></p>
+<p>​</p>
+<p>蕨类植物设置其坡度方向垂直。</p>
+<p><img src="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/v2-39daf07864c540632cb342d1f0cee5a1_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/13/2023-8-11-%E8%BF%91%E5%87%A0%E5%A4%A9ue-pbg%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">2023-8-11-近几天ue-pbg中的一些问题总结</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

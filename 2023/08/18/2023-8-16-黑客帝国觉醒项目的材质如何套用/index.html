@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-16-黑客帝国觉醒项目的材质如何套用 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="在let‘s go rpg系列教学中演示了用quixel mixer配合Ben Cloward的WorldAlignedTexture教学解决了瓦片mesh阵列多样化，这个技术可以解决类似柳林故宫建筑群的屋顶材质平铺重复问题，但和matrix项目中的block、brick不是一个概念。  ​​​​​​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-16-黑客帝国觉醒项目的材质如何套用">
+<meta property="og:url" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="在let‘s go rpg系列教学中演示了用quixel mixer配合Ben Cloward的WorldAlignedTexture教学解决了瓦片mesh阵列多样化，这个技术可以解决类似柳林故宫建筑群的屋顶材质平铺重复问题，但和matrix项目中的block、brick不是一个概念。  ​​​​​​">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-3fac872a5cf6c5c631fea88ddf098383_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-91b804d18def267a5a836ab91656c842_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f33afc18fe3f2e73a2bac6afd4a7e688_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f2197ead2c4230480b09b78e75961025_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-90dcade629a5e58699c96227a4b62491_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-40b2e649d945b5e3dbeba2f6733e789f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-ff905d302f4206204acd48a4393deda7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-98c4331d5c69604e2838ca892ae2b049_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-ec9de5bc471dda85afba7119d43e5767_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-2fe68809b7928f7c5b68a1c576314fad_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-df25f4488123d20fe29a145800767d9a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-7821bf74d5d104a4f6efd27780ce6f27_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-49722fa92f7bbe20f99f69cbb34e4385_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-69ca5202f4bd5b440002ca0bef5bfeb3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-6890b78bad8efa32deaa263a44e5d21c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-69aee3e15dca26bc89d92ad90f9aff72_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-37fc26b8e65af617b979d5bee6087420_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e233622dd7a0864c1a6b7d17b5406900_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-38f14d3fd20493b6d1f845c7bf2d20fd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-759c48effbe8c21654fe9a1ca645c198_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-c842967c6b2587ade4aa44be3b406a20_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-57e984af81871a586c3bc502c7203c58_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f17c9df499f6f6f4e05de1d1d2ac7d84_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-fb737444ad373eb8867cfdf58299f5e5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-372702483569a779956171178a9df155_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-059549b9bf4d8262ff89f1661cf8b317_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-4ea9548445e3e6f11b8101cf87643763_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-b7417a6adf283c841b5d62ed15b99e96_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-89b2ec102c551ddf16f4107ab88ff0cd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e8c019121fd3db922a020fa5d36ab007_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-c372bcfdbeec4fe21925e15e4f59eda9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-cc753855896c2feb1db6ea691435941a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e1ca5e3cf4e2a861af35ff815b0cdc2d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-373d272183e88dd975e50f9a387badf2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-426ca4cb40759c15e9b65f20854a970e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-306a0d8ffd54b335afec5ef99dcc9d63_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-8aaa8ec0ab16c60c494dd2573f69a24f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-0d9d108693f847976453347a8b5798b8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-483e489fccb5ac6fa593ac4864b63db5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-2caf5243f0264b61aba5f867cc7e6198_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-7fe3936212b093a1cd5af69b809ff91f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-bd9fbfd38e74c8ee7963b5d360d87847_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-4767a8844b0de23caf21eb3ffd5f85ec_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-08-17T16:42:12.000Z">
+<meta property="article:modified_time" content="2023-08-17T16:48:19.807Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="贴图">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-3fac872a5cf6c5c631fea88ddf098383_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-16-黑客帝国觉醒项目的材质如何套用
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-08-17T16:42:12.000Z" itemprop="datePublished">8月 18 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            21 分钟 读完 (约 3129 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在let‘s go rpg系列教学中演示了用quixel mixer配合Ben Cloward的<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pXOknekvmwE">WorldAlignedTexture教学</a>解决了瓦片mesh阵列多样化，这个技术可以解决类似柳林故宫建筑群的屋顶材质平铺重复问题，但和matrix项目中的block、brick不是一个概念。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-3fac872a5cf6c5c631fea88ddf098383_1440wtuya.jpg"></p>
+<p>​<br>​​​​​<span id="more"></span></p>
+<p>在matrix中如下图看到的砖块（brick）以及大的石块细线（block），他们的分割效果并不是建模完成的，也就是说它们不是由一个个砖块拼接起来的，所以不能套用上述的技术。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-91b804d18def267a5a836ab91656c842_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f33afc18fe3f2e73a2bac6afd4a7e688_1440wtuya.jpg"></p>
+<p>​</p>
+<p>要对少量建筑、部件做这种效果并不难，比方说上图中的红砖，其底层的base color就是大片的砖块，在basecolor贴图上面已经做了充分的做旧、侵蚀效果。进一步的话可以给随机的uv偏移值来拾取贴图上不同的部分。那么有没有必要用matrix的这套材质系统呢？</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f2197ead2c4230480b09b78e75961025_1440wtuya.jpg"></p>
+<p>​</p>
+<p>先来看看它能做些什么效果。grime ground可以根据实例在地面的相对高度添加大片的灰尘。主要的参数就如图中的这俩。它会受到物体在世界中的绝对坐标影响。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-90dcade629a5e58699c96227a4b62491_1440wtuya.jpg"></p>
+<p>​</p>
+<p>grout相当于美缝剂，像这次装修给接缝打白胶一样，激活它能对砖块的缝隙修改颜色、提亮。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-40b2e649d945b5e3dbeba2f6733e789f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>grime drip水滴侵蚀污渍，集中在砖缝上。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-ff905d302f4206204acd48a4393deda7_1440wtuya.jpg"></p>
+<p>​</p>
+<p>grime crevice是物体几何接缝处的污渍。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-98c4331d5c69604e2838ca892ae2b049_1440wtuya.jpg"></p>
+<p>​</p>
+<p>grime broad是对接缝扩展开的一圈区域加灰尘，下图为加和不加的效果区分，蛮明显的。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-ec9de5bc471dda85afba7119d43e5767_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-2fe68809b7928f7c5b68a1c576314fad_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对于block，grime drip水渍的效果十分逼真。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-df25f4488123d20fe29a145800767d9a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>综上可以看出这套材质系统能做出很多让人烧脑的细节，那么现在来看看使用的条件是什么。</p>
+<p>1.直接在ue中创建一个立方体，给基本的block材质，并不好控制，uv需要到dcc软件去做。并且目前看来必须得做两套uv，在第二套uv中做调整才行，将ue中的udim贴图导出会得到一个序列的png贴图，在blender uv中创建new image勾选tile，n键调出小窗口在image中可以看到udim，导入全选png序列blender会自动组装成udim格式。由于整个贴图有180mb，所以在切换uv窗口时会有些卡。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-7821bf74d5d104a4f6efd27780ce6f27_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-49722fa92f7bbe20f99f69cbb34e4385_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-69ca5202f4bd5b440002ca0bef5bfeb3_1440wtuya.jpg"></p>
+<p>​</p>
+<p>2.前文提到的grime drip、broad、crevice并不是材质系统有什么神奇的特异功能可以定位出边缘、接缝，而是需要通过参数中的packedA texture赋予相应的遮罩贴图。我暂时不清楚如何获取这些遮罩，推测应该是可以通过substance painter自动导出的，在西部世界系列教学中演示过对一扇门烘焙后手动制作除漆、污渍、高光遮罩，利用matrix的这套系统根据epic官方示范解说，这个packedA texture是通过一套机制自动生成的。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-6890b78bad8efa32deaa263a44e5d21c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-69aee3e15dca26bc89d92ad90f9aff72_1440wtuya.jpg"></p>
+<p>​</p>
+<p>2023-8-17更新：经过我大半天对matrix项目中的一些部件做解析，现在可以大概来谈谈这四个遮罩了。</p>
+<p>1.curvature/crevice occlusion.下图左为matrix项目中的packedA texture在材质debug模式下打开蓝色通道的效果，与我将此模型导出后在substance painter中烘焙curvature贴图效果上有些近似，可以看出来都是对边缘（棱）做遮罩，不过左边显然更“自然”不像右边几乎就是对边缘在描边。这个遮罩与damage edge连接，目前看来它是最难出效果的遮罩，在反复摸索后发现，发现影响它的最主要参数是curve parameters，要勾选后对下面四个参数进行调节，只调节Amount MFDE效果甚微，不过从现实角度来说，大部分建筑很少有明显的边缘刮伤。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-37fc26b8e65af617b979d5bee6087420_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e233622dd7a0864c1a6b7d17b5406900_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-38f14d3fd20493b6d1f845c7bf2d20fd_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-759c48effbe8c21654fe9a1ca645c198_1440wtuya.jpg"></p>
+<p>​</p>
+<ol start="2">
+<li>crevice occlusion/ao，下图一左为matrix中的alpha通道显示的ao贴图，右边为我在substance painter中烘焙得到的ao贴图，效果几乎完全相同。</li>
+</ol>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-c842967c6b2587ade4aa44be3b406a20_1440wtuya.jpg"></p>
+<p>​</p>
+<p>ao贴图如上面的遮罩所示，影响的是接缝、凹槽缝隙的污渍，这里主要控制的参数依旧是amount以及ao parameters下面的四个参数。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-57e984af81871a586c3bc502c7203c58_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-f17c9df499f6f6f4e05de1d1d2ac7d84_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-fb737444ad373eb8867cfdf58299f5e5_1440wtuya.jpg"></p>
+<p>​</p>
+<p>我在摸索初期把ao和curvature搞混了，ao贴图反相部分的遮罩是真正的接缝处，而curvature是物体的边缘。下图2是ao和curvature的对比。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-372702483569a779956171178a9df155_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-059549b9bf4d8262ff89f1661cf8b317_1440wtuya.jpg"></p>
+<p>​</p>
+<p>3.large ao/broad occlusion,下图左为matrix项目中的packedA texture在材质debug模式下打开alpha/绿色通道的效果，与我将此模型导出后在substance painter中烘焙ao贴图效果上有些近似，其中绿色通道的遮罩（large ao），黑色部分覆盖范围要更大一些，可以看出来这个遮罩分布在物体的凹槽处。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-4ea9548445e3e6f11b8101cf87643763_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-b7417a6adf283c841b5d62ed15b99e96_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-89b2ec102c551ddf16f4107ab88ff0cd_1440wtuya.jpg"></p>
+<p>​</p>
+<p>相对于ao，large ao贴图起到了对物体凹槽、自身遮挡区域的放大作用，下图左为开启默认large ao右为没有开启，可以看到暗部在遮挡处的细微区别。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e8c019121fd3db922a020fa5d36ab007_1440wtuya.jpg"></p>
+<p>​</p>
+<p>4.最后是drips对应红色通道，我观察了4个mesh的drips遮罩，除开金属大门，其他4个可以看出来和物体高度有一定关系，同时还受到凹凸的影响，这显然不是基础的贴图能搞出来的效果，position贴图可以控制遮罩在一个轴向上的分布。于是我想到了substance painter中的智能遮罩。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-c372bcfdbeec4fe21925e15e4f59eda9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-cc753855896c2feb1db6ea691435941a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-e1ca5e3cf4e2a861af35ff815b0cdc2d_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-373d272183e88dd975e50f9a387badf2_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-426ca4cb40759c15e9b65f20854a970e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>比如下图中这个mesh，添加dirty soft edges遮罩后再反转遮罩，可以发现其效果与matrix中的curvature非常相似了！这里补充一下，在blender中物体的uv若是udim，substance painter导入要注意udim选项，下图中的模型输出质量4096时更换智能遮罩会卡顿，不知道是和模型的面数有关还是和udim uv有关。在学习阶段，使用低质量求快即可。另外今天下午的复盘测试遮罩不顺利，ue一直卡，帧率不到10，动不动崩溃，gpu crashed or d3d device removed 报错这个，重启一次也不解决本来准备入坑要查这个问题，还替换了工程现在破案了，原因出在substance painter上，开ue的时候不能同时开painter，不然就会出现卡、崩溃的问题。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-306a0d8ffd54b335afec5ef99dcc9d63_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-8aaa8ec0ab16c60c494dd2573f69a24f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>substance painter导出时选择2d，即可导出当前的遮罩贴图。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-0d9d108693f847976453347a8b5798b8_1440wtuya.jpg"></p>
+<p>​</p>
+<p>到此4个贴图总结完毕，如何制造对应他们效果的智能遮罩是之后要攻克的技术难点。另一方面是如何制作uv，可以看到matrix项目中的mesh都是两套uv，第一套是用于上面那4个遮罩贴图的，第二套则是用于block、brick构成的。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-483e489fccb5ac6fa593ac4864b63db5_1440wtuya.jpg"></p>
+<p>​</p>
+<p>经测试，在摆uv时，用不着底图导入4096像素的，1024也是可以的，这样可以缓解udim卡机问题，估计512也没问题。可以看到有一撮uv放置在远端，它们是在构成建筑时被相邻部件遮挡看不到的面，所以无所谓。要做的就是正面看得到的部分，如何对不同部分选取不同规格的uv，这是需要之后多个实例尝试后才能得出结论的。</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-2caf5243f0264b61aba5f867cc7e6198_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-7fe3936212b093a1cd5af69b809ff91f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-bd9fbfd38e74c8ee7963b5d360d87847_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/18/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/2023-8-16-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9D%90%E8%B4%A8%E5%A6%82%E4%BD%95%E5%A5%97%E7%94%A8/v2-4767a8844b0de23caf21eb3ffd5f85ec_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%B4%B4%E5%9B%BE/">#贴图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/14/2023-8-3-Ben-Building-Worlds-In-Unreal%E5%9C%B0%E5%BD%A2%E6%9D%90%E8%B4%A8%E7%B3%BB%E5%88%971/">2023-8-3-Ben-Building-Worlds-In-Unreal地形材质系列1</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

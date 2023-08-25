@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://zhudian.xyz/2023/08/21/2023-8-21-%E8%B4%B4%E5%90%A7%E6%94%BE%E5%BC%802000%E9%A1%B5%E5%B8%96%E5%AD%90%E8%AE%B0%E5%BD%95%E9%87%8D%E6%8B%BE%E7%88%AC%E8%99%AB%E6%8B%BC%E5%87%91%E5%BD%93%E4%BB%A3%E8%AE%B0%E5%BF%86/3.png">
 <meta property="og:image" content="http://zhudian.xyz/2023/08/21/2023-8-21-%E8%B4%B4%E5%90%A7%E6%94%BE%E5%BC%802000%E9%A1%B5%E5%B8%96%E5%AD%90%E8%AE%B0%E5%BD%95%E9%87%8D%E6%8B%BE%E7%88%AC%E8%99%AB%E6%8B%BC%E5%87%91%E5%BD%93%E4%BB%A3%E8%AE%B0%E5%BF%86/5.jpg">
 <meta property="article:published_time" content="2023-08-21T08:36:57.000Z">
-<meta property="article:modified_time" content="2023-08-21T14:18:29.478Z">
+<meta property="article:modified_time" content="2023-08-25T14:33:27.333Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="精神思考">
@@ -160,7 +160,7 @@
         <span class="column is-narrow">
             
             
-            14 分钟 读完 (约 2050 字)
+            15 分钟 读完 (约 2218 字)
         </span>
         
     </div>
@@ -192,7 +192,13 @@
 <p>回来后发现2分钟间隔下载所有代理在一个周期后仍能正常运行，其中有2个代理似乎不正常但这两页数据似乎都到位了，计算机没有休眠，期间网络正常。那么自动抓取贴吧应该是没有问题了就按照这个设置，每天10小时，一小时30页，大约7天左右全部抓取结束。这个程序的好处是代理设置了循环顺序，可以根据当前使用的代理倒推恢复正常的代理，从而中断以后再恢复，做局部手动抓取调整。一般睡一觉最多后推2页，第二天倒推2页开始抓取即可。</p>
 <p><img src="/2023/08/21/2023-8-21-%E8%B4%B4%E5%90%A7%E6%94%BE%E5%BC%802000%E9%A1%B5%E5%B8%96%E5%AD%90%E8%AE%B0%E5%BD%95%E9%87%8D%E6%8B%BE%E7%88%AC%E8%99%AB%E6%8B%BC%E5%87%91%E5%BD%93%E4%BB%A3%E8%AE%B0%E5%BF%86/5.jpg"></p>
 <p>不过连续开机的话24x30x3,3天就可以抓取完2000页了，我觉得可以试试看。</p>
-</div></body></html>
+<p>最终实验总结：</p>
+
+<div>
+<p style="color: red; font-size: 26px ;">
+设计爬取页数在3页内可以基本保证全部抓取，当页数大于3页就开始出现部分丢失，那么当每隔一页步长递进，可以保障连续2个代理挂了依旧不丢失数据.</p>当16个代理互相间隔350秒时，也就是整个周期在1个半小时左右，一些挂掉的代理大概率能在下一轮周期复活，目前还没有测试把这个间隔再压缩能不能保障效果.<p style="color: red; font-size: 26px ;">总之目前这个设置可以完全自动跑了，就是速度慢了些。</p>
+
+</div></div></body></html>
     
     </div>
     

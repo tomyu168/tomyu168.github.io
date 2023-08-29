@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-24-Artstation的unreal场景2 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="之前跟做了这个系列开始的地形、地形材质制作，昨天看了两部分hero asset和wall floor trim纹样雕刻，其实这两部分之前就看过一遍，但是在把玩过matrix的材质、模型以及ben的材质教学后再看的感受有点不一样了，接下来总结一下。 目标是要做一个细节丰富带有许多不规则凹凸几何体表面的独木舟，作者为此找了许多独木舟造型、表面图案的参考。作为一个游戏项目的话，hero asset会有面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-24-Artstation的unreal场景2">
+<meta property="og:url" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="之前跟做了这个系列开始的地形、地形材质制作，昨天看了两部分hero asset和wall floor trim纹样雕刻，其实这两部分之前就看过一遍，但是在把玩过matrix的材质、模型以及ben的材质教学后再看的感受有点不一样了，接下来总结一下。 目标是要做一个细节丰富带有许多不规则凹凸几何体表面的独木舟，作者为此找了许多独木舟造型、表面图案的参考。作为一个游戏项目的话，hero asset会有面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-69634303af3e9514d7a242e4c8bf150a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-21a4b2130451f7cf94112bd6860142a5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ec34279089afb61e19462b6736795f7d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95f784f9e389fc0e3ce86e604e612ce6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6d0796de7bea3345bb4579906037ad6e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-46095db31d5bfd022c341ca08feef627_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1b559e36f7d36e1a96b5a33bec8c68c4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7d079467fd4426e9a32c9e878f1dff48_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f411e2881a0337b6012bf972495b42bc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9de696d5efb3e8bc35e077a923dc8193_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-bcb059fb3cf4672acabf5850a4051358_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-b89e1ac9fac081aa93998e39f3f49f8f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f5bd5b83dcba557dda5bef9c56ed1a8c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-67050c5acf2ba20e4c15eee10cdea0d0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-44e78f8657801b345e5b0a2d6a98df43_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d5870add92e5196f08a2403ca529b51c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-bbf7ebe2eabfb2cb7703f612ea764727_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a4dc90df6446f6b92e27b31042eaf45c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a4f6144cf0e5e54f60ae64de14b2f44e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1943dee7870c8c7c1b5335b5a75331d0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ff2ac996c2e47ca2cbefeaae09ba3ed2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d50ceea2770a9f2d84e708e0ea5bec26_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-81b94c63978ae016b8c4b19a926e38e4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2b8da357d2201bf2dbc42018afce70dc_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-f05c6e143094cacc9fa147209730ab2f_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-44df8f0c13537e124eefbfad23e20382_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c7ea896cd9f7d066f0f4595c6d6292b9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-830aaebe9923e3594555356220d06988_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95958e392686994ffc397463d75807c5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-eb1b695dc65802c0ad7d022e1a1c1518_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6f863a0db8c7e22719fd77127f144b88_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-363f62db5433f745019483ac624b39d5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e125afaf39381df8cc559896f5cfe777_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6a4af40b1546d040c61029dfcd168bdc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f20ebdf3440629e86e756d134eeccae7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-003689cfd1b568b17c13c550eb5cea1e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-63bebed5787d18c9e696e8e8a9392466_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c5a5b43e4479f2bdc0ce85a86ef6079a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c282d89e660d549e7cb1068527484b37_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-39a76491b73b3459abbf5f452b792807_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8abf81f36be4b43fac56d0815748f452_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4842576fc0397620943175989ea41b77_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d731745ce6dcda778258e9b1dcf46118_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a92ac56579de8227c5913fcc94caf7a1_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-57272b48f6a2215e9b076a9e16d5c2d5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0a47b9abb2162c80069d15bd8b68927c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d760d381baa4ffd0f4d9b90fc4c8dfc9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-64986b48cd672dd867f0b4b7b62361a6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-fbe4e841a9e1948270edd720fb063fda_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-dbfc73e604a4d43dee6bb784ffd94649_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-12335bbb6370e4881c2e933b3e6f10d2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-54f339ee3e63a5f2ff9fd67d26712162_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-57414cd8875eacd603656db76899cefa_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5813de1df04433f2c95b01b2cc017900_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d93c389c49987a8db904906f3169cce3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ddc6fdfeffaebd0aedbccd00e0ab12ee_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4e8637111bac162c70be31ce88601fef_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4a9b55155b4c06d2e0e31d2de550d3ce_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a0484f8225e88708a225259f838400af_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-de626f7f855baffefdabb4f18f0aca3d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-12734a765331daa1004de56752e1885d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-82b9db61d953a15a85968bbe8c0e3835_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9b5db4973b7267571d4c7fa922a74ba9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0c45dbe008556d0c114a93d7ff48bd4f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-987db7f50a779056ed72a24c2858f30e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-af13ff848c057433d16db231b24dc51a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9994efe346c3309acdf9b60b521810fe_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95d4fe35d48a1e1652a2df20e8773f18_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-357eb176b1690afeb157d866eb628a3a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2933742439fc1a63d80539da9dc0b64a_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-5295be8f3fe51dae3e7114d667c722bb_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-effbae8db7067cbc67e5ebfa5e12330a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-41f85b7cc44bc8d3e15af9c0d2133802_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-560b07c6e8ae353c838d3077370f440e_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-1b6a4e43c4f814a1509c171b2aea2db4_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-abd3b2930fa93aa1b53502e5c1c96d42_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-71baa33cd8b6df6d6708877a0b67dae3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-722309afb26ca88f28549d24b51ea7a3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a3c931bdeccfad666f34c845a72cfaad_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2756d3550d18495f1ef71f111206a355_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-77ad208b4fc84e06d01361f34e7db4ab_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9ee93bb05544242917e057e71208dd07_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0d7328a95af4fbe777978c89dc6f1434_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7e5c771a8f858b75f770f4a904ba1142_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-cdcb2c4147c0a619f7cb2298c90e1fbc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-72d217f314fff34d06fc4d3f12f650e2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8c47066c565644eb931f791d66132053_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-11d9294f4489bc76e56b365b81a50cc0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4dc36409a2bbe639608810283775bec7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c6259f8169ef993bf9fd5007c8df7fcf_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4adb9c3dcb9fc3cd4ff023eadfdddc44_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9562a204ae3754b02fdae1f30c932223_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7da624d83dd794f72c42ad47cfae7abd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0e2a748c64d94096e28a6563e9b99811_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e739aec3edb1cc3de9d90f0a80ce2a52_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-81660c23605bfd062538ec50c8394570_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a8c89c2580fe8265801bd6f269932d4a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-266357fb3c0280f3d8e537ebbe1f72b6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-391a6d685f13a854a90c77fad636b073_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a14c0dd27e7a8150add06b63986df93d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0ef881b5f1710cd9738542f5ce0f0c0e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5b6982d08c3902e11be127050d1a10fd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c3cd16856f3167c060cf13a3c1b4efcb_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-48afeb1828edf2afa91c6e09fb013702_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0e55637f3d2f1dba12401b1f186b4198_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-66c15ed86682332b59a39c11260435e0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-08048cc92bb3eee365c356a532bc88b2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-06ce0775f9b8657cc28bc5edcadf6f3b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4015a6c5052e2096507163b4ba221240_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1986f86bb22ad490012fd6814fbc487a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-464fa38688ef14ee81f45b81c3ecde5b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-64a55642bab6306a65bec52d0067dfad_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d260a13e36bbb4cbce87c388b32148a6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-923fe56fa55cc6ff77b62cc28ab65922_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e3456d53fcd58f370284f77d3c172bd2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ef973c0ca9987d337273fc97989afb8a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7d0e9ac90bace017d84acd01ceb5dd9a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c7316db7f44c90bf6981beeecddc0e37_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6473ad0f44fbbeec710286350aa14aa6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7ca623169dc6717a8935fb5ae39f2bfd_1440wtuya.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-b6bee8500b46c986e33f9fc314f50630_1440wtuya.jpg?source=d16d100b">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f6317564c10da38ca350073d9ae8b54f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d4325af4911d9791e6a3f3a1328b74e3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-241682570006cc2cc3a6709df9a36580_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-3c0b3e0beec4e860cf0b0e208f10b3a5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-907f0c6481e20891e8ce7ed46c62e857_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2b49c3ab813193715592b26ca176a203_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-872929c6c646cd5e87198c031e5cf420_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-38e9a8f00623d7ab165d5ec698411954_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-34ee961102042fb21b852325658ce662_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0b26f984f00f8d275d579111ae7b1966_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-41cebb93adf8bbf0c0becac9a28c795b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4149426ddfa56ac02855b5e1305fc3c5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5553ba5ff62424d26a5b467a31ab36cc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-88897013d02325b7aa12d21acf3c116e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-cf6929c62bd15fa61a25cd8cb87900f4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-425478911e7f7d00fcea98684ad4d45b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c6df5ea479d7f4bcc5b967fc518ffcf6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-787f0591c0b713af1a3b222c261e3bf9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8e6a8433214ce81084f157d263f0e94f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e9cfd6813b20374b76a0d95973c7c280_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0b8ed10dd90993f523893cb7b277f18c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-48a8a6edf500ecf6a847e60b1ee9bc67_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-08-29T07:30:28.000Z">
+<meta property="article:modified_time" content="2023-08-29T07:33:28.982Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="建模">
+<meta property="article:tag" content="贴图">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-69634303af3e9514d7a242e4c8bf150a_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-24-Artstation的unreal场景2
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-08-29T07:30:28.000Z" itemprop="datePublished">8月 29 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 小时 读完 (约 8632 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>之前跟做了这个系列开始的地形、地形材质制作，昨天看了两部分hero asset和wall floor trim纹样雕刻，其实这两部分之前就看过一遍，但是在把玩过matrix的材质、模型以及ben的材质教学后再看的感受有点不一样了，接下来总结一下。</p>
+<p>目标是要做一个细节丰富带有许多不规则凹凸几何体表面的独木舟，作者为此找了许多独木舟造型、表面图案的参考。作为一个游戏项目的话，hero asset会有面数、纹理分辨率的要求，本项目使用ue5，nanite可以很大程度解放面数限制，不过这并不意味着可以直接使用高模（几亿面的那种）。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-69634303af3e9514d7a242e4c8bf150a_1440wtuya.jpg"></p>
+<p>​<br>​​​​​<span id="more"></span></p>
+<p>建模开始前最好有个示意图能将各个部分分区着色标注出来，这样建模时就很清楚各个部件的逻辑。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-21a4b2130451f7cf94112bd6860142a5_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者展示block out的阶段</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ec34279089afb61e19462b6736795f7d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>由于使用nanite技术，因此无需考虑面数问题，似乎布线也不要考虑，低模和高模都是在zbrush中通过减面大师完成的，只不过减面的设置不同。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95f784f9e389fc0e3ce86e604e612ce6_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在maya、blender中做中模是因为他们在多边形建模上好操控、方便些，像之前有多旋翼无人机全套都用zbrush做，这个就是不同人的操作习惯了，所谓的中模阶段就是所有的结构清晰了，然后给zbrush雕刻细节。maya、blender等dcc软件更容易控制尺寸、间距。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6d0796de7bea3345bb4579906037ad6e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-46095db31d5bfd022c341ca08feef627_1440wtuya.jpg"></p>
+<p>​</p>
+<p>进入zbrush制作高模，对于有棱角的硬表面mesh先要做crease折边，保障细分多次后不会使得边缘也软化，，然后dynamesh重布线使布线均匀。作者演示用套索选取这边的面，这是因为从maya导入过来的模型，其拓扑就是底面附近没有别的面，我想这样搞似乎太麻烦了吧，以前在建模中提到的保护线、保护边应该也是这个意思，防止光滑、细分后软化，那么理论上来说在blender中使用hard ops插件的极小bevel应该可以起到类似效果。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1b559e36f7d36e1a96b5a33bec8c68c4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7d079467fd4426e9a32c9e878f1dff48_1440wtuya.jpg"></p>
+<p>​</p>
+<p>经测试用zbrush的drust tool 插件qc50也能完成blender导入模型折边，保障细分不被软化，话说一个月不用blender都快忘记咋操作了，感觉一周至少实操个半天。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f411e2881a0337b6012bf972495b42bc_1440wtuya.jpg"></p>
+<p>​</p>
+<p>zbrush雕刻创建一个morph target有助于在雕刻一段时间后发现有一处地方不好想还原，但是control z会让别的之后的雕刻也被清除，morph笔刷可以起到橡皮一样的作用</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9de696d5efb3e8bc35e077a923dc8193_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-bcb059fb3cf4672acabf5850a4051358_1440wtuya.jpg"></p>
+<p>​</p>
+<p>用trimsmoothborder做边缘磨损的雕刻，这是对于hero asset的处理，像在matrix项目中有edge damage那个应该是法线、roughness、颜色的处理，利用curature边缘遮罩搞得，二者对于效果细节的要求不同。trim dynamic也可以用来磨边，做磨损边缘效果，相比于trimsmoothborder而言，它更“柔软”，凹凸图案用遮罩绘制inflate挤出，若dynamesh重新布线会去除morph target，因此慎重dynamesh。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-b89e1ac9fac081aa93998e39f3f49f8f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f5bd5b83dcba557dda5bef9c56ed1a8c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>trimbordersmooth 配合 damstandard做硬表面的划痕。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-67050c5acf2ba20e4c15eee10cdea0d0_1440wtuya.jpg"></p>
+<p>​</p>
+<p>船身的图案几何体凸起用遮罩绘制以后inflate，显然如果有一个好的alpha库直接拖拽成图案就好了，一个个绘制要弄死人，而且功力也不一定够。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-44e78f8657801b345e5b0a2d6a98df43_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者提到因为使用了nanite，这里不会用法线贴图去拟合凹凸，而是直接以模型几何体去呈现，后期要压缩高度容易，要拉伸就难了。我不是太理解，按照我的理解可能是太平的话不好选择会影响周围的面，而凸出的话要压容易从侧面遮罩move压下去，然后在遮罩状态下做些微调。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d5870add92e5196f08a2403ca529b51c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者演示说明zbrush的live布尔非破坏性操作，这有点和它前面说的自相矛盾，特别是下面这种圆柱布尔具有一定间距规律和大小递减，显然blender的op hard做非破坏性布尔应该会更好些。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-bbf7ebe2eabfb2cb7703f612ea764727_1440wtuya.jpg"></p>
+<p>​</p>
+<p>uv展开，作者提到通过减面大师得到一个mesh烘焙或者一个低模一个高模烘焙，烘焙实际上就是把高模的细节转移到低模上的过程，不过在substance painter中我们见识过只有一个模型也可以烘焙法线、ao等等贴图，那么还有必要高模低模嘛。用rizom uv可以像blender中按control键，沿着最短路径的边全选，以此来手动分割uv，这里用到的是低模，nanite 模型展开uv时不像传统流程那样讲究。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a4dc90df6446f6b92e27b31042eaf45c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a4f6144cf0e5e54f60ae64de14b2f44e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>作者对各个部件的命名规范做了说明，这是为了放入marmoset toolbag烘培做准备，我不明白substance painter也可以做烘焙为什么要在marmoset里面搞呢？在youtube搜baking low poly high poly不少结果暗示将高模细节烘焙到低模上。图2为高模细节烘焙到低模上的对比，使用软件为marmoset toolbag。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1943dee7870c8c7c1b5335b5a75331d0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ff2ac996c2e47ca2cbefeaae09ba3ed2_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在substance painter中调整ace’s lut,这个是针对高光细节显示的，感觉是非常苛求质量的设置吧，一般我用智能材质、智能遮罩不会去手动调细节。创建一个fill layer添加遮罩，再用mesh fill，以此区分整个物体不同的分区，当然前提是模型本身有结构上的分离。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d50ceea2770a9f2d84e708e0ea5bec26_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-81b94c63978ae016b8c4b19a926e38e4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2b8da357d2201bf2dbc42018afce70dc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="https://pica.zhimg.com/80/v2-f05c6e143094cacc9fa147209730ab2f_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p>以船身为例添加一个木头材质，加入adjustment layer可以对色相饱和度明暗调整，这里没有源文件不清楚为什么natural walnut有三层。暂时不知道作者是怎样做每一层细节的，完全没有概念，对于matrix项目而言似乎不用搞懂这些，只要烘培出4个遮罩打包丢给它的材质系统即可，然而对hero asset如何处理还得深入了解substance painter.</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-44df8f0c13537e124eefbfad23e20382_1440wtuya.jpg"></p>
+<p>​</p>
+<p>导出纹理集设置。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c7ea896cd9f7d066f0f4595c6d6292b9_1440wtuya.jpg"></p>
+<p>​</p>
+<p>做墙面、cornice、地板前收集的参考素材。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-830aaebe9923e3594555356220d06988_1440wtuya.jpg"></p>
+<p>​</p>
+<p>总体的规划，与做小船hero asset一样也是dcc软件先做个大概再放到zbrush做细节雕刻，不过烘焙之后放到substance designer里面之后的事儿就摸不着头脑了，目的是什么都不清楚。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95958e392686994ffc397463d75807c5_1440wtuya.jpg"></p>
+<p>​</p>
+<p>做wall trim需要注意规格和拼接，作者演示自己做的部件可以拼接6x6的空间。重要的是如何通过参考图拼凑起来一个设计，是逐个部件先做了后拼的吗？我想在尺寸上既然有规划那么对部件是有限制的，如果是后期拼，可能存在拼接出问题的状况吧？</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-eb1b695dc65802c0ad7d022e1a1c1518_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6f863a0db8c7e22719fd77127f144b88_1440wtuya.jpg"></p>
+<p>​</p>
+<p>开始建模，用比例影响来改变局部扭曲，zbrush直接move也可以做吧，好久没用了不太熟悉了。这里展示了用基本几何体建模的功力。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-363f62db5433f745019483ac624b39d5_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e125afaf39381df8cc559896f5cfe777_1440wtuya.jpg"></p>
+<p>​</p>
+<p>进入zbrush做雕刻dynamesh提高面数准备雕刻，这里没有提到棱角软化的问题，估计是默认大家知道使用保护线。图2是作者完成雕刻后的状态，这里一个是对表面的处理，一个是增加细节也就是dcc软件里面通过多边形建模不好操作的东西。示范中可以看到trim的表面处理也是用trimdynamic做的。对植物藤曼的装饰细节用move、damstandard刻画细节。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6a4af40b1546d040c61029dfcd168bdc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f20ebdf3440629e86e756d134eeccae7_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-003689cfd1b568b17c13c550eb5cea1e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-63bebed5787d18c9e696e8e8a9392466_1440wtuya.jpg"></p>
+<p>​</p>
+<p>用ps做灰度高度图再到zbrush用alpha使其成型，我感觉太麻烦了，不如直接在zbrush里面做。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c5a5b43e4479f2bdc0ce85a86ef6079a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里的泥土斑驳仅仅是用claytube涂抹出来的，有一定技巧吧？</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c282d89e660d549e7cb1068527484b37_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在substance designer中也有烘培功能，也是高模到低模。27节是不完整的，我粗略看了下整个教程似乎都没有说这一部分做的东西最后怎么使用了，在第一部分做地面时用到导入high res plane对其做编辑后export scene把一个带有凹凸细节的plane面片以fbx格式导入到ue中，第二部分</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-39a76491b73b3459abbf5f452b792807_1440wtuya.jpg"></p>
+<p>​</p>
+<p>节点图表起始由高度贴图引出，而高度贴图是通过之前烘焙得到的，这里通过遮罩调整了高度图的高度。在介绍完高度统一的调整后，作者提到接下来的操作需要substance designer基础，看不懂的话先去看看基础。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8abf81f36be4b43fac56d0815748f452_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4842576fc0397620943175989ea41b77_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这个遮罩是对tiling接缝处做处理用的。substance designer的预览中可以开启tiling模式，不过作者操作太快也没有说明，不清楚是怎么开启的。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d731745ce6dcda778258e9b1dcf46118_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a92ac56579de8227c5913fcc94caf7a1_1440wtuya.jpg"></p>
+<p>​</p>
+<p>注意节点图表的整理，作者将高度图的编辑打包，noise贴图打包，接下来展示multi warp grayscale，在作者的演示中我没看出来对这个节点改变，材质产生了什么变化，从他的描述来看应该是说图案边缘噪波一样的不平整效果。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-57272b48f6a2215e9b076a9e16d5c2d5_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0a47b9abb2162c80069d15bd8b68927c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d760d381baa4ffd0f4d9b90fc4c8dfc9_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里将ao的遮罩混合？控制不平整噪波的位置。再次整理，不平整噪波称之为chips（碎屑、碎片），另一部分用大量噪音贴图的称之为细节和颗粒。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-64986b48cd672dd867f0b4b7b62361a6_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-fbe4e841a9e1948270edd720fb063fda_1440wtuya.jpg"></p>
+<p>​</p>
+<p>噪音贴图根据高度贴图附着于物体表面，让其不透明度设置的很小，可以看看噪音显示较大时的效果。</p>
+<p><img src="https://pica.zhimg.com/80/v2-dbfc73e604a4d43dee6bb784ffd94649_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-12335bbb6370e4881c2e933b3e6f10d2_1440wtuya.jpg"></p>
+<p>​</p>
+<p>添加第二种类似孔洞、密集恐惧症的噪音细节</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-54f339ee3e63a5f2ff9fd67d26712162_1440wtuya.jpg"></p>
+<p>​</p>
+<p>再添加一种噪音细节</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-57414cd8875eacd603656db76899cefa_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里作者做了一种噪音，通过调节random seed居然可以让物体表面的细节完全改变，这不就解决了tiling问题，不过如果通过贴图输出会造成大量的sample map占用资源，但是在sd中既然可以程序化改变细节，那么问题就是如何在ue中实现这种操作。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5813de1df04433f2c95b01b2cc017900_1440wtuya.jpg"></p>
+<p>​</p>
+<p>着色部分作者从normal贴图引出说是为了利用curvature，normal和curvature是什么关系？着色部分的控制实在是匪夷所思，这里不展开了。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d93c389c49987a8db904906f3169cce3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ddc6fdfeffaebd0aedbccd00e0ab12ee_1440wtuya.jpg"></p>
+<p>​</p>
+<p>roughness map是用base color配合ambient occlusion产生的，完全看不懂。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4e8637111bac162c70be31ce88601fef_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过height map生成occlusion，这里面的原理听起来很复杂，我不明白难道不能在烘焙阶段生产？</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4a9b55155b4c06d2e0e31d2de550d3ce_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a0484f8225e88708a225259f838400af_1440wtuya.jpg"></p>
+<p>​</p>
+<p>制作第二个trim，基本上就是复制这些节点对参数做调整，因为他们的材质差不多。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-de626f7f855baffefdabb4f18f0aca3d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>完成两个trim的材质贴图后，作者展示它做的平墙材质，远看整个节点的布置可以看出来制作的逻辑和trim是一样的，作者没有深入说这个平墙材质怎么做的。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-12734a765331daa1004de56752e1885d_1440wtuya.jpg"></p>
+<p>​</p>
+<p>次级道具资产的建模与材质</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-82b9db61d953a15a85968bbe8c0e3835_1440wtuya.jpg"></p>
+<p>​</p>
+<p>一般而言一个游戏场景有100-1000个次级资产。</p>
+<p>资产互相靠近时要设法制造区别，不能让他们看起来是复制的，这就涉及大小、资产样式、材质需要根据world position营造变化。次级资产要考虑模型、贴图占用硬盘空间大小，这会影响运行性能。以matrix项目为例，其建筑部分使用了2333个资产构成所有建筑的部件，每个部件都有两套uv，四个遮罩所使用的mask贴图，在这种状况下加载之后的运行在开启world partition分区加载以及vitural stream texture虚拟流送纹理的情况下完全不卡，small city这个map在6分钟加载后的场景漫游是45fps左右的帧率。制作这些资产要考虑到如何在短时间内高效产出。</p>
+<p>在考量了整个场景后，作者决定做10个陶器，使用有限的纹理，并能scale。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9b5db4973b7267571d4c7fa922a74ba9_1440wtuya.jpg"></p>
+<p>​</p>
+<p>从参考中确定材质、颜色变化，最后总结出制作前所要满足的需求。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0c45dbe008556d0c114a93d7ff48bd4f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-987db7f50a779056ed72a24c2858f30e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>要保证物体缩放还能合适的纹素密度，作者说需要两套纹理集，一个基本的陶土平铺纹理会根据物体缩放自动调整tiling，另一个纹理集是特定的细节。</p>
+<p>作者在ps中画出了想要做的资产的轮廓，我觉得这一步没什么必要，直接把参考复制今来就好了。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-af13ff848c057433d16db231b24dc51a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9994efe346c3309acdf9b60b521810fe_1440wtuya.jpg"></p>
+<p>​</p>
+<p>50节讲texel density，如何确定纹素密度在刚刚接触这个概念时会觉得很迷茫。在演示中要做一个每平米1024像素密度的uv展开？我不知道这么描述是不是专业、规范。maya中的单位是厘米，示范中以一个1米高，32厘米直径的圆柱做圆柱uv展开后，将其uv置入一个格子中，一个格子是1米x1米，而图中所示texel density px/unit纹理密度 像素/单位，这里的单位指的就是厘米，1厘米10.24像素所以1米就是1024像素。这很诡异，uv是个二维空间，chatgpt也说了：</p>
+<p>“Texel Density” 可以用以下方式表示：纹理像素数目 / 物体的单位面积。</p>
+<ul>
+<li><p>如果你希望在一个单位的面积上有更多的纹理细节，则 Texel Density 会比较高。</p>
+</li>
+<li><p>如果你希望在一个单位的面积上有较少的纹理细节，则 Texel Density 会比较低。</p>
+</li>
+</ul>
+<p>那么按照面积转换的话10.24像素/平方厘米不应该是0.01024像素/平方米？</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-95d4fe35d48a1e1652a2df20e8773f18_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-357eb176b1690afeb157d866eb628a3a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>初期接触纹素密度时，最好把要做的模型和展开用作纹理的模型放在一起比对。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2933742439fc1a63d80539da9dc0b64a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对要做细节的模板物体trim sheet分割uv，zbrush中可以auto group by uv，这样可以选中不同的polygroup单独做雕刻。雕刻时开启辐射对称，我看好几个视频对图案雕刻的物体都是设置1亿4千万面，这是巧合嘛？</p>
+<p><img src="https://pica.zhimg.com/80/v2-5295be8f3fe51dae3e7114d667c722bb_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-effbae8db7067cbc67e5ebfa5e12330a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>claytubesConstant的雕刻保持恒定高度，因此不用担心雕刻的图案高低不平，坑坑洼洼。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-41f85b7cc44bc8d3e15af9c0d2133802_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这一段就很诡异了，使用了nanite技术可以保留几何信息，但作者说仍用trim sheet做normal map的方式伪造许多几何信息，这是为什么呢？我注意到matrix项目中的建筑部件，其自身的图案并没有使用法线来模拟凹凸而都是直接通过雕刻做出来的。图案可以通过trim sheet的方式用normal map表现凹凸来伪造几何特征，当然也可以把雕刻好的几何体作为subtool到处复制，merge再dynamesh合并几何体，后者在操作上就直观多了也方便，事实上，诸如matrix中的图案如果用法线去仿造我估计效果上是不行的，那种科林斯式的植物藤蔓变种的3维特征更强烈，更不要说还有狮子头、老鹰这些，而这些在matrix中不算hero asset只是次级的到处复制的实例。</p>
+<p>作者在这里解释了通过geo去表达的细节和normal map表达的细节，后者不能刻画的太深入，以至于和geo刻画产生冲突，后者表现相当于浅浮雕。浅浮雕图案时开lazy mouse能更精准描绘图案。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-560b07c6e8ae353c838d3077370f440e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="https://pica.zhimg.com/80/v2-1b6a4e43c4f814a1509c171b2aea2db4_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-abd3b2930fa93aa1b53502e5c1c96d42_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-71baa33cd8b6df6d6708877a0b67dae3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-722309afb26ca88f28549d24b51ea7a3_1440wtuya.jpg"></p>
+<p>​</p>
+<p>没有雕刻的空白部分准备用来绘画图案</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a3c931bdeccfad666f34c845a72cfaad_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在将高模的雕刻细节烘培给低模前，作者说要对低模做细分是为了避免曲率的烘焙出问题，这个理解不来。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2756d3550d18495f1ef71f111206a355_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在marmoset toolbag中烘焙一些贴图</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-77ad208b4fc84e06d01361f34e7db4ab_1440wtuya.jpg"></p>
+<p>​</p>
+<p>在ps中在normal map的基础上绘制paint 图案，这里讲到了绘制的技巧。暂时跳过，等实操的时候再看这种微操技巧。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9ee93bb05544242917e057e71208dd07_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对装饰雕刻的normal map在sp中做进一步的加工，叠加一层fill layer填充法线、高度图，利用遮罩配合高度图、invert只显示黑色或白色，再用level约束到某一灰度部分，从而表现散列的凹凸、坑洼细节。在texture set setting里修改normal map为replace，使得图案的凹凸被新的图层所取代，再新建图层把图案的normal map加上，再改变图层混合方式从而使得上层的normal map细节取代图案的normal map，营造出装饰图案雕刻缺损的效果。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0d7328a95af4fbe777978c89dc6f1434_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7e5c771a8f858b75f770f4a904ba1142_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-cdcb2c4147c0a619f7cb2298c90e1fbc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-72d217f314fff34d06fc4d3f12f650e2_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过在sp中这么操作省去了在zbrush里面对物体表面做这种裂痕、磨损的雕刻。</p>
+<p>对最终的瓶瓶罐罐资产展开uv，添加粘土材质看效果。首先是添加前篇中提到的几何细节，所谓的几何细节在演示中的意思是给瓶瓶罐罐增加分段，有更圆润的过渡，有一些整体的环面凹凸，可以看到这个瓶瓶罐罐最终在作者所谓增加了细节后是2760个面，相对比而言matrix项目中用于做建筑部件instance的mesh在100万面。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8c47066c565644eb931f791d66132053_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-11d9294f4489bc76e56b365b81a50cc0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4dc36409a2bbe639608810283775bec7_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过自带的圆柱展开，得到4份，下图显示的是罐子内壁的展开。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c6259f8169ef993bf9fd5007c8df7fcf_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这里提到的要完全无缝衔接需要对半裁切，可以图2的效果中看出来，贴图被镜像的贴在了两块面上，如果不对切呢，其首尾相连部分就会有个对不上的奇怪的缝。注意要把罐子的纹素密度设置为10.24和之前用于做雕刻生成法线细节的圆柱的纹素密度一致。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4adb9c3dcb9fc3cd4ff023eadfdddc44_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-9562a204ae3754b02fdae1f30c932223_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7da624d83dd794f72c42ad47cfae7abd_1440wtuya.jpg"></p>
+<p>​</p>
+<p>复制添加一个uv集，把装饰图案的材质添加上去方便可视化分割uv给不同位置采用想要的浅浮雕装饰图案。</p>
+<p>对于不想要paint或者浅浮雕的部分，分割uv后缩小到很小放在没有图案的地方即可。注意对于paint、浅浮雕的uv投射，作者只有移动没有缩放，这应该是考虑到纹素密度，可以推断浅浮雕、paint在资产表面的像素是可以的，但图案的大小无法变动了，那么对于不同宽高的瓶瓶罐罐如何去掌控图案的大小呢？难道是相同的图案复制出来做不同尺寸，然后uv投射到不同尺寸的相同图案上？从这点来说，目前我觉得如果是直接雕刻的话就会直观很多。</p>
+<p>当前map1是trim sheet装饰图案的uv集，uvset1是陶土tiling的uv集，作者希望调换他们的顺序，这里使用copy传递即可。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0e2a748c64d94096e28a6563e9b99811_1440wtuya.jpg"></p>
+<p>​</p>
+<p>53节在ue中为瓶瓶罐罐设置材质。先是贴图，一个陶土的basecolor、陶土的法线凹凸贴图、装饰图案的法线凹凸贴图，下图中第五个紫色的贴图是一个packed channel贴图，其中红色通道用于打破tiling重复以及粗糙度贴图。绿色通道是paint的遮罩，蓝色通道是装饰图案的ao贴图。下图中第二个是dust 法线贴图，加在瓶瓶罐罐表面，为了打破重复的tiling效果。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e739aec3edb1cc3de9d90f0a80ce2a52_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-81660c23605bfd062538ec50c8394570_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a8c89c2580fe8265801bd6f269932d4a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-266357fb3c0280f3d8e537ebbe1f72b6_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-391a6d685f13a854a90c77fad636b073_1440wtuya.jpg"></p>
+<p>​</p>
+<p>下图中第三个黄绿色的贴图也是packed channel，包含了dirt和grime的遮罩，也是用来打破瓶瓶罐罐表面陶土的tiling重复，另一方面添加自然环境的污渍、水渍细节。第一个贴图是用节点程序来控制颜色随机选择，overlay叠加basecolor的。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-a14c0dd27e7a8150add06b63986df93d_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0ef881b5f1710cd9738542f5ce0f0c0e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>法线贴图导入ue要注意如果sp、marmoset toolbag输出的是DirectX则无需改动，如果是OpenGL则要翻转绿色通道。</p>
+<p>开始为材质添加uv的tiling、偏移，勾选use material attribute说是为了后期方便添加dirt、grime，暂时不清楚是什么作用。添加颜色正片叠底，以及法线的强度。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5b6982d08c3902e11be127050d1a10fd_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c3cd16856f3167c060cf13a3c1b4efcb_1440wtuya.jpg"></p>
+<p>​</p>
+<p>用object position的x、y坐标通过一系列函数运算去拾取颜色，可以使不同位置的实例拾取不同的颜色，这个打乱的函数可以有多种形式，以下是作者偏好的。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-48afeb1828edf2afa91c6e09fb013702_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0e55637f3d2f1dba12401b1f186b4198_1440wtuya.jpg"></p>
+<p>​</p>
+<p>利用贴图basecolor本身的红绿蓝通道来做遮罩，对部分区域选择按照位置改变颜色，部分位置则保留原先的颜色，通过函数还可以控制遮罩的大小。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-66c15ed86682332b59a39c11260435e0_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-08048cc92bb3eee365c356a532bc88b2_1440wtuya.jpg"></p>
+<p>​</p>
+<p>加入object radius可以控制物体的tiling与其缩放自动关联起来。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-06ce0775f9b8657cc28bc5edcadf6f3b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4015a6c5052e2096507163b4ba221240_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对装饰图案的使用要切换到uv set2,在Coordinate Index里面改编号，下标从0开始，第二套就是1.通过blendAngleCorrectedNormal混合两种法线凹凸信息。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-1986f86bb22ad490012fd6814fbc487a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-464fa38688ef14ee81f45b81c3ecde5b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-64a55642bab6306a65bec52d0067dfad_1440wtuya.jpg"></p>
+<p>​</p>
+<p>关于法线混合，在matrix中brick、block的block line也是通过blendAngleCorrectedNormals将法线混合给表面添加砖块拼接线的凹槽效果的。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d260a13e36bbb4cbce87c388b32148a6_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-923fe56fa55cc6ff77b62cc28ab65922_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e3456d53fcd58f370284f77d3c172bd2_1440wtuya.jpg"></p>
+<p>​</p>
+<p>导入的mesh会自动创建lightmap uv，要保证它不覆盖自己创建的uv集，在这个示例中我们自身有两个uv集，所以lightmap uv的下标设置为2.不过matrix项目的mesh同样是两套uv集，并没有打开lightmap uv。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-ef973c0ca9987d337273fc97989afb8a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7d0e9ac90bace017d84acd01ceb5dd9a_1440wtuya.jpg"></p>
+<p>​</p>
+<p>matrix项目中，第一套uv集对应4个细节遮罩，第二套对应block、brick的构成。可以看到下图1中4个遮罩的texture uvs被设为0.框选注释uv set2对应block、brick的颜色、法线、ao、粗糙度、metalness、height map?暂时不清楚matrix中block、brick、wood、metal、stone的ao、高度图是如何作用于材质的。可以看到master material自己也注释了aorm，从材质函数分离xyz就丢弃了alpha通道，进一步breakout3floatcomponent又把ao给丢了。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c7316db7f44c90bf6981beeecddc0e37_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-6473ad0f44fbbeec710286350aa14aa6_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-7ca623169dc6717a8935fb5ae39f2bfd_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="https://pica.zhimg.com/80/v2-b6bee8500b46c986e33f9fc314f50630_1440wtuya.jpg?source=d16d100b"></p>
+<p>​</p>
+<p>绿色通道中包含了paint的遮罩，将它作为alpha与basecolor做lerp，然后给paint添加想要的颜色。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-f6317564c10da38ca350073d9ae8b54f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-d4325af4911d9791e6a3f3a1328b74e3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-241682570006cc2cc3a6709df9a36580_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对遮罩相乘控制强度来控制paint的强度，用红色通道的粗糙度贴图与paint相乘制造paint的斑驳。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-3c0b3e0beec4e860cf0b0e208f10b3a5_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-907f0c6481e20891e8ce7ed46c62e857_1440wtuya.jpg"></p>
+<p>​</p>
+<p>这样生成的材质实例可以快速对所有的瓶瓶罐罐应用。作者说每个罐子用20分钟左右分uv以达到浅浮雕和paint在其合适的位置。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-2b49c3ab813193715592b26ca176a203_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-872929c6c646cd5e87198c031e5cf420_1440wtuya.jpg"></p>
+<p>​</p>
+<p>54节添加dirt、grime，通过下图这个做法可以让dirt、grime的逻辑和物体本身的材质特性分离，这样可以让一个团队分工合作，并且保持逻辑清洗。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-38e9a8f00623d7ab165d5ec698411954_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-34ee961102042fb21b852325658ce662_1440wtuya.jpg"></p>
+<p>​</p>
+<p>用worldAlignedTexture提取R通道的遮罩混合先前材质的颜色，给dirt添加颜色，xyz三个方向的世界空间中投射遮罩上色，因此物体的dirt会随着世界空间中的位置变化而变化。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0b26f984f00f8d275d579111ae7b1966_1440wtuya.jpg"></p>
+<p>​</p>
+<p>添加遮罩控制dirt分布的位置，这里是设法让它出现在z轴方向。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-41cebb93adf8bbf0c0becac9a28c795b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-4149426ddfa56ac02855b5e1305fc3c5_1440wtuya.jpg"></p>
+<p>​</p>
+<p>遮罩范围是相加，原来黑的地方加白色即改变了遮罩范围，相乘是加强度，比如原来灰色部分会变白或变黑，两个遮罩相乘是取交集，原来都白的地方保留白，一个白一个黑则变黑。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-5553ba5ff62424d26a5b467a31ab36cc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-88897013d02325b7aa12d21acf3c116e_1440wtuya.jpg"></p>
+<p>​</p>
+<p>dirt multiply大于1，越大会使灰色变白也就是让遮罩范围变大，dirt offset直接加么一大片都变白了，加1会导致整个物体都是dirt。power是幂指数，大于1会使得遮罩范围变小。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-cf6929c62bd15fa61a25cd8cb87900f4_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-425478911e7f7d00fcea98684ad4d45b_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-c6df5ea479d7f4bcc5b967fc518ffcf6_1440wtuya.jpg"></p>
+<p>​</p>
+<p>对dirt再做一层遮罩与dirt color相乘即可得到深浅不一、更为斑驳的dirt。对dirt的normal添加blend，使dirt具备凹凸。</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-787f0591c0b713af1a3b222c261e3bf9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-8e6a8433214ce81084f157d263f0e94f_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-e9cfd6813b20374b76a0d95973c7c280_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-0b8ed10dd90993f523893cb7b277f18c_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/v2-48a8a6edf500ecf6a847e60b1ee9bc67_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E6%A8%A1/">#建模</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%B4%B4%E5%9B%BE/">#贴图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/21/2023-8-21-%E8%B4%B4%E5%90%A7%E6%94%BE%E5%BC%802000%E9%A1%B5%E5%B8%96%E5%AD%90%E8%AE%B0%E5%BD%95%E9%87%8D%E6%8B%BE%E7%88%AC%E8%99%AB%E6%8B%BC%E5%87%91%E5%BD%93%E4%BB%A3%E8%AE%B0%E5%BF%86/">2023-8-21-贴吧放开2000页帖子记录重拾爬虫拼凑当代记忆</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

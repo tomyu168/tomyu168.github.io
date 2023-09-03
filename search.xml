@@ -8514,4 +8514,96 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>材质</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-8-31-黑客帝国觉醒道路构成-街区分析2</title>
+    <url>/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/</url>
+    <content><![CDATA[<html><head></head><body><p>PCC插件中集成了PCC_Road_Spline模块（以下简称pcc道路模块），它看起来和PRG一样也是一个Spline Mesh，不过二者的菜单略有不同，因此可以推测无法用utility widget将curve转化PCC_Road_Spline的道路。不过这个系列的视频教学合着PRG的Advanced_Showcase Map中的图文教学可以更好的理解如何创建道路。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca1d93b1af8979e178269e096e6f21f5_1440wtuya.jpg"></p>
+<p>​</p>
+<span id="more"></span>
+
+
+
+
+<p>在pcc道路模块mesh around spline中添加road、bridge mesh，这里的逻辑不是太清楚，原本在road setting就有road、bridge mesh，总而言之这对应PRG中的Road System里的road、bridge mesh，PRG的设定是当spline的segment处于一定z轴高度会自动在road和bridge 两种mesh中切换。（下图3）实际上路和桥的概念很模糊，需要注意的是不管是路还是桥都可以放置多个mesh，在拉长后随机分布，关键在于各个mesh之间如何衔接统一。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-c8ece4d0f146c432f2ece19681a4c9a7_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-45c524929410a7d7998a1379d7e94293_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-d5f42723b087d12bc1d59182dd08f72b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>补充一下，默认的pcc道路模块材质很普通，在示范中将其材质修改为matrix中道路所使用的M_Asphalt_Master_Inst,其上的各种水渍、质感暂时还没空去研究，后期肯定要深入的。可以看到更改road mesh即可在PRG中复现pcc道路模块视频教学中的基础效果。这里有个road world length参数是每一段mesh的长度设定，在添加多个road mesh后就可以看出这个参数的意义。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-248400463a31db62c5e5c102fcfd6d9e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-78bc411d8c6254f605f5c9ea4cf81376_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-cfa5281bbc770c841a43cea526cbd785_1440wtuya.jpg"></p>
+<p>​</p>
+<p>side spline mesh system可以添加无间隙的连续mesh，可以设置相对位置偏移，以及多种mesh的交替，其中mesh也可以设定world length，下图的middle road设定为800.这个系统我感觉除了电缆之外，其他的mesh都不太适合，因为它不能设定间距。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-5a92c7739b5bdeeb012d29a8318359fb_1440wtuya.jpg"></p>
+<p>​</p>
+<p>pcc道路模块添加median中间路肩，也是用mesh along spline但它可以配合segment along road中的segment长度设定以及segment 之间的spacing使median有间距。PRG中似乎没有这样的功能，要在PRG中实现类似效果需要使用props system，规则间距spacing，不规则随机间距变化用min max transform。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-63ee6c38f7fa0b8e2213b7495929bf4a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e2f0495204c1e4b81245c9a7a7619955_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca3280d1fa94cacff1f1ae7d56748116_1440wtuya.jpg"></p>
+<p>​</p>
+<p>为道路添加road line在pcc道路模块中使用prop along spline，在PRG中其实就是刚才那个median做了左右偏移换了mesh，也是用props system。这种对称的物体直接复制黏贴，对road offset做个正负处理即可。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-7efa5bc3df23de19dcfb9e6ed863558e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8ae08fe7b4cede6005f6ddcccc96e4e3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0fda4db64e91ca0c42ad5795fba7a85c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置mesh对接在pcc道路模块中的props at point里面比较好搞，它配合segments along road可以使得point定位到segment的起始点来对接mesh；而在PRG中要实现这种对接就比较麻烦了，在布置第一个props后，需要对这个props的长度做计算，然后加到对接mesh的min、max transform中。视频演示了如何在首位位置生成斑马线、交通灯，这个在PRG里面不存在，PRG需要road和intersection相连，所以斑马线、交通灯是在intersection的mesh上做文章。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8019c7d6c1c84b0d48e7a88d3c4f296a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e105dc744990758d61c2b0035aac8d87_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-370d5955e9e6dd13ba4e46b0ea958278_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过socket定位散布mesh在两套系统中是一样的，要注意的是不仅仅是道路mesh可以标记socket，props system中的mesh也可以标记socket，比如在showcase map中道路两旁的树标记了树的“底座”socket，然后在deco per socket中分配这些“底座”mesh。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0ca768111743a1a01d891b5923fe43fc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6e7c107e8f39140459bfe279e579f118_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-992e3be640a1b8a939645659ed1c8349_1440wtuya.jpg"></p>
+<p>​</p>
+<p>最后完成路段的演示，首先是添加中间路肩的绿化，在pcc道路模块中通过Road Segments Tags比较方便定位，在PRG中则需要配合min、max transform去实现，昨天在median cap上测试过，对于同一物体pcc道路模块只要设置相对Road Segments 的spacing而在PRG中则需要复制一个props system然后调节min、max transform。添加tree base感觉还是在props system中直接复制tree的slot，改一下mesh和road offset更方便控制。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-93dd6cc774275b6f50c37fe17963c8a9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-3de2da45e6e939f6001d65b0f34277fa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e8e2313a1072ad3865df76998b92742b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>给道路添加转向箭头，在pcc道路模块中很容易实现，但在PRG中似乎只能从头尾remove而不能保留头尾，如果要做这种单个精确的mesh摆放似乎只能在bake mesh and blueprint之后手动添加了。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9bcf95837469342a772bc1528c211a89_1440wtuya.jpg"></p>
+<p>​</p>
+<p>给桥添加护栏，这个属于连续无间隙mesh因此是side spline mesh,里面有hide for road/bridge来指定护栏只出现在桥。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9d02f184406229713c2062c4886bb26f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>side spline mesh连续分布可以在道路曲线式盘旋时确保不会出现错乱，给mesh添加socket即可配合deco per socket来分布指定mesh。通过这个技巧可以实现蜿蜒路段上的绿化配置。在互有直线曲线的长路段把它们拆分成直线和曲线来实现middle mesh的正常分布，通过road connect将他们合并。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-b00870c066cb1a9f33d65b60a2df7978_1440wtuya.jpg"></p>
+<p>​</p>
+<p>关于路口处的转向标可以在intersection中用decal解决，注意intersection是一个blueprint，没法像road那样替换mesh，另外示范里多次提到道路系统中最好添加mesh而不是blueprint，blueprint不能实例化会占用许多资源，目前在showcase中移动道路blueprint巨卡无比，经测试发现关闭props system和deco per socket system后移动道路blueprint就不卡了。图2、3是对blueprint做了些许修改后得到的4岔路口效果。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8edffe4dd4a044d5ea4f6e6c0840f799_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-4bab5af4862f9cc84a3858bcc699fb98_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-feb7dbf411a6aa44c677d44120f5212c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>至此接下来要做的是封装自己的道路blueprint、路口blueprint，道路blueprint要求默认状态下关闭deco per socket system和props system，如果不能关闭么默认状态要清空里面的slot，那样在摆放位置时就不会卡了，其他道路blueprint打开这两个系统并不会影响操作关闭这两个系统的道路blueprint的流畅度，因此在确定位置后可以打开他们慢慢编辑并且不用担心会影响接下来其他道路操控的流畅度而再去关闭这两个系统。路口的mesh现在用的和道路一样造成一边对齐一边有明显接缝，得看看city sample里面有没有好的材质来解决这个交叉路口问题，另外目前的默认情况下连接道路存在一个mesh的高度差，得研究下系统自带的交叉路口mesh是怎么设置的。高度差的问题经实验发现只需将路口mesh的pivot置于top即可。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6526708c047add73558823f8cd8bcf68_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+        <tag>材质</tag>
+      </tags>
+  </entry>
 </search>

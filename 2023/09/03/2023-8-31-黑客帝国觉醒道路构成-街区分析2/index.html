@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-8-31-黑客帝国觉醒道路构成-街区分析2 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="PCC插件中集成了PCC_Road_Spline模块（以下简称pcc道路模块），它看起来和PRG一样也是一个Spline Mesh，不过二者的菜单略有不同，因此可以推测无法用utility widget将curve转化PCC_Road_Spline的道路。不过这个系列的视频教学合着PRG的Advanced_Showcase Map中的图文教学可以更好的理解如何创建道路。  ​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-8-31-黑客帝国觉醒道路构成-街区分析2">
+<meta property="og:url" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="PCC插件中集成了PCC_Road_Spline模块（以下简称pcc道路模块），它看起来和PRG一样也是一个Spline Mesh，不过二者的菜单略有不同，因此可以推测无法用utility widget将curve转化PCC_Road_Spline的道路。不过这个系列的视频教学合着PRG的Advanced_Showcase Map中的图文教学可以更好的理解如何创建道路。  ​">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca1d93b1af8979e178269e096e6f21f5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-c8ece4d0f146c432f2ece19681a4c9a7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-45c524929410a7d7998a1379d7e94293_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-d5f42723b087d12bc1d59182dd08f72b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-248400463a31db62c5e5c102fcfd6d9e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-78bc411d8c6254f605f5c9ea4cf81376_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-cfa5281bbc770c841a43cea526cbd785_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-5a92c7739b5bdeeb012d29a8318359fb_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-63ee6c38f7fa0b8e2213b7495929bf4a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e2f0495204c1e4b81245c9a7a7619955_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca3280d1fa94cacff1f1ae7d56748116_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-7efa5bc3df23de19dcfb9e6ed863558e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8ae08fe7b4cede6005f6ddcccc96e4e3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0fda4db64e91ca0c42ad5795fba7a85c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8019c7d6c1c84b0d48e7a88d3c4f296a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e105dc744990758d61c2b0035aac8d87_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-370d5955e9e6dd13ba4e46b0ea958278_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0ca768111743a1a01d891b5923fe43fc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6e7c107e8f39140459bfe279e579f118_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-992e3be640a1b8a939645659ed1c8349_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-93dd6cc774275b6f50c37fe17963c8a9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-3de2da45e6e939f6001d65b0f34277fa_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e8e2313a1072ad3865df76998b92742b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9bcf95837469342a772bc1528c211a89_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9d02f184406229713c2062c4886bb26f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-b00870c066cb1a9f33d65b60a2df7978_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8edffe4dd4a044d5ea4f6e6c0840f799_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-4bab5af4862f9cc84a3858bcc699fb98_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-feb7dbf411a6aa44c677d44120f5212c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6526708c047add73558823f8cd8bcf68_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-09-03T15:27:43.000Z">
+<meta property="article:modified_time" content="2023-09-03T15:28:46.929Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca1d93b1af8979e178269e096e6f21f5_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-8-31-黑客帝国觉醒道路构成-街区分析2
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-03T15:27:43.000Z" itemprop="datePublished">9月 3 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            17 分钟 读完 (约 2480 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>PCC插件中集成了PCC_Road_Spline模块（以下简称pcc道路模块），它看起来和PRG一样也是一个Spline Mesh，不过二者的菜单略有不同，因此可以推测无法用utility widget将curve转化PCC_Road_Spline的道路。不过这个系列的视频教学合着PRG的Advanced_Showcase Map中的图文教学可以更好的理解如何创建道路。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca1d93b1af8979e178269e096e6f21f5_1440wtuya.jpg"></p>
+<p>​</p>
+<span id="more"></span>
+
+
+
+
+<p>在pcc道路模块mesh around spline中添加road、bridge mesh，这里的逻辑不是太清楚，原本在road setting就有road、bridge mesh，总而言之这对应PRG中的Road System里的road、bridge mesh，PRG的设定是当spline的segment处于一定z轴高度会自动在road和bridge 两种mesh中切换。（下图3）实际上路和桥的概念很模糊，需要注意的是不管是路还是桥都可以放置多个mesh，在拉长后随机分布，关键在于各个mesh之间如何衔接统一。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-c8ece4d0f146c432f2ece19681a4c9a7_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-45c524929410a7d7998a1379d7e94293_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-d5f42723b087d12bc1d59182dd08f72b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>补充一下，默认的pcc道路模块材质很普通，在示范中将其材质修改为matrix中道路所使用的M_Asphalt_Master_Inst,其上的各种水渍、质感暂时还没空去研究，后期肯定要深入的。可以看到更改road mesh即可在PRG中复现pcc道路模块视频教学中的基础效果。这里有个road world length参数是每一段mesh的长度设定，在添加多个road mesh后就可以看出这个参数的意义。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-248400463a31db62c5e5c102fcfd6d9e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-78bc411d8c6254f605f5c9ea4cf81376_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-cfa5281bbc770c841a43cea526cbd785_1440wtuya.jpg"></p>
+<p>​</p>
+<p>side spline mesh system可以添加无间隙的连续mesh，可以设置相对位置偏移，以及多种mesh的交替，其中mesh也可以设定world length，下图的middle road设定为800.这个系统我感觉除了电缆之外，其他的mesh都不太适合，因为它不能设定间距。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-5a92c7739b5bdeeb012d29a8318359fb_1440wtuya.jpg"></p>
+<p>​</p>
+<p>pcc道路模块添加median中间路肩，也是用mesh along spline但它可以配合segment along road中的segment长度设定以及segment 之间的spacing使median有间距。PRG中似乎没有这样的功能，要在PRG中实现类似效果需要使用props system，规则间距spacing，不规则随机间距变化用min max transform。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-63ee6c38f7fa0b8e2213b7495929bf4a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e2f0495204c1e4b81245c9a7a7619955_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-ca3280d1fa94cacff1f1ae7d56748116_1440wtuya.jpg"></p>
+<p>​</p>
+<p>为道路添加road line在pcc道路模块中使用prop along spline，在PRG中其实就是刚才那个median做了左右偏移换了mesh，也是用props system。这种对称的物体直接复制黏贴，对road offset做个正负处理即可。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-7efa5bc3df23de19dcfb9e6ed863558e_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8ae08fe7b4cede6005f6ddcccc96e4e3_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0fda4db64e91ca0c42ad5795fba7a85c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>设置mesh对接在pcc道路模块中的props at point里面比较好搞，它配合segments along road可以使得point定位到segment的起始点来对接mesh；而在PRG中要实现这种对接就比较麻烦了，在布置第一个props后，需要对这个props的长度做计算，然后加到对接mesh的min、max transform中。视频演示了如何在首位位置生成斑马线、交通灯，这个在PRG里面不存在，PRG需要road和intersection相连，所以斑马线、交通灯是在intersection的mesh上做文章。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8019c7d6c1c84b0d48e7a88d3c4f296a_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e105dc744990758d61c2b0035aac8d87_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-370d5955e9e6dd13ba4e46b0ea958278_1440wtuya.jpg"></p>
+<p>​</p>
+<p>通过socket定位散布mesh在两套系统中是一样的，要注意的是不仅仅是道路mesh可以标记socket，props system中的mesh也可以标记socket，比如在showcase map中道路两旁的树标记了树的“底座”socket，然后在deco per socket中分配这些“底座”mesh。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-0ca768111743a1a01d891b5923fe43fc_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6e7c107e8f39140459bfe279e579f118_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-992e3be640a1b8a939645659ed1c8349_1440wtuya.jpg"></p>
+<p>​</p>
+<p>最后完成路段的演示，首先是添加中间路肩的绿化，在pcc道路模块中通过Road Segments Tags比较方便定位，在PRG中则需要配合min、max transform去实现，昨天在median cap上测试过，对于同一物体pcc道路模块只要设置相对Road Segments 的spacing而在PRG中则需要复制一个props system然后调节min、max transform。添加tree base感觉还是在props system中直接复制tree的slot，改一下mesh和road offset更方便控制。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-93dd6cc774275b6f50c37fe17963c8a9_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-3de2da45e6e939f6001d65b0f34277fa_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-e8e2313a1072ad3865df76998b92742b_1440wtuya.jpg"></p>
+<p>​</p>
+<p>给道路添加转向箭头，在pcc道路模块中很容易实现，但在PRG中似乎只能从头尾remove而不能保留头尾，如果要做这种单个精确的mesh摆放似乎只能在bake mesh and blueprint之后手动添加了。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9bcf95837469342a772bc1528c211a89_1440wtuya.jpg"></p>
+<p>​</p>
+<p>给桥添加护栏，这个属于连续无间隙mesh因此是side spline mesh,里面有hide for road/bridge来指定护栏只出现在桥。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-9d02f184406229713c2062c4886bb26f_1440wtuya.jpg"></p>
+<p>​</p>
+<p>side spline mesh连续分布可以在道路曲线式盘旋时确保不会出现错乱，给mesh添加socket即可配合deco per socket来分布指定mesh。通过这个技巧可以实现蜿蜒路段上的绿化配置。在互有直线曲线的长路段把它们拆分成直线和曲线来实现middle mesh的正常分布，通过road connect将他们合并。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-b00870c066cb1a9f33d65b60a2df7978_1440wtuya.jpg"></p>
+<p>​</p>
+<p>关于路口处的转向标可以在intersection中用decal解决，注意intersection是一个blueprint，没法像road那样替换mesh，另外示范里多次提到道路系统中最好添加mesh而不是blueprint，blueprint不能实例化会占用许多资源，目前在showcase中移动道路blueprint巨卡无比，经测试发现关闭props system和deco per socket system后移动道路blueprint就不卡了。图2、3是对blueprint做了些许修改后得到的4岔路口效果。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-8edffe4dd4a044d5ea4f6e6c0840f799_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-4bab5af4862f9cc84a3858bcc699fb98_1440wtuya.jpg"></p>
+<p>​</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-feb7dbf411a6aa44c677d44120f5212c_1440wtuya.jpg"></p>
+<p>​</p>
+<p>至此接下来要做的是封装自己的道路blueprint、路口blueprint，道路blueprint要求默认状态下关闭deco per socket system和props system，如果不能关闭么默认状态要清空里面的slot，那样在摆放位置时就不会卡了，其他道路blueprint打开这两个系统并不会影响操作关闭这两个系统的道路blueprint的流畅度，因此在确定位置后可以打开他们慢慢编辑并且不用担心会影响接下来其他道路操控的流畅度而再去关闭这两个系统。路口的mesh现在用的和道路一样造成一边对齐一边有明显接缝，得看看city sample里面有没有好的材质来解决这个交叉路口问题，另外目前的默认情况下连接道路存在一个mesh的高度差，得研究下系统自带的交叉路口mesh是怎么设置的。高度差的问题经实验发现只需将路口mesh的pivot置于top即可。</p>
+<p><img src="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%902/v2-6526708c047add73558823f8cd8bcf68_1440wtuya.jpg"></p>
+<p>​</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/09/03/2023-8-31-%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E8%A7%89%E9%86%92%E9%81%93%E8%B7%AF%E6%9E%84%E6%88%90-%E8%A1%97%E5%8C%BA%E5%88%86%E6%9E%90/">2023-8-31-黑客帝国觉醒道路构成-街区分析</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

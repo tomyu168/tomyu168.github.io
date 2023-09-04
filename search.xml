@@ -8606,4 +8606,29 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>材质</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-9-4-道路在landscape-deform后变形部分的材质问题</title>
+    <url>/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<html><head></head><body><p>下图中左边是landscape 模式下选manage菜单中的spline，做出来的spline mesh配合landscape自带的deform可以看出其衰减有作用，而PRG的landscape deform则是垂直的，deform无效。</p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-90ca5d639aa5d34842f10191044d09d4_1440wtuya.jpg"></p>
+<span id="more"></span>
+
+<p>这里要提一下，landscape deform时不要选landscape proxy，要选landscape不然deform会不正常。经过discord中的技术支持往期记录发现，需要修改道路blueprint的perform landscape adjustment函数。1是断开loop这里的last index，2是road width和road side fall off直接连函数不要去做那个加法运算。图4为成功deform加入过渡倾斜坡度的PRG。</p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-3cedbee00eafd44c5f8da8f45defc308_1440wtuya.jpg"></p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-db3178162e5e0216e111a02ba671bb4d_1440wtuya.jpg"></p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-0d375f01aceb0e039987d4e6282f8103_1440wtuya.jpg"></p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-4ee5477dc96b377214ab7d39c0de2431_1440wtuya.jpg"></p>
+<p>接下来的问题是如何自动适配隆起、凹陷landscape的材质了，或者说deform之后如何在paint模式下改我自己想要的landscape材质？当前我直接套用了openland的landscape材质，它似乎可以根据高度自动配套材质，拾取另一种材质对岩石山坡隆起绘制，经测试ground/sand layer可以对岩石山坡的材质作完全的绘制替换，然而使用groundalpha/sandalpha绘制后无法再用其他材质绘制覆盖，目前不清楚原理，有待进一步研究。搞定绘制后就是如何添加自定义的材质去绘制各种情境的陡坡、缓坡了。</p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-eaa6d4adad97a95f34499ad1786712df_1440wtuya.jpg"></p>
+<p><img src="/2023/09/04/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/2023-9-4-%E9%81%93%E8%B7%AF%E5%9C%A8landscape-deform%E5%90%8E%E5%8F%98%E5%BD%A2%E9%83%A8%E5%88%86%E7%9A%84%E6%9D%90%E8%B4%A8%E9%97%AE%E9%A2%98/v2-031667a523aeb2f053eb1b21947c9d04_1440wtuya.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+        <tag>材质</tag>
+      </tags>
+  </entry>
 </search>

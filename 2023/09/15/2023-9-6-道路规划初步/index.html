@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-9-6-道路规划初步 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="昨天晚上到今早折腾ue的osm插件，失败，这里面涉及c++文件编译，说是文件缺失那问题就大了，搞了半天下载visual studio白忙活。考虑到大马路、街区内的小路要做的真实多样，指望osm一键到位也不可能，最多是分批导入定位用，所以也别在这个上面较劲。 下面我截取了一些百度的全景照片来分析一下大马路的构成： 问题1人行道到底跟大马路还是跟街区？跟大马路的好处是坡道起伏可以用landscape">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-9-6-道路规划初步">
+<meta property="og:url" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="昨天晚上到今早折腾ue的osm插件，失败，这里面涉及c++文件编译，说是文件缺失那问题就大了，搞了半天下载visual studio白忙活。考虑到大马路、街区内的小路要做的真实多样，指望osm一键到位也不可能，最多是分批导入定位用，所以也别在这个上面较劲。 下面我截取了一些百度的全景照片来分析一下大马路的构成： 问题1人行道到底跟大马路还是跟街区？跟大马路的好处是坡道起伏可以用landscape">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-5a52f3eee7e600cfc76e6a52aa08d474_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-22083fa98c0e5fc4807426f713220ecd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6a84429ff9363f0d84b68ad13e7dd858_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-c3d108f484a3b6165910885473d6e0a5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-14094f4f0b64cc17f41c4fffc8da83d9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b57c9ac532d0115347dd2cb2cfbbde28_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-835e40c1feaf898d45b9cc679b415e90_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a4ec02a25b688f1d93d7df8affa94b91_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-2c2a9cf19f8411d28aeb10ac04513e1d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a4581279a7b4db8edda8a2f61976e222_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b8e7c27ff355dcc934598941cc1c395d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-dc8340256238053cb5b55e4abf8f4216_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b80be7e3b83e9ccdfd24cc58ed15ac05_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7f39939958de0060ddad67cc87dd4f60_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-935ef499b349e39974b7f8006fc32551_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-98f1a7fe18a2867cdee02e250ae98182_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aa97d92b224439da610e80183ab8e837_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6ea03f6de8d5402db068982335257f9c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-4a67ab8e87ba59dc11b848e80c50093b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-912810c77a342059a34f5684b62766f4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-1234e78bd800e2c9cd771eb97c33c9e3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7c90337e23469857c8975dd8c7b8b597_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aafe3bb22ea18accd91286f69ae389a9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aa1854a4ae163e6c64ea1c0c5e2b8ca4_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-264e49fa6f4c2579a5fc2db13944050b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-479f66b48335fb2999fc5bb586ed482f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-61ca76ac0c0d6b8239e0a41b26ac4b56_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-68d0bcaba1947d9402a33eb22253afae_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-55d49e3a2d7d8b59b1379fb5f8623d5e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-bece1470eccb27e4b2f447f5f16a1016_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-667769b6106e054cc322878740bf1c4d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7dc2c94ba22035583bf524d6171e3c1c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7c813a533719043975841113fa0a664c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-5c8960801013863de84352d807e380a7_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-912e67c05bc16590732fe83743913d06_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-debc1d3cdc645a920693b3c5e382fb6e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-274ed56f56af5c2cc8b75e5ab6dea314_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-3406ce5f4a840e14b0ad9fccea51cc1b_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-9e1fdfa70f7847d436565498c871015c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-fa2cc822fd7d104895c8a2c530d7535d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-1bad75586eb6aad363a59dd20290c3d8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a1e62ffcda4f694fbac48c5c2690eb84_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-e6499d34e1d1d667ff05676dc5dfb423_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a7a85c588406afd51f9d5a4ab778fd00_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-09a54ecf16d9bfaa7f84c3d501c12aec_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-566a250e2c223d741fa98ebdc2685c31_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a8f257b0f78ce27d71c24091afbe84ad_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-e17197533cbc5dfa7838226e66dc8769_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-16d5ba389546c8ec88593e2c52dea6d2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-49a69e7e029ee71c69ac5c5b7e99af85_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-69b2b683db4630889209890ee411627d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-f1924fa367346cab3f5788af2f53b6e9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6b8056131c437b683676c39622445809_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-09c6acc6689abc0aaa4d4550d965f3fc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-9c58bbc58e49517101d5b7180f36fc97_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-ba06ea2ead944df2c5ec439ea11c6638_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7a3e2c10dc9cf9b015f471483cbaf8b6_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-09-15T12:27:21.000Z">
+<meta property="article:modified_time" content="2023-09-15T12:29:34.044Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-5a52f3eee7e600cfc76e6a52aa08d474_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-9-6-道路规划初步
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-15T12:27:21.000Z" itemprop="datePublished">9月 15 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            25 分钟 读完 (约 3822 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>昨天晚上到今早折腾ue的osm插件，失败，这里面涉及c++文件编译，说是文件缺失那问题就大了，搞了半天下载visual studio白忙活。考虑到大马路、街区内的小路要做的真实多样，指望osm一键到位也不可能，最多是分批导入定位用，所以也别在这个上面较劲。</p>
+<p>下面我截取了一些百度的全景照片来分析一下大马路的构成：</p>
+<p>问题1人行道到底跟大马路还是跟街区？跟大马路的好处是坡道起伏可以用landscape deform表现出来，但是交叉口需要设法独立设计，跟街区可以解决交叉口问题但不能landscape deform。我倾向于前者，不然的话整个城市就太平了，失去了趣味。</p>
+<p>根据PRG的系统大马路可以拆分为road mesh即道路主体由spline mesh构成无缝连续；side spline mesh与road mesh一样由spline mesh构成无缝连续可以做连续的中间绿化、连续的马路标线、电缆、两侧的人行道、路肩、路沿、两侧连续绿化带；然后是非无缝连续的物体，如长条白色马路标线、非无缝绿化带、树木、垃圾桶、车站、共享自行车、路灯、电线杆，这些用props system实现，可以通过全局的spacing设置规则间隔，以及min max transform加入不规则的位置、大小微调变化；最后是在人行道、马路上随机出现的破损、窨井盖、树叶、垃圾，用deco per socket system通过给road mesh\side spline mesh\props mesh添加socket来定义出现的位置，设置probilities定义出现概率以及min max transform加入不规则的位置、大小微调变化。</p>
+<p>由此总结大马路需要道路主体、绿化带、人行道、路肩路沿、车道标线；各种树木、垃圾桶、车站、电线杆、自行车、电动车、路灯、车位标线；树叶decal、窨井盖decal、破损decal、垃圾decal.</p>
+<p>道路主体简单来看就是宽度，车道数什么的是基于道路宽度用标线划分的，现实中的道路宽度可以用百度地图测距计算。我看了下matrix中的road mesh有3个规格20米，28米，37米。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-5a52f3eee7e600cfc76e6a52aa08d474_1440wtuya.jpg"></p>
+<span id="more"></span>
+
+<p>长沙的四车道不含自行车道是17米宽度左右。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-22083fa98c0e5fc4807426f713220ecd_1440wtuya.jpg"></p>
+<p>潇湘中路10车道外加自行车道是35米宽度。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6a84429ff9363f0d84b68ad13e7dd858_1440wtuya.jpg"></p>
+<p>湖大路5车道加自行车道是18米宽度。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-c3d108f484a3b6165910885473d6e0a5_1440wtuya.jpg"></p>
+<p>麓山南路三车道10米</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-14094f4f0b64cc17f41c4fffc8da83d9_1440wtuya.jpg"></p>
+<p>西康路2车道是9米宽。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b57c9ac532d0115347dd2cb2cfbbde28_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-835e40c1feaf898d45b9cc679b415e90_1440wtuya.jpg"></p>
+<p>长寿路的8车道是35米宽。</p>
+<p>经上面的总结可知大部分的大马路可以归纳为10、18、35这3个宽度。也就是说大马路的主体mesh在这3个规格上各一份可以满足基本需求，当然多个mesh可以在road mesh中交替增加多样性。</p>
+<p>通过上面的7个马路来看所有的路肩都是灰白色，形状也差不多。我看了下matrix中使用的curb都来自于quixel bridge,不过对其材质做了很深入的调整使其可以添加污渍、表面细节随着位置不同有变化。暂时就先用现成的后期看看能不能对尺寸做调整，它这个路肩显然太长了不符合国情。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a4ec02a25b688f1d93d7df8affa94b91_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-2c2a9cf19f8411d28aeb10ac04513e1d_1440wtuya.jpg"></p>
+<p>matrix提供的马路标线mesh，这些标线会随着位置变化表面细节，材质的设置也是十分庞大的。还有些窨井盖的decal mesh。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a4581279a7b4db8edda8a2f61976e222_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b8e7c27ff355dcc934598941cc1c395d_1440wtuya.jpg"></p>
+<p>matrix中的人行道mesh大约25个，还有几个用于转角的corner mesh来自于megascan，它们也受到matrix内部材质系统的影响。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-dc8340256238053cb5b55e4abf8f4216_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-b80be7e3b83e9ccdfd24cc58ed15ac05_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7f39939958de0060ddad67cc87dd4f60_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-935ef499b349e39974b7f8006fc32551_1440wtuya.jpg"></p>
+<p>人行道方面可以看到下标abcde，同一字母表示同一种人行道，宽度都是3米，有三种长度规格1.5、3、6米。而在街区内看到的砖花在matrix中叫plaza square都是3x3米的，有abcdefg 7个样式。通过近距离观察可以发现这些砖花实际上被curb包围，curb稍稍高过砖花将其覆盖住了。curb外又是一圈人行道不规则的多边形外圈的拼接处有专门的mesh。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-98f1a7fe18a2867cdee02e250ae98182_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aa97d92b224439da610e80183ab8e837_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6ea03f6de8d5402db068982335257f9c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-4a67ab8e87ba59dc11b848e80c50093b_1440wtuya.jpg"></p>
+<p>回看现实，5种人行道的mesh显然太捉襟见肘了，另外matrix中的人行道对同一个街区的人行道做5种mesh的随机排布不符合现实，一般一个街区、相邻的几个街区会用同一种砖花去铺设人行道。但是随着街区数量上升，人行道的砖花种类会五花八门。人行道方面后期至少要增加10种。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-912810c77a342059a34f5684b62766f4_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-1234e78bd800e2c9cd771eb97c33c9e3_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7c90337e23469857c8975dd8c7b8b597_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aafe3bb22ea18accd91286f69ae389a9_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-aa1854a4ae163e6c64ea1c0c5e2b8ca4_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-264e49fa6f4c2579a5fc2db13944050b_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-479f66b48335fb2999fc5bb586ed482f_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-61ca76ac0c0d6b8239e0a41b26ac4b56_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-68d0bcaba1947d9402a33eb22253afae_1440wtuya.jpg"></p>
+<p>各种树木、垃圾桶、车站、路灯、车位标线这些都可以借助外部下载，这些prop经检查matrix项目被没有做特殊处理使其细节多样化，应该都是原生的材质。今天有个重大发现，原来PRG一直很卡的原因是其生产的mesh都不是instance，注意下图中的这个车站广告牌在matrix中设置了perinstancerandom，instance可以随机变换广告内容，但是用PRG添加props却没有发生随机变换，说明这些mesh每一个都是新的对象。而碰巧的是PRG作者团队在8.25号更新解决了这一问题！另外下一版更新的Pcc还能解决街区地形起伏问题！真可以说时也命也。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-55d49e3a2d7d8b59b1379fb5f8623d5e_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-bece1470eccb27e4b2f447f5f16a1016_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-667769b6106e054cc322878740bf1c4d_1440wtuya.jpg"></p>
+<p>matrix中没有绿叶草坪、树木，不过其他的prop却十分丰富。在prop文件夹下可以看到有建筑上的prop，包括雨篷、各种banner、atm。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7dc2c94ba22035583bf524d6171e3c1c_1440wtuya.jpg"></p>
+<p>高速公路上看到的大型广告牌、车站、路标、路边的小广告牌。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7c813a533719043975841113fa0a664c_1440wtuya.jpg"></p>
+<p>建筑工地的prop包含木材、围栏、沙袋、脚手架、集装箱，在这些props中我意外发现有些mesh的材质并不在detail面板而在layer parameters中，经查看后是一种混合材质的工作流，与众多MatLayerBlend函数的Layered Materials有相同效果但更简化，不过在matrix项目中查看这类prop的layer parameters非常卡，暂时不清楚是为什么。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UZghyZLzRyM">Material Layers 视频示范对比 Layered Materials</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/RenderingAndGraphics/Materials/MaterialLayers/">UE官方文档Material Layers</a></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-5c8960801013863de84352d807e380a7_1440wtuya.jpg"></p>
+<p>屋顶的各种prop有20几种和路灯有5个款式，还有路灯的banner。屋顶的prop被组装成各种packed level actor，文件夹中显示有288个.另外还有一种用波函数坍塌（WaveFunctionCollaspe）生产的屋顶，在matrix的示范中有讲解过，原理比较复杂，暂时不研究。packed level actor下的物体皆为instance，反复创建不会占用过多资源，关于level instance和packed level actor之前看过教学讲解，但现在忘光了不清楚二者有啥区别。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-912e67c05bc16590732fe83743913d06_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-debc1d3cdc645a920693b3c5e382fb6e_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-274ed56f56af5c2cc8b75e5ab6dea314_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-3406ce5f4a840e14b0ad9fccea51cc1b_1440wtuya.jpg"></p>
+<p>补充level instancing概念，当几个mesh被打包成为level instancing,其中任意一个mesh有transform或者材质改变都会影响其他的level instancing.下图中移动其中一个雕塑，其他两个跟着移动。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-9e1fdfa70f7847d436565498c871015c_1440wtuya.jpg"></p>
+<p>packed level actor创建后会有一个level外加一个blueprint，打开blueprint可以发现被打包创建的mesh都转化为了instance，我现在算是明白了，在ue中instanced static mesh component才是真的instance，复制物体alt拖动、duplicate并不产生instance。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-fa2cc822fd7d104895c8a2c530d7535d_1440wtuya.jpg"></p>
+<p>通过对blueprint编写程序可以让packed level actor多样化。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-1bad75586eb6aad363a59dd20290c3d8_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a1e62ffcda4f694fbac48c5c2690eb84_1440wtuya.jpg"></p>
+<p>在newman brother的系列教学中，示范了把桥打包成packed level actor。对bridge1 break packed level actor，再创建bridge2，然后进入edit模式替换了桥头的灯。我不知道这样做的话，桥身组件互相之间算不算instance。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-e6499d34e1d1d667ff05676dc5dfb423_1440wtuya.jpg"></p>
+<p>经测试可以发现当static mesh本身被编辑，几何特征、材质被改变会影响到所有的使用该mesh的packed level actor，而对blueprint中的instance static mesh component移动只会影响同一个packed level actor。因此不同的packed level actor之间使用的mesh互为instance。打包成packed level actor，如果有两个相同的static mesh会自动编队为一个instance static mesh component，在右侧details面板的instances中创建两个instance。packed level actor看起来什么都好，但至少在matrix这样的项目中，在blueprint中编辑这些instance十分卡，理想状态是在blender中搞好这些mesh组合的小场景导入，不过经实验发现这么搞分批次的同一物体是不同的static mesh，那么想要搞各种packed level actor小场景就是在场景模式中找块空地组装好形态以后再打包，但是ue中编辑选择物体很不方便，这可能需要些什么插件来解决。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a7a85c588406afd51f9d5a4ab778fd00_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-09a54ecf16d9bfaa7f84c3d501c12aec_1440wtuya.jpg"></p>
+<p>这种用于公园的类似墙体的prop被称为border，有abcd四个集合，它们被组装成packed level actor。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-566a250e2c223d741fa98ebdc2685c31_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-a8f257b0f78ce27d71c24091afbe84ad_1440wtuya.jpg"></p>
+<p>prop这块扯得有点远了，我发现问题在于应用场景，我把范围扩大到了公园、屋顶、建筑外立面等等。现在回到大马路所要用到的prop，窨井盖5-8、邮筒2-3、路牌10、人行道护栏8-10、树木8-10、草和花15-20、路灯5-8、人行道8-15、绿化带底座5-8、车位标线、电线杆5-8、自行车3-5、电动车3-5.</p>
+<p>其中绿化带怎么设计的再参考些实景照片。</p>
+<p>使用PRG技术路线接下来需要解决的技术问题：</p>
+<p>如何利用这种sidewalk corner mesh配合砖花的材质做自己的sidewalk corner？</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-e17197533cbc5dfa7838226e66dc8769_1440wtuya.jpg"></p>
+<p>如何利用quixel的材质去做砖花？</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-16d5ba389546c8ec88593e2c52dea6d2_1440wtuya.jpg"></p>
+<p>大的建筑群比如学校、小区会割开人行道，所以要有类似intersection的mesh在某些segment上插入替换。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-49a69e7e029ee71c69ac5c5b7e99af85_1440wtuya.jpg"></p>
+<p>做自己的intersection mesh，这里涉及到如何调整connector的位置、大小，当然还有sidewalk mesh，解决这个就等于道路这块加上人行道一起搞，尺寸上得计算好。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-69b2b683db4630889209890ee411627d_1440wtuya.jpg"></p>
+<p>这两天着凉病了，状态很不好，没心思马上推进道路技术细节的探索，一直摆弄python的贴吧爬虫。今天下载了ue官方的hillside示例，又给出了一种道路的技术路线思路。下面这个乍看很像sketchup做的景观模型，材质和模型都很简单，高度概括，思路清晰。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-f1924fa367346cab3f5788af2f53b6e9_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-6b8056131c437b683676c39622445809_1440wtuya.jpg"></p>
+<p>在一个大概只有法线贴图的草地上用foliage画树木和花草。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-09c6acc6689abc0aaa4d4550d965f3fc_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-9c58bbc58e49517101d5b7180f36fc97_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-ba06ea2ead944df2c5ec439ea11c6638_1440wtuya.jpg"></p>
+<p>场景的核心是这个金字塔结构的建筑群，我看了其中一个单体由100多个instance static mesh component组成.这是如何做到的？暂且没有想法。</p>
+<p><img src="/2023/09/15/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/2023-9-6-%E9%81%93%E8%B7%AF%E8%A7%84%E5%88%92%E5%88%9D%E6%AD%A5/v2-7a3e2c10dc9cf9b015f471483cbaf8b6_1440wtuya.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/09/15/2023-9-4-citypark%E6%99%AF%E8%A7%82%E9%81%93%E8%B7%AF%E6%A0%91%E6%9C%A8%E8%8A%B1%E8%8D%89%E8%B5%84%E4%BA%A7%E7%9A%84%E5%B8%83%E7%BD%AE%E5%88%86%E6%9E%90/">2023-9-4-citypark景观道路树木花草资产的布置分析</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

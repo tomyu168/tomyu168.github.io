@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-9-14-ue官方hillside世博园1967建筑项目分析 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="此建筑群为Moshe Safdie为1967年加拿大世博会设计，并有局部落地，下图为当今的实拍照片。Epic Game团队联合建筑设计团队通过建模对此项目做复原。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-9-14-ue官方hillside世博园1967建筑项目分析">
+<meta property="og:url" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="此建筑群为Moshe Safdie为1967年加拿大世博会设计，并有局部落地，下图为当今的实拍照片。Epic Game团队联合建筑设计团队通过建模对此项目做复原。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0686646df8becdd39963e6133d3552d3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d8f18c4c9d1934bef944223bad05b5a6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fd564c124fbbb61c44d874682f41e765_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-abdce4827a2b7a96e5ec776d8f2d67d3_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a759ad6a4360db598947e32a79f70498_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0e01c836fa40d72773691186a1578f6c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0a37a512dbd24f2f7965dc89bbbbe438_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-969e295de7934eb9aa96eb58a6484c69_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-50606f994f5424d4304bf346d24fdc91_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-cbf9ff8fa1a62430a10e337b08949752_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d8bcae1400f877fd27449aa5f46f56a9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-47951e176a15798a4dbf132fd10e8a3a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-1f5e1ff45d1fcfcd8bfc8f726b93fcd0_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0859196201c3cfdd82a03e392af551cc_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fdf8b69021298f69f9ec052f9286529e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4c8618b0a2aea9f4d65c2d5dddf13046_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a5445f709cf9ec579cc977936cf3997d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-8990910be93196105dbe4f0418da3da5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-c0f351f52482a50ea4f7e1a2beb23a4d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-b087dee17b1cf1a6da6c3283e2be381d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-32f4d15bee8b76875effbe46cae970c8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4f62b49d96086e551b7ec4134cb7fe18_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-78467790fc1e21a1e11b68cb8cdc0d7e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-26d59bb29f2aeadedc34b1f3ee6c2945_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e679af4ab7e73c4c03b42e2064005c11_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4dfef126a9016b4c98411dcc1ced344f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a3a4c4d9fbf2e2812aa1cf7e5181d4d5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-458147df64b8316fe61a9ff70d4d6322_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-dceb2cd1397eaa117ada7dab7d213b5c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d1f7760655caf494cf25e7e87de944a8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-8ba768280effe166ff32dcaa5b38a07f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e70d62ad7dfcf6f6049bd5e8a875b833_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a8e5eb980efe40bf82e81affa2b9667c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-aa8c290783f9343ead1cce7989840dc2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d4729af763ad4b2e8cf7c978a3285744_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-ec70c9549fd5760f4dff049d8635b156_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-61b50b94ba625363e3230a78e6c639b2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-9a979d9e0e269f3e6299d5f7f3347cf9_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-71da3f899cf9855c01cdb47451b0aa95_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-34b5aae3cfea228293fd4aada6754af8_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-5eea01b20babcbb78bfb69082e01f692_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-92fe268ac8b4674ad0c83f0d8c090595_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-3bf27c119a3810ff90b29ff3f10323a6_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-39d262ef473c25abec4cfe71a91e2fef_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e14251603119ac88fd263e4bb2fecf33_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-bd5bc2dfdd6e7de94d4551ec4bbbb71c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-163efee5afcdde48315c2abe27c35344_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4a854ec690ad04027d2b9b9d6feb2a6a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d5fcab21c8d309eef9a801e3d4293409_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-f91605a836ac1b1ea8d2e7a5f3f92997_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-492ee3aca4e273de3d286770bdb9496e_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-697c5a69b705286ab2451e2222487062_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-512d9268342972af0de0277d14dcba41_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-2d89c6c4005825ef7f2a82275f3b658c_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a5f5aae4278bf992345398af2a7a26d2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fd6e447409e84b7a936d840b40848168_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a266037aa1a0da35b20c6661b1074cef_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-86a865b8bd854b76888c9d917c1780cd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0e7d2478a168f98e8adecf254646e21d_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-ecd6419aa2aa0b3d008c989680d8bafd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-1695d4e5d2279882c39343a0cdb8cc8a_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-73fd87ac6c99963d960fc27ee6e1c63e_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-09-15T10:55:53.000Z">
+<meta property="article:modified_time" content="2023-09-15T10:59:48.163Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0686646df8becdd39963e6133d3552d3_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-9-14-ue官方hillside世博园1967建筑项目分析
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-15T10:55:53.000Z" itemprop="datePublished">9月 15 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            24 分钟 读完 (约 3613 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>此建筑群为Moshe Safdie为1967年加拿大世博会设计，并有局部落地，下图为当今的实拍照片。Epic Game团队联合建筑设计团队通过建模对此项目做复原。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0686646df8becdd39963e6133d3552d3_1440wtuya.jpg"></p>
+<span id="more"></span>
+
+<p>这个项目的重点放在了动画镜头、灯光布景上面。动画这块我暂时不管。布景方面，在matrix项目中只涵盖一些道具模型，比如路障、垃圾、路灯、垃圾桶、座椅、广告牌，但是缺少绿化景观设计，我不知道这是不是和性能有关系？在matrix中建筑群以一个个街区规则排布，基本上是建筑整个环绕人行道内侧围成一圈，建筑的放置是用houdini程序化生成的，所有的建筑都包含几何细节以及高清贴图，程序化的实例化差异。而在hillside，细节是由手工完成的独立建筑体现的，周围的背景建筑都没有细节，通过穿插绿化、水体来掩饰（下图2远方看上去有些建筑都是白模，但绿化、树木是instance static mesh component所以看上去很逼真）。matrix中的建筑基本都是盒子房，而hillside做了一个一眼望去无法拆解的金字塔形建筑，显然它在几何上还是有规律的可以模块化，问题是做好模型以后如何让ue识别各个模块？团队开发了一个mesh to hism的组件似乎可以将选中的物体转化为实例，还能随机增加大小、旋转，这就很有意思了，我想看看能否利用这个组件。（所有的物体似乎都没有设置collision所以添加third person后直接掉下去了。）</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d8f18c4c9d1934bef944223bad05b5a6_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fd564c124fbbb61c44d874682f41e765_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-abdce4827a2b7a96e5ec776d8f2d67d3_1440wtuya.jpg"></p>
+<p>经测试选中一组static mesh，对他们进行旋转、缩放随机，旋转缩放必须是在static mesh模式下（会沿着各自的pivot旋转缩放），instance模式pivot会不正常。在调节好缩放、旋转后点selected mesh to instances会转换成实例组件，这里需要进一步理解HISM和ISM的区别。有了这个组件只要注意名命范式，即可将3dsmax、blender中做好的模型导入过来一键实例化各个部件！对不规则形状建筑部件的UE实例化问题做出了根本上的解决！</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a759ad6a4360db598947e32a79f70498_1440wtuya.jpg"></p>
+<p>hillside项目对于小区、公园的小路设计实现是个很好的参考，可以看到主体部分的路面由一个level instance实现，整个hardscape由285个ISM组成。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0e01c836fa40d72773691186a1578f6c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0a37a512dbd24f2f7965dc89bbbbe438_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-969e295de7934eb9aa96eb58a6484c69_1440wtuya.jpg"></p>
+<p>可以看到小路都使用了beige色水泥地材质实例。从这些mesh来看和淘宝买的sketchup、3dsmax小区、景观的设计很像，都是大的不规则块面，不考虑程序化生成、拼接。第一阶段我先利用这些现成的做小区、景观，之后要设法达到用ai生成设计图，再快速建模实现这些设计。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-50606f994f5424d4304bf346d24fdc91_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-cbf9ff8fa1a62430a10e337b08949752_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d8bcae1400f877fd27449aa5f46f56a9_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-47951e176a15798a4dbf132fd10e8a3a_1440wtuya.jpg"></p>
+<p>草地用的面片加材质，用整个块面做的路肩缺少细节、变化，也不符合真实世界。小路的材质一眼可以看到tiling的重复。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-1f5e1ff45d1fcfcd8bfc8f726b93fcd0_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0859196201c3cfdd82a03e392af551cc_1440wtuya.jpg"></p>
+<p>面片的好处在于这种高低起伏再blender、max里面搞很方便，而spline mesh碰到起伏事情就变得很复杂了。暂时不清楚它这个curb是怎样实现的。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fdf8b69021298f69f9ec052f9286529e_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4c8618b0a2aea9f4d65c2d5dddf13046_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a5445f709cf9ec579cc977936cf3997d_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-8990910be93196105dbe4f0418da3da5_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-c0f351f52482a50ea4f7e1a2beb23a4d_1440wtuya.jpg"></p>
+<p>比对一下带灯光的实景和hardscape单独显示。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-b087dee17b1cf1a6da6c3283e2be381d_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-32f4d15bee8b76875effbe46cae970c8_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4f62b49d96086e551b7ec4134cb7fe18_1440wtuya.jpg"></p>
+<p>甚至还有穿模。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-78467790fc1e21a1e11b68cb8cdc0d7e_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-26d59bb29f2aeadedc34b1f3ee6c2945_1440wtuya.jpg"></p>
+<p>绿化带的面片，似乎没有高度凹凸，配合花草的foliage营造变化，此地图没有开world partition，但是距离拉远了花草会自动消失，不知道是什么技术。r.OptimizedWPO 默认为1会关闭植物受到风吹的摇摆效果，把r.OptimizedWPO设为0会打开效果。树根这里是个专门的mesh（下图3）。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e679af4ab7e73c4c03b42e2064005c11_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4dfef126a9016b4c98411dcc1ced344f_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a3a4c4d9fbf2e2812aa1cf7e5181d4d5_1440wtuya.jpg"></p>
+<p>沿岸风光带，这里出现了穿模。按照side spline mesh system的思路可以搞这个观光道路，但是到交叉口就犯难了，所以仅仅road system要不可见，用面片搞，而护栏玻璃啥的用side spline mesh ?</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-458147df64b8316fe61a9ff70d4d6322_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-dceb2cd1397eaa117ada7dab7d213b5c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d1f7760655caf494cf25e7e87de944a8_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-8ba768280effe166ff32dcaa5b38a07f_1440wtuya.jpg"></p>
+<p>不同材质道路的交叉。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e70d62ad7dfcf6f6049bd5e8a875b833_1440wtuya.jpg"></p>
+<p>坡道阶梯式绿化的布置。包围小块草地类似curb的叫做TierGarden，</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a8e5eb980efe40bf82e81affa2b9667c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-aa8c290783f9343ead1cce7989840dc2_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d4729af763ad4b2e8cf7c978a3285744_1440wtuya.jpg"></p>
+<p>车道的护栏有transform\rotation的随机波动，图2展示道路交界处的处理。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-ec70c9549fd5760f4dff049d8635b156_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-61b50b94ba625363e3230a78e6c639b2_1440wtuya.jpg"></p>
+<p>连接外岛的桥，主路也是一个面片。这个路后段就做的很敷衍了。不过桥似乎确实更适合用面片做主路，不然各种各样的分叉要做对接太难了。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-9a979d9e0e269f3e6299d5f7f3347cf9_1440wtuya.jpg"></p>
+<p>半坡式绿化其实就是一个mesh上分段，提取面片，然后给绿化材质。我测试了下在半坡上绘制foliage绿化，其朝向是面片的法线方向，一方面说明不用landscape，在物体上也可以绘制foliage，不过foliage模式切换回selection模式卡的有点吓人，好像经历了10秒。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-71da3f899cf9855c01cdb47451b0aa95_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-34b5aae3cfea228293fd4aada6754af8_1440wtuya.jpg"></p>
+<p>编辑花草的level instancing若进入foliage mode会自动退出来，只有双击进入level才能进foliage mode，但这样就没有周边物体作为参考，根本没法进行绘制工作，我推测原先在制作时花草level instancing是有配套的hardscape，在制作完成后删除了。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-5eea01b20babcbb78bfb69082e01f692_1440wtuya.jpg"></p>
+<p>实际上是隐藏了并没有删除，果然是有hardscape surface的，设置里一个是在编辑模式中不可见还有一个是游戏模式中不显示。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-92fe268ac8b4674ad0c83f0d8c090595_1440wtuya.jpg"></p>
+<p>花坛以及道路拓宽的方式。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-3bf27c119a3810ff90b29ff3f10323a6_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-39d262ef473c25abec4cfe71a91e2fef_1440wtuya.jpg"></p>
+<p>花坛阶梯、半坡。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-e14251603119ac88fd263e4bb2fecf33_1440wtuya.jpg"></p>
+<p>滨河阶梯。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-bd5bc2dfdd6e7de94d4551ec4bbbb71c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-163efee5afcdde48315c2abe27c35344_1440wtuya.jpg"></p>
+<p>斜坡花坛。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-4a854ec690ad04027d2b9b9d6feb2a6a_1440wtuya.jpg"></p>
+<p>堤坝上的石头是怎么弄得呢，这些东西显示是foliage</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-d5fcab21c8d309eef9a801e3d4293409_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-f91605a836ac1b1ea8d2e7a5f3f92997_1440wtuya.jpg"></p>
+<p>可以看出来上面明显的颜色分界线和石头自身的材质设置有关系，应该是世界坐标的遮罩混合了一层苔藓。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-492ee3aca4e273de3d286770bdb9496e_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-697c5a69b705286ab2451e2222487062_1440wtuya.jpg"></p>
+<p>在blender中可以通过摄像机设置对室内场景获取hdri，相关教程关键字是“blender panoramic camera”。通过hdri即可生成cubemap。看了下hillside的室内fake interior有点太复杂了，我想直接材质实例随机分配cubemap能随机产生fake interior就好了，再参考下matrix的做法。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-512d9268342972af0de0277d14dcba41_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-2d89c6c4005825ef7f2a82275f3b658c_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a5f5aae4278bf992345398af2a7a26d2_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-fd6e447409e84b7a936d840b40848168_1440wtuya.jpg"></p>
+<p>关于ISM和HISM，区别在于后者支持LOD.PBG生成的建筑部件皆为ISM组件。hillside中foliage笔刷绘制的为foliage ISM，树木确是HISM。可以推测这些树是一个个手动放置到位或者用spline mesh做的，然后转化为HISM，毕竟不像花草扎堆，树一个坑一颗没法用foliage模式绘制。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-a266037aa1a0da35b20c6661b1074cef_1440wtuya.jpg"></p>
+<p>2023.9.15早上研究了下interior mapping，matrix中的这套系统需要back、front depth map，暂时不清楚这种深度图所需要的要求。要使用它的这套系统还得在这个custom data里面配置一个数据，这个数据暂时不清楚含义是什么，似乎是houdini中生成的，PBG使用matrix的mesh在bake mesh后会随机分配一个数字给这个custom data貌似？</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-86a865b8bd854b76888c9d917c1780cd_1440wtuya.jpg"></p>
+<p>在hillside项目的文档中提到有一个BP_InteriorRoom的工具可以生成cubemap、家具的depth map和color map，但我在项目中没有找到这个工具。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.2/Images/samples-and-tutorials/engine-feature-examples/project-hillside/ue5_2-fake-interiors.gif">BP_InteriorRoom的演示</a></p>
+<p>综上现在暂时没有办法做自定义的fake interior。</p>
+<p>添加体积云，调节体积云材质即可影响天空。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0e7d2478a168f98e8adecf254646e21d_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-ecd6419aa2aa0b3d008c989680d8bafd_1440wtuya.jpg"></p>
+<p>天气系统只要在level里置入weathercontrol的那个blueprint，到detail面板可以控制树叶颜色、潮湿、日照、风吹树叶效果。不过不知道什么原因，当进入game mode时这个面板会跳出来，且重置我的设置，即使设置了actor hidden in game也没有用。</p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-1695d4e5d2279882c39343a0cdb8cc8a_1440wtuya.jpg"></p>
+<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-73fd87ac6c99963d960fc27ee6e1c63e_1440wtuya.jpg"></p>
+<p>rain文件夹下的BP_Weather也没搞出名堂来，还有那个体积云的storm没有弄出闪电的雨天。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/09/11/2023-9-10-datalayer%E5%92%8Cworldpartition%E6%80%BB%E7%BB%93/">2023-9-10-datalayer和worldpartition总结</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -9072,23 +9072,23 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
     <title>2023-9-23-intersection岔口与道路连接</title>
     <url>/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<html><head></head><body><p>条纹是因为mesh length设置压缩形变导致的。</p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-b79e5643900a8f7d6bbfa488f4bafb9f_1440w.png"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-b79e5643900a8f7d6bbfa488f4bafb9f_1440wtuya.jpg"></p>
 <span id="more"></span>
 
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-a4e28efffeb33078b44f79294660e6bb_1440w.png"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-a4e28efffeb33078b44f79294660e6bb_1440wtuya.jpg"></p>
 <p>关于岔口在道路，在<a href="http://zhudian.xyz/2023/09/17/2023-9-17-%E9%81%93%E8%B7%AF%E4%BA%A4%E5%8F%89%E5%8F%A3%E7%9A%84%E7%BB%88%E6%9E%81%E7%A1%AE%E8%AE%A4%E6%96%B9%E6%A1%88%E4%BB%A5%E5%8F%8A%E7%8E%B0%E5%AE%9E%E4%B8%AD%E7%9A%84%E8%A1%97%E5%8C%BA%E4%BA%BA%E8%A1%8C%E9%81%93%E5%85%A5%E5%8F%A3/">道路交叉口的终极确认方案</a>中我认为可以按照matrix中的方法sidewalk和curb按街区做，而主路用PRG，这样做的问题在于比如保持一个平面，且二者的对接会有很大的问题，所以看来还是得用intersection来处理岔口。</p>
 <p>对intersection进行connect road操作，要在connector manager中设置location。最好在editor窗口中设置，这样下次就默认这个数值了，该数值为mesh的一半，比如路口mesh是2456宽度，那么左右的connector就是1228和-1228.</p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-24443ee3c9fb78a734dcb95e4a4bd78f_1440w.png"></p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-f7fdbd7a684bbe59b6aea2981223bde2_1440w.png"></p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-8e10241faf5b5298ac9af4bf6914e63c_1440w.png"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-24443ee3c9fb78a734dcb95e4a4bd78f_1440wtuya.jpg"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-f7fdbd7a684bbe59b6aea2981223bde2_1440wtuya.jpg"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-8e10241faf5b5298ac9af4bf6914e63c_1440wtuya.jpg"></p>
 <p>要使用自定义的intersection，需要在proceduralgenarator_BP中修改对应的intersection函数，1是修改intersection to spawn，2是修改four intersection spawn offset这个值，它也是mesh的一半大小。</p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-c922a7e5c51f43820c63837bb5b398f6_1440w.png"></p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-765901826080eca7140c69444fc66940_1440w.png"></p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-673d10e1037f59bf1a1023b4610855a1_1440w.png"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-c922a7e5c51f43820c63837bb5b398f6_1440wtuya.jpg"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-765901826080eca7140c69444fc66940_1440wtuya.jpg"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-673d10e1037f59bf1a1023b4610855a1_1440wtuya.jpg"></p>
 <p>接下来要统计一下做多少道路岔口，岔口有矩形、L型、T型这三种基本的，其路基可以用同一套，主要是四个脚上的sidewalk corner mesh要根据不同的sidewalk mesh做定制，以达到完美融合的。sidewalk corner mesh是一个1/4圆，其半径等于sidewalk mesh+curb的宽度，它需要下降和curb齐平，对路基做布尔挖除。</p>
 <p>大量的路边建筑群入口都是T型岔口。L型的岔口倒是一时间几乎想不起来哪里遇到过。</p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-0fe47a4150c359db2d5b455580599417_1440w.png"></p>
-<p><img src="/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-7a34b816c1b42e8f5b09148e16bb09fd_1440w.png"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-0fe47a4150c359db2d5b455580599417_1440wtuya.jpg"></p>
+<p><img src="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/v2-7a34b816c1b42e8f5b09148e16bb09fd_1440wtuya.jpg"></p>
 <p>先不谈sidewalk corner mesh，只做常见的四岔路口和L型，路基6种排列四岔路口是6+5+4+3+2+1=21种，再乘以2就是42种。</p>
 <p>sidewalk corner mesh无论什么情况都是1/4圆形，无非就是等比例放大，假设有10种人行道材质，那么久要做10种sidewalk corner mesh，先做一种摸索下重复制作的窍门。</p>
 <p>再技术方面完全掌握的情况下估计1天是可以把这些都做出来的。</p>

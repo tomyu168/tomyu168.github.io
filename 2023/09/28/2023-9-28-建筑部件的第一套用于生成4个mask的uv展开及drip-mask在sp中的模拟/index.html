@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-9-28-建筑部件的第一套用于生成4个mask的uv展开及drip-mask在sp中的模拟 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="matrix模型分两套uv，第一套uv是给物体添加4种蒙皮用的，可以看到它们按照不同的材质被排列在不同的uvtile层。这些建筑部件并没有复杂的局部上色，而且属于同一种材质，我想这种情况下不可能是手动去展uv，那么问题有3个： 1.怎样对拥有复合材质的物体展开uv 答：选中某个面，shift+g即可选中该物体所有使用这个材质的面，然后smart uv project自动展开。 2.如何保证所有物体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-9-28-建筑部件的第一套用于生成4个mask的uv展开及drip-mask在sp中的模拟">
+<meta property="og:url" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="matrix模型分两套uv，第一套uv是给物体添加4种蒙皮用的，可以看到它们按照不同的材质被排列在不同的uvtile层。这些建筑部件并没有复杂的局部上色，而且属于同一种材质，我想这种情况下不可能是手动去展uv，那么问题有3个： 1.怎样对拥有复合材质的物体展开uv 答：选中某个面，shift+g即可选中该物体所有使用这个材质的面，然后smart uv project自动展开。 2.如何保证所有物体">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5c2d554bf34738ed7480a0c897c26a12_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-10e455491994fc2918fe3de64250364f_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-dead2c00b3d02e13fab8874220883a84_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-17713441ae7a5d017eb6d631de1e9806_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-f864d9b7352e85894367c095120807bd_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-f22c7302b921ae23064a947896393625_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-728ec400b32e1aacba9591c3ec793c69_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-720c2758dd240fa75bdd15f6134be7b5_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-356d4d52d125981830d4d12fac5afa21_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-e78fbf054fc9ea01363b3c0da4e87eef_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-abc8be10e85ea7ee080f26e18b97aa50_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-9dca78fe5b3a8966512088f05dc31961_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-97f1d7d0d0419279958dff48a1bcab96_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-c232b6fa44cf0b631355257a5beed2a2_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5de98b240e70e6fe286746cd94134c65_1440wtuya.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-509acfdfcd7ed68279b0b259e7967756_1440wtuya.jpg">
+<meta property="article:published_time" content="2023-09-28T14:52:29.000Z">
+<meta property="article:modified_time" content="2023-09-28T14:54:37.742Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="材质">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5c2d554bf34738ed7480a0c897c26a12_1440wtuya.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-9-28-建筑部件的第一套用于生成4个mask的uv展开及drip-mask在sp中的模拟
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-28T14:52:29.000Z" itemprop="datePublished">9月 28 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1362 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>matrix模型分两套uv，第一套uv是给物体添加4种蒙皮用的，可以看到它们按照不同的材质被排列在不同的uvtile层。这些建筑部件并没有复杂的局部上色，而且属于同一种材质，我想这种情况下不可能是手动去展uv，那么问题有3个：</p>
+<p>1.怎样对拥有复合材质的物体展开uv</p>
+<p>答：选中某个面，shift+g即可选中该物体所有使用这个材质的面，然后smart uv project自动展开。</p>
+<p>2.如何保证所有物体统一纹理密度、uv大小？</p>
+<p>答：每次smart uv project之后用Texel Density插件set my TD，事先设定号texel density大小，根据matrix，这个值是0.64 cm/px。</p>
+<p>3.如果uv展开后超过一个uvtile单元格怎么办？</p>
+<p>答：用uvpackmaster的tile模式，勾选fixed Scale，Pack！它会自动将超过1个单元格的uv填充到一个个uvtile中按照行列排布。</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5c2d554bf34738ed7480a0c897c26a12_1440wtuya.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-10e455491994fc2918fe3de64250364f_1440wtuya.jpg"></p>
+<p>我做的用于matrix生成4个mask的uv，这里用到了Texel Density和UvPackMaster3两个插件，先对物体的面shift+g选中相同材质的面，smart uv project展开uv后Set my TD，使所有的物体保持texel density纹素一致,我校对了4个不同建筑体系的asset，它们的面计算texel density 都是0.64px/cm我不知道这个数值是什么概念总之就按照这个设定应该可以完美匹配matrix材质的设定。Set my TD之后有些材质所属的面的uv会超出一个单元格大小，将uvpackmaster的模式改成tile，勾选fixed Scale，Pack！程序会根据设定的行列自动将uv分配到一个个uvtile单元格中。</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-dead2c00b3d02e13fab8874220883a84_1440wtuya.jpg"></p>
+<p>以下是直接对所有面smart uv projectc</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-17713441ae7a5d017eb6d631de1e9806_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-f864d9b7352e85894367c095120807bd_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-f22c7302b921ae23064a947896393625_1440wtuya.jpg"></p>
+<p>以下为我对纹素设定后分uv tiles放到sp中烘焙的结果。通过对比可以看出第二组明显细节更丰富，第一组丢失了部分细节。</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-728ec400b32e1aacba9591c3ec793c69_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-720c2758dd240fa75bdd15f6134be7b5_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-356d4d52d125981830d4d12fac5afa21_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-e78fbf054fc9ea01363b3c0da4e87eef_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-abc8be10e85ea7ee080f26e18b97aa50_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-9dca78fe5b3a8966512088f05dc31961_1440wtuya.jpg"></p>
+<p>昨天摸索出了类似drip mask的遮罩设置。烘焙后添加一个fill layer填充黑色，然后选择智能遮罩rust drip，会产生类似这样的效果。添加滤镜blur direction能使drip更加锐利方向鲜明，再用色阶加强明暗对比度。添加生成器然后选position可以对物体上下左右前后做遮罩控制。再添加一层同样的position，来个反转遮罩即可。可以看到做出来的drip mask和matrix的原版有那么几分相似了，遮罩这个东西比较浑水摸鱼，时间多磨磨自然能找到更好的效果。</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-97f1d7d0d0419279958dff48a1bcab96_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-c232b6fa44cf0b631355257a5beed2a2_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5de98b240e70e6fe286746cd94134c65_1440wtuya.jpg"></p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-509acfdfcd7ed68279b0b259e7967756_1440wtuya.jpg"></p>
+<p>至此关于uv展开还有一个问题就是第二套uv，对使用block、brick的物体如何对它们的uv在udim tile上排布，这个到后面用上了再研究？</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/09/25/2023-9-24-%E6%9B%BF%E6%8D%A2sidewalk-corner%E6%9D%90%E8%B4%A8%E7%A1%AE%E5%AE%9A%E9%9C%80%E8%A6%81%E5%88%B6%E4%BD%9C%E7%9A%84%E9%81%93%E8%B7%AF%E9%83%A8%E4%BB%B6%E8%A7%84%E6%A0%BC%E5%92%8C%E6%95%B0%E9%87%8F/">2023-9-24-替换sidewalk-corner材质确定需要制作的道路部件规格和数量</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

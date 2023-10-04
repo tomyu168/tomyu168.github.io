@@ -119,6 +119,99 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/" itemprop="url">2023-7-10-blender几何节点buildingnodes-osm插件</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-19T08:26:03.000Z" itemprop="datePublished">7月 19 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1108 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。</p>
+<p>目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固定写死的，无法变化。另外buildify中每个墙面模块尺寸必须相同不然会出现拼接问题，它的错落高度阶梯式房屋效果无法用面模式挤出，而是选择面复制分离在几何节点属性参数中调节高度，我不知道重叠的mesh会不会产生什么问题或者是性能上不好。buildify的building节点是可以输出几何体的利用join geometry可以在osm中散布不同风格的建筑。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg"></p>
+<p>​​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/" itemprop="url">2023-7-4-blendertoue西部世界案例</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-07T08:41:59.000Z" itemprop="datePublished">7月 7 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            42 分钟 读完 (约 6301 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>qq截图黏贴的话默认还是png，另外obsidian上直接黏贴用local命令反而没法把图保存到文件夹中，那还是知乎上写完再转移。</p>
+<p>我想西部世界和artstation那个神庙遗迹场景两个教学能在这两周里完成，十分大的挑战啊！话不多说先来看看西部世界案例。</p>
+<p>这个系列一共80节包含了西部小镇建筑建模、建筑部件模块化手动拼装、uv unwrap、基本纹理材质、顶点着色、substance painter遮罩纹理添加表面的污渍、高光、油漆、marmoset/substance designer制作木板纹理贴图、地形编辑、人流、骑马动画。目前我看到37节左右，暂时好像就这么多，后续有新的再加上。</p>
+<p>为了后期做地形的水沟、脚印等等需要地形有很高的像素用来雕刻细节?</p>
+<p>建立场景先用一个部件导入ue测试相对尺寸大小并以此为标准制作接下来的部件，相对尺寸大小的参照是ue中的mannequin，这个角色180cm左右。作者分析整个小镇建筑后在脑中切图，将部件模块列了一个清单并以此在blender中建模，所有部件按照collection分块，pivot移动到左下角点便于在ue中平铺吸附。这样做十分的模块化，不过应该对想象力、模数比例有很高的要求，在blender中没有可视化的组装等于说建筑的拼装是数值上计算好的，一旦ue中发现不对就要回去改再reimport这还不算多个组件的相对关系问题。3-7节都在做建筑模块部件的block out，然后在ue中摆放组装建筑。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-80f7bed2fc50cb8cf72dfe560c4226e9_1440wtuya.jpg"></p>
+<p>​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/02/2023-7-2-blender%E5%AF%BC%E5%85%A5ue%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/" itemprop="url">2023-7-2-blender导入ue模块化建筑部件制作流程</a>
         
     </h1>
@@ -307,96 +400,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/05/24/2023-5-23-%E8%A3%85%E4%BF%AE-%E7%8A%B6%E6%80%81%E8%B0%83%E6%95%B4-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9/" itemprop="url">2023-5-23-装修-状态调整-blender几何节点</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-05-24T02:59:33.000Z" itemprop="datePublished">5月 24 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><span>></span><a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1211 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>搬回来的第五天吧，状态不是很好，特别是到了晚上会觉得特别累，早上虽然起的很早，但是不像刚来之后5天的调整结束，可能是不清楚什么时候来装修，而一旦来装修几乎就不能正常工作，昨天似乎就是等那个装油烟机的结果一下午没来，总觉得一件事情悬而未决。装修里面的门道蛮多的，比如这个油烟机498，结果安装加个防倒流的装置158，40拆卸费，订做不锈钢套子300，最后算下来加装费比油烟机还贵了。</p>
-<p>昨天先是做了一个钟，上面的雕刻和内层没做，时针感觉效果可以。然后是用value设定为#frame通过几何节点做了动画，combine xyz可以通过输入一个数值转换为向量从而控制单一或多个方向的位移、缩放、旋转。object info可以拾取场景中其他的物体，要勾选relative才能生效（教学中勾选的是original）。</p>
-<p><img src="/2023/05/24/2023-5-23-%E8%A3%85%E4%BF%AE-%E7%8A%B6%E6%80%81%E8%B0%83%E6%95%B4-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9/2023-5-23-%E8%A3%85%E4%BF%AE-%E7%8A%B6%E6%80%81%E8%B0%83%E6%95%B4-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9/v2-b758289df4488b14cd9e7fdb2975f828_1440w.png"></p>
-<p>​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/05/24/2023-5-23-%E8%A3%85%E4%BF%AE-%E7%8A%B6%E6%80%81%E8%B0%83%E6%95%B4-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/05/20/2023-5-18-%E6%9D%A5%E5%88%B0%E9%95%BF%E6%B2%99%E5%BF%AB%E4%B8%80%E4%B8%AA%E6%9C%88%E4%BA%86/" itemprop="url">2023-5-18 来到长沙快一个月了</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-05-20T09:30:45.000Z" itemprop="datePublished">5月 20 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            24 分钟 读完 (约 3674 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>刚来的那几天感觉状态很好，每天9点多睡觉，5点左右起床，大概持续一周左右，完成了预定计划的一半，由于没有网络，完全不会分心按照计划在走。但是面对房子里的油腻、到处是虫甚至之后还有老鼠的风险，下定决心要重新装修一下，从5.4-5.18搬到旅馆后，数位板两周就没碰过。</p>
-<p>刚搬来这几天我大概用了3天时间适应调整，后来大约8天时间，我完成了一个复杂的装饰雕刻，一个中式青铜面具，一个简单机器人概括，一个沙发包括抱枕和毯子（blender）。</p>
-<p><img src="/2023/05/20/2023-5-18-%E6%9D%A5%E5%88%B0%E9%95%BF%E6%B2%99%E5%BF%AB%E4%B8%80%E4%B8%AA%E6%9C%88%E4%BA%86/2023-5-18-%E6%9D%A5%E5%88%B0%E9%95%BF%E6%B2%99%E5%BF%AB%E4%B8%80%E4%B8%AA%E6%9C%88%E4%BA%86/v2-8e5803186bc7ec01b7390f95fccabf01_1440wtuya.jpg"></p>
-<p>​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/05/20/2023-5-18-%E6%9D%A5%E5%88%B0%E9%95%BF%E6%B2%99%E5%BF%AB%E4%B8%80%E4%B8%AA%E6%9C%88%E4%BA%86/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -420,7 +423,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/23/">23</a></li>
+        <li><a class="pagination-link" href="/page/24/">24</a></li>
         
     </ul>
 </nav>

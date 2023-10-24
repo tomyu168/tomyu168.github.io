@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-10-22-高层从blender中导入datasmith文件到ue保持建筑部件实例化 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="对于配景，非创作的小区、办公楼、学校等区域的建筑尽量实例化以提高运行性能，我不确定这到底能提升多少，而且目前一个建筑还没立起来，多少看起来有些没买彩票讨论中奖后咋花的感觉。不过这个到后期要返工的话，感觉工作量会非常庞大。 首先实例化是什么概念呢？su里面我不清楚，在blender中shift+d是无关联复制，而alt+d则是关联复制也就是实例化，可以看到下图1对一个物体在编辑模式下改变几何特征，其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-10-22-高层从blender中导入datasmith文件到ue保持建筑部件实例化">
+<meta property="og:url" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="对于配景，非创作的小区、办公楼、学校等区域的建筑尽量实例化以提高运行性能，我不确定这到底能提升多少，而且目前一个建筑还没立起来，多少看起来有些没买彩票讨论中奖后咋花的感觉。不过这个到后期要返工的话，感觉工作量会非常庞大。 首先实例化是什么概念呢？su里面我不清楚，在blender中shift+d是无关联复制，而alt+d则是关联复制也就是实例化，可以看到下图1对一个物体在编辑模式下改变几何特征，其">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2c1a704eae2691afa2880e1eaad17462_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8a12f79dafffce2cc7373cc4b4454d62_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-5fe75a79ee07033a03a830f0bbf51168_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-5030460857b4751d1c8ada2fac36d2a8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-384a17f9f08c70922c0f4657f893a741_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-1a69866dd6ab559b348d232afb021d38_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-04b23bbef143aa7df587fdbcd16939aa_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-1e17195071debddd7aac56f855718c73_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-c9b90b16aa69af7237a46730218fce4a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-14273ee5ede102d8001a3242e4eebe90_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-4b70f8e5a4e6ca49bfa06d1d2ceb2015_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-b7a940691ce7ca6774a9091b6327e722_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-f52d6095e184685e558c8d102eba724e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-42a5bed06236e5d87602c742cf5770b9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-c7b850f95b5ac504030f1ee2bca4d2a6_1440w.jpg">
+<meta property="article:published_time" content="2023-10-24T08:23:06.000Z">
+<meta property="article:modified_time" content="2023-10-24T08:27:14.098Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="datasmith">
+<meta property="article:tag" content="ue模型实例化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2c1a704eae2691afa2880e1eaad17462_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-10-22-高层从blender中导入datasmith文件到ue保持建筑部件实例化
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-10-24T08:23:06.000Z" itemprop="datePublished">10月 24 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2071 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>对于配景，非创作的小区、办公楼、学校等区域的建筑尽量实例化以提高运行性能，我不确定这到底能提升多少，而且目前一个建筑还没立起来，多少看起来有些没买彩票讨论中奖后咋花的感觉。不过这个到后期要返工的话，感觉工作量会非常庞大。</p>
+<p>首先实例化是什么概念呢？su里面我不清楚，在blender中shift+d是无关联复制，而alt+d则是关联复制也就是实例化，可以看到下图1对一个物体在编辑模式下改变几何特征，其余的实例会一起跟着变化，同样对它的uv、材质改变也会同时改变所有实例。值得庆幸的是网上买的su模型导入blender后，大部分的相同部件都保留了关联，也就是实例状态。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2c1a704eae2691afa2880e1eaad17462_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>ue的datasmith支持revit、sketchup、3dsmax等软件实时导入，理想中的情况是直接把su模型导入ue上材质，显然这太过理想化了。一方面是若要利用matrix的brick、block材质系统，那么必然要对第二套uv做调整。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8a12f79dafffce2cc7373cc4b4454d62_1440w.jpg"></p>
+<p>在ue中选中static mesh右键可以通过select actors using this asset选中所有场景中使用此static mesh的物体，配合hillside的HISM widget便可将建筑部件实例化，但这样操作后会发现有一半的部件显示黑色，经过搜索发现instance static mesh对负数scale的物体转化实例会出现法线错误，另外之前我通过合并物体的方式导入别墅，合并后会导致整个半边的物体法线出错。解决办法是选中所有负数scale的物体apply scale，首先选中其中一个部件复制它的名称到右侧的大纲栏，然后去掉勾选object children，此时在通过shift首位全选变可把所有的关联物体选中，“/”键进入isolate模式，一般来说负数scale在一边或者是全都是负数scale，把它们框选起来ctrl+a，apply scale之后便会生成新的物体，且它们互相间保有关联。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-5fe75a79ee07033a03a830f0bbf51168_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-5030460857b4751d1c8ada2fac36d2a8_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-384a17f9f08c70922c0f4657f893a741_1440w.jpg"></p>
+<p>等所有的负数scale解决以后，对每个部件的uv处理，管理好material slot方便到ue添加材质。导出时选择datasmith格式，我发现这玩意儿速度最快，且可以建立文件夹结构管理好每个建筑，自动生成一个打包的actor，通过控制这个actor的坐标可以移动整体建筑，移动到位以后再对物体的static mesh给材质，最后通过上述方法选中关联物体用HISM widget转化建筑部件实例。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-1a69866dd6ab559b348d232afb021d38_1440w.jpg"></p>
+<p>这里要提一下<a target="_blank" rel="noopener" href="https://github.com/RedHaloStudio/Sketchup_Importer">Sketchup_Importer</a>这个插件直接使用导入su会出现部分物体异常，不到位。这里面的原理肯定很复杂，今天耗了一整天，在3dsmax中导入没有问题但是max操作太卡，把su导入max想通过max再导出obj或者fbx进blender太慢了占用空间也大.后来还想过是不是blender版本的问题或者插件版本的问题、su版本的问题，都不行，就在绝望之际发现了一个问题中有位好心人Peter Kirkham分享了他对这个插件的优化，通过他修改的_init_.py替换原版，导入的高层建筑都没问题了。它的博文详细分析了sketchup导入blender的几种方式以及性能，我没去深究，能用即可。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-04b23bbef143aa7df587fdbcd16939aa_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-1e17195071debddd7aac56f855718c73_1440w.jpg"></p>
+<p>有部分部件没有关联起来，blender里不能用array来生成instance，笨办法是手动alt d移动合适位置，再shift r重复步骤添加，当然对于数量多的情况要使用几何节点来处理，今天看到另一个办法是link object data可以让选中的物体关联到最后一个选中项，使他们的形状与最后一个物体同步。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-c9b90b16aa69af7237a46730218fce4a_1440w.jpg"></p>
+<p>注意保存su导入到blender中的模型，我发现用修改版的插件导入后有些卡，不知道是这个模型本身的问题还是。</p>
+<p>最后的问题是blender中修改好了以后怎样回传到ue？我试了下用blender版的datasmith，到ue里会发生异常错位、缺失。blender导出fbx进ue，instance关联性丢失了，所有物体变成独立的mesh，unreal market上的插件也是如此，ue官方的blender导入插件似乎失效了？不再提供技术支持？想导出su再回su用datasmith同步，发现导出好像有问题，最后是导出fbx，用3dsmax读取再在3dsmax中开启datasmith同步，成功将带有instance关联的模型导入了ue。blender中的第二套uv通过fbx传导3dsmax再通过datasmith到ue可以起效。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-14273ee5ede102d8001a3242e4eebe90_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-4b70f8e5a4e6ca49bfa06d1d2ceb2015_1440w.jpg"></p>
+<p>高层公寓有22844个物体构成，通过顶层的actor可以整体移动位置，操作还算流畅，但是若要一次性删除它们或者添加到1个datalayer做隐藏，ue会卡住崩溃，这个问题暂时不知道咋解决，不过从工作流程来说届时是对每个部件添加材质转化instance，在转化后再删除static mesh actor，对单一static mesh的actor而言通过select actors using this asset选中再delete删除十分流畅并不会卡住，所以这个问题可以暂时不用解决。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-b7a940691ce7ca6774a9091b6327e722_1440w.jpg"></p>
+<p>static mesh再转化为instance后再修改static mesh的材质不会对instance产生影响，对static mesh的引用是可以更改成其他static mesh的，另一方面通过alt拖动instance复制出来也是instance。将它们打包成packed blue print actor可以整体操控，并且保有instance关联，这样可以批量生产高层楼房。</p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-f52d6095e184685e558c8d102eba724e_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-42a5bed06236e5d87602c742cf5770b9_1440w.jpg"></p>
+<p><img src="/2023/10/24/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-22-%E9%AB%98%E5%B1%82%E4%BB%8Eblender%E4%B8%AD%E5%AF%BC%E5%85%A5datasmith%E6%96%87%E4%BB%B6%E5%88%B0ue%E4%BF%9D%E6%8C%81%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-c7b850f95b5ac504030f1ee2bca4d2a6_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/datasmith/">#datasmith</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ue%E6%A8%A1%E5%9E%8B%E5%AE%9E%E4%BE%8B%E5%8C%96/">#ue模型实例化</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/10/22/2023-10-19-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%8C%BA%E5%BB%BA%E8%AE%BE%E7%9A%84%E6%80%BB%E7%BB%93/">2023-10-19-第一个小区建设的总结</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

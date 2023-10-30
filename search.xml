@@ -9766,4 +9766,45 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>ue模型实例化</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-10-30-规则扭曲形变立面与部件实例化</title>
+    <url>/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/</url>
+    <content><![CDATA[<html><head></head><body><p>在matrix中我发现存在下图中这样这样旋转扭曲的立面且依旧保持了部件实例化，在railclone里实现是有示范的，我结合之前圆形布局用3dsmax array instance以及blender中的bend twist simple deform想到了3dsmax中应该也有twist bend这样的modifier。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8f0c96cbc73f42ac92d18ff743d7d769_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>测试了下twist可以制作出扭曲效果，对所有部件全选添加twist modifier即可。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-6555cd7334a7271c26c52f2a77d5cc15_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-503f16dcb2e15e94d139e3e95bc697f1_1440w.jpg"></p>
+<p>bend可以实现曲面式过渡。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-951062f34354ed01630c16ef8b33bfbd_1440w.jpg"></p>
+<p>然而就在我感觉得来全不费工夫之际，进入ue datasmith同步导入后发现，ue中丢失了instance 关联性，看来modifier在导入时会被应用。不过又反转了，一顿饭的功夫以后，我想到了bend类型的曲面过渡其实mesh的几何特征一样，在blender中transfer object data即可将它们再次关联起来，再次导入3dsmax datasmith，完美解决！</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-98700116da1a14d58cd353f8f74919c8_1440w.jpg"></p>
+<p>然后是twist型的建筑，只要通过array在z轴递增位移的同时给旋转即可角度渐进在1左右即可达到如下效果。我估计如果以整层递进会出一些拼接问题。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-e6423794de6e8fc9905f3439b6dfb33c_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-577a606916dddbc5052a0a9eb7596173_1440w.jpg"></p>
+<p>最后是x方向也就是立面的微小凹凸，用bend可以做到完美的拼接，但是会失去instance 关联，这里我想到50cm递增再50cm递减的方式array即可制造这种渐进凹凸，y方向的bend只要gizmo拉到旋转轴，最终旋转出来的立面各部件几何特征依旧是一致的，因此回blender transfer object data即可恢复关联性。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-ca247ad3284a8dc4a462a1032093541d_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-bf97d9917c298869f8fac300f0fdbaff_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-0474b66a89ee95d1af0dfa490458bfea_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-926901dc86d0309e388118883dae8bea_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-89bd09f55852f96159de83c9df32fcc2_1440w.jpg"></p>
+<p>最后在补充一下matrix中的一些道具、景观吧？码头的房子屋顶是面片加的基础材质，不包含matrix材质系统。可以看到即使是距离间隔较远的边缘道具房子，也采用了部件层级的实例，所以我之前做小区别墅应该也是部件到3dsmax确保实例，然后datasmith到ue。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-202b9251af340afef322b1286419b5eb_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-05d413cb111ed773d62648f01e1af2d6_1440w.jpg"></p>
+<p>这种“1生2”的实例使用，在之后ai给设计切分实例模块时要有一定的观察能力去实现。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-567e3a353e29ca50d18e49c26bade6b2_1440w.jpg"></p>
+<p>这里的地块衔接很巧妙。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2f70fdf92b0f574d7627c96477b86d06_1440w.jpg"></p>
+<p>关于建筑构成的分析，暂时就先那么多了，不规则几何以及分形几何构成的建筑之后再研究，毕竟所有小区、学校，大部分的公共建筑都是常规形状，目前先从配景开始掌握熟悉技术流程。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>unrealengine</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>ue模型实例化</tag>
+      </tags>
+  </entry>
 </search>

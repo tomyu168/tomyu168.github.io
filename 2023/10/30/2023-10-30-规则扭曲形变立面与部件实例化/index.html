@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-10-30-规则扭曲形变立面与部件实例化 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="在matrix中我发现存在下图中这样这样旋转扭曲的立面且依旧保持了部件实例化，在railclone里实现是有示范的，我结合之前圆形布局用3dsmax array instance以及blender中的bend twist simple deform想到了3dsmax中应该也有twist bend这样的modifier。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-10-30-规则扭曲形变立面与部件实例化">
+<meta property="og:url" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="在matrix中我发现存在下图中这样这样旋转扭曲的立面且依旧保持了部件实例化，在railclone里实现是有示范的，我结合之前圆形布局用3dsmax array instance以及blender中的bend twist simple deform想到了3dsmax中应该也有twist bend这样的modifier。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8f0c96cbc73f42ac92d18ff743d7d769_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-6555cd7334a7271c26c52f2a77d5cc15_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-503f16dcb2e15e94d139e3e95bc697f1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-951062f34354ed01630c16ef8b33bfbd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-98700116da1a14d58cd353f8f74919c8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-e6423794de6e8fc9905f3439b6dfb33c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-577a606916dddbc5052a0a9eb7596173_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-ca247ad3284a8dc4a462a1032093541d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-bf97d9917c298869f8fac300f0fdbaff_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-0474b66a89ee95d1af0dfa490458bfea_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-926901dc86d0309e388118883dae8bea_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-89bd09f55852f96159de83c9df32fcc2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-202b9251af340afef322b1286419b5eb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-05d413cb111ed773d62648f01e1af2d6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-567e3a353e29ca50d18e49c26bade6b2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2f70fdf92b0f574d7627c96477b86d06_1440w.jpg">
+<meta property="article:published_time" content="2023-10-30T09:02:40.000Z">
+<meta property="article:modified_time" content="2023-10-30T09:05:26.983Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="建筑装饰构件理论">
+<meta property="article:tag" content="ue模型实例化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8f0c96cbc73f42ac92d18ff743d7d769_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-10-30-规则扭曲形变立面与部件实例化
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-10-30T09:02:40.000Z" itemprop="datePublished">10月 30 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1052 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在matrix中我发现存在下图中这样这样旋转扭曲的立面且依旧保持了部件实例化，在railclone里实现是有示范的，我结合之前圆形布局用3dsmax array instance以及blender中的bend twist simple deform想到了3dsmax中应该也有twist bend这样的modifier。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-8f0c96cbc73f42ac92d18ff743d7d769_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>测试了下twist可以制作出扭曲效果，对所有部件全选添加twist modifier即可。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-6555cd7334a7271c26c52f2a77d5cc15_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-503f16dcb2e15e94d139e3e95bc697f1_1440w.jpg"></p>
+<p>bend可以实现曲面式过渡。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-951062f34354ed01630c16ef8b33bfbd_1440w.jpg"></p>
+<p>然而就在我感觉得来全不费工夫之际，进入ue datasmith同步导入后发现，ue中丢失了instance 关联性，看来modifier在导入时会被应用。不过又反转了，一顿饭的功夫以后，我想到了bend类型的曲面过渡其实mesh的几何特征一样，在blender中transfer object data即可将它们再次关联起来，再次导入3dsmax datasmith，完美解决！</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-98700116da1a14d58cd353f8f74919c8_1440w.jpg"></p>
+<p>然后是twist型的建筑，只要通过array在z轴递增位移的同时给旋转即可角度渐进在1左右即可达到如下效果。我估计如果以整层递进会出一些拼接问题。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-e6423794de6e8fc9905f3439b6dfb33c_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-577a606916dddbc5052a0a9eb7596173_1440w.jpg"></p>
+<p>最后是x方向也就是立面的微小凹凸，用bend可以做到完美的拼接，但是会失去instance 关联，这里我想到50cm递增再50cm递减的方式array即可制造这种渐进凹凸，y方向的bend只要gizmo拉到旋转轴，最终旋转出来的立面各部件几何特征依旧是一致的，因此回blender transfer object data即可恢复关联性。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-ca247ad3284a8dc4a462a1032093541d_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-bf97d9917c298869f8fac300f0fdbaff_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-0474b66a89ee95d1af0dfa490458bfea_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-926901dc86d0309e388118883dae8bea_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-89bd09f55852f96159de83c9df32fcc2_1440w.jpg"></p>
+<p>最后在补充一下matrix中的一些道具、景观吧？码头的房子屋顶是面片加的基础材质，不包含matrix材质系统。可以看到即使是距离间隔较远的边缘道具房子，也采用了部件层级的实例，所以我之前做小区别墅应该也是部件到3dsmax确保实例，然后datasmith到ue。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-202b9251af340afef322b1286419b5eb_1440w.jpg"></p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-05d413cb111ed773d62648f01e1af2d6_1440w.jpg"></p>
+<p>这种“1生2”的实例使用，在之后ai给设计切分实例模块时要有一定的观察能力去实现。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-567e3a353e29ca50d18e49c26bade6b2_1440w.jpg"></p>
+<p>这里的地块衔接很巧妙。</p>
+<p><img src="/2023/10/30/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/2023-10-30-%E8%A7%84%E5%88%99%E6%89%AD%E6%9B%B2%E5%BD%A2%E5%8F%98%E7%AB%8B%E9%9D%A2%E4%B8%8E%E9%83%A8%E4%BB%B6%E5%AE%9E%E4%BE%8B%E5%8C%96/v2-2f70fdf92b0f574d7627c96477b86d06_1440w.jpg"></p>
+<p>关于建筑构成的分析，暂时就先那么多了，不规则几何以及分形几何构成的建筑之后再研究，毕竟所有小区、学校，大部分的公共建筑都是常规形状，目前先从配景开始掌握熟悉技术流程。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E6%9E%84%E4%BB%B6%E7%90%86%E8%AE%BA/">#建筑装饰构件理论</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ue%E6%A8%A1%E5%9E%8B%E5%AE%9E%E4%BE%8B%E5%8C%96/">#ue模型实例化</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/10/28/2023-10-26-matrix%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E6%9D%90%E8%B4%A8uv%E4%BB%A5%E5%8F%8A%E6%95%B4%E4%BD%93%E8%A3%85%E9%A5%B0%E5%88%86%E6%9E%90/">2023-10-26-matrix建筑部件的材质uv以及整体装饰分析</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

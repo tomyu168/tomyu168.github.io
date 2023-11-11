@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-11-1-stablediffusion初步探索1 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="stable diffusion我看了下文件夹的日期信息，我是在去年10月份下载的，midjourney等一众ai作图软件也是那个时间开始接触的。那个时候我只知道midjourney可以根据关键词生成图，可以根据参考图生成图，可以对选定的图生成类似创意图，stable diffusion可以根据关键词生成图。 stable diffusion有繁杂的设置，我都没去碰。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-11-1-stablediffusion初步探索1">
+<meta property="og:url" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="stable diffusion我看了下文件夹的日期信息，我是在去年10月份下载的，midjourney等一众ai作图软件也是那个时间开始接触的。那个时候我只知道midjourney可以根据关键词生成图，可以根据参考图生成图，可以对选定的图生成类似创意图，stable diffusion可以根据关键词生成图。 stable diffusion有繁杂的设置，我都没去碰。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1cd56d09946e9af4147fc7a104c7cc6d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8fdfe1e50ffeb609026b0d8171c8428b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d1a67d3f380f875d1d1cc64a5c7d4599_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-db101052b28d964866f5da4fba1b610c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-46ffa9eb07073ecd8cb68f546238d1a7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-527ebda34c10ca401caa9e0eb1fc71de_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5e474783b1c8cfc50022e9066a682f8f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-770f2dac360875da679412f17d983afc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-37b4097abe28110e1136a5070fad8344_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-aefddf66ec5c06edfa44c3a217c0ade0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a323caeebd53bf5d3ec3bcb3a3b3b97f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c6f946b8f5672e56553cc0f3cad344b5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-36fbf57e1a04e3b617b40baf879470d6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-beafa7b7075f4b0de6e22dde90a6a7cb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2359c2dcc15d001e90f0e32b62dc82fd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f31e739bb9175d150713543cc9c0b445_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-119ebf330b0370c1ac04245c787600a1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5d2e21dd10fd72e52ff865c313b1e3a2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-33e027a128306fa12af8bae402322d9c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3f3d53c69e4d6f5db1216d43c9e9dddc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-25da5cbf224900e8d60fc5b4790496ef_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a416e786e12a4b96252df2f20a35d377_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b0149ce9631a08e3bc5884a2a242ad13_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-47021326f0d78868cd439ac643ff0ac1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-916131664e291be51b08d6c51f15695c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8147a3326a3be1d95f66a01d95c807d8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-226810b7ea332a3350ede47743198782_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2c26f77d18f5cf8c4be1360bffc21b11_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4ac604484748a7714b0a97388af23f04_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-91eb91224dfc086ca56a0ded85b1532f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ae406fa5e1dac3398c3ec3249689a478_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5f8f99316bfba83f5fe5808454673088_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-557c5ea6f0dc2e32df49926d668355aa_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3afaa6de68edfa19639ef9bc5656697d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-85a899a298e51fa7d4201e2a5e3b1249_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-09fe2ad4e53955795265de6a48beea75_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-fe7f72a387f57cdfa83d1a41e1444178_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-e94caba72d2db044c84b65f26a3f4f2c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4f7b69865113f2b9a31d456769ed7c00_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-49ece925445fa79e70d3825b60534800_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-15bee463558eca070d50a958cb28f0bb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-825337da9da25aa4d21dd67f522a1386_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-e57efd02281c8b63183a2afb2b57a35b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d95af1575fddacd463171f2b84d15ddb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-211814ce01c9af28751fa3179d31806d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2baba46654d5f42de6557dbdb867303d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-37c5780e3e722bd509c4a6472f812fbe_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-da0629c843a3193aa5174ffa3e84aa64_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a878348f2f5bde26e830fc0a27045a14_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9394c8909c683ad03c3616bed9913d09_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-7b523ea5d1ffa20afefa4bc982fc1223_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3b4792cafb3d34f1b43f5c17875d595b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-11b0c04265d00d8a8d7dc860c6250ef4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-615a47201b814438e7c8d9cdd58379fa_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8f1bf16389c84dc4d60e3d5533208e04_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-6c662f4f5f11800c4805866fc83e99b3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-6d7a8acca800227b27c72b4f0d89d337_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4e293d695c9519b7b2ed5dac6d9083d3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b80feaa408f63783dd0fba8b0398d91c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-22515c47c072ea907a46d30c4231d8bc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9d562a7ed994d0b309f2c89ec242dce0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1c9fec9fb0b767b15cd705258eb6b4ff_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-916fc980073d35549c517335023021e6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a2db8492e57d821f30c1a4c8ea308e4f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f52ce8e0a340af2b6b1806aff076092a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-69c5b7ef57aa308ad65e2e4e2a5616b1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-26d09d9311bae3868437c7a35b3f834b_1440w.jpeg.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f1792389249da9f59a7adb976754b0f7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-14c7baf7cec032e12d147d10ff3c9880_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2b6aae20e88efd853c48f6ab97355083_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9a0240cfca24a465644062bcfc2134ce_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-13c862539c0b0ccf86002203f4123fcd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-030147742a81224799ee52e28b1606b3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-0a477884b14b58f86a80c7a2514d63ac_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-58e632ab116460774158486c966b5cf5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c0cf650fe868e453aac3ded01f3664a8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2c6567b31d74e874eb8e23d224ad1ef8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-24877b0cd0e92e1a43f888cb3a0ae61e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2db748c19f62c4d0f4a81f52384fc70d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d62294d8238879bc3d3814191658ab18_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bf2f958c72305f7e9001bc4a9d83cbcc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c225cea4910da15997769cbce87b0080_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-db7d6bae97806feddec5fa69b6d2f160_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-eabca40e859363bd4c713dafb1e6bf2b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-64424f42f7bbf76fdfae8ad42a9041b3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-7367cc6c8aa23915dcecc3e7c68fd172_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ead7b08c6fc4145221665a3f9b0f055c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-27ffb00c4c5d459faeeab944723106df_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-726efb9c64f65cbb02773491539db75e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bb87c04499c8687389b9dcaf30f05470_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b96e8c9f3532f30ae501acb80e71a122_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-821cc0dfd35625b9390ad3e265793ee1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-04f5d7f385e47d08b9269e5acdbedb01_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9978e6dd5f73cd4f31d42361ed6cf208_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ee91909124a6476eeaa0caad52af70a6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f24530c2d2945cab950027e7fd530913_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-63fafcecca63809d4c50ccd29a704a30_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-166423a3e00787c33b2abef4f016d59a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f38ef0b7cb435b94138770095304d883_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-33de8e84f7ee65db1cf951f46f174092_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a1d4f57a555b08b3f735bc96fb183116_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-98c66557dddb340396106da5e526ff7f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bc87a7bfec6e42b62b8b961c0ba47a0e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4c0bc71468615a3af0d4a1973abe3c53_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-0b27ad831559d92102636712bc7d4ecd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4ecc9d43cc08b3b420c6cb70b082f2d8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3c09f29cc839ffe335f8b1e23a67989d_1440w.jpg">
+<meta property="article:published_time" content="2023-11-11T14:23:10.000Z">
+<meta property="article:modified_time" content="2023-11-11T14:27:26.271Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="stablediffusion">
+<meta property="article:tag" content="ai人工智能作图">
+<meta property="article:tag" content="设计探索">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1cd56d09946e9af4147fc7a104c7cc6d_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-11-1-stablediffusion初步探索1
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-11-11T14:23:10.000Z" itemprop="datePublished">11月 11 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            43 分钟 读完 (约 6419 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>stable diffusion我看了下文件夹的日期信息，我是在去年10月份下载的，midjourney等一众ai作图软件也是那个时间开始接触的。那个时候我只知道midjourney可以根据关键词生成图，可以根据参考图生成图，可以对选定的图生成类似创意图，stable diffusion可以根据关键词生成图。 stable diffusion有繁杂的设置，我都没去碰。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1cd56d09946e9af4147fc7a104c7cc6d_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>一年后的今天我现在遇到了一个问题——如何对一个小区的平面布局做设计？抛开复杂特殊的装饰，就平面摆放而言就算是极为复杂的分形几何艺术或各种有机雕塑，平面布局也就那样。无非绿化、小路、水景、建筑这几个元素怎么摆放和谐，但是要自己去设计思考着实头疼，且我自身缺乏这方面的专业性。若长期要对地块做布局设计，肯定力求一个能稳定控制风格且免费的软件，于是我又回头看了看stable diffusion。在b站上发现了有用ai做景观平面的教学，civitai.com上有许多ai模型。进而看了下stable diffusion关于建筑、室内、景观相关的系列教学。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8fdfe1e50ffeb609026b0d8171c8428b_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d1a67d3f380f875d1d1cc64a5c7d4599_1440w.jpg"></p>
+<p>首先原本的stable diffusion经过这一年经历了多次更新，原来的启动器可能跟不上时代了，跟上时代下载了b站秋叶aaaki的sd启动器，这个好像支持插件自动更新。根据言潇的教学似乎安装这个会加快图片生成速度。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-db101052b28d964866f5da4fba1b610c_1440w.jpg"></p>
+<p>最新版的stable diffusion，左上这个被称为底模型（言潇的教学）或者大模型（AI建筑研究室-贝熊）英文是checkpoint类型模型，在b站上有个<a target="_blank" rel="noopener" href="https://docs.qq.com/sheet/DRXF5cXNlVUpKUnVL?tab=BB08J2">大模型清单</a>可以获取大模型，也可以在civitai上获取，这类模型从文件大小来看都是几个GB，文件后缀为.ckpt、.safetensors。每次切换大模型都需要30秒左右的样子，每次生成图片会自动保存到本地设定好的文件夹内。根据建筑学长的教学，大模型尽量选择safetensors格式，这种是新版的，ckpt为老版格式有安全隐患。pruned指精简版的模型。不同的大模型生成的效果非常不同。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-46ffa9eb07073ecd8cb68f546238d1a7_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-527ebda34c10ca401caa9e0eb1fc71de_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5e474783b1c8cfc50022e9066a682f8f_1440w.jpg"></p>
+<p>什么是大模型呢？根据贝熊通过autoDL云端训练大模型的教学来看，就是通过一些肉眼看起来风格、主题接近的图片给它加上标签，然后给一个程序去循环迭代识别其特征，从而生成一个可以生产这种风格、主题图片的“精装房”。<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mm4y1e7YG/?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f">各种模型详解！大模型、微调Lora模型都是什么？ | Stable Diffusion绘图教学_哔哩哔哩_bilibili</a></p>
+<p>在b站建筑学长的这个教学中用毛坯房、精装房、二次装修来比喻官方的大模型、各种用户训练的大模型、嵌入式embeding，超网络，lora。其中embeding为打包的提示词，一些用户将十分长的提示词打包以后可以生成限定风格的图。建筑学长说embeding、超网络现在基本都没人用了。</p>
+<p>lora和大模型有什么区别呢？从训练上来看它们似乎都是通过一些图片打标签放到一个程序里迭代。在用户<a target="_blank" rel="noopener" href="https://space.bilibili.com/3493263149370045">AI-魔法师</a>的教学中，他把lora比作一个客户对一个汉堡有要求想加番茄酱、生菜、辣椒，lora相当于额外增加了“层”，这里提到了“扩散模型”一层层的概念，lora在扩散模型中的层与层之间插入新的层，来影响输出结果。lora的权重建议是0.5左右或以下，看看作者使用的配套大模型，提示词、反向提示词，AI魔法师认为sd中反向提示词很关键。lora可以复合使用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cv4y1n7ns/?from=search&amp;seid=16747606216046556543&amp;spm_id_from=333.337.0.0&amp;vd_source=9211ca883c846624ea76e0f08321331f">Stable Diffusion LORA模型知识点：什么是LORA？</a></p>
+<p>训练所使用图片贝熊推荐是40-150张，言潇的演示中23张即可，贝熊认为最好是手动打标签定义图片中的元素，不过看起来这很麻烦我觉得还是直接用自动打tag的插件完成。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-770f2dac360875da679412f17d983afc_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-37b4097abe28110e1136a5070fad8344_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-aefddf66ec5c06edfa44c3a217c0ade0_1440w.jpg"></p>
+<p>在训练栏目中进入图像预处理选择原始图片路径和输出路径，点blip生成标签，deepbooru是针对二次元的。关于模型训练后面再说。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a323caeebd53bf5d3ec3bcb3a3b3b97f_1440w.jpg"></p>
+<p>接着要谈谈如何精准控制图片的输出。提示词realistic pegasus marble sculpture生产了许多大理石天马雕塑的图，</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c6f946b8f5672e56553cc0f3cad344b5_1440w.jpg"></p>
+<p>比如说我对其中一张觉得不错但想做部分修改，1是发送重绘，这种方法言潇不建议，他认为应该用controlnet中的lineart、depth、seg去精确控制图片。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-36fbf57e1a04e3b617b40baf879470d6_1440w.jpg"></p>
+<p>通过controlnet可以对限定提示词用预处理的约束来生成图片，比如下图中生成了多张马，其体态都是一样的，背景墙面的结构也被复刻。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-beafa7b7075f4b0de6e22dde90a6a7cb_1440w.jpg"></p>
+<p>不同的controlnet我暂时没有深刻体会在控制方面该如何选择，介入步数感觉影响不大，控制权重和控制模式确实有影响。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2359c2dcc15d001e90f0e32b62dc82fd_1440w.jpg"></p>
+<p>通过图生图可以把觉得不错的元素扩展，在controlnet中似乎无法对场景扩展.比如我想要这个巴勒斯坦青年投石索的动态，想要一个全身像，可以通过它扩展在利用controlnet openpose控制姿势。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f31e739bb9175d150713543cc9c0b445_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-119ebf330b0370c1ac04245c787600a1_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5d2e21dd10fd72e52ff865c313b1e3a2_1440w.jpg"></p>
+<p>我发现用sd1.5、photon、realistic这几个大模型直接配合bronze sculpture lora出雕塑效果很诡异。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-33e027a128306fa12af8bae402322d9c_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3f3d53c69e4d6f5db1216d43c9e9dddc_1440w.jpg"></p>
+<p>aarg用于生成建筑的大模型生成雕塑就更诡异了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-25da5cbf224900e8d60fc5b4790496ef_1440w.jpg"></p>
+<p>相对而言sdxl大模型生成的人物至少结构比例上是正常的。然而想要一个正常的asian、chinese脸却很难，我想换脸技术应该sd的社区有很多研究了，发现从roop到faceswaplab到reactor已经有好几种插件停更、迭代了，今天试着安装reactor有点麻烦，几十kb要5、6小时。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a416e786e12a4b96252df2f20a35d377_1440w.jpg"></p>
+<p>通过图生图，外国人看起来雕塑就“自然、和谐”了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b0149ce9631a08e3bc5884a2a242ad13_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-47021326f0d78868cd439ac643ff0ac1_1440w.jpg"></p>
+<p>那么问题就变成了在转换雕塑前先要换脸，我试了下亚洲男性、acg武侠的lora都不理想。另外可以看出来旁边的那个矮柱装饰变得十分诡异，显然这需要局部重绘，相关的技术还得探索。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-916131664e291be51b08d6c51f15695c_1440w.jpg"></p>
+<p>对于动物雕塑用photon配合bronze sculpture lora图生图重绘感觉效果很好。自此可以推论先用大模型a做出“原型”，再用图生图大模型b配合某lora或多个lora、controlnet精修，遮罩局部重绘一些细节以完成一个装饰部件的设计参考。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8147a3326a3be1d95f66a01d95c807d8_1440w.jpg"></p>
+<p>提示词注意事项，越靠前的东西决定了图片输出的“主体”，这可以从最初的步数看出来，”|”符号不同于”,”前者是同时生效。不过|的作用效果很诡异，我用huge masterpiece copper|marble|chrome horse|dragon|lion statue on city square,wide_shot,huge filesize,这串提示词以及red|blue|yellow clothes chinese boy working in ev factory发现真正同时生效的只有horse|dragon|lion</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-226810b7ea332a3350ede47743198782_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2c26f77d18f5cf8c4be1360bffc21b11_1440w.jpg"></p>
+<p>(tag:num)属于强调，然而即使marble提升到1.5仍然有copper为主导的图片产生，lion在1.3之后基本主导了雕塑内容。因此这个权重其实不确定性很大。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4ac604484748a7714b0a97388af23f04_1440w.jpg"></p>
+<p>在脚本中用x/y/z plot可以替换提示词。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-91eb91224dfc086ca56a0ded85b1532f_1440w.jpg"></p>
+<p>效果随着步数渐变，我暂时想不出来有什么应用场景。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ae406fa5e1dac3398c3ec3249689a478_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-5f8f99316bfba83f5fe5808454673088_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-557c5ea6f0dc2e32df49926d668355aa_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3afaa6de68edfa19639ef9bc5656697d_1440w.jpg"></p>
+<p>不过这种混合在材质上不好实现。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-85a899a298e51fa7d4201e2a5e3b1249_1440w.jpg"></p>
+<p>photon、absoluterealistic、cyberealistic在生成人物时，结构往往不正确，sdxl比较合适做基本人物原型。这里要提一下使用sdxl大模型时vae要选sdxl_vae_fp16fix.safetensors，不然会出现报错无法运行。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-09fe2ad4e53955795265de6a48beea75_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-fe7f72a387f57cdfa83d1a41e1444178_1440w.jpg"></p>
+<p>对一个指定图片改背景没法用文生图，只能图生图，那么就涉及人物和背景的划分了，这一周接触stable diffusion比较混乱，主要是自己不知道想去实现什么，导致了随波逐流，网上的教学成千上万看不完的，但是具体到自己的应用又不知道如何入手，初期肯定有个软件上手的过程。目前我的应用场景有：</p>
+<p>1.文生图，配合合适的大模型、lora出一些设计概念，controlnet reference “作用力”蛮强的，想要生产同一画风的平面布局可以用这个。下图2、3、4、5是基于红色娘子军这个雕塑作品生产的，可以看到一开始连材质都十分近似，构图方面都仿照了半身，以至于偏向提示词、给加权重都很难改它的风格。这里还要再提一下凡是基于sdxl的大模型，vae都要勾选，不然出图会报错。768x512三张图用sdxl是1分40秒，1024x1536是4分20秒。reference这个controlnet会根据参考图本身的大小影响输出的速度，红色娘子军160kb的图用了4分钟左右出3张1024x1536而1.67mb的参考图则会导致需要30多分钟出图，因此reference给的图注意先压缩大小。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-e94caba72d2db044c84b65f26a3f4f2c_1440w.jpg"></p>
+<p>(chinese soldiers white marble sculpture:1,5) on a grand elegant outdoor memorial in the center of a pedestal,crowd admire from a far distance,sunny day cloud and sky in background,masterpiece,High Detail,Sharp focus,warm light,8k,(full body:1.5),</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4f7b69865113f2b9a31d456769ed7c00_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-49ece925445fa79e70d3825b60534800_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-15bee463558eca070d50a958cb28f0bb_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-825337da9da25aa4d21dd67f522a1386_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-e57efd02281c8b63183a2afb2b57a35b_1440w.jpg"></p>
+<p>那么有没有办法结合两个甚至更多个reference呢？我试了下难以达成想要的效果，在两个reference的作用下，雕塑的质量大大下降，人体结构变得含糊不清。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d95af1575fddacd463171f2b84d15ddb_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-211814ce01c9af28751fa3179d31806d_1440w.jpg"></p>
+<p>仅有一个参考图时，提示词和原图风格偏离较大的情况下得不到理想效果。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2baba46654d5f42de6557dbdb867303d_1440w.jpg"></p>
+<p>修改提示词为反推，这下可以得出靠谱的同类设计概念了</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-37c5780e3e722bd509c4a6472f812fbe_1440w.jpg"></p>
+<p>尝试图生图，蒙版局部修改，用controlnet openpose、reference、canny都不行。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-da0629c843a3193aa5174ffa3e84aa64_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a878348f2f5bde26e830fc0a27045a14_1440w.jpg"></p>
+<p>截至2023.11.6，网上的指定换脸、换装都有十分特殊的处理方式，我尚未看到一个教学能用重绘蒙版添加指定风格的东西。那么思路就是指定风格的东西额外生成ps摆进去以后再用重绘修复不和谐？可以确定重绘只能生成非指定的和整个画面契合的东西，利用重绘修复外部导入的指定“部件”并不可行。重绘开小了搞不定接缝，开大了整体诡异与原画完全脱节了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9394c8909c683ad03c3616bed9913d09_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-7b523ea5d1ffa20afefa4bc982fc1223_1440w.jpg"></p>
+<p>如果串联起两步把之前文生图生产的“部件”放到图生图生产蒙版区域可以较好融合，但是图片本身尺寸小，像素低就没法解决“部件”的艺术性。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3b4792cafb3d34f1b43f5c17875d595b_1440w.jpg"></p>
+<p>先对原图清除要替换部件的地方，比如这个例子中要替换雕像，那么涂抹雕像位置重绘，提示词用天空随便搞个天空，我觉得空白也行，直接ps里面挖掉填充白色，再把需要的部件在ps中摆放到合理的位置，把添加好部件的图作为canny controlnet控制场景的结构分布，然后clip反推的提示词作为限制，可以将想要的部件替换原有的东西。注意重绘幅度大概在0.65的样子可以消除背景与部件衔接和光感的不和谐。这样一个流程下来实现了对场景装饰的细化处理，</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-11b0c04265d00d8a8d7dc860c6250ef4_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-615a47201b814438e7c8d9cdd58379fa_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-8f1bf16389c84dc4d60e3d5533208e04_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-6c662f4f5f11800c4805866fc83e99b3_1440w.jpg"></p>
+<p>2.对某种部件上材质，这里使用crystalClearXL_ccxl.safetensors，1536x1024 8张用了12分钟出图。可以看到人物和动物被完全转化了铜材质，这是通过lora达到的</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-6d7a8acca800227b27c72b4f0d89d337_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4e293d695c9519b7b2ed5dac6d9083d3_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b80feaa408f63783dd0fba8b0398d91c_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-22515c47c072ea907a46d30c4231d8bc_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9d562a7ed994d0b309f2c89ec242dce0_1440w.jpg"></p>
+<p>水晶材质的lora</p>
+<p>realistic full body glass sculpture of bnycstm alisabcnv,transparent,translucent,1beautiful big eyes chinese girl gently smiling,reflections,(art gallery interior background:1.5),(warm lighting:1.5),illustration by Greg rutkowski,yoji shinkawa,4k,concept art,<a href="lora:sdxl_glass:1.3">lora:sdxl_glass:1.3</a>,</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1c9fec9fb0b767b15cd705258eb6b4ff_1440w.jpg"></p>
+<p>white transparent (lion glass sculpture:1.3),reflections,crowd people in big art gallery interior background,(warm lighting:1.1),masterpiece,High Detail,Sharp focus,(in the middle of a booth:1.2),8k,masterpiece,</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-916fc980073d35549c517335023021e6_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a2db8492e57d821f30c1a4c8ea308e4f_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f52ce8e0a340af2b6b1806aff076092a_1440w.jpg"></p>
+<p>经过不断地尝试，在我看来lora可以概括为添加一种大众角度视觉上可明辨的风格。比如说某种材质、某种服装、某个明星脸、某个动漫人物、某种室内设计风格、某种上色，色彩风格等等。</p>
+<p>大理石材质</p>
+<p>photo of chinese soldiers,yound soldiers as a (white_statue,stone_statue:1.3),on a pedestal,modelshoot style,photo of the most beautiful artwork in the world,High Detail,Sharp focus,in the middle of a French city square,full body,(looking at viewer),(closeup),(panorama),<a href="lora:rock_statue:1">lora:rock_statue:1</a>,</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-69c5b7ef57aa308ad65e2e4e2a5616b1_1440w.jpg"></p>
+<p>3.对某种复杂的“风格”、“装饰”迁移。在小红书看到一种云和龙凤结合的手法，假设这是一种我们需要的装饰，怎样生产变种？在这个案例中用提示词加controlnet reference生成的结果完全偏离，我推测reference无法还原过度抽象的东西，使用ip-adapter加canny结合到一个云状的照片后成功复现了这种效果。用局部重绘和controlnet canny把这种“风格”、“装饰”添加到一个指定物体上，再用蒙版重绘去除衔接问题。注意ip-adapter不能用sdxl的，至少这个云凤、云龙的风格装饰上无法迁移。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-26d09d9311bae3868437c7a35b3f834b_1440w.jpeg.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f1792389249da9f59a7adb976754b0f7_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-14c7baf7cec032e12d147d10ff3c9880_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2b6aae20e88efd853c48f6ab97355083_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9a0240cfca24a465644062bcfc2134ce_1440w.jpg"></p>
+<p>4.ip-adapter、t2Iadapter、shuffle组合生产近似“风格”</p>
+<p>以下为无提示词用t2Iadapter生产的图。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-13c862539c0b0ccf86002203f4123fcd_1440w.jpg"></p>
+<p>以下为无提示词用ip-adapter生产的图。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-030147742a81224799ee52e28b1606b3_1440w.jpg"></p>
+<p>以下为无提示词用shuffle生产的图。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-0a477884b14b58f86a80c7a2514d63ac_1440w.jpg"></p>
+<p>以下为无提示词用ip-adapter、t2Iadapter生产的图。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-58e632ab116460774158486c966b5cf5_1440w.jpg"></p>
+<p>ip-adapter人物，下图1有提示词，下图2没有提示词。可以看出来ip-adapter在布局上高度近似，但面部特征完全不对。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c0cf650fe868e453aac3ded01f3664a8_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2c6567b31d74e874eb8e23d224ad1ef8_1440w.jpg"></p>
+<p>t2I-adapter，下图1为有提示词，下图2为无提示词。可以看出来t2I-adapter对人物的布局、背景、特征都没有提取出来，完全与参考图无关，不过它做的人物解剖学结构很合理，且可以将跳出参考对形体图幅的限制，原参考为半身像，在ip-adapter、reference中是限定死构图的，提示词不管咋搞似乎都会被无视。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-24877b0cd0e92e1a43f888cb3a0ae61e_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-2db748c19f62c4d0f4a81f52384fc70d_1440w.jpg"></p>
+<p>reference，下图1为无提示词，下图2为有提示词。可以看出来reference对面部、服装、光影特征把控的很好，但是人物的造型、布局不合理。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-d62294d8238879bc3d3814191658ab18_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bf2f958c72305f7e9001bc4a9d83cbcc_1440w.jpg"></p>
+<p>看到这里理论上来说结合ip-adapter（控制站位布局）、t2i-adapter（增加站位布局多样化）、reference（控制面部、服饰、光影特征）三者可以将参考图的人像衍生出风格近似、不同布局的图？可惜sd目前不支持多通道controlnet用xyz图表控制变量。</p>
+<p>下图为ip-adapter 0.7 t2i-adapter 0.35 reference 1.2 Style Fidelity 0.7这个设定下所有的人物、背景都和原参考图的布局太相似了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-c225cea4910da15997769cbce87b0080_1440w.jpg"></p>
+<p>下图为t2i-adapter 0.9 reference 1.05 Style Fidelity 0.7可以看到有人物的全身像了，且人物特征把我的还可以，也没有太大的结构问题。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-db7d6bae97806feddec5fa69b6d2f160_1440w.jpg"></p>
+<p>我试图用另一个完全不同布局的全身像来取代ip-adapter中的半身像来改变人物的布局，尽管只有0.5的权重出来的人面部特征、服饰、解剖学结构都偏差很大，看起来不正常。换了个布局依旧如此</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-eabca40e859363bd4c713dafb1e6bf2b_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-64424f42f7bbf76fdfae8ad42a9041b3_1440w.jpg"></p>
+<p>在调整到0.3之后看起来可以勉强凑合了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-7367cc6c8aa23915dcecc3e7c68fd172_1440w.jpg"></p>
+<p>我把尺寸从1024x768调整到1536x1024结果似乎又不太行了，出现了解剖学结构错误</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ead7b08c6fc4145221665a3f9b0f055c_1440w.jpg"></p>
+<p>诡异的是哪怕换了一个reference，帽子的款式明显不一样，提示词强调no hats还是全员带帽子。下图2，在3个参考都换成这个图后，依旧难以得到多样化的站姿、表情、发型，看来想用某个满意的雕塑群反推同类不太现实。这会不会和用的大模型有关系呢？</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-27ffb00c4c5d459faeeab944723106df_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-726efb9c64f65cbb02773491539db75e_1440w.jpg"></p>
+<p>用sdxl的及其衍生模型可以看出来人物面部的特征明显要好于sd普通模型，sd模型出来的脸可以说是千篇一律。因此人物方面要</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bb87c04499c8687389b9dcaf30f05470_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-b96e8c9f3532f30ae501acb80e71a122_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-821cc0dfd35625b9390ad3e265793ee1_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-04f5d7f385e47d08b9269e5acdbedb01_1440w.jpg"></p>
+<p>测试reference权重的影响在xl模型中超过1以上貌似都和1一样了？</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-9978e6dd5f73cd4f31d42361ed6cf208_1440w.jpg"></p>
+<p>换成这个工人维修奇异机器，出来的结果与原先偏差很大。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-ee91909124a6476eeaa0caad52af70a6_1440w.jpg"></p>
+<p>three humen workers as (bronze statue:1.5),standing next to a large highend futuristic machine as a (bronze statue:1.5) on top of a hill under a cloudy sky with clouds,</p>
+<p>加了一个depth控制，0.75以下形体偏的很厉害。材质方面基本可以保证了。作为雕塑效果参考，勉勉强强。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f24530c2d2945cab950027e7fd530913_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-63fafcecca63809d4c50ccd29a704a30_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-166423a3e00787c33b2abef4f016d59a_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-f38ef0b7cb435b94138770095304d883_1440w.jpg"></p>
+<p>我试图结合这两个图来做雕塑装饰参考，depth zoe的计算不理想出来的图完全走形了。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-33de8e84f7ee65db1cf951f46f174092_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-a1d4f57a555b08b3f735bc96fb183116_1440w.jpg"></p>
+<p>0.9-1.1可以看到crystalXL比sdxl原始模型在depth控制下更遵循我们的需求。depth的好处在于重排一些物体的构造让电脑给出出人意料但又在清理之中的构造。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-98c66557dddb340396106da5e526ff7f_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-bc87a7bfec6e42b62b8b961c0ba47a0e_1440w.jpg"></p>
+<p>用canny控制，1以下的偏差很大。canny给出的构造更接近原参考图。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4c0bc71468615a3af0d4a1973abe3c53_1440w.jpg"></p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-0b27ad831559d92102636712bc7d4ecd_1440w.jpg"></p>
+<p>lineart控制不适合出复杂体块的雕塑概念。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-4ecc9d43cc08b3b420c6cb70b082f2d8_1440w.jpg"></p>
+<p>通过agent scheduler这个插件可以批量安排任务，因此以后关于ai作图，放到临近吃饭的时候批量安排。</p>
+<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-3c09f29cc839ffe335f8b1e23a67989d_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/stablediffusion/">#stablediffusion</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E5%9B%BE/">#ai人工智能作图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E8%AE%BE%E8%AE%A1%E6%8E%A2%E7%B4%A2/">#设计探索</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/11/11/2023-11-11-t2i-adapter%E5%92%8Cip-adapter%E5%AF%B9%E8%A3%85%E9%A5%B0%E5%9B%BE%E6%A1%88%E5%BB%BA%E7%AD%91%E7%AB%8B%E9%9D%A2%E5%8F%82%E8%80%83%E7%9A%84%E7%94%9F%E6%88%90/">2023-11-11-t2i-adapter和ip-adapter对装饰图案建筑立面参考的生成</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

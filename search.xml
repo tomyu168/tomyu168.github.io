@@ -10381,4 +10381,47 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>设计探索</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-11-20-本地部署Wonder3d二维图片转3d模型程序</title>
+    <url>/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<html><head></head><body><p>这个wonder3d可以说是我一生中目前经历过最复杂的一个软件、程序安装，今天整整搞了一天才算跑通。这里回顾一下，以防万一重新需要安装。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-f814918f537b247db14e56a0b9906017_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>第一步安装anaconda windows版本，没啥问题，下一步下一步就行。第二步cuda toolkit，这个通过nvidia-smi显示我的电脑是cuda 12.0我一开始去安装了12.2版本的，后来看到网上有说应该安装比nvidia-smi低的版本，这个cuda toolkit需要和pytorch版本契合不然会出问题，诡异的是我已经安装过pytorch，但在anaconda中好像是两回事？</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-4e1d0b7000cb6a417f28af6bb585624a_1440w.jpg"></p>
+<p>迎合pytorch官网的安装示例，我选择了安装cuda11.8，实在是懒得再去一个个试其他版本cuda，这个cuda toolkit一安装会连带安装许多玩意儿，要删得逐个手动去删太麻烦了。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-eccd14cf1af0a863b72599b456918950_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-eaa12c536ed9b4b967bf249cb5ef2303_1440w.jpg"></p>
+<p>进入python管道命令行执行下面的命令可以查看cuda toolkit是否安装成功。</p>
+<p>import torch</p>
+<p>print(torch.version.cuda)</p>
+<p>接下来是克隆项目到本地，这个也可以手动下载复制到指定路径。接着是安装依赖包和tinycudann，依赖包卡了我好久，问题出在源的速度慢，通过pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a> numpy -r requirments.txt切换源之后起飞，但即使在高速下载的情况下这个requirements的下载安装还是经历了很久。下载checkpoint、sam两个模型没啥大问题，第一个是onedrive分享的，链接不稳定，有时进不去也不知道啥原因。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-8f82ecd296756dc45f064d080d57306b_1440w.jpg"></p>
+<p>重点是tinycudann这个东西，直接按照这个命令下载安装行不通，说什么找不到visual c++环境，可我明明安装了visual studio 2022，一方面是要添加环境变量到Path，2是要把项目添加到wonder3d的路径里或者git clone进来，anaconde中安装一下cmake，然后按照下面这个执行。</p>
+<p>pip install git+<a href="https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch">https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch</a></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-79b0b2a886f03d439ec4da6ae1058f12_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-65333dc4b7797127f889d24f8470c1e3_1440w.jpg"></p>
+<p>不过还是会碰到问题，首先cutlass、fmt这两个需要从github上下载下来放进去，tinycudann git clone下来这俩是空的。然后是binding/torch目录下的setup.py中将所有的c++14换成c++17,不然会报错fatal error C1189: #error: You need C++17 to compile PyTorch。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-6ce1076c9bab8e435adfa73c2b932002_1440w.jpg"></p>
+<p>安装成功会显示processing dependcies for tinycudann==xxx，到这里终于可以运行了，报错缺少triton 模块没问题不影响，但是依旧跑不起来。啥问题呢？原来是还有需要依赖的远程模型在huggingface上，在anaconda中即使全局代理也不行，唯有把这些玩意儿都下载到本地，就是这坨东西，需要按照这个文件夹结构部署。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-cf726c0cfe099bd64a2bf5dc62a307d5_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-e87bd880b4aee72b0145eb5ccf302bc1_1440w.jpg"></p>
+<p>最后是bash命令anaconda中没有，需要conda install m2-base，会安装一大堆东西，就可以用bash了，至今我还不清楚这bash是啥玩意儿，反正能用就行。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-5a565627fa42b44326da28d7ee83a2c7_1440w.jpg"></p>
+<p>进入D:\Wonder3D\instant-nsr-pl&gt;这个路径运行bash run.sh D:\Wonder3D\outputs\cropsize-192.0-cfg3.0 scene即可对网页界面中生成6个视角的图进行3d模型生成。生成的模型在D:\Wonder3D\instant-nsr-pl\exp\mesh-ortho-scene这个路径里。单个模型在20万面左右的样子,生成一次需要10几分钟。</p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-da1ab720ba89f514bab0ef4b08d43141_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-56a29f0ffdecb1b0a4ccc7ba3c92f2ba_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-1ac6725216f43f4ae719fb58898ce258_1440w.jpg"></p>
+<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-5dcefa06fcc457e8aae4b089058c75ee_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>ai人工智能作图</tag>
+        <tag>设计探索</tag>
+        <tag>wonder3d</tag>
+      </tags>
+  </entry>
 </search>

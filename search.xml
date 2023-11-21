@@ -9424,6 +9424,7 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>unrealengine</tag>
         <tag>uv展开</tag>
         <tag>ai作图</tag>
+        <tag>景观</tag>
       </tags>
   </entry>
   <entry>
@@ -9890,6 +9891,7 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       <tags>
         <tag>综合技术3d场景制作</tag>
         <tag>实拍参考</tag>
+        <tag>景观</tag>
       </tags>
   </entry>
   <entry>
@@ -10422,6 +10424,177 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>ai人工智能作图</tag>
         <tag>设计探索</tag>
         <tag>wonder3d</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023-10-12-小区景观地形的创建</title>
+    <url>/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[<html><head></head><body><p>用树木、绿化做小区围墙那么涉及其末端的土壤理想中是直接在landscape上刷材质，加foliage，问题是现在的材质是长沙的贴图，如果我换了图层材质，那么就没了参考，一种办法是弄个mesh进来。保存一个备份的level map，测试一下可行性，那么明天就是弄landscape的图层材质，就搬运citypark的。然后是移植一个小区平面的mesh，在这个模子的基础上做出绿化、小路、一些景观mesh（健身器材、座椅、喷泉）材质效果，商品房小区景观部分做3个，然后是老小区、安置房的景观布置，把天马小区和麓枫和院搞一下。等这部分好了，填充房子。</p>
+<p>以上是10.10的想法，后来发现landscape没法通过复制生产。landscape 的几何模型可以大致与ue landscape对准。接着就是把小区的平面参考导入了，开始想的是把sketchup导入blender，blender再导入ue，不过这样导入的mesh材质显示不正常，且速度也慢，这样的mesh显然不具备平面参考价值。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-84145b8daf4dc3c6eaeec01ec7d454bf_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>使用unreal engine自带的datasmith，导入sketchup要快很多，且材质无损导入。具有参考价值。这里要说一下，在su中许多模型成组导致不必要元素太多，可以先右键炸开组，然后把项目中需要的部分ctrl shift加选以后复制，黏贴到另一个空的su中，在那个su中导入ue。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-d3a697ecb43d5d93af034b04fe3db1f2_1440w.jpg"></p>
+<p>平面参考有了，接下来就是如何通过参考图还原实景，在这之前我反复看了好几个项目的效果图，不够直观，因此还是有必要和实拍结合起来剖析，需要把整合起来的元素拆分开来逐个击破。</p>
+<p>首先是道路：</p>
+<p>道路是用材质刷还是用PRG做？如果用PRG就涉及一个连接处问题，如果是材质刷怎样确保道路宽度一致？另外还有规则、不规则大块的平地，这个不可能用PRG做要么面片上材质要么直接landscape刷材质。经实验表明landscape刷材质无视表面有几何体遮挡，不过这样的话思路可以转变为用PRG做curb，分割道路和绿化，两边都用笔刷刷，而且PRG是可以align to surface使道路保持与地形起伏一致的。但问题在于转角处、岔口怎么办呢？另外这里的曲线绘制肯定要用到blender bezier export，而它导出的曲线在绘制时会有变形，这个问题不知道咋解决。</p>
+<p>可以看到下面这些实景中，小区道路一般两侧有平齐于主路的curb，这个就是</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-50b7229eb919cf7978ce8b71ed64730c_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-df04bce9717fd321e2dce5ea341f74fc_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-b8d28788c9044f53bad9be69e2159b05_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-9ec43ad6263833cda0a0d69a5e8aebd6_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-856f4b7fdadd3dce85e79d688736fd4c_1440w.jpg"></p>
+<p>通过ctrl alt+左键可以框选，解决了blender bezier导入ue后spline point异常复数重合问题，可以批量选取重合的点删除，得到的闭环曲线基本与绘制的一致。这样的话只要对多个地块划分曲线使其微微高于landscape，两侧刷landscape材质即可形成道路。不过这样又有个问题就是curb和主路没法精准平齐，主路相对而言总是凹陷，面片不能解决地形起伏伴随，目前能想到的解决办法是curb在PRG中复制一个正好位于其上，landscape patch把地形吸附上来再用landscape flatten把主路和curb吸附上来的地形平齐，不过这样的操作很麻烦且需要微操。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-a965ec766a84918a64ec83c159eb8ec0_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-6ebf1f052c64c66979e258c53f9b589d_1440w.jpg"></p>
+<p>经测试landscape吸附的方式没法搞也有可能是像素不足导致landscape deform也有问题，</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-72a62202b60e95ba2ee1fe9c02f45da7_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-97549e41ef7416c13f4806e47ec7005d_1440w.jpg"></p>
+<p>在blender中利用插件在编辑模式下q键curve extract可以提取sketchup导入的景观地形各个局部的曲线，再用blender bezier导出到ue。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-c18db5609b69be8499b8bde0b1468324_1440w.jpg"></p>
+<p>导入citypark的材质对它添加混合图层，把地形的材质连接到basecolor作为默认填充材质。我试了一下第一次添加没反应，保存退出后再进来有了，在citypark项目里添加直接就有不知道啥原因。作为landscape填充材质看起来有些诡异，不过作为参考够用，位置完全复现。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-42d858bc96cc2693a369c7ad136be364_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-e0ef54f91905fa330c55d1349334567f_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-aadd9385333c6356179eb6982b444999_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-308434206f03ba465880a563182a244e_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-81551f2bf5a145ffd652fd5358135c15_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-85df719a6d7a9b255fe745fc522840f1_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-b15590996e8328f13fb013c51e62c5c4_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-9c23b9f711cac14a2512fb42d5ee6d30_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-73889dfac9dab3d085b8f0ef00d866f6_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-f879e6db7a4b68c07ebb73de3078b7a6_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-574cae208e2b5421b3c4b9d697544340_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-83b754986544172ce8cabc79f01a15a0_1440w.jpg"></p>
+<p>b站用户<a href="https://space.bilibili.com/1353030348">SssDtl</a>做的ue小区交互，以下景观看起来应该hardscape，面片给材质做的效果。</p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-fbb76663655ae526448b661d91d6e94c_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-035263b363822766a9621c1f58a7fa3f_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-a1a0c4e096806262a8366232b1515fb3_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+        <tag>景观</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023-11-13-UE小区道路布置</title>
+    <url>/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/</url>
+    <content><![CDATA[<html><head></head><body><p>下图左为PRG，右为NVspline，做curb的话后者更方便些，开启ground snap可以动态吸附，无需二次调整，close loop需要到blueprint的spline中设置，这是ue本身的bug。nvspline相对PRG可以做出更为工整的形状，而PRG在alignToSurface后使得整个曲线变形从而需要二次调整。nvspline的操作相对PRG而言要流畅很多，同样的mesh用PRG很卡，nvspline尽量少alt追加点但若是发现ground snap表现不佳就要追加以保证curb的相对landscape的齐平。另一方面要注意PRG生成小区道路landscape paint时的falloff，由于paint有锯齿羽化需要多留一些边缘，作为参考120的falloff可以在curb切去左右两侧羽化锯齿后形成3米的路宽，而200则可以形成5米的路宽。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-95aade47a912b52861a5808e5109ae03_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-90631cfe4b3c703d385df2adc3da72be_1440w.jpg"></p>
+<p>今天我是先将blender中的siteplan导出fbx到ue，然后移动摆好位置，设置一个带uv tile、offset、rotate的材质将贴图的大小、位置调整到位，在其上画PRG用alignToSurface，再添加paint layerinfo，landscape deform以后生成小区道路，这种道路在材质相同的情况下可以保证无缝对接，且与地形的起伏完全贴合。房子的白模在blender中与拼接好的实例模型1：1比对尺寸，在ue中直接拖两个cube拟合scale尺寸即可，填方到siteplan上的位置。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-7ce5fd92409fc30bf30cbee21363571f_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-acfc946d074e796606571f99090840c6_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-ddcbe49c50fb5ea2321f0f0e070f7746_1440w.jpg"></p>
+<p>在ue中画曲线总是歪歪扭扭，现在看来在角点处左右各加一个点有利于拉直。ctrl+alt可以多选几个点，3个点形成一个角。总的而言，在ue中做一个曲线包围还是比较费操作的。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-b703e3249a8e8dc6a8c2053fe887050f_1440w.jpg"></p>
+<p>bridge下载的草远看会出问题，但我的情景中不存在上帝视角，在中远距离没问题，用hillside的草远看也可以，但是密度太大了吓人，这种大的灌木不适合这样的密度？草方面可能还需要多测试几款来应对curb的相对高度。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-2f92adbd81a53bce3ef9606ac99d7f8a_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-9e2757c46e5e99846bd77b466b606945_1440w.jpg"></p>
+<p>通过给一个大的立方体添加landscapePatch配合falloff参数设置可以对一个局部地块做平整处理，这要比起用flatten顺手方便许多，不过landscapePatch位移调整地形很卡，不要拖拉而是用数值给定。平整地块可以做hardscape自定义的景观。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-1a8e03809340b17d118beabb456a5e02_1440w.jpg"></p>
+<p>我觉得接下来要分析一下实景如何通过现有技术去实现，下图左异形siteplan的绿化如果是衔接带起伏的路面，那么在没有curb的情况下如何画界？目前来看就是foliage手动微操，可以先画个curb到时候再删除。不同色的地砖目前是没法处理的，用landscape paint会出锯齿，只能在landscapePatch后平整的地块实施事先做好的hardscape给不同材质达到，需要保证小区landscape paint道路与其衔接处也受到平整影响在同一平面，不然会有材质高低错位。下图右水面应该是平的也就是至少水景这块是平的，需要用landscape Patch。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-492845bcedba6b33608f1fb8ea7f9ae3_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-b6be3838137f78dd84d39cde2e01859e_1440w.jpg"></p>
+<p>草坪中央这块异形绿化的地砖要绘制出平滑曲线对foliage paint是个考验。似乎可以用PRG，我记得showcase里面有个foliage along spline，另外nvspline应该也是可以的。也就是说地砖随便画到时候用foliage画出异形曲线轮廓覆盖地砖即可。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-edcab60e5476a2226ccad59ffaf05fc0_1440w.jpg"></p>
+<p>像这种复合材质能否用landscape paint做出来呢？虽然有复合的材质但是用landscape paint纵横方向不同，且旋转也做不出来。可以试试看用nvspline，理论上是可以的，但需要对landscape做些许平整，不然nvspline</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-c37b7629b75b036556196ba7724a4dce_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-6392fa9d14b102a7308b8352123e9d5c_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-5207ebeadd4394521dbe3c73dc6f02ca_1440w.jpg"></p>
+<p>我测试了一下用nvspline配合sidewalk mesh，开启snap to ground 和snap to ground angel可以使得道路近乎完美贴合landscape，而且操作流畅这样的话应该是可以达成，实测可以完成复合材质，但是要让它精确配合mesh尺寸，经测试可以使复合材质表面到位，但是交叉会出问题，另外在编辑模式和game mode下这玩意儿表现是不一样的。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-5a706625e5b1f6f1afd9fae33d521418_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-2fc60da298a933b629ad0bdb24d8956c_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-5a88947b0d5d2a3afd4ad4c496fa8271_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-8e1fe4b6df24ab7f0bdf03ca52d2cce5_1440w.jpg"></p>
+<p>又测试了一次可以完美对接，然而，之后就再也没有能够成功复现，另外之前snap to ground失效竟然通过PRG关闭deco per socket恢复了，真不知道是啥鬼问题。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-1babc199205ce0383bc56413ca197dc7_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-8dee3223518053dc2ff65a8b78461a21_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-afefc7bc8fb58be811c33c7b5b8a27b1_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-363216ce94884d2ff5d25b03907e4803_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-59f7f7bd1de4aeaf2419ac68599b4700_1440w.jpg"></p>
+<p>经测试无法直接对datasmith的顶层actor用alt拖动复制，也就是说别墅的房子最好是一次性到位，至少也得是数量对位，到ue里面移动精确调整。明天争取把所有别墅按照部件实例化做好用datasmith导入ue，并且制作别墅与景观的对接。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-547347a4e973fd243911c8d24bdfe528_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-4caa23d7f5e3ef385367eabcf3174818_1440w.jpg"></p>
+<p>参考hillside的景观，水池都是用的water_opaque这个材质，可以看到地砖都在一个平面上。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-fef9b55634bf78b8f45dba525124c0e3_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-95c06cee592c49757f7805a0c6c376d9_1440w.jpg"></p>
+<p>landscape patch挖出来是圆形的</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-0fc0e57508019349c408ef29f46cba52_1440w.jpg"></p>
+<p>用landscapte texture patch配合一个灰度图可以挖方形孔洞，不过其角落是有问题的，挖的孔不是完全的矩形。</p>
+<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-d9271f0b21c06376c103db7b8364928f_1440w.jpg"></p>
+<p>landscapevisbilitymask节点可以涂抹将landscape隐藏，但没法旋转方向。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+        <tag>景观</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023-9-21-matrix与hillside中可以利用的东西</title>
+    <url>/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/</url>
+    <content><![CDATA[<html><head></head><body><p>matrix中需要的东西：</p>
+<p>road 文件夹包含 马路 kit city road、马路标线 kit meshdecals、桥梁除了主路的部件 kit freeway、人行道和广场的方形花砖kit sidewalk</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-06f75a17ecdba6ee236b690163a67c2c_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>还有个kit small curb好像没啥用？</p>
+<p>wfc文件夹即wave function collaspe是屋顶通过波函数坍塌算法将一些墙面mesh组合成不规则的结构，课程说有个官方的插件，看了下在plugin里确实搜得到，到时候试试看能不能用得上做屋顶的装饰。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-08571d3d5138a0eef77d70a35bea5765_1440w.jpg"></p>
+<p>enviroment文件夹下background city即主城外面的城市背景mesh，cityedge pier是外围河道旁一圈的码头，包含了5个packed blueprint level actot,courtyard是街区所围成的中心无建筑部分的景观，也都是packed blueprint level actot。freeway根据教学的内容来看是一个超大的完整mesh切割成一个个小的static mesh，这部分不是instance。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-d0a38b0229a5f060b900221c7978d21c_1440w.jpg"></p>
+<p>暂时不清楚它这个材质是怎么弄得，如何对一个超大的mesh上材质呢？在bigcity map操作太卡了，新建空map看了下，大的浅色的变色是MarcoVary，小的是Patch。这两个对于固定的mesh是一样的，instance出来也一样。因此不能完全套用它。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-bc547ea39c715422a60b6c505aeb65f9_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-f5cdcac8f49c49ae72c4ff2115b9f647_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-9f317ebf75b72f40f5df111fac3fcb7c_1440w.jpg"></p>
+<p>我想可以关闭这俩选项配合deco per socket散布bridge上的patch来达到类似效果？</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-46ba3a5de72b256e63ad1dcba0ca28ea_1440w.jpg"></p>
+<p>注意PRG中的road/bridge mesh需要把pivot置于物体顶部末端中心。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e2febc4cb4dd4854d3ee84ff324dcd48_1440w.jpg"></p>
+<p>rooftop包含了一系列屋顶的kit mesh，在PBG中有相关配套的设置</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e1e7576ec2b50c06aac4e7455cffe9ce_1440w.jpg"></p>
+<p>underpass中包含一些工地的mesh</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-298c0aefa9c99accb7f2faf70b8e33b6_1440w.jpg"></p>
+<p>enviroment中的很多blueprint用到的mesh应该在prop文件夹中。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0ccb6f3eff9e8a5cc784dca7ded094f0_1440w.jpg"></p>
+<p>wfc、environment、prop、road四个文件夹合计18.8GB。另外megascan中还包含一部分比如sidewalk corner mesh、curb的mesh，如果算上整个megascan那又要加11GB.</p>
+<p>hillside中需要的东西：</p>
+<p>river文件夹中包含真实河流的材质，经测试，开启water、landmass插件后创建water river直接给材质就能生成真实河流，河流部分就是多个spline互相遮盖。</p>
+<p>下午去下载PRG5.2版本后来才发现spline mesh 转static mesh的widget可能要下一版更新才有，于是当前版本就是把做好的road、sidespline 进行merge actor操作合并成一个static mesh减少drawcall。</p>
+<p>effects文件夹中包含cloud云的材质可以直接利用，bubble是水面的波光暂时没有测试，rain里面把nigara文件拖进场景可以产生下雨的效果，但是这个十分损耗性能，当数量调到30000以上就会很卡很卡了，在1平方公里范围内13000的粒子数量可以保证效果，但是100平方公里则会几乎看不到，可以作为局部效果凑合，若要在open world里实现，得参考学习<a href="https://www.youtube.com/watch?v=a6tFXZhqVig">Unreal Engine 5 - Rain and Thunder in Open World</a></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-6b3afdd5f42f7b6871452e2ed6e7fc50_1440w.jpg"></p>
+<p>blueprint文件夹中的hism可以转化static mesh为HISM或ISM，测试可以移植使用。</p>
+<p>weather manage下的weather control在激活sun postition calculator插件后把sunsky放入场景即可使用，通过加入datalayer在runtime不加载可以在游戏模式下不再显示这个面板。</p>
+<p>external assets下的megascantrees twinmotion里的vegatation trees。</p>
+<p>megascan下的3D_Plants各种鲜花植物</p>
+<p>Maps下的lighting可以直接拖进场景使用hillside中的环境灯光。</p>
+<p>还有个水泥、木板的材质十分出色可以利用。</p>
+<p>material library/texture应该用得到</p>
+<p>远处的树林、树木不是HISM而是foliage，证明近处的是手动放置static mesh再批量选中转换HISM而远处的是foliage绘制，选中这些树foliage actor，电脑会非常卡，不过在foliage模式下绘制、擦除十分流畅。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-12318995d2e7c441147f390ca49a63d7_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0df2ff260573e0e8ed26ae8537b67633_1440w.jpg"></p>
+<p>在主岛上SM_A_FagusGrandifolia_PP这种树的实例显示有1466个，一个个手动搞不划算，可以看出来很多是按一定路径排列的，可以用PRG去散布然后转化实例。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-153925f2e9e16955b2c83ac76821cd1f_1440w.jpg"></p>
+<p>matrix中导入的prop材质不显示</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-aab0d87488f3ef39c9db5fe9e49a799d_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>unrealengine</tag>
+        <tag>景观</tag>
       </tags>
   </entry>
 </search>

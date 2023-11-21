@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-9-21-matrix与hillside中可以利用的东西 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="matrix中需要的东西： road 文件夹包含 马路 kit city road、马路标线 kit meshdecals、桥梁除了主路的部件 kit freeway、人行道和广场的方形花砖kit sidewalk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-9-21-matrix与hillside中可以利用的东西">
+<meta property="og:url" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="matrix中需要的东西： road 文件夹包含 马路 kit city road、马路标线 kit meshdecals、桥梁除了主路的部件 kit freeway、人行道和广场的方形花砖kit sidewalk">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-06f75a17ecdba6ee236b690163a67c2c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-08571d3d5138a0eef77d70a35bea5765_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-d0a38b0229a5f060b900221c7978d21c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-bc547ea39c715422a60b6c505aeb65f9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-f5cdcac8f49c49ae72c4ff2115b9f647_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-9f317ebf75b72f40f5df111fac3fcb7c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-46ba3a5de72b256e63ad1dcba0ca28ea_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e2febc4cb4dd4854d3ee84ff324dcd48_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e1e7576ec2b50c06aac4e7455cffe9ce_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-298c0aefa9c99accb7f2faf70b8e33b6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0ccb6f3eff9e8a5cc784dca7ded094f0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-6b3afdd5f42f7b6871452e2ed6e7fc50_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-12318995d2e7c441147f390ca49a63d7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0df2ff260573e0e8ed26ae8537b67633_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-153925f2e9e16955b2c83ac76821cd1f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-aab0d87488f3ef39c9db5fe9e49a799d_1440w.jpg">
+<meta property="article:published_time" content="2023-11-21T02:09:42.000Z">
+<meta property="article:modified_time" content="2023-11-21T02:19:16.224Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="景观">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-06f75a17ecdba6ee236b690163a67c2c_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-9-21-matrix与hillside中可以利用的东西
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-11-21T02:09:42.000Z" itemprop="datePublished">11月 21 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1437 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>matrix中需要的东西：</p>
+<p>road 文件夹包含 马路 kit city road、马路标线 kit meshdecals、桥梁除了主路的部件 kit freeway、人行道和广场的方形花砖kit sidewalk</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-06f75a17ecdba6ee236b690163a67c2c_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>还有个kit small curb好像没啥用？</p>
+<p>wfc文件夹即wave function collaspe是屋顶通过波函数坍塌算法将一些墙面mesh组合成不规则的结构，课程说有个官方的插件，看了下在plugin里确实搜得到，到时候试试看能不能用得上做屋顶的装饰。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-08571d3d5138a0eef77d70a35bea5765_1440w.jpg"></p>
+<p>enviroment文件夹下background city即主城外面的城市背景mesh，cityedge pier是外围河道旁一圈的码头，包含了5个packed blueprint level actot,courtyard是街区所围成的中心无建筑部分的景观，也都是packed blueprint level actot。freeway根据教学的内容来看是一个超大的完整mesh切割成一个个小的static mesh，这部分不是instance。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-d0a38b0229a5f060b900221c7978d21c_1440w.jpg"></p>
+<p>暂时不清楚它这个材质是怎么弄得，如何对一个超大的mesh上材质呢？在bigcity map操作太卡了，新建空map看了下，大的浅色的变色是MarcoVary，小的是Patch。这两个对于固定的mesh是一样的，instance出来也一样。因此不能完全套用它。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-bc547ea39c715422a60b6c505aeb65f9_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-f5cdcac8f49c49ae72c4ff2115b9f647_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-9f317ebf75b72f40f5df111fac3fcb7c_1440w.jpg"></p>
+<p>我想可以关闭这俩选项配合deco per socket散布bridge上的patch来达到类似效果？</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-46ba3a5de72b256e63ad1dcba0ca28ea_1440w.jpg"></p>
+<p>注意PRG中的road/bridge mesh需要把pivot置于物体顶部末端中心。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e2febc4cb4dd4854d3ee84ff324dcd48_1440w.jpg"></p>
+<p>rooftop包含了一系列屋顶的kit mesh，在PBG中有相关配套的设置</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-e1e7576ec2b50c06aac4e7455cffe9ce_1440w.jpg"></p>
+<p>underpass中包含一些工地的mesh</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-298c0aefa9c99accb7f2faf70b8e33b6_1440w.jpg"></p>
+<p>enviroment中的很多blueprint用到的mesh应该在prop文件夹中。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0ccb6f3eff9e8a5cc784dca7ded094f0_1440w.jpg"></p>
+<p>wfc、environment、prop、road四个文件夹合计18.8GB。另外megascan中还包含一部分比如sidewalk corner mesh、curb的mesh，如果算上整个megascan那又要加11GB.</p>
+<p>hillside中需要的东西：</p>
+<p>river文件夹中包含真实河流的材质，经测试，开启water、landmass插件后创建water river直接给材质就能生成真实河流，河流部分就是多个spline互相遮盖。</p>
+<p>下午去下载PRG5.2版本后来才发现spline mesh 转static mesh的widget可能要下一版更新才有，于是当前版本就是把做好的road、sidespline 进行merge actor操作合并成一个static mesh减少drawcall。</p>
+<p>effects文件夹中包含cloud云的材质可以直接利用，bubble是水面的波光暂时没有测试，rain里面把nigara文件拖进场景可以产生下雨的效果，但是这个十分损耗性能，当数量调到30000以上就会很卡很卡了，在1平方公里范围内13000的粒子数量可以保证效果，但是100平方公里则会几乎看不到，可以作为局部效果凑合，若要在open world里实现，得参考学习<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=a6tFXZhqVig">Unreal Engine 5 - Rain and Thunder in Open World</a></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-6b3afdd5f42f7b6871452e2ed6e7fc50_1440w.jpg"></p>
+<p>blueprint文件夹中的hism可以转化static mesh为HISM或ISM，测试可以移植使用。</p>
+<p>weather manage下的weather control在激活sun postition calculator插件后把sunsky放入场景即可使用，通过加入datalayer在runtime不加载可以在游戏模式下不再显示这个面板。</p>
+<p>external assets下的megascantrees twinmotion里的vegatation trees。</p>
+<p>megascan下的3D_Plants各种鲜花植物</p>
+<p>Maps下的lighting可以直接拖进场景使用hillside中的环境灯光。</p>
+<p>还有个水泥、木板的材质十分出色可以利用。</p>
+<p>material library/texture应该用得到</p>
+<p>远处的树林、树木不是HISM而是foliage，证明近处的是手动放置static mesh再批量选中转换HISM而远处的是foliage绘制，选中这些树foliage actor，电脑会非常卡，不过在foliage模式下绘制、擦除十分流畅。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-12318995d2e7c441147f390ca49a63d7_1440w.jpg"></p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-0df2ff260573e0e8ed26ae8537b67633_1440w.jpg"></p>
+<p>在主岛上SM_A_FagusGrandifolia_PP这种树的实例显示有1466个，一个个手动搞不划算，可以看出来很多是按一定路径排列的，可以用PRG去散布然后转化实例。</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-153925f2e9e16955b2c83ac76821cd1f_1440w.jpg"></p>
+<p>matrix中导入的prop材质不显示</p>
+<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-aab0d87488f3ef39c9db5fe9e49a799d_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/">2023-11-13-UE小区道路布置</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -11187,4 +11187,189 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>景观</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-12-5-完整景观项目分析3</title>
+    <url>/2023/12/05/2023-12-5-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%903/</url>
+    <content><![CDATA[<html><head></head><body><p>苏州星港湾壹号（独墅湖西金悦花园）/ 奥雅园林设计</p>
+<p>58000㎡ 2020年11月。红色的是跑道，并不是什么额外添加的主线标记。整体上都是曲线路径，与几个多边形面片curve boolean组成大的路块，材质要单独给如果整体合并好曲线再投射意味着到时候还要拆分成原来的体块，然而在mesh状态下不太好合并似乎，不能达到curve boolean那样的union效果。比如图2，如果是mesh boolean union的话并不是合并后去掉重叠部分，这会导致重叠部分诡异。</p>
+<p><img src="https://picx.zhimg.com/80/v2-347adc865334acc805b95fe6172d4ff9_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="https://pic1.zhimg.com/80/v2-21d916f4db85d361b620428f9fab5cda_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-66b15aab421c791e4f258eee6b10c12c_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-2f86994a55a9c8651f95682b75ee38e5_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-11b33aae1123ab19e2db53b099643d99_1440w.jpg"></p>
+<p>大门呆板，完全没有层次感，墙面砖块切分平铺一致，绿化虽有花坛，完全一个高度且品种单一平铺。</p>
+<p><img src="https://picx.zhimg.com/80/v2-70ec11358161218ee19f1ef216af01bd_1440w.jpg"></p>
+<p>目前看到最蹩脚的影墙？绿化带报流水账，墙面地砖都是同个样式平铺。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-df004f3c584d9061018c566801d390ad_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-8923d69ae8f0907f97621373ac1388e0_1440w.jpg"></p>
+<p>影壁过来这个算开放式2进</p>
+<p><img src="https://pica.zhimg.com/80/v2-514eb789a6749006332ad24796fb7dcd_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-8aab617c0d6b942c678e4776d0adc230_1440w.jpg"></p>
+<p>3进有想法，不过整体看上去就是公园，缺乏独特精神气质，这3个亭子太尴尬了。</p>
+<p><img src="https://picx.zhimg.com/80/v2-17db0dadc0419030c226f7b0565ec9ae_1440w.jpg"></p>
+<p>绿化品种不好？疏密把控不好导致没有层次？图3简直像一个个棺材板。苏州星港湾壹号可以说是一个典型的大型居民区，它的楼栋间距其实很大了，但是景观设计看上去很小气，没有划分出核心景观，也没有体现功能除了儿童乐园。今天要写一个同类功能区域划分的对比。</p>
+<p><img src="https://picx.zhimg.com/80/v2-85cd524e07f4d77d3b42f3b640edd941_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-61df775682d204a85209c783f5d895ec_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-2221a371f6018b3e78db70c134a14460_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-6cc35a7a014ae4b97950ac77359720fc_1440w.jpg"></p>
+<p>重庆融创·长乐雅颂</p>
+<p>这个算是在围墙上有了一种新的可能即大型雕塑像博物馆那样间隔展示，标识性很强，即使墙体完全就是大白墙。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-4be002796d7a414fb1ee751fc54d47d3_1440w.jpg"></p>
+<p>这个入户大门很有想法，材质、涂饰丰富度上来了，不过比例上我觉得有些问题，还有就是这个屋顶瓦不合适。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-f403a0448aa1ee18f2b52951eed0c8bf_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-92d20f0e6c4928d14ac101be2c69a4a0_1440w.jpg"></p>
+<p>长乐雅颂项目的最大特点是这个铝合金架构的中式建筑作为景观休闲、会客区，这个是完爆很多跳空平台、天桥的。它有效的把项目大门和项目的建筑衔接在一起了，而不是很多项目中会感觉高层建筑与休闲会客区毫无关系有碾压、压抑的态势。绿化和道路、景观石块高低错落有多个层次，不像苏州星港湾壹号中的平铺，单调乏味。</p>
+<p><img src="https://picx.zhimg.com/80/v2-3c2dd722448e56669a262a0eee9b36bf_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-74e2e6fb9c4c1ae8ad1a694ca9faf2dc_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-49335306fcfb2a69790f8dea0bd63706_1440w.jpg"></p>
+<p>主体住宅建筑间距很小，这部分的绿化与展示区相比完全不是一个档次，没有石头、高低起伏的层次错落、植物品种少。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-60c343308e2e588ee6c190fe50f4b213_1440w.jpg"></p>
+<p>这个带顶回廊看起来很大气且不压抑，我觉得主要原因在于它与周围有高差，整体形式和宁波万科格拉美西项目中的回廊差不多，但是后者在一个平面上就会觉得压抑不少。</p>
+<p><img src="https://picx.zhimg.com/80/v2-0e771700feb3a469d435f91485bd6787_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-0c3134b90a483fc8b6c1a7d55eafe533_1440w.jpg"></p>
+<p>地砖用了很有质感的石板。</p>
+<p><img src="https://picx.zhimg.com/80/v2-0cc28ef1ea2bb72c1e8d8093ca011cb8_1440w.jpg"></p>
+<p>鱼鳞状地板tile</p>
+<p><img src="https://picx.zhimg.com/80/v2-40ee55ce7b8e8872816fa3b3edb5186c_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-618aebf644605468a3325bec57cd0101_1440w.jpg"></p>
+<p>A字型屋顶的回廊，建筑的留白被过度丰富的绿化形成了反差，这个很难评价，不过至少是有明确设计态度、想法的，制造了层次至于说要平衡还是反差可以调节，而不是所有的装饰在一个层次上。</p>
+<p><img src="https://picx.zhimg.com/80/v2-bf6f4c194f97fc393f0690b182575d03_1440w.jpg"></p>
+<p>高层的回廊带休息区与地面回廊形成一种呼应。</p>
+<p><img src="https://picx.zhimg.com/80/v2-d2ab033e2aac370185e7c2a928203f05_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-944244b0ac08e2b2e7e5aebbfdc6bf5c_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-38a4acf2f6c88e75d0df577b82d37325_1440w.jpg"></p>
+<p>成都中国铁建西派城 / 贝尔高林国际</p>
+<p>占地面积： 41721㎡，景观面积： 31040㎡，2020年11月完成，它这个布局比较方正，所有的道路似乎都是各种等宽的直线以及直线转折。用curve line绘制curve boolean可以得到这种效果，不过要注意line生成的基础线条要拉平道z轴0点。</p>
+<p><img src="https://picx.zhimg.com/80/v2-9be708333a4fc99e1195efbf9070b3df_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-7ea646b577a9a501bb3bdc3de5f62663_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-47c9a3eabdc4addd12b69307323c86da_1440w.jpg"></p>
+<p>图1可能是下沉式包围休闲区源头？这个微微凸起的水景太过保守鸡肋了，有种托不住底随时要溢出来的感觉。图2显示部分绿化在花坛基础上，形成了高差层次。花坛的材质、形式、形状也有多种。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-b3664e067556b3f58c2d8c70a9d46a0a_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-9664ec6adc6785d5fc72592f2c59a212_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-70d7a0ba7ee9d06f109e2bb56de3a979_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-017039d0b2f0332f18b4577bf3aa6c2d_1440w.jpg"></p>
+<p>雕塑依旧扣大分。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-0809e60c3537d130a119da77b98947da_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-da955f15168b7602f7576425b7871324_1440w.jpg"></p>
+<p>广州新力海石洲悦 / 成都赛肯思</p>
+<p>12361㎡,竣工时间：2020年10月.曲线影壁大门，地砖太普通了甚至和墙面使用了同种材质，屋檐又是平的看起来单调。</p>
+<p><img src="https://picx.zhimg.com/80/v2-ee00f23c784a2c2dc8fcd09ab405b87b_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-b1a1937056038e4e3b635afdcb5d4ad3_1440w.jpg"></p>
+<p>树木太密集，草坪上的box plant密集，过于平铺缺少层次。从顶视图可以看到box plant有想法，但过于密集</p>
+<p><img src="https://pica.zhimg.com/80/v2-5faaccf9034bac297a6f940c268d9d59_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-5acf72e9c37a3765b364df6202bc995f_1440w.jpg"></p>
+<p>回廊十分简陋缺少装饰元素，这个休闲区对比长乐雅颂拉跨太多了。</p>
+<p>整个貌似是L型布局，最先是左下然后左下上方是刚才那个小凉亭</p>
+<p>最后是这样3进和之前的景观感觉衔接不上，没有装饰层次构成一致性。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-bfc73cd88f21e186db4ac351d229b7d5_1440w.jpg"></p>
+<p>昆明贵宾楼 / 种地设计</p>
+<p>2500平米，2020年04月。景观上有点长乐雅颂的味道，不过单调了些除了绿化和桥廊还有建筑就没了，建筑更是十分简陋。</p>
+<p><img src="https://pica.zhimg.com/80/v2-770678d85598f7f42b4c3dcf09817b0b_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-4cb7a0a93dd5acd1851fae8c81474673_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-9e860643ec25f6fc69e5beb9755552e7_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-1372f2d7f9da852b732ddeffb5acb5a0_1440w.jpg"></p>
+<p>佛山龙光·天宸 / 致澜景观</p>
+<p>6100㎡，2020年08月。栅格、砖石墙、间隙构成的回廊，两个水景以及绿化的载体丰富，错落布局。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-c5183af1d570b66df81d2a924f724ac1_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-052c1c70b2a300417d2c9b31f53c2801_1440w.jpg"></p>
+<p>地砖扣分，太雷同了，布局有些呆板，售楼处二楼平台通过楼梯连接到2进，形成一个类似下沉式广场的效果。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-667d0f9b0d670df2784ef780958ad544_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-62e83edba314525be4b99af83c3a73e3_1440w.jpg"></p>
+<p>这个下沉式休闲区幅度太小气了，雕塑像牢笼元素单一。</p>
+<p><img src="https://picx.zhimg.com/80/v2-a1af9e0834cd4ce152fd24d821f9ac4a_1440w.jpg"></p>
+<p>中南威高林清月 / 东朗景观</p>
+<p>间距太小、层高小看着压抑。</p>
+<p><img src="https://pica.zhimg.com/80/v2-87c57137b0964865313da794976bf827_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-72efff3a3da0f76221bc35e22cb3d949_1440w.jpg"></p>
+<p>高差大间距小，有压迫感。层次不错</p>
+<p><img src="https://picx.zhimg.com/80/v2-8384f4d67018783bb738d8bc574674e1_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-e09023da5d60bc2946bf45784d0be584_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-95eded102c0604caf563235b94777a7e_1440w.jpg"></p>
+<p>地砖墙面太呆板了。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-10c2e285e08a24058a13c15d9d6b2f71_1440w.jpg"></p>
+<p>南京万科翡翠滨江•会所体验区</p>
+<p>3950㎡，2021.04完工。从百度地图来看这个是入口。</p>
+<p>两侧的墙体有点意思。外墙有凹凸放置雕塑。中心这个圆形水池太不搭调了。</p>
+<p><img src="https://picx.zhimg.com/80/v2-cfbe425ec345215fd8cc73c6a8bd6f55_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-41de882bc3be1e05fd8e2da49d8fcdf7_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-fc3a0409d0f848aa564d17d83df82d43_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-8cdd578dfbd655250d41a150fef89d37_1440w.jpg"></p>
+<p>绿化很有特色，图一看起来过于密集了，缺少疏密的层次。图2、3、4就可以</p>
+<p><img src="https://picx.zhimg.com/80/v2-1f61c1ff3642a465ad2d52eeea9f9a24_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-65bfd625526ff3c25f761e14a4dc7a50_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-cf798614307788118b739a55cbf00d69_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-b45e95568167dc3cb77d066d689439d4_1440w.jpg"></p>
+<p>这个花坛可能在一些曲线分割的小区用得上。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-a56762cce5272ca0471d50e42217f2d8_1440w.jpg"></p>
+<p>上海黑石M +微更新 / Lab D+H</p>
+<p>这似乎和鸿寿坊的入口侧墙一样。</p>
+<p><img src="https://picx.zhimg.com/80/v2-e32e102ebc5f64f96bd4b74d4e680f8b_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-05b3b4a7cbabcf96bc5cfe5c57df6ea4_1440w.jpg"></p>
+<p>这个L型砖石墙整体封一个立面很有想法，与旁边的爬墙绿化形成很好的交织。</p>
+<p><img src="https://picx.zhimg.com/80/v2-ac3b3ab679212c63fae85e76f538a4c4_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-4b4ae75509f2f1166ce50635f88df40e_1440w.jpg"></p>
+<p>注意各式各样的花坛与不同品种的植物。</p>
+<p><img src="https://picx.zhimg.com/80/v2-7b0b4ee70363c27fb317e794be5e9603_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-51f4beaac5371d9a8a64ff08dd7e7dbd_1440w.jpg"></p>
+<p>邦泰·宽语 / 澳博景观</p>
+<p>2021-5月。这个项目用层叠高差太频繁了，导致重复单调，polygon折角太凌乱。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e557b24abf680c7701bc038fbc596736_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-60f228fae9b1705e4a92f97ff2f62e26_1440w.jpg"></p>
+<p>全是边缘extrude感到重复。</p>
+<p><img src="https://picx.zhimg.com/80/v2-ca846a2ce2c3b78cf6cbd33263211015_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-e25f1eadd769e05d3e4f298cc3821e57_1440w.jpg"></p>
+<p>这个凉亭用力过猛，目前来看建筑领域还没能把几何节点类型的实例复杂形变装饰、部件应用到住宅的体系中。</p>
+<p><img src="https://picx.zhimg.com/80/v2-7f07764b62804f62bcaf62f531ed9f6c_1440w.jpg"></p>
+<p>嘉兴市民中心（嘉兴南湖未来广场）/ MAD建筑事务所</p>
+<p>占地面积：126,740㎡，2021-04-29。</p>
+<p>这个项目主要就是一体化的有机建筑了，没什么大的花头。不过上面切分了多个平台，依附于有机外壳墙体。</p>
+<p><img src="https://picx.zhimg.com/80/v2-66f907b769bf2dd7ce7df12911631901_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-c515377e0ada014f5f79585b978112a1_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-6ea26baac90d551b8d0834e58f3119f7_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-aef2f0f9702d22dc6cf82f09f546a706_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-5bc771a7550191663710469bbe3d5af4_1440w.jpg"></p>
+<p>重庆龙湖 · 山前体验区 / JTL景观设计</p>
+<p>7000㎡，2021-05-11。龙湖 · 山前体验区与中海阅湘台的氛围如出一辙，正好比较两个项目。这个水景载体高起，间隔石板路的廊道好评。好像水景一侧贴着坡面绿化，点题前山。</p>
+<p><img src="https://picx.zhimg.com/80/v2-a84573f2ff33de1e40c817405a22418c_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-7438f3f64609fef523d7235b451a7165_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-8b8dfbe8c3ab7a02782840d6bbdea157_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-fd7dd2bef1f0f3bcbe1a13bdea8ef56d_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-2e53d905b6ed7143ff5bf884c2b6c25d_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-5d30b34cbc1ad4d11367622e97cb70a9_1440w.jpg"></p>
+<p>另一面这个庭院一排排的box plant瞬间拉低了档次，还有这个树十分突兀。</p>
+<p><img src="https://picx.zhimg.com/80/v2-5ec9b4b87c0dfca81a44292ea2cfd572_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-1be86c2821998ac5328037a5589809e6_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-0b0cdd49e029aa05cb7f7c8348bd3c53_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-20346a439ccf150cd5295f3229374b19_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-6d7bbf97c6cc79f3e62b3fa2f9d9f342_1440w.jpg"></p>
+<p>长沙中海阅湘台展示区 / 派澜设计</p>
+<p>竣工时间：2023.4中海阅湘台把大门的概念拉伸了，山脚下的这个围墙和标牌作为一个起点，需要穿行一段不短的路才到主体的大门。一路上两旁的绿化带很开阔，从某种意义上说这也可以理解为一个廊道，只不过比起之前的项目来说它显得十分大气。</p>
+<p><img src="https://picx.zhimg.com/80/v2-5d7430c6745e7ef12f107300fe3c949e_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-cb5531374bf0dabd98904a5988667510_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-8864f3cfa350759fbe59e69239083b48_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-a48dbfa0e173940f5d578895a83d4ce5_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-306e02647c1796a764149d9687995aad_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-4ad8b4c4ecc474884e4a4fd9952b720a_1440w.jpg"></p>
+<p>这个是售楼处前的水景，我有个想法如果它一路贯穿廊道到达山脚来个逐流而上可就更大气了。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e9c0a0d0053eee8b2fbe9ed9ddb21c10_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-c16f49e8a48153de9eea558ff1d23d4b_1440w.jpg"></p>
+<p>中心的环绕院落里的绿化不多，摆的很有层次，且五彩缤纷。水景贯穿整个院子，由石板形成通道，中间有个下沉式的会客休闲区。楼上似乎还有观景平台。相比其他几个项目，中海阅湘台的设计部分其实很少，售楼处四周的样子没有拓展开来。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-08b8a97b0b0a4585363d43ea878e062b_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-3909369b690f63ef442d07f5994b8281_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-5ffbcc879688e9672ae1dad4a25a8d78_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-574cae208e2b5421b3c4b9d697544340_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-83b754986544172ce8cabc79f01a15a0_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-c06705ce8edba97bb6e946a99d851a04_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-34d5f680b0353d3c755a83b40a31275a_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>景观</tag>
+      </tags>
+  </entry>
 </search>

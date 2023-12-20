@@ -11511,4 +11511,83 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>景观</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2023-12-14-blender道路uv展开FRG替换PRG</title>
+    <url>/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/</url>
+    <content><![CDATA[<html><head></head><body><p>首先做到这一步我发现之前大量时间用在选取物体“/”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。</p>
+<p>关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。</p>
+<p>道路的绘制直线可以直接用cube去拼凑，若是曲线路径那么有两种做法一个是bezier绘制，这个方法适用于不规则超长贯穿式路径的绘制，可以快速搞出很不规则的曲线，缺点是其弧度很僵硬，与绘制的笔法有关系，可能有数位板会好一些？下图中白色为bezier绘制的曲线路面。第二种方式是对挤出的cube用spin tool做拱形挤出，这种方法每次只能搞一个弯曲，优点是做出来的弧度十分圆润。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>bezier绘制的效果通过curve tool的outline产生“平行曲线”后转换mesh再bridge edge loop，可以得到十分“平行”的“点位”，这样展开uv后材质的连续性很好。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0ef507e8e52e5fd6cffcc1743208a039_1440w.jpg"></p>
+<p>用spin tool产生的几何体其“点位”不“平行”，这样展开uv会导致材质拉伸错位，解决办法是对这个mesh提取曲线，用outline的方式重新生成。下图1展现了两种方式的拓扑，下图2展现了uv展开后的材质可以看到后者为理想效果。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d826f297ce2400dc8b58f844c7f50432_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d7cfdf7400d8ba8662bdf6edd720d803_1440w.jpg"></p>
+<p>不过若非精细切分的砖石像下图中这种大理石或者塑胶跑道、水泥地，“点位”不“平行”也没关系。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bcc4a09a7bc13c6326a6985377afde6f_1440w.jpg"></p>
+<p>超长的多段mesh同种材质我偏向于整个合并展开uv而不是分成好几个去校对首尾相连的部分，我不知道这在uv利用方面会不会有什么问题。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-fc39fff1ad716f5e3bc002f9fef8e616_1440w.jpg"></p>
+<p>两侧镶边的地砖棱角式转折我目前是分3个mesh去实现的，开始时我想用好几个mesh拼贴，后来想了下直接拉伸每个做独立的uv mapping调节，一个个拼贴实在太费劲了。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-341f125cda59122f64b9d16230371ee3_1440w.jpg"></p>
+<p>这种带有曲线路径的两侧镶边我是用edge loop切分给材质的，这里要注意切分时选中起始边按e键会出现一个点，这时按住ctrl可以激活顶点捕捉功能，以此精确切分两侧镶边的位置无需计算。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-827f12376b5ed679c5e4ebacd5660d38_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7bba5bbc4a62638fec01f379d9a1873a_1440w.jpg"></p>
+<p>关于uv的scale我暂时没啥概念，其实blender里调节意义不是很大，最终还要放到ue里面调整材质，可以说今天搞了半天有些强迫症。</p>
+<p>围墙若用blender的array做ue 中的spline mesh效果，成型很快，这个带有复杂雕刻装饰的围墙合计500万面，导出fbx需要2-3分钟。ue导入fbx build nanite需要2-3分钟，结果显示有问题。把project setting里面的platform从direct11改回direct12即可，经测试blender array不用对uv、材质做修改，直接一步到位。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0925a2bbb2638088bf8cf3420975977a_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-9e32be4012eb0b373ba26e3937109573_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e6f1607dbd95c33fc5a0b4ccd5efb527_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ccffe3cf96e4b39bdc4bbb9222b99b40_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ef825f6163a374a96dace2d738add5bb_1440w.jpg"></p>
+<p>第一个小区占地288x325平方米，用总面积去除的话去掉山林和河道少说也有1000个区块了，平均7天做一个区块则一个人搞得话要20年才能完成，如果是3天做一个区块也得8年多。现在改用所有物体顶点模式z轴权重渐进偏移来模拟地形起伏，那么问题变成了何时去编辑地形？目前来看似乎dcc软件的场景上限大概在几千万的顶点数，不可能在dcc软件中完成全部场景一次性导入ue，那么问题就变成了如何拼接，如果都是平地的话无缝对接很容易但是起伏的话考虑到若是每个小区切分但起伏是跨区的，因此若对切分的独立地块做起伏凹凸，则会使临近的小区拼接不上，一个小区地形的只有包围它附近构成九宫格的8个区块的交界部分确定起伏才能保证整体起伏没问题。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5ee0dd14db4d285524ec8d7e0426ae7_1440w.jpg"></p>
+<p>frg初步实战，我本想直接提取frg的曲线配合frg的curve overide功能重构局部曲线的宽度，后来发现整体复制曲线会出问题，分段复制则不会原因暂时不明，可能是曲线靠近了互相影响？另一方面是曲线加载到curve overide之后再操作偏移会特别卡，因此在修改radius之前先不要加载，画完需要修改宽度部分的曲线再加载。curve overide+radius不仅可以调整road还可以调整sidewalk等所有FRG mesh。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e93e6396df8bfd62409c64a798b08132_1440w.jpg"></p>
+<p>权重渐进偏移只影响灰色圈内的部分，其影响为视图所见部分，随着中间滚动放大缩小灰色圈也会相对变大变小，其大小是绝对的。这对于制作地意义也就是说当道路的起伏全部确定后，利用道路mesh的内圈循环边配合knife project提取区块，区块的起伏只要不触碰到区块的边界即可独立去制作，届时可以完美贴合道路，但这种方法会导致小区内部的地形从不平整开始建设小区。那么换个思路先做小区后做道路呢？</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-1a44fd177bbee5e7aa6117b68e7f9f0d_1440w.jpg"></p>
+<p>frg的curve overide是依照半径范围作用，只要两个顶点组成的一个线段就可以对一个区域产生影响，</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-a8456a438d3af68cbaa898d5c1e2a0db_1440w.jpg"></p>
+<p>如图通过两个临近线段可以实现不同路宽的对接。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bfd0259a82d8185010cbfee27038918d_1440w.jpg"></p>
+<p>最终我想了下，其实所有的道路完成后内圈edge loop提取区块去做建筑、环境，区块和道路都暂时不处理起伏，等相邻的区块做完了放回来，调整影响相邻区块的道路起伏即可，逐步完成地形、道路的起伏凹凸！</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4b0a13101ad3674bdd6f0e5824f3bced_1440w.jpg"></p>
+<p>FRG 看似材质均匀实则无uv需要自己添加一个然后展开uv。uv scale居然设置到了500多！</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e43fc0a6b95fb0b5b1c6f49eed95ce89_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7d93f4419ff3706f75d475f818d9d0df_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-70e4988a98ce41d89a9a293dfedfa5b4_1440w.jpg"></p>
+<p>基于frg的内圈edge loop很容易生产2次无缝衔接人行道，因此我想frg的构成就是道路、curb人行道后期通过curb提取内圈edge loop用outline生成需要宽度的人行道，转换mesh，再用bridge edge loop即可获得“平行对位”的polygon，这点很重要不然uv展开就会出现诡异拉伸。</p>
+<p>2023-12-19晚，经过实践发现curb用frg profile出来的uv会诡异，自己重排比较麻烦，因此只生成道路，curb、人行道都用blender去做，其中curb为array生成，这么看来人行道也可以array但是考虑到array在弯道需要大的面数来形变贴合，用array会使得人行道面数增大？这个明天测试下。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-625afcf52f525f354b94e0adb09eaeb9_1440w.jpg"></p>
+<p>实践操作时我发现锐角型的夹角outline之后vertex会错位需要手动调整点分布这里结合两个功能一个是fillet一个是subdivide，确保vertex数内外圈一致。bridge edge loop用blender默认的不行，需要在addon激活loop tool，通过调整twist和reverse可以使edge loop“平行对齐”。想要复合人行道材质，则添加一圈edge loop，即可。目前200多万面，blender操作并不卡。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7e92c737c18a316061e4c521a1f7ce05_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b73d412459c097e49626ce1366a11586_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5056758c3a2e21627501ff397e024aa_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-97c95aeea820e400c428194cb8fa4ff9_1440w.jpg"></p>
+<p>frg的人行道在锐角时甚至会和curb有接缝，这个要在后期修就很难了。另外，分离人行道能大大减少单个road mesh的vertex。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-34b79f981e8aa09f201972cf402faacb_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-15c2ed0971711c442168e241e1c1e78a_1440w.jpg"></p>
+<p>2023-12-19补充：frg生成的道路实际上带了uv不用自己再去展开。当convert mesh之后，uv maps是空的，在attributes中找到uv，箭头点开convert attribute选项设置为face corner 和 2d vector。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-f80f2fffa31713ab497c2809cb5e9fd0_1440w.jpg"></p>
+<p>frame select可以在点模式下作用，我看网上说用numpad的”.”键，我按了没用，现在我把frame select快捷键设置为numpad “.”键。这在uv editing时十分提高效率。curb的uv在几何节点自带的uv模式下很诡异，没办法只能自己重排了。但如果是这样的话不如考虑下用array+curve去做curb了。因为重排curb uv需要对每一圈都重排，我感觉应该没array方便。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4ccf0afe7b4b3830b102c89a62ea4c4c_1440w.jpg"></p>
+<p>array版本的，不用反复调整uv就是设置贴合位移就好。array的设置为relative offset若是constant offset会消除切分且shading不明原因闪烁。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b43a0a46f7202b29000fc569530bccad_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e82925866f477e17b8b3a0c7378079c9_1440w.jpg"></p>
+<p>outline或者转换平面inset在夹角处会有点的错位，把内圈的vertex merge at center即可</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d0e61968505a6999ab2b154ab5797956_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-68eb2b68388a008a98a6fd7fc82b728b_1440w.jpg"></p>
+<p>2023-12-20更新：最终道路人行道版本确认，一个frg带curb，width为curb大小+人行道宽度，一个不带。由于array形成的curb没法选择环形边，因此需要一个frg带curb，利用它来生成人行道的外边界环形边。不带curb的为最终的道路mesh，其边界用来生成curb。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-32165c8985ba87adfb88ef1b78476df0_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>uv展开</tag>
+        <tag>FRG</tag>
+      </tags>
+  </entry>
 </search>

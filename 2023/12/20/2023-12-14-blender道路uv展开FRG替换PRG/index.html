@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-12-14-blender道路uv展开FRG替换PRG - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="首先做到这一步我发现之前大量时间用在选取物体“&#x2F;”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。 关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。 道">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-12-14-blender道路uv展开FRG替换PRG">
+<meta property="og:url" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="首先做到这一步我发现之前大量时间用在选取物体“&#x2F;”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。 关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。 道">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0ef507e8e52e5fd6cffcc1743208a039_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d826f297ce2400dc8b58f844c7f50432_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d7cfdf7400d8ba8662bdf6edd720d803_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bcc4a09a7bc13c6326a6985377afde6f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-fc39fff1ad716f5e3bc002f9fef8e616_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-341f125cda59122f64b9d16230371ee3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-827f12376b5ed679c5e4ebacd5660d38_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7bba5bbc4a62638fec01f379d9a1873a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0925a2bbb2638088bf8cf3420975977a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-9e32be4012eb0b373ba26e3937109573_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e6f1607dbd95c33fc5a0b4ccd5efb527_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ccffe3cf96e4b39bdc4bbb9222b99b40_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ef825f6163a374a96dace2d738add5bb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5ee0dd14db4d285524ec8d7e0426ae7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e93e6396df8bfd62409c64a798b08132_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-1a44fd177bbee5e7aa6117b68e7f9f0d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-a8456a438d3af68cbaa898d5c1e2a0db_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bfd0259a82d8185010cbfee27038918d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4b0a13101ad3674bdd6f0e5824f3bced_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e43fc0a6b95fb0b5b1c6f49eed95ce89_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7d93f4419ff3706f75d475f818d9d0df_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-70e4988a98ce41d89a9a293dfedfa5b4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-625afcf52f525f354b94e0adb09eaeb9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7e92c737c18a316061e4c521a1f7ce05_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b73d412459c097e49626ce1366a11586_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5056758c3a2e21627501ff397e024aa_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-97c95aeea820e400c428194cb8fa4ff9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-34b79f981e8aa09f201972cf402faacb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-15c2ed0971711c442168e241e1c1e78a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-f80f2fffa31713ab497c2809cb5e9fd0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4ccf0afe7b4b3830b102c89a62ea4c4c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b43a0a46f7202b29000fc569530bccad_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e82925866f477e17b8b3a0c7378079c9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d0e61968505a6999ab2b154ab5797956_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-68eb2b68388a008a98a6fd7fc82b728b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-32165c8985ba87adfb88ef1b78476df0_1440w.jpg">
+<meta property="article:published_time" content="2023-12-20T03:36:12.000Z">
+<meta property="article:modified_time" content="2023-12-20T03:44:19.919Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="uv展开">
+<meta property="article:tag" content="FRG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-12-14-blender道路uv展开FRG替换PRG
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-20T03:36:12.000Z" itemprop="datePublished">12月 20 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            22 分钟 读完 (约 3238 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>首先做到这一步我发现之前大量时间用在选取物体“/”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。</p>
+<p>关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。</p>
+<p>道路的绘制直线可以直接用cube去拼凑，若是曲线路径那么有两种做法一个是bezier绘制，这个方法适用于不规则超长贯穿式路径的绘制，可以快速搞出很不规则的曲线，缺点是其弧度很僵硬，与绘制的笔法有关系，可能有数位板会好一些？下图中白色为bezier绘制的曲线路面。第二种方式是对挤出的cube用spin tool做拱形挤出，这种方法每次只能搞一个弯曲，优点是做出来的弧度十分圆润。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>bezier绘制的效果通过curve tool的outline产生“平行曲线”后转换mesh再bridge edge loop，可以得到十分“平行”的“点位”，这样展开uv后材质的连续性很好。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0ef507e8e52e5fd6cffcc1743208a039_1440w.jpg"></p>
+<p>用spin tool产生的几何体其“点位”不“平行”，这样展开uv会导致材质拉伸错位，解决办法是对这个mesh提取曲线，用outline的方式重新生成。下图1展现了两种方式的拓扑，下图2展现了uv展开后的材质可以看到后者为理想效果。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d826f297ce2400dc8b58f844c7f50432_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d7cfdf7400d8ba8662bdf6edd720d803_1440w.jpg"></p>
+<p>不过若非精细切分的砖石像下图中这种大理石或者塑胶跑道、水泥地，“点位”不“平行”也没关系。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bcc4a09a7bc13c6326a6985377afde6f_1440w.jpg"></p>
+<p>超长的多段mesh同种材质我偏向于整个合并展开uv而不是分成好几个去校对首尾相连的部分，我不知道这在uv利用方面会不会有什么问题。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-fc39fff1ad716f5e3bc002f9fef8e616_1440w.jpg"></p>
+<p>两侧镶边的地砖棱角式转折我目前是分3个mesh去实现的，开始时我想用好几个mesh拼贴，后来想了下直接拉伸每个做独立的uv mapping调节，一个个拼贴实在太费劲了。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-341f125cda59122f64b9d16230371ee3_1440w.jpg"></p>
+<p>这种带有曲线路径的两侧镶边我是用edge loop切分给材质的，这里要注意切分时选中起始边按e键会出现一个点，这时按住ctrl可以激活顶点捕捉功能，以此精确切分两侧镶边的位置无需计算。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-827f12376b5ed679c5e4ebacd5660d38_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7bba5bbc4a62638fec01f379d9a1873a_1440w.jpg"></p>
+<p>关于uv的scale我暂时没啥概念，其实blender里调节意义不是很大，最终还要放到ue里面调整材质，可以说今天搞了半天有些强迫症。</p>
+<p>围墙若用blender的array做ue 中的spline mesh效果，成型很快，这个带有复杂雕刻装饰的围墙合计500万面，导出fbx需要2-3分钟。ue导入fbx build nanite需要2-3分钟，结果显示有问题。把project setting里面的platform从direct11改回direct12即可，经测试blender array不用对uv、材质做修改，直接一步到位。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-0925a2bbb2638088bf8cf3420975977a_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-9e32be4012eb0b373ba26e3937109573_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e6f1607dbd95c33fc5a0b4ccd5efb527_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ccffe3cf96e4b39bdc4bbb9222b99b40_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-ef825f6163a374a96dace2d738add5bb_1440w.jpg"></p>
+<p>第一个小区占地288x325平方米，用总面积去除的话去掉山林和河道少说也有1000个区块了，平均7天做一个区块则一个人搞得话要20年才能完成，如果是3天做一个区块也得8年多。现在改用所有物体顶点模式z轴权重渐进偏移来模拟地形起伏，那么问题变成了何时去编辑地形？目前来看似乎dcc软件的场景上限大概在几千万的顶点数，不可能在dcc软件中完成全部场景一次性导入ue，那么问题就变成了如何拼接，如果都是平地的话无缝对接很容易但是起伏的话考虑到若是每个小区切分但起伏是跨区的，因此若对切分的独立地块做起伏凹凸，则会使临近的小区拼接不上，一个小区地形的只有包围它附近构成九宫格的8个区块的交界部分确定起伏才能保证整体起伏没问题。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5ee0dd14db4d285524ec8d7e0426ae7_1440w.jpg"></p>
+<p>frg初步实战，我本想直接提取frg的曲线配合frg的curve overide功能重构局部曲线的宽度，后来发现整体复制曲线会出问题，分段复制则不会原因暂时不明，可能是曲线靠近了互相影响？另一方面是曲线加载到curve overide之后再操作偏移会特别卡，因此在修改radius之前先不要加载，画完需要修改宽度部分的曲线再加载。curve overide+radius不仅可以调整road还可以调整sidewalk等所有FRG mesh。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e93e6396df8bfd62409c64a798b08132_1440w.jpg"></p>
+<p>权重渐进偏移只影响灰色圈内的部分，其影响为视图所见部分，随着中间滚动放大缩小灰色圈也会相对变大变小，其大小是绝对的。这对于制作地意义也就是说当道路的起伏全部确定后，利用道路mesh的内圈循环边配合knife project提取区块，区块的起伏只要不触碰到区块的边界即可独立去制作，届时可以完美贴合道路，但这种方法会导致小区内部的地形从不平整开始建设小区。那么换个思路先做小区后做道路呢？</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-1a44fd177bbee5e7aa6117b68e7f9f0d_1440w.jpg"></p>
+<p>frg的curve overide是依照半径范围作用，只要两个顶点组成的一个线段就可以对一个区域产生影响，</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-a8456a438d3af68cbaa898d5c1e2a0db_1440w.jpg"></p>
+<p>如图通过两个临近线段可以实现不同路宽的对接。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-bfd0259a82d8185010cbfee27038918d_1440w.jpg"></p>
+<p>最终我想了下，其实所有的道路完成后内圈edge loop提取区块去做建筑、环境，区块和道路都暂时不处理起伏，等相邻的区块做完了放回来，调整影响相邻区块的道路起伏即可，逐步完成地形、道路的起伏凹凸！</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4b0a13101ad3674bdd6f0e5824f3bced_1440w.jpg"></p>
+<p>FRG 看似材质均匀实则无uv需要自己添加一个然后展开uv。uv scale居然设置到了500多！</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e43fc0a6b95fb0b5b1c6f49eed95ce89_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7d93f4419ff3706f75d475f818d9d0df_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-70e4988a98ce41d89a9a293dfedfa5b4_1440w.jpg"></p>
+<p>基于frg的内圈edge loop很容易生产2次无缝衔接人行道，因此我想frg的构成就是道路、curb人行道后期通过curb提取内圈edge loop用outline生成需要宽度的人行道，转换mesh，再用bridge edge loop即可获得“平行对位”的polygon，这点很重要不然uv展开就会出现诡异拉伸。</p>
+<p>2023-12-19晚，经过实践发现curb用frg profile出来的uv会诡异，自己重排比较麻烦，因此只生成道路，curb、人行道都用blender去做，其中curb为array生成，这么看来人行道也可以array但是考虑到array在弯道需要大的面数来形变贴合，用array会使得人行道面数增大？这个明天测试下。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-625afcf52f525f354b94e0adb09eaeb9_1440w.jpg"></p>
+<p>实践操作时我发现锐角型的夹角outline之后vertex会错位需要手动调整点分布这里结合两个功能一个是fillet一个是subdivide，确保vertex数内外圈一致。bridge edge loop用blender默认的不行，需要在addon激活loop tool，通过调整twist和reverse可以使edge loop“平行对齐”。想要复合人行道材质，则添加一圈edge loop，即可。目前200多万面，blender操作并不卡。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-7e92c737c18a316061e4c521a1f7ce05_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b73d412459c097e49626ce1366a11586_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b5056758c3a2e21627501ff397e024aa_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-97c95aeea820e400c428194cb8fa4ff9_1440w.jpg"></p>
+<p>frg的人行道在锐角时甚至会和curb有接缝，这个要在后期修就很难了。另外，分离人行道能大大减少单个road mesh的vertex。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-34b79f981e8aa09f201972cf402faacb_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-15c2ed0971711c442168e241e1c1e78a_1440w.jpg"></p>
+<p>2023-12-19补充：frg生成的道路实际上带了uv不用自己再去展开。当convert mesh之后，uv maps是空的，在attributes中找到uv，箭头点开convert attribute选项设置为face corner 和 2d vector。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-f80f2fffa31713ab497c2809cb5e9fd0_1440w.jpg"></p>
+<p>frame select可以在点模式下作用，我看网上说用numpad的”.”键，我按了没用，现在我把frame select快捷键设置为numpad “.”键。这在uv editing时十分提高效率。curb的uv在几何节点自带的uv模式下很诡异，没办法只能自己重排了。但如果是这样的话不如考虑下用array+curve去做curb了。因为重排curb uv需要对每一圈都重排，我感觉应该没array方便。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-4ccf0afe7b4b3830b102c89a62ea4c4c_1440w.jpg"></p>
+<p>array版本的，不用反复调整uv就是设置贴合位移就好。array的设置为relative offset若是constant offset会消除切分且shading不明原因闪烁。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-b43a0a46f7202b29000fc569530bccad_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-e82925866f477e17b8b3a0c7378079c9_1440w.jpg"></p>
+<p>outline或者转换平面inset在夹角处会有点的错位，把内圈的vertex merge at center即可</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-d0e61968505a6999ab2b154ab5797956_1440w.jpg"></p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-68eb2b68388a008a98a6fd7fc82b728b_1440w.jpg"></p>
+<p>2023-12-20更新：最终道路人行道版本确认，一个frg带curb，width为curb大小+人行道宽度，一个不带。由于array形成的curb没法选择环形边，因此需要一个frg带curb，利用它来生成人行道的外边界环形边。不带curb的为最终的道路mesh，其边界用来生成curb。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-32165c8985ba87adfb88ef1b78476df0_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/uv%E5%B1%95%E5%BC%80/">#uv展开</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/FRG/">#FRG</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/">2023-11-17-blender整合建筑部件导入ue</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

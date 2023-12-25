@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2023-12-25-ue散布工具iascatter实现绿化园林 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。 为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出ins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-12-25-ue散布工具iascatter实现绿化园林">
+<meta property="og:url" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。 为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出ins">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e9a76ec68b6f7c54ed375c436c8a9885_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-fe6720a3955671bc8c2558cc993e416d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-9f7ca7cce4098e1aa8e8d2a7e60a778b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-5fb2497f73c23cfd8129b1decbe3f4f9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7c44f18e404c30933c860d845e98c60c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-8f018456e46f55521a470b5c92ef7426_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-6353536afeaa7ede40d3c23f17237648_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d78a3b6cfb46db77e1df2a001e33f067_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-025c135d95a69cddb1aa086e6596da9a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7927ff67d3f2e65120cef707e84116bf_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2e911f63224520c8e99784a6ffb84d99_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-bf8512299b269bea4fba2e27124dbe89_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-eb63c6f785ea4855a7b8cf12e9f75139_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7be0a8d1262ccea2b69abb29fccf6e78_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-ebc41a9bd7661490d2f0c49e8646ad7b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-4d59c85a02a09e2423ac7c60c6e0e618_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-3d477401439fd6a4d668f48a7297b0fc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-106f918c9af45acac46d8280592a3bd7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d7630d09ddb36901cbc62a949680eb7f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b3648ea64d37478cca0898708e91bcc9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-fd65f4124ff5878d9573b8585d53ec1f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-799a32ba911521b79832da3eebdd97c7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-46db74bc012c72e4f0624cc4606f4f36_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2cae475b4808733f3629afaf8e2ba491_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b10ce735e7834027e057cbfacbf2c8b8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-884cba432923a1a001b16e291a303cd0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e0e64fca4180bc329c41daf63a36eedc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-f5aa11712cb299a7eb384f5ae64d4c65_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-4fb37ef6cf728d75ce1490249ce6be00_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-5d05bcafca1c79c404d91677d80ac77b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d58a548c05302cfc5a4baa84c1f8878c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-1f83209a5267ffc6625dea56aceca4f5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-57ff332a83481598df290725ba2f6182_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-12c0fe6df251532f15178dd3b064518c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7a553d5ed7eda4fb05eb07a197a54b7b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-1d59880f6d895c7bfe75368b8178ad65_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2fca54abff703f8f528a2836508943b6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-daefb331abee59fef94e5cddc9534dec_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2afedb23bfcc36520fff87ca81bbe3ae_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-6b97cce43bd29b77ecf52ae9f0d1481e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-009d411dc1e1458d6ef27246a6b4c85e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b04324517c3039b9d0b47f9891291d29_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-9d76bc8c06a5acf578421e8b89af6969_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e5628e869f3b86e38a1c8bfd4cdbcde3_1440w.jpg">
+<meta property="article:published_time" content="2023-12-25T08:43:44.000Z">
+<meta property="article:modified_time" content="2023-12-25T08:46:27.412Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="景观">
+<meta property="article:tag" content="iascatter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2023-12-25-ue散布工具iascatter实现绿化园林
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-25T08:43:44.000Z" itemprop="datePublished">12月 25 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 分钟 读完 (约 2736 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。</p>
+<p>为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出instance也是暴卡，颠覆了我以往的想法是blender中只要做了instance关联就可以无限生产物体而不会有性能问题。那天晚上我甚至在纠结可否用导出json，在ue中用json循环读取，创建实例。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaqyCV5Ho9g&amp;t=158s">Unreal Engine 5 Tutorial - Instance Importer - Reading Files With Blueprints [3/4]</a></p>
+<p>后来我想到citypark项目以及目前尝试过的绿化，1是用landscape paint刷一层底，2是笔刷刷foliage给绿化地基添加实体形成层次，3是逐个添加树木再同类asset转化instance。前期暂时遇到的问题有，1.curb通过blender curve export用prg widget转，曲线会被改动变得诡异很难修；2.植物的散布不能精确在指定范围的地块控制，笔刷画一圈还要擦一遍；3.地块在ue中没办法精确规划。结合geo-scatter，我希望地块在blender中可以导入ue，然后对这个地块精确识别，曲面吸附，带有geo-scatter中的散布控制，大量散布不会卡死，操作视图流畅。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e9a76ec68b6f7c54ed375c436c8a9885_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-fe6720a3955671bc8c2558cc993e416d_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-9f7ca7cce4098e1aa8e8d2a7e60a778b_1440w.jpg"></p>
+<p>经过半天的搜寻，我定位到了iascatter，目前看来它似乎满足了我所有的需求。接下来对它的功能特性和操作做一下总结。iascatter把blueprint拖入视图中，它会自动“吸附”地形、平面、物体，这就解决了在blender中定义地块植物附着无缝贴合的问题。location grid snap功能是形成间距等大的散布，图1中每个立方体周围还有一圈小的“碎屑”，那是clustering，意为在instance周围形成簇。图1的效果等于是两个位置重叠的iascatter，其中一个激活clustering。图2我测试了将iascatter置于1个平面和landscape的结合部，发现它可以识别，附着在各自的表面无缝吸附。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-5fb2497f73c23cfd8129b1decbe3f4f9_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7c44f18e404c30933c860d845e98c60c_1440w.jpg"></p>
+<p>要吸附到物体表面需开启trace complex，下图中我设置了888个实例再加11clustering，也就是约9000个冬青灌木，这个灌木是60多万面的几何体，开启nanite后视图操作一点也不卡。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-8f018456e46f55521a470b5c92ef7426_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-6353536afeaa7ede40d3c23f17237648_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d78a3b6cfb46db77e1df2a001e33f067_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-025c135d95a69cddb1aa086e6596da9a_1440w.jpg"></p>
+<p>进一步我又添加了3片绣球花也是一点都不卡，冬青树在远处几乎一点都看不到，我不知道ue内部是如何，推测是这个Lod层级的作用，在远处转化为10几个点的几何体因此看不见了，近处也分了几种显示层级。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7927ff67d3f2e65120cef707e84116bf_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2e911f63224520c8e99784a6ffb84d99_1440w.jpg"></p>
+<p>100多颗树完全不卡。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-bf8512299b269bea4fba2e27124dbe89_1440w.jpg"></p>
+<p>proximity可以对使散布围绕某个物体设置间隔，proximity ratio越大，间隔越大。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-eb63c6f785ea4855a7b8cf12e9f75139_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7be0a8d1262ccea2b69abb29fccf6e78_1440w.jpg"></p>
+<p>omni分布可以使物体散布在物体表面，它能对iascatter起效果。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-ebc41a9bd7661490d2f0c49e8646ad7b_1440w.jpg"></p>
+<p>曲线区域范围area散布，相当于是搞一个特定曲面在上面做planar散布，spline散布只沿着曲线，可以通过location做曲线附近两侧的分布。令人兴奋的是iascatter提供external spline source是可以完美配合blender curve exporter，且不会改变其曲线特征。这意味着可以实现沿着指定地块的curb做精确散布。从blender物体通过hardop提取的曲线尺寸上在ue中也是一样的，以前遇到的曲线尺寸问题我估计是没有apply scale？5种area 散布模式我没看出啥区别除了第五种似乎是集中在区域中心？</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-4d59c85a02a09e2423ac7c60c6e0e618_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-3d477401439fd6a4d668f48a7297b0fc_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-106f918c9af45acac46d8280592a3bd7_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d7630d09ddb36901cbc62a949680eb7f_1440w.jpg"></p>
+<p>overide instance source,iascatter支持骨骼型mesh、niagara粒子系统和混乱碰撞几何集合。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b3648ea64d37478cca0898708e91bcc9_1440w.jpg"></p>
+<p>look at actor可以是iascatter朝向对准目标物体。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-fd65f4124ff5878d9573b8585d53ec1f_1440w.jpg"></p>
+<p>is special behavior激活under actor，只在目标物体下方生产实例，模拟出树下的果实散布效果。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-799a32ba911521b79832da3eebdd97c7_1440w.jpg"></p>
+<p>还可以对物体的tags做定义从而指定散布，populate on在物体表面，且似乎只能在“上半部分”（法线朝上的？）。under在下方似乎是物体顶视图投影到iascatter所接触的平面，not则在物体四周，not有点像proximity。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-46db74bc012c72e4f0624cc4606f4f36_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2cae475b4808733f3629afaf8e2ba491_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b10ce735e7834027e057cbfacbf2c8b8_1440w.jpg"></p>
+<p>geometry generation不清楚有啥用，geometry generation似乎可以将散布的物体连结起来生成类似zbrush dynamesh的效果。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-884cba432923a1a001b16e291a303cd0_1440w.jpg"></p>
+<p>optimized voxelization可以在一个三维物体上散布，我试了下散布30000多颗绣球花，可以形成大黄鸭形状的园艺效果。近看细节也有，试图操作不卡。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e0e64fca4180bc329c41daf63a36eedc_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-f5aa11712cb299a7eb384f5ae64d4c65_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-4fb37ef6cf728d75ce1490249ce6be00_1440w.jpg"></p>
+<p>对landscape的layerinfo定义physical materials可以让iascatter在指定的layerinfo散布。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-5d05bcafca1c79c404d91677d80ac77b_1440w.jpg"></p>
+<p>populate on中有tag是对mesh的，tag inheritance是在iascatter上，相当于在iascatter上进一步散布。下图中对cube定义tag inheritance ：flowerpot。然后选了一种植物散布populate on tag设置为flowerpot即可呈现植物位于cube上的效果。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-d58a548c05302cfc5a4baa84c1f8878c_1440w.jpg"></p>
+<p>散布blueprint，不过好像blueprint不能实例化因此会占用大量资源？</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-1f83209a5267ffc6625dea56aceca4f5_1440w.jpg"></p>
+<p>clustering的应用，树根部分暴露不太好看，可以用草在相同位置做clustering掩盖树根。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-57ff332a83481598df290725ba2f6182_1440w.jpg"></p>
+<p>convex/concave 分布检测，当前投射的区域如果有起伏则分布在有起伏或者没起伏的部分。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-12c0fe6df251532f15178dd3b064518c_1440w.jpg"></p>
+<p>互相不重叠且随机用min distance控制。比如下图中方块是1x1，distance大于100即可避免重叠。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-7a553d5ed7eda4fb05eb07a197a54b7b_1440w.jpg"></p>
+<p>示例中展示了石块、树、石子路、草都用iascatter分布。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-1d59880f6d895c7bfe75368b8178ad65_1440w.jpg"></p>
+<p>fix distance是固定距离，如果要随机距离且不重叠需要在overlaping里设置min distance。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2fca54abff703f8f528a2836508943b6_1440w.jpg"></p>
+<p>spline down分布如果开ratio默认就会是正投影部分更大，两边小。area down用分布方法5可以做出类似的中间密集且大，两边小。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-daefb331abee59fef94e5cddc9534dec_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-2afedb23bfcc36520fff87ca81bbe3ae_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-6b97cce43bd29b77ecf52ae9f0d1481e_1440w.jpg"></p>
+<p>spline omni会在曲线经过的空间范围依照trace length散布附着到接触面。trace length 越大影响范围越大。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-009d411dc1e1458d6ef27246a6b4c85e_1440w.jpg"></p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-b04324517c3039b9d0b47f9891291d29_1440w.jpg"></p>
+<p>通过uv根据perinstancerandom随机选取贴图的一部分产生随机分布颜色的方格实例。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-9d76bc8c06a5acf578421e8b89af6969_1440w.jpg"></p>
+<p>仅分布在凸出部分的上方。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-e5628e869f3b86e38a1c8bfd4cdbcde3_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/iascatter/">#iascatter</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/">2023-12-14-blender道路uv展开FRG替换PRG</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2023 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

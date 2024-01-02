@@ -126,6 +126,184 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-17T14:30:07.000Z" itemprop="datePublished">12月 17 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            43 分钟 读完 (约 6433 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>一些sweep profile在su导入的模型中不尽如人意，利用hardop曲线提取路径曲线和形状曲线，在路径曲线到曲线编辑面板bevel中选取形状曲线，形状曲线需在编辑模式下翻转方可使得sweep正常显示。曲线在编辑模式下f键可以闭合、打开曲线。j键在物体编辑模式下连接曲线。</p>
+<p>目前来看导入的模型要是朝右前方显示才能在PBG中正常使用，具体配合导入时的旋转设置。一些部件有附件、装饰超出主体的边界需要用socket length修正，目前看来是物体本身的blender边界尺寸减去超出的部分，在ue的socket length中填入y值。</p>
+<p>今天发现stable diffusion不能用了折腾了一会儿浪费了不少时间脑细胞，最后整个压缩包重新解压启动就完事了，几个插件安装会被网速折腾，直接原来安装好的按照路径填充即可。明天开机再看看。</p>
+<p>之前做的这个版本facade外立面逻辑不正确，这样会导致无法转角做连续的segment，facade应该是薄的一层而非整个体块，这里参考matrix的模型，facade mesh厚度在25cm也没问题，corner mesh无需在语法中定义，PBG会自动添加，right corner的pivot需要在左前下处顶点，corner mesh需要是以转角轴线对称的，不然就会像下面这般一边空心露馅了。</p>
+<p><img src="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/v2-ab281f8691afa94352f4b3a7a57cb458_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/05/2023-12-5-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%903/" itemprop="url">2023-12-5-完整景观项目分析3</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-05T08:25:50.000Z" itemprop="datePublished">12月 5 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            26 分钟 读完 (约 3941 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>苏州星港湾壹号（独墅湖西金悦花园）/ 奥雅园林设计</p>
+<p>58000㎡ 2020年11月。红色的是跑道，并不是什么额外添加的主线标记。整体上都是曲线路径，与几个多边形面片curve boolean组成大的路块，材质要单独给如果整体合并好曲线再投射意味着到时候还要拆分成原来的体块，然而在mesh状态下不太好合并似乎，不能达到curve boolean那样的union效果。比如图2，如果是mesh boolean union的话并不是合并后去掉重叠部分，这会导致重叠部分诡异。</p>
+<p><img src="https://picx.zhimg.com/80/v2-347adc865334acc805b95fe6172d4ff9_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/05/2023-12-5-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%903/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/" itemprop="url">2023-12-4-完整景观项目分析2-2</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-05T04:07:58.000Z" itemprop="datePublished">12月 5 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            26 分钟 读完 (约 3852 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>苏州耦前别墅 / （株）桝井淳介设计工作室</p>
+<p>带天井的独栋别墅，环绕式包围景观，不清楚外部是什么样子。</p>
+<p><img src="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/v2-f90d72b03385839c148cceaa260362fb_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/" itemprop="url">2023-12-4-完整景观项目分析2-1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-05T03:58:04.000Z" itemprop="datePublished">12月 5 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            33 分钟 读完 (约 4976 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>青岛金地华章 / 顺景设计</p>
+<p>这是南京金基·瞻月府同一个设计团队，完全看不出来有延续性的风格。廊道多重复合材质，砖石墙面加网孔花窗拱窗。</p>
+<p><img src="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/v2-2763639cc2027ce6ce60da71a5f144aa_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/" itemprop="url">2023-12-3-完整景观项目分析1</a>
         
     </h1>
@@ -210,179 +388,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/" itemprop="url">2023-11-13-UE小区道路布置</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-21T02:01:57.000Z" itemprop="datePublished">11月 21 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            13 分钟 读完 (约 1924 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>下图左为PRG，右为NVspline，做curb的话后者更方便些，开启ground snap可以动态吸附，无需二次调整，close loop需要到blueprint的spline中设置，这是ue本身的bug。nvspline相对PRG可以做出更为工整的形状，而PRG在alignToSurface后使得整个曲线变形从而需要二次调整。nvspline的操作相对PRG而言要流畅很多，同样的mesh用PRG很卡，nvspline尽量少alt追加点但若是发现ground snap表现不佳就要追加以保证curb的相对landscape的齐平。另一方面要注意PRG生成小区道路landscape paint时的falloff，由于paint有锯齿羽化需要多留一些边缘，作为参考120的falloff可以在curb切去左右两侧羽化锯齿后形成3米的路宽，而200则可以形成5米的路宽。</p>
-<p><img src="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/v2-95aade47a912b52861a5808e5109ae03_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/21/2023-11-13-UE%E5%B0%8F%E5%8C%BA%E9%81%93%E8%B7%AF%E5%B8%83%E7%BD%AE/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/" itemprop="url">2023-10-12-小区景观地形的创建</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-21T01:58:17.000Z" itemprop="datePublished">11月 21 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 分钟 读完 (约 1749 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>用树木、绿化做小区围墙那么涉及其末端的土壤理想中是直接在landscape上刷材质，加foliage，问题是现在的材质是长沙的贴图，如果我换了图层材质，那么就没了参考，一种办法是弄个mesh进来。保存一个备份的level map，测试一下可行性，那么明天就是弄landscape的图层材质，就搬运citypark的。然后是移植一个小区平面的mesh，在这个模子的基础上做出绿化、小路、一些景观mesh（健身器材、座椅、喷泉）材质效果，商品房小区景观部分做3个，然后是老小区、安置房的景观布置，把天马小区和麓枫和院搞一下。等这部分好了，填充房子。</p>
-<p>以上是10.10的想法，后来发现landscape没法通过复制生产。landscape 的几何模型可以大致与ue landscape对准。接着就是把小区的平面参考导入了，开始想的是把sketchup导入blender，blender再导入ue，不过这样导入的mesh材质显示不正常，且速度也慢，这样的mesh显然不具备平面参考价值。</p>
-<p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-84145b8daf4dc3c6eaeec01ec7d454bf_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/" itemprop="url">2023-11-20-本地部署Wonder3d二维图片转3d模型程序</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-20T14:59:16.000Z" itemprop="datePublished">11月 20 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分钟 读完 (约 1295 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这个wonder3d可以说是我一生中目前经历过最复杂的一个软件、程序安装，今天整整搞了一天才算跑通。这里回顾一下，以防万一重新需要安装。</p>
-<p><img src="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/v2-f814918f537b247db14e56a0b9906017_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/20/2023-11-20-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Wonder3d%E4%BA%8C%E7%BB%B4%E5%9B%BE%E7%89%87%E8%BD%AC3d%E6%A8%A1%E5%9E%8B%E7%A8%8B%E5%BA%8F/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/" itemprop="url">2023-11-6-不同版本stablediffusion大模型出的小区平面图</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-11T14:31:32.000Z" itemprop="datePublished">11月 11 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            19 分钟 读完 (约 2864 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>经过一天的测试来看，似乎有必要对每次测试实验都记录下提示词和所使用的大模型，目前就做平面图而言，我发现建筑ai里的pruned-emaonly这个似乎最稳定，每次搞出来都挺像模像样。</p>
-<p><img src="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/v2-8d379bb462f9c86e28ce2da9d9e6d495_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -413,7 +418,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
-                &copy; 2023 John Doe&nbsp;
+                &copy; 2024 John Doe&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
                         target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-1-9-建筑组装的要点以及uv分割 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="终于要开始大规模搞建筑组装了，目前是用于第一个大型社区的住宅。前两天可以说是白忙活了，su里导出的建筑模型布线混乱即使用alt j转四边形面也修复不了，对于砖石切分的uv分割会产生阻碍。我发现kitbash建筑部件包中的部件其几何拓扑都是完美的，可以直接拖进来用，下图为Victorian，我发现示例中的建筑用到的部件不止asset zoo中展现的，具体的配合su的项目做着看。kitbash建筑部件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-1-9-建筑组装的要点以及uv分割">
+<meta property="og:url" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="终于要开始大规模搞建筑组装了，目前是用于第一个大型社区的住宅。前两天可以说是白忙活了，su里导出的建筑模型布线混乱即使用alt j转四边形面也修复不了，对于砖石切分的uv分割会产生阻碍。我发现kitbash建筑部件包中的部件其几何拓扑都是完美的，可以直接拖进来用，下图为Victorian，我发现示例中的建筑用到的部件不止asset zoo中展现的，具体的配合su的项目做着看。kitbash建筑部件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-871b67193b3c4b7e0c024b202d2f46ea_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-59dfbbcf63d29d96b54aca6564d0d0ae_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-499fbaa205bf9758266042c65956b4cb_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-55073662e71f4cdd745d0561ce96230e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0d577e500aea43b28e982dfcf0766431_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a17a32e7a8b19c98d33a97a0b0524929_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-13c156e5d10729bd4576fe848316bf35_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-00f25a75ca4506695c9b4559ff7bd361_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-7765d331699d61d6446d03941324e1c3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-af707ea124f57be0951c5b69080343d7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-8be883f21e1ec9689ece278d3169d000_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-ba2061765b93f6e37679bf08de83c6c1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b2ecd643c67c967bac744b244388305e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-51aece70510ccbe7108cc450ec9713d9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5fb798d00c9ebaf8afb7786c0349c70a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2bf397531cb62e57558980f753ea5953_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b3a5e75c69012fddff63492b183cc8a7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-930c808f089ad94c8ddf390b6574e2f6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-31c01726ed112e4352ad4008ef9970f6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5e591a3a433fe3add678da5417609289_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-34e3fd8f2e4a3184fdaf568335b75ac4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-6d71a5937e0841c5056ed58aff9cd39d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-f8f01a3867512bd3f17f13498b38f0e4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-594e1f50cca9a1eb76c4c048af5f6c7c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-17dd5feb0f4ebf4f6c1b03e466f445e4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b5924c80844884595d63ccb065ef3ad7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-8bde8073e0f5f07872f5af641b777e68_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-806dd888b53d26ee2aae0e88c9b6b2a4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-eecce348dac5ebea9c4b7e74fbb9d07e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-288afa14bb58908e635627d602661349_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-ee32470cf451093e2a59b01b9ea77729_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e7944f1ec08556ca5864672eb9006e54_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-11ea7feac57f857a8c62c0930b8ef4ab_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4a36686d53194a60640d81b5b17712dd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a7c3ac45f3f88d8436153decb2fd1fd6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4293a43218e6bf5113a11e93df47772c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-cd34da214ccf79895043b52075262d96_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0fecf53b7b54f250fa527802f1f33c4c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0b3d7aa5674e302f9c0a0d9e0b486321_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-33cfabf016ca9595d85f36e97760bd7a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-de1ed5505561fd71281540388425a093_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e15d57c9d2cc6f74d3885c7c14391230_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-840f75a76d5d58603a9f19b9acb9bfb4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-7835ce5fa268cb44f5b0d1e63ca9cd64_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0bba952d3aee8f8fceb1dd8a22b1d196_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-21a51c00281ddf71e8e02c9e023b83a5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2c8adb2de0e2938096fc3a7420e4b4dc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4d5d5dd21b1247b8a355a0ce5b0615de_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-02d1dfecb0826b73590c1cd366ac4778_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a8366fdcaec1d6d67b0021d1a0abcdf0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-63dcf0c29f7792cfd78b1390d1217f88_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2c8660bd70a61dce482a1622021eee58_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5e6bfb592583a699d4ac8146b7431522_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-81b2c1e0fff9036c728bce225aeb7745_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-968e1fb585ac88755f7e39b223a736db_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-82e4a0c83ead33dad75b3c40b3adc2a3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e0e5ace9a4d31212cb8ac2f66e7d202d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c98d8f30e774c3f456e60417f46447ec_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d078a50c920ff27ed7fbc7faa22703b6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-49fefcd144d581502b0f7aeda4debda7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-52283210e41ec594eea45bdb63db47f6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-9b755175704fe9e9433e8c98438fe690_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0bd80ff1e1ea3f3de755f246ae7b4a11_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d12e00b0cbe82dc86b2ac140dd1537e5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-3d868efe534612a036a47762e73a122c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d607260041f16cc74d985ea54ebf7b3b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-6cf8fbfdef94f6d977b8a8ea2963ec88_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-789b6fce744069f5adfaca65420d37e6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c8a92002328edf355cf24c58d872bf0a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c4e90e9852eb0b470570ed58080e6af0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-60320322f71b3667bbd56f5052926565_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-56a0bc4c1bca0be18dfbcb7d43279a03_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5d1921dea5502a8d782128cdea6324e2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-10564cb6aa3f31fac29b1ace960b19ef_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-182fcf72ee5449c33b50f1da68745a0c_1440w.jpg">
+<meta property="article:published_time" content="2024-01-26T03:19:20.000Z">
+<meta property="article:modified_time" content="2024-01-26T04:19:09.278Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="unrealengine">
+<meta property="article:tag" content="建筑装饰构件理论">
+<meta property="article:tag" content="材质">
+<meta property="article:tag" content="uv展开">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-871b67193b3c4b7e0c024b202d2f46ea_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-1-9-建筑组装的要点以及uv分割
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-01-26T03:19:20.000Z" itemprop="datePublished">1月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 小时 读完 (约 6689 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>终于要开始大规模搞建筑组装了，目前是用于第一个大型社区的住宅。前两天可以说是白忙活了，su里导出的建筑模型布线混乱即使用alt j转四边形面也修复不了，对于砖石切分的uv分割会产生阻碍。我发现kitbash建筑部件包中的部件其几何拓扑都是完美的，可以直接拖进来用，下图为Victorian，我发现示例中的建筑用到的部件不止asset zoo中展现的，具体的配合su的项目做着看。kitbash建筑部件系列的建模布线很有借鉴价值，多做几套以后积累经验为以后创作打牢基础。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-871b67193b3c4b7e0c024b202d2f46ea_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>这两天耗时较大的：</p>
+<p>1是重构拓扑，上面说了利用kitbash中的东西快速对号入座。</p>
+<p>2是cornice点对齐，特别是corner mesh，corner mesh方面一定要在初期用一个正方形校准好确保其45度切分的Vertex在一条直线上，别搞了半天后期再调整。关于对齐点目前暂时没想到好办法。</p>
+<p>3是倒角，倒角什么时候加，哪些要加？当物体ctrl j合并时会应用掉倒角或者丢失，另一方面物体需要在倒角前做uv展开，因此倒角应该是最后的事情，然而一开始需要观察“房型”的大致效果，目前的对策是做好部件组装的房型后，整个复制一份用于合并。</p>
+<p>4坡面屋顶，之前一直纠结用PBG教学中展示的socket manager加gb生成gable，gable mesh可以解决单坡面无视corner，理论上用gable mesh是可以做出A字顶的。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-59dfbbcf63d29d96b54aca6564d0d0ae_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-499fbaa205bf9758266042c65956b4cb_1440w.jpg"></p>
+<p>抛开A字屋顶将它们视作普通的wall、corner mesh可以做出下面这种效果。corner mesh可以通过dim、length这些socket manager做位置偏移，不用考虑和楼层房型宽度的一一对应。今天我在如何做corner mesh上卡了一会儿，corner mesh本质上是45度翻转，在<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qrlvdz1-6dc">Create Sharp 90 Degree Bending or Angle | Blender Tutorial</a> 这个视频中给了简洁明了的指示，即在水平状态下对一侧的点选中ctrl shift alt s 再按1即可对一侧进行45度切角此时再选中这个斜切面群，按global方向垂直挤出即可。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-55073662e71f4cdd745d0561ce96230e_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0d577e500aea43b28e982dfcf0766431_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a17a32e7a8b19c98d33a97a0b0524929_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-13c156e5d10729bd4576fe848316bf35_1440w.jpg"></p>
+<p>2024-1-14更新：昨天完整的做了一栋建筑的组装以及PBG的制作，碰到的问题有：</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-00f25a75ca4506695c9b4559ff7bd361_1440w.jpg"></p>
+<p>1.导入部件的方向不确定，经常要在editor中调整rotation。这其实是刻板习惯导致的，我觉得要做建筑得在blender搭建一遍，因此会转动部件mesh的方向，这会导致传入ue的mesh方向不一致，kitbash部件朝向一致就不会有这个问题，另外根本没有必要在blender中拼装，在根据白模制作的部件的情况下，完全看得到组装后的效果，前期浪费大量时间在拼装上对齐vertex，墙体厚度一致的情况下pivot只要统一pbg会自动对齐。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-7765d331699d61d6446d03941324e1c3_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-af707ea124f57be0951c5b69080343d7_1440w.jpg"></p>
+<p>2.物体要一个个导入，很麻烦，上图中这个房子用了30几个组件，导入了30几次，物体导入后位置诡异。blender中对部件的pivot指定为左下角，全选制作好的物体对他们shift s selection to cursor，export fbx和以往一样，selection object，smoothing face.导入后的状态如下，这个方法有个缺点是每次重新更改其中一个部件mesh不能对它单个使用reimport而需要在当前文件夹重新导入fbx，导入后会覆盖在ue中设定好的材质，需要重新添加材质。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-8be883f21e1ec9689ece278d3169d000_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-ba2061765b93f6e37679bf08de83c6c1_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b2ecd643c67c967bac744b244388305e_1440w.jpg"></p>
+<p>3.材质其实一共就用了5、6个，但每个部件mesh都要重新添加材质，接上文问题2批量导入mesh修改再导入会材质覆盖。选中blender的材质，再选择ue中的材质右键asset action / replace reference，可以将材质做替换，这样做的好处是批量添加的mesh用同一种材质可以一次性到位，不用逐个对每个mesh添加材质，作为对比是reimport单个mesh不会材质覆盖，因此我觉得材质可以不急着弄，等所有mesh在pbg组装呈现完整立面确认以后，再用replace reference的方法替换blender的材质为ue材质。这里有个问题是block\brick材质对uv分布有要求，如果mesh的uv不到位后期给材质会出问题，调整uv重新导入就会再次触发材质覆盖问题，关于uv后面单独讲。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-51aece70510ccbe7108cc450ec9713d9_1440w.jpg"></p>
+<p>4.镜像的物体mirror之后apply再分离重新定位pivot，材质在ue中都要重新添加。对于要镜像的物体设置scale-1，旋转z轴180度，在ue中的actor菜单选merge actor，即可得到一个新的镜像的mesh，最后注意把pivot用pivot tool重置bake到左下角点。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5fb798d00c9ebaf8afb7786c0349c70a_1440w.jpg"></p>
+<p>这是我当前blender中制作的asset zoo，现在可以体会到别人做的asset zoo为什么是那样的排布，不仅仅是装逼摆样子美观，实际上是按照分层逻辑配套pbg这样的装配工具。对于不同建筑可能有必要每个单开一个level map作为asset zoo来组装pbg，做好的pbg在大地图上使用。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2bf397531cb62e57558980f753ea5953_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b3a5e75c69012fddff63492b183cc8a7_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-930c808f089ad94c8ddf390b6574e2f6_1440w.jpg"></p>
+<p><img src="/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-31c01726ed112e4352ad4008ef9970f6_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5e591a3a433fe3add678da5417609289_1440w.jpg"></p>
+<p>关于block/brick udim uv，我发现要在一个楼层上去逐个对接是很麻烦且近乎不现实的，作为以房型为单位的部件，每个房型都占用一个udim单元格，由于每个格子是“首尾相连”的，因此自然就衔接上了，用不着手动去逐个拼接uv。我觉得还是有必要看一下matrix模型是怎么分割uv的，虽然现在指导udim的使用方法，但是对于一个楼层的拼贴并不确定，一开始想着逐个拼贴这样的话udim单元格是不够宽度的。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-34e3fd8f2e4a3184fdaf568335b75ac4_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-6d71a5937e0841c5056ed58aff9cd39d_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-f8f01a3867512bd3f17f13498b38f0e4_1440w.jpg"></p>
+<p>通过这个模型可以看出来一面墙体的uv可以是不连续的，若是udim单元格不够了可以通过选取部分，用zenuv对其flip翻转从尽头处往回分布，从而达成无缝tile的uv。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-594e1f50cca9a1eb76c4c048af5f6c7c_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-17dd5feb0f4ebf4f6c1b03e466f445e4_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-b5924c80844884595d63ccb065ef3ad7_1440w.jpg"></p>
+<p>brick保证一个部件的局部构成使用完整的“brick段”.</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-8bde8073e0f5f07872f5af641b777e68_1440w.jpg"></p>
+<p>ue中高模和低模的uv是基本一致的，因此研究uv用低模即可。matrix中的udim block砖石看起来很逼真，为什么我做出来，那个切分很假？要确认砖块大小和尺寸的关系，与texel density是否有必然的联系。导出gltf高模、低模时间都蛮长的，fbx快但是几何网格完全破坏了没法研究uv。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-806dd888b53d26ee2aae0e88c9b6b2a4_1440w.jpg"></p>
+<p>2024-1-15更新：没有4个遮罩的部件看起来其“环境影响”不够真实，之前花了不少气力啃下这块骨头岂有放弃之理呢？于是今天重开substance painter，这里重提一下sp与ue同时打开会让ue操作很卡。托之前文档的福，解决了新建项目通道预设以及导出纹理贴图通道预设，不过卡了很久在纠结如何重复利用图层，没整明白之前记录所说的创建智能材质。下图为同一个模型用1024和4096分辨率烘焙的效果，可以看出来4096分辨率能得到更好的边缘、接缝识别。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-eecce348dac5ebea9c4b7e74fbb9d07e_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-288afa14bb58908e635627d602661349_1440w.jpg"></p>
+<p>curvature做的边缘磨损效果damage edge并不好。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-ee32470cf451093e2a59b01b9ea77729_1440w.jpg"></p>
+<p>grime drip左边是没有智能遮罩，右边是我做了智能遮罩，看起来没太大的区别，顺便两张图中可以看出ao、large ao的grime 对cornice有些影响，</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e7944f1ec08556ca5864672eb9006e54_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-11ea7feac57f857a8c62c0930b8ef4ab_1440w.jpg"></p>
+<p>对于一个复杂的1带多个转角、凹凸的部件damage和crevice ao有明显效果，我想large ao应该也会有更好效果。grime board / large ao 暂时还没找到好的办法生成。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4a36686d53194a60640d81b5b17712dd_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a7c3ac45f3f88d8436153decb2fd1fd6_1440w.jpg"></p>
+<p>目前看下来用dirty cavity以及dust cavity可以做出较好的自动occlusion，或许可以去淘宝找找有没有好用的智能遮罩。四个遮罩的完善将是一个长期课题。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4293a43218e6bf5113a11e93df47772c_1440w.jpg"></p>
+<p>matrix这个ao太舒服了，不知道咋自动搞得。明天看一下blender ao 烘焙。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-cd34da214ccf79895043b52075262d96_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0fecf53b7b54f250fa527802f1f33c4c_1440w.jpg"></p>
+<p>阳台的组装逻辑混乱从而导致整个立面的组装逻辑出了问题，我在宝华城市之星类型的高层中因为看到cornice以上的部分正好是栏杆、阳台加一个“面板”于是按照这个逻辑拆分，这样做首先是破坏了实际房型，要将阳台的窗门拆分成两段，上下两层各取一部分，这其实非常麻烦，正确的做法应该是按照实际房型完整拆分。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0b3d7aa5674e302f9c0a0d9e0b486321_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-33cfabf016ca9595d85f36e97760bd7a_1440w.jpg"></p>
+<p>如下图阳台护栏下的墙体被拆分为上下两部分，这个在外观上完整的部分实际是被上下两层房型共有的，这样拆分合乎逻辑，而不应该随着它的完整去拆门窗。阳台的天花板和地面归属也是一个令人纠结的问题，这其实就是一块共有的墙体上为上层的地面下为下层的天花板，严格来说应该切分开来，当阳台的天花板为平底时则可以合为一体，如图2.</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-de1ed5505561fd71281540388425a093_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e15d57c9d2cc6f74d3885c7c14391230_1440w.jpg"></p>
+<p>最后，阳台的构建应该确保5面密封，简单来说是类似窗户的挖孔墙体配合窗门，同样这个回字型墙体作为阳台进光开口，左右两个立方体封住侧面，一个地面封底就完事了。而随着房型的部件增加，比如下图可以看到有两个窗门因此需要两个回字型墙体，正面的两侧墙体有凹凸线条、上下也是cornice，因此阳台进光开口这一面的回字墙体由四个独立的mesh构成，左侧开了一个窗，且窗是贯穿整个楼栋的，它和cornice一样也是被上下两层利用，因此按照一层切分，墙体收窄。若窗不是贯穿式的，则需要一个回字墙体包络。总结到这里阳台也可以像窗户立面一样有个可以套用的模板了，即使是要做图1的这种阳台先在规格上用模板构建好白模然后让非标部件一一对位即可。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-840f75a76d5d58603a9f19b9acb9bfb4_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-7835ce5fa268cb44f5b0d1e63ca9cd64_1440w.jpg"></p>
+<p>回看之前对matrix部件的分析可以看到matrix中的阳台也是用了这样的逻辑组装的。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0bba952d3aee8f8fceb1dd8a22b1d196_1440w.jpg"></p>
+<p>似乎部件ctrl j合并之后uv会丢失？如果这样的话看来有必要合并以后再做uv展开？目前来看若干房型相同材质会自动合并，材质的reference replace似乎只能在同一目录下，不过替换后是可以移到其他目录的，由于控制污渍的贴图纹理每个模型不同所以材质每个部件都会对应一个，因此材质命名规范也很重要。文件夹结构如下，realestate_building下是建筑样式名，下属mask、material、mesh，mask放4个遮罩相关的纹理，由于每个材质会单独对应一种纹理，因此一个部件就有多个纹理，需要文件夹分类。material由于每个房型上带的纹理不同所以也有区分看来也得文件夹归类？matrix中的文件夹结构是一栋建筑以层为单位，下属material,mesh,texture。2024-1-25更新：看来有必要沿用matrix中对建筑部件材质、mask贴图、mesh分类的文件夹结构，当部件多了以后在一个文件夹里会显得混乱、难以定位。语法方面由于每层的部件大多是对位的，因此可以多层语法共用，但是碰到不共用的需要复制出来修改，时间长了会导致搞不清楚，我感觉还是多份复制即使是重复的万一以后要改不会混乱。也就是说一个建筑文件夹下属按层分文件夹mask、mesh、material 3个文件夹，meshlist、grammarlist、execflow文件夹存有各层的对应逻辑，PBG的blueprint在文件夹顶端。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-21a51c00281ddf71e8e02c9e023b83a5_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2c8adb2de0e2938096fc3a7420e4b4dc_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-4d5d5dd21b1247b8a355a0ce5b0615de_1440w.jpg"></p>
+<p>需要重复用到的部件、比如一些雕花、栏杆，务必提前解决scale 负值以及法线反转问题，以免后期每个模型逐个修改。前期要决定材质，避免同种材质有多个material slot。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-02d1dfecb0826b73590c1cd366ac4778_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-a8366fdcaec1d6d67b0021d1a0abcdf0_1440w.jpg"></p>
+<p>2024-1-25更新：上图中许多虚线让整个场景看起来混乱不堪，原因是parent，这需要在一开始复制一份出来右键clear parent，说到底实际上是对于原始部件的标准化操作，包含上述的清理材质slot、scale负数法线翻转、array apply。</p>
+<p>这两天拼装PBG的几点总结：</p>
+<p>1.镜像mesh在原mesh确认拼接无误后再去生成，以免反复生成重复劳动。基础墙体保持厚度一致，以后所有的项目均如此，像垂直cornice只在前方凸出不影响对齐，像阳台凸出这个其实不影响的，门廊保证做个延伸保证在cornice对齐的情况下，pivot点位的x轴平齐即可不用到ue中调整pivot。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-63dcf0c29f7792cfd78b1390d1217f88_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-2c8660bd70a61dce482a1622021eee58_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5e6bfb592583a699d4ac8146b7431522_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-81b2c1e0fff9036c728bce225aeb7745_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-968e1fb585ac88755f7e39b223a736db_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-82e4a0c83ead33dad75b3c40b3adc2a3_1440w.jpg"></p>
+<p>2.缺少mask的材质整体上看起来偏暗、偏灰，去除污渍么看起来过于单调缺乏质感，mesh后期材质会逐一复制添加各自的mask。材质方面我觉得初期先用matrix材质不带污渍版本的做整体替换看效果，在无污渍版的基础上做调整，这个阶段可以改的有颜色、饱和度、粗糙度、法线的深度、粗糙度贴图、ao贴图以及法线贴图，等初步外观无误再复制并把mesh一并转移到对应的文件夹去。</p>
+<p>3.mask相关的第一套uv在mesh拼接无误，几何形体无误后再去生成，不然每次调整都要对uv重新展开重复劳动。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-e0e5ace9a4d31212cb8ac2f66e7d202d_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c98d8f30e774c3f456e60417f46447ec_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d078a50c920ff27ed7fbc7faa22703b6_1440w.jpg"></p>
+<p>4.通过socket dim可以做出如下图这种不等高的排布，从而在封顶时做出非全包围的效果，只要两侧墙体给厚度，手动给一个顶即可做出多重不同高度的顶，中间空心部分手动用mesh去拼接两头墙体。我并没有对pivot做修改，其排列的逻辑依旧是那个角点，被往后拉伸的则相对向后被往前拉伸的则为凸出。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-49fefcd144d581502b0f7aeda4debda7_1440w.jpg"></p>
+<p>5.通过duplicate spline points配合blender curve export可以将blender中的曲线作为PBG的曲线，整个是1：1等比例的，这意味着可以在blender中精确、便捷的布局建筑的平面然后传导至ue，配合archipack可以精确对建筑做屋顶加盖。由于PBG存在一定拉伸，所以当顶层与下面的楼层存在对齐关系时没法通过两个PBG拼接，因此顶层的两个侧面只能单独做mesh封闭，通过测量两侧伸出的墙体确认顶层的平面布局以此绘制顶层的平面用于archipack做屋顶。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-52283210e41ec594eea45bdb63db47f6_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-9b755175704fe9e9433e8c98438fe690_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-0bd80ff1e1ea3f3de755f246ae7b4a11_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d12e00b0cbe82dc86b2ac140dd1537e5_1440w.jpg"></p>
+<p>6.corner mesh方面，left corner的pivot都是外角顶点，right corner是内角顶点，但是right corner似乎会因为有cornice影响而无法对齐，此时需要用pivot tool微调，另外corner mesh与wall mesh会有间隙或者重叠这需要用socket length调整，所有的socket length都应该是一致的不然会使房型对位出偏差。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-3d868efe534612a036a47762e73a122c_1440w.jpg"></p>
+<p>7.小幅度凸出用mesh解决而不要通过布局产生折角用白墙做一个side，这会使得顶部的mesh无法做无缝的侧墙衔接而流出side空袭，这种折角对于exec flow的编制也是个麻烦。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-d607260041f16cc74d985ea54ebf7b3b_1440w.jpg"></p>
+<p>8.导出fbx之前是对每个物体的pivot定位好之后shift s在移动到cursor然后导出，然后再复位，东西多了这就很麻烦了，现在用这个super batch export，先设置好导出路径前缀可以根据物体的名称批量导出且保持在世界中心，使用的前提是没有parent关系，rotation、scale需要apply为1、1、1.我目前在blender3.3中把batch export的快捷键设为e键，当进入工作状态后设置好导出选项，后续修改按e即可，不要搞啥前缀后缀了直接对每个物体规范命名导出即可。省的不同层导出还要修改设置。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-6cf8fbfdef94f6d977b8a8ea2963ec88_1440w.jpg"></p>
+<p>9.uv在合并后局部丢失目前还是不清楚原理，magicUV可以对几何体相同的面进行uv复制黏贴。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-789b6fce744069f5adfaca65420d37e6_1440w.jpg"></p>
+<p>10.用matrix材质添加图案贴图，顶面会在近距离视角出现问题，目前不知道解决方法，不过这个顶面一般不会上彩绘并被近距离观察因此问题不大。对于pattern的tiling是通过Tex size(ws) M1来控制的。通过M_Bldg_Base的修改，可以对triplanar的pattern进行移动调整，即使在旋转的角度也不会出问题。这看起来可以直接利用matrix的材质实现对复杂的小部件上彩画并同时搞定污渍、水渍、磨损？感觉不太行，万一后期要移动位置，所有的相关纹理贴图都要对offset做调整太麻烦了，且不同位置的部件贴图也要重调offset，这个可能只适用于大面积的类似墙纸的tiling图案，简单混混可以产生一个气氛效果，但不能做精确的布局。目前来看一个是sidewalk的材质系统，还有一个是在matrix的prop中看到基于MS_defaultMaterial的材质系统，明天再去citysample、hillside中看一下有没有其他的材质系统，目前这两个可以做水渍、不规则污渍，其实对于复杂建筑部件给彩画十分细微用不着考虑边缘、接缝。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c8a92002328edf355cf24c58d872bf0a_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-c4e90e9852eb0b470570ed58080e6af0_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-60320322f71b3667bbd56f5052926565_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-56a0bc4c1bca0be18dfbcb7d43279a03_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-5d1921dea5502a8d782128cdea6324e2_1440w.jpg"></p>
+<p>11.brick-block自带第二套uv且砖块的分布是固定的，于是我就想利用它们来实现兼容4个mask水渍、污渍、磨损的固定部件的彩绘贴图。如图packedA是4个mask，packedB原先是brick的贴图，若是不变动，则会有砖块的痕迹，Base中的三个Tex可以对表面质感以及图案做修改。</p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-10564cb6aa3f31fac29b1ace960b19ef_1440w.jpg"></p>
+<p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-182fcf72ee5449c33b50f1da68745a0c_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unrealengine/">#unrealengine</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E6%9E%84%E4%BB%B6%E7%90%86%E8%AE%BA/">#建筑装饰构件理论</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%9D%90%E8%B4%A8/">#材质</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/uv%E5%B1%95%E5%BC%80/">#uv展开</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/01/26/2024-1-26-obsidian%E9%BB%91%E5%B1%8F%E9%97%AE%E9%A2%98/">2024-1-26-obsidian黑屏问题</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/01/25/2024-1-25-%E8%82%87%E5%85%B3%E4%BA%8E%E6%B8%AF%E5%8F%B0%E6%96%B0%E9%A9%AC%E7%A0%94%E7%A9%B6%E7%9A%84%E8%A7%82%E7%82%B9/">2024-1-25-肇关于港台新马研究的观点</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

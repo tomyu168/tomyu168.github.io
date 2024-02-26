@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-2-16-BlenderToUE问题集锦1 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-2-16-BlenderToUE问题集锦1">
+<meta property="og:url" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-e18f47a07889d633194f1be316e2d801_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-2cc8700baddcb7c69e9b8e735960962b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-204d7901c6fe014501d14219036f686d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-effbf30595c26580e454f020b8577ca4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c748a63605c55e68f49fbd9971d0503a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-acc0cd80fd49f2f0aac925d5ecaf3e9d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-2d367a8c854ef2ddb8f6d6e39d9c72b0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-12c203e5497780cdbc8c62548f402486_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5c00575756e0a2741c130a7bd3b37462_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-9cfc3813761a88244f0291ad913e9e00_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-3fa3bd8346e8bd35a541f16de00d99c6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-a3f6ff08c81e50d610b4390ccd7b3f53_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c99dc4dfa2b5a7f8998e7ea705171e10_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-fc072ab04544ee470123fb3063f6e4b4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-fdd6b7e6dbdf0f8d565b5b183f668c0d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-b60365de0e1c85231bccb2dc0d268c4e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-bc7141bd219b60746e3db4c7e07ea3c2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c50a103342c004ce473bd5f054b8de6d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-6ee12e9c84683931b24c67e570d9a37f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-3a9af787bc7567072a561ad07728a6ad_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-641ae2a7b8f0de7b800f1a5c9700e7dd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-30a36f3cf7ba606f54a39e122071562a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5eb15478bba3db155348779c302146cc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-e126d19cf6f66dde6163896934cd52c4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-f45510b0a28e9c491431881ebcdf2c28_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-0b2edefaa3ad1f4b15b40a72ce458de4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-808595e11eb91a70c39af9d577b45d2d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-a5e8d9dd3d5a502adea321815f292cb5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-680d20cef1b9f98c4447c5e328a41079_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-26bbc231ea4eb94bd6b3e7a4c5272127_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-28a67cc8ce364e092206247fb7b1087f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-527af8d312aa7fe921ec25a02cf96007_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-13370801835f44415c419729334964fc_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-78e15e30b96f6eeb147fcd46aeabc02c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-0dce0a9e8cfedec1dc71f5ca1880569f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-6c793e03b34d52f1874c3a93355be4cd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-b161b550764fff109fb80339aba31bb0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-03087165ea6119485b6b973d77bf1954_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-73ef78dd46be7fd355f31fd924bf8957_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-524d4441fc4dd4917a4b64ea082d8f7d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5093e0bda05d6b40c3ab08c6d635a69e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5268cd8b93bd10309866edc2a8883d5e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5f64814065e6009769122659e51c1601_1440w.jpg">
+<meta property="article:published_time" content="2024-02-26T12:04:25.000Z">
+<meta property="article:modified_time" content="2024-02-26T12:06:58.742Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="PBG">
+<meta property="article:tag" content="uv展开">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-2-16-BlenderToUE问题集锦1
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T12:04:25.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2881 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>2.物体用batch export报错说nothing to export，问题出在物体存在parent，右键clear parent即可。</p>
+<p>3.cornice的vertex吸附需要大量vertex同时操控，会导致吸附无法校准到想要的那个vertex，这是对单个vertex做吸附移动，然后在左下角的move面板拷贝移动的值黏贴给其余的vertex。</p>
+<p>2024-2-26更新：</p>
+<p>edit 模式下用snapping tool可以多个vertex跟随一个vertex吸附到目标</p>
+<p>4.初始一定要注意楼层切分，1楼有cornice必然是跟着2楼，要考虑到2楼的阳台地面与这个cornice是贴合的。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-e18f47a07889d633194f1be316e2d801_1440w.jpg"></p>
+<p>5.内景玻璃要及时跟进，以免后续重复劳动。</p>
+<p>6.下面这种转角两侧不均等且带阳台的效果pbg是做不出来的，因为这会导致pivot位置问题下一个segment的立面错位。图二的效果是拆分成多个segment但这样也没法做环绕式阳台，不过可以做封闭式阳台的效果。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-2cc8700baddcb7c69e9b8e735960962b_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-204d7901c6fe014501d14219036f686d_1440w.jpg"></p>
+<p>2024-2-20更新：</p>
+<p>转角不均等只能在一个立面也就是同一个segment的中间段mesh实现，重点在于所有的pivot均为顶格前置，之前我做的都是墙体后侧，这样的话只要前方墙体厚度不均就会出问题。比如以下几个mesh要对齐，它们的pivot设置如下。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-effbf30595c26580e454f020b8577ca4_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c748a63605c55e68f49fbd9971d0503a_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-acc0cd80fd49f2f0aac925d5ecaf3e9d_1440w.jpg"></p>
+<p>但是当收尾面临下一个立面时必须恢复到初始mesh的pivot平行位，也就是说一个立面在PBG中两端必须是平齐的，中间可以任意不均等的凹凸，若想两端不均等则只有另开一个立面，因此想要实现如下图的效果需要经过多个转折，但由于同层corner mesh无法指定只能唯一，所以多个转折涉及不同corner mesh使这种</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-2d367a8c854ef2ddb8f6d6e39d9c72b0_1440w.jpg"></p>
+<p>7.cornice两侧不要闭合，否则倒角以后没法接合。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-12c203e5497780cdbc8c62548f402486_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5c00575756e0a2741c130a7bd3b37462_1440w.jpg"></p>
+<p>8.倒角copy modifier似乎不能传导shade auto smooth，blender中的shade auto smooth会影响到ue的显示，下图中有条纹的mesh没有开shade auto smooth.</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-9cfc3813761a88244f0291ad913e9e00_1440w.jpg"></p>
+<p>目前cornice的精确吸附成了一个很费事费劲的体力活，特别是拐角的cornice需要十分集中注意力，不然总会有些偏差，同样的时间用线条sweep很容易精确贴合，有必要这样费劲的做pbg吗？</p>
+<p>2024-2-26更新：</p>
+<p>edit 模式下用snapping tool可以多个vertex跟随一个vertex吸附到目标</p>
+<p>9.内景的uv是uvmap里面顶格smart project居中，注意合并mesh之后要把uvchannel什么的无关紧要uv组都删除，不然会影响伪装室内的显示</p>
+<p>10.伪装室内的uv需要略微在垂直方向收缩一些，不然有些窗帘会诡异，另外整体是居中在顶上边界的。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-3fa3bd8346e8bd35a541f16de00d99c6_1440w.jpg"></p>
+<p>11.玻璃窗和内景要提前在组装整个房型前做好，以便用于后面的楼层。</p>
+<p>12.原先用的replace reference对材质做批量替换，现在我发现用PBG自带的material overide更方便，直接对应material slot即可批量覆写，方便管理。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-a3f6ff08c81e50d610b4390ccd7b3f53_1440w.jpg"></p>
+<p>13.要做不规则的坡面屋顶，先对PBG bake all component把顶楼的部件全选merge actor导出到blender，用poly模式的curve沿着顶楼的轮廓描摹，对称的只需要描摹半边，转换为mesh再mirror，apply之后再转换回curve，右侧悬浮plugin里create 选roof draft，到shape里面from curve选中绘制的curve，shift a创建archipack roof生成一种样式的roof，user define中选择刚才创建的roof draft，大约1-2分钟生成roof mesh，右键clear parent之后即可用快捷键e导出屋顶，屋顶mesh十分庞大，47x22米的屋顶有150万面，blender导出fbx大概卡1分钟，ue导入需要3分钟左右。matrix中自带了一个roof材质，创建一个材质实例，可以调节色相、饱和度、明度，这个屋顶材质效果很好，可以随机水渍、污渍、明暗。archipack user defined roof 的pivot设置volumn居中即可，面数较大的模型在ue中设置pivot很卡。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c99dc4dfa2b5a7f8998e7ea705171e10_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-fc072ab04544ee470123fb3063f6e4b4_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-fdd6b7e6dbdf0f8d565b5b183f668c0d_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-b60365de0e1c85231bccb2dc0d268c4e_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-bc7141bd219b60746e3db4c7e07ea3c2_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-c50a103342c004ce473bd5f054b8de6d_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-6ee12e9c84683931b24c67e570d9a37f_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-3a9af787bc7567072a561ad07728a6ad_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-641ae2a7b8f0de7b800f1a5c9700e7dd_1440w.jpg"></p>
+<p>14.unreal的fbx批量导入，blender直接导出到ue工程文件夹的自动检测导入点import all没有作用，这导致每次批量导入要傻坐着每隔一个点击一次import all.后来发现点content browser中的import手动选择这些fbx然后import all可以实现一次设置随即全自动，之后单个fbx对应的mesh做了改动再导出检测到之后import不会出现import editor对话框。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-30a36f3cf7ba606f54a39e122071562a_1440w.jpg"></p>
+<p>15.clear parent会导致物体变形、位移，对于之前的项目中大量物体都存在parent的情况下，全选右键clear parent and keep transform可以使物体保持当前的位置和大小并清除parent，从而可以支持batch export.</p>
+<p>16.暂时不知道什么原因有的blender项目中多个物体join会崩溃退出，多选后先右键convert mesh，然后再join就不会有问题了。</p>
+<p>17.matrix block材质系统使用的第二套uv，需要对不使用的部分缩放为0移到uvmap外面。不然会导致texture扭曲,bevel modifier不用apply，导出会自动apply。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5eb15478bba3db155348779c302146cc_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-e126d19cf6f66dde6163896934cd52c4_1440w.jpg"></p>
+<p>18.matrix block uv在zenUV中的texel density设置为100时如下图左，切分缝隙会非常大，感觉最大也得是texel density200，再大感觉有些假了？</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-f45510b0a28e9c491431881ebcdf2c28_1440w.jpg"></p>
+<p>19.大量零部件合并后使用bevel，感觉效果还可以，石材bevel0.01、金属栏杆、窗框0.002，不过要注意若使用已经具备bevel的外部部件，则需要将其他部件合并后apply bevel再合并已bevel的外部零件。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-0b2edefaa3ad1f4b15b40a72ce458de4_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-808595e11eb91a70c39af9d577b45d2d_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-a5e8d9dd3d5a502adea321815f292cb5_1440w.jpg"></p>
+<p>2024-2-26更新：使用vertex group可以给join合并的物体不同部分给不同的bevel，这样做可以保持非破坏性工作流。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-680d20cef1b9f98c4447c5e328a41079_1440w.jpg"></p>
+<p>20.angle based和conformal的zenUnwrap有区别，经测试同一个mesh拉伸vertex zenUnwrap用angle based模式居然会有偏差无法对齐uv，使用conformal则可以解决，不知道这是不是个例。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-26bbc231ea4eb94bd6b3e7a4c5272127_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-28a67cc8ce364e092206247fb7b1087f_1440w.jpg"></p>
+<p>21.存在拉伸非矩形的面做zenUnwrap的话会出现uv对齐不上，目前不知道怎么解决这种问题。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-527af8d312aa7fe921ec25a02cf96007_1440w.jpg"></p>
+<p>22.对多段的mesh，合并mesh，确保面之间无间断（点重合而未连接，需用merge合并重合的点），再用zenUnwrap可以对一整块uv展开。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-13370801835f44415c419729334964fc_1440w.jpg"></p>
+<p>23.大理石光面材质带切分替换block的贴图，修改normal、roughness即可。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-78e15e30b96f6eeb147fcd46aeabc02c_1440w.jpg"></p>
+<p>24.跨层的facade、立柱要把这种重合的面做点的merge，以避免bevel之后残留一个接缝，bevel之后要清理合并十分麻烦。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-0dce0a9e8cfedec1dc71f5ca1880569f_1440w.jpg"></p>
+<p>25.转角的拼缝只有在拼接后才能知道如何去填充修补，这个修补属于建模上的因此若涉及block、brick uv展开则先确保模型拼接没有问题然后再展开uv。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-6c793e03b34d52f1874c3a93355be4cd_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-b161b550764fff109fb80339aba31bb0_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-03087165ea6119485b6b973d77bf1954_1440w.jpg"></p>
+<p>26.多物体以某个非最远端点做特定目标点吸附对齐，用ctrl似乎不行。使用snapping tool 插件，ctrl shift v激活即可指定某个点对齐到目标点，从而带动多个物体移动对齐，不过这个模式比较卡，另外使用此模式会对未apply的bevel起效，也就是说应该在bevel之前先做好snap对齐。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-73ef78dd46be7fd355f31fd924bf8957_1440w.jpg"></p>
+<p>27.pivot拉到最远端虽然解决了一个segment的对齐，但是转角corner mesh就要出问题了，因此corner只能设置在corner mesh临近的那个房型的墙体两端。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-524d4441fc4dd4917a4b64ea082d8f7d_1440w.jpg"></p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5093e0bda05d6b40c3ab08c6d635a69e_1440w.jpg"></p>
+<p>28.确保对接的墙体侧面删除，不然bevel后会产生一个明显的接缝痕迹。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5268cd8b93bd10309866edc2a8883d5e_1440w.jpg"></p>
+<p>29.cornice需要和标准厚度墙体的相对位置始终保持一致不然会导致corner mesh有连接漏洞，若后期PBG可以指定corner mesh则就没有这个问题。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-5f64814065e6009769122659e51c1601_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PBG/">#PBG</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/uv%E5%B1%95%E5%BC%80/">#uv展开</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/">2024-2-26-PBG程序化建筑从blender到ue</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

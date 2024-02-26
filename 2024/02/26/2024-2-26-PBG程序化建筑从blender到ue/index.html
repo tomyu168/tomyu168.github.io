@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-2-26-PBG程序化建筑从blender到ue - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="制作PBG程序化建筑： 1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？ 建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-2-26-PBG程序化建筑从blender到ue">
+<meta property="og:url" content="http://zhudian.xyz/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="制作PBG程序化建筑： 1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？ 建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5f5fad0b1273187f800cf311405f174d_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-45550be8442c9b6dab42ff634515c73e_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-ff548fc1524a278fb1e0f605a80c6293_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-00933296a2ea8665116b1ffe7d75bbb1_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-474503fbbf08185b5ddb12337ddd4761_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-cfa15befa482939f4f3c53bd837aa296_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-3988d8ba9ce9207a6f7086e9c688f92e_1440w.png">
+<meta property="og:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-116a2254577cd6b4266a9b8efa83321f_1440w.png">
+<meta property="article:published_time" content="2024-02-26T08:04:16.000Z">
+<meta property="article:modified_time" content="2024-02-26T08:10:51.032Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="PBG">
+<meta property="article:tag" content="uv展开">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5f5fad0b1273187f800cf311405f174d_1440w.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-2-26-PBG程序化建筑从blender到ue
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T08:04:16.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1239 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作PBG程序化建筑：</p>
+<p>1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？</p>
+<p>建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。</p>
+<span id="more"></span>
+
+<p>装饰部件有的是“附着”在墙体上如一些浮雕，中段的cornice，这种没有对齐问题。还有的如下图1中左1、2的黑色槽板，它等于构成了墙体的一部分。</p>
+<p>窗和门使用的外部模型删除玻璃面部分，用一整块面片填充作为玻璃，材质为内景客厅、内景卧室或反光玻璃。</p>
+<p>制作好一个部件先把材质slot整理好，这样之后复制这个部件用于其他的房型时不用重复修改材质，当然用link object data也可以再后期统一材质。uv统一为uvmap，若有block、brick则复制一个uvmap.001</p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5f5fad0b1273187f800cf311405f174d_1440w.png"></p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-45550be8442c9b6dab42ff634515c73e_1440w.png"></p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-ff548fc1524a278fb1e0f605a80c6293_1440w.png"></p>
+<p>阳台房型分开放附着型与封闭内凹型，开放附着型可以视为地面部分通过基础墙体挤出在其上添加一个外部的围栏mesh如下图1。图2中我这样做是贪图便宜借用su的模型，这样弄到后面会有许多对齐问题，且bevel之后会在重合处产生接缝。</p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-00933296a2ea8665116b1ffe7d75bbb1_1440w.png"></p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-474503fbbf08185b5ddb12337ddd4761_1440w.png"></p>
+<p>封闭内凹型涉及上下天花板、地板的归属问题，只要一层做地板充当它下层的天花板即可，两侧的墙体利用基础墙体挤出即可，前方围栏两侧的墙体再用两侧墙体继续挤出，尽量保持单个mesh。图2的facade墙体与基础墙体的延伸有重叠冲突，因此以facade为优先。下面两个案例都不应该封顶，顶应该由上一层的地板作为顶。</p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-cfa15befa482939f4f3c53bd837aa296_1440w.png"></p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-3988d8ba9ce9207a6f7086e9c688f92e_1440w.png"></p>
+<p>2.根据不同部件的情况分派vertex group以备之后bevel，比如栏杆0.002m、墙体0.01m而外部的高模雕花、窗框、门框、cornice等无需额外bevel，此时需要给不同部分assign vertex group（无需bevel的不用分派vertex group）。将所有部件join合并为一个房型。</p>
+<p><img src="/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-116a2254577cd6b4266a9b8efa83321f_1440w.png"></p>
+<p>3.重复1、2步骤完成所有房型后，确定房型的pivot。以corner mesh邻近房型的基本墙体的末端作为基准，开始逐个两两对齐，对齐后确保pivot在y轴方向上与基准房型的一致。</p>
+<p>4.如果立面涉及block、brick，展开uvmap.001，熟练使用alt u快捷键调取zenuv的zenUnwrap、quadify，感觉texel density到最后一层的部件一起统一这样可以不用重复工作。</p>
+<p>5.对需要镜像的房型选一个mirror，其余的copy modifier 全选apply、seperate，选中所有房型用renmae插件对所有房型重命名。</p>
+<p>6.对一个房型添加bevel modifier，bevel模式改为vertex group，复制多个bevel modifier对应不同的vertex group，所有的房型link modifier，bevel modifier不应用，保持非破坏模式，以便后期还可以修改。</p>
+<p>7.添加batch exporter设置，按e导出到ue的工程路径下，取消ue的自动导入，按import多选导出的fbx这样可以避免ue的import all bug。</p>
+<p>8.在ue中用material overide控制material slot 整体覆写所有部件的材质.</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PBG/">#PBG</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/uv%E5%B1%95%E5%BC%80/">#uv展开</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/02/14/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/">2024-1-26-建筑部件局部uv图案彩绘与室内场景视差贴图随机分布</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

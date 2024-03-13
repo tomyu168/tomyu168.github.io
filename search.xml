@@ -12497,4 +12497,30 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>SendToUnreal</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-3-8-玻璃立面高层公寓楼PBG练习</title>
+    <url>/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/</url>
+    <content><![CDATA[<html><head></head><body><p>玻璃立面型超高层公寓主要就是窗框的变化眼花缭乱以至于一眼望过去都不知道如何在同层切分房型了，不过由于部件复用度高所以问题不大。</p>
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-395b115d77e8ad90ec13689483e73437_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-293bda039d363ea5b03e977d94d26b6e_1440w.jpg"></p>
+<p>这个项目前前后后折腾了5天，最后没能封顶。问题出在了不按规则先bevel导致多点位对齐困难，花了大量的时间在bevel后的对齐，同一层floor的房型高度不相等，随意摆放玻璃、玻璃窗框导致高度偏差、与墙体有间隙漏光。玻璃窗内景应该在窗框中段，窗框固定位置，比如说后端与墙体后端平齐。bevel造成的顶不同高导致cornice对不齐，顶部有面片可以在高度同位时通过框选删除顶部的面。</p>
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-551e1e144b3091bf0e4ca9f2dd361bda_1440w.jpg"></p>
+<p>非45度对称的corner mesh在两侧会呈非对称的状态导致整个PBG出问题，在目前的技术状况下不使用非45度对称的corner mesh。这种要去对齐太费力了。</p>
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-837da6a0bb26c06080f104744eb4336e_1440w.jpg"></p>
+<p>交界的mesh不要用布尔去切分，直接合并成一个mesh即可。</p>
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-542b2cb411936c63ae2e771b105cbba1_1440w.jpg"></p>
+<p><img src="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/v2-57e7c69bf281a4b43c27979cb3066261_1440w.jpg"></p>
+<p>再做两组新的建筑返回来重做这一套</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>PBG</tag>
+      </tags>
+  </entry>
 </search>

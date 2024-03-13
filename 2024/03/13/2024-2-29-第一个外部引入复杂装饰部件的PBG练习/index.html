@@ -16,12 +16,12 @@
 
 
 
-    <meta name="description" content="1.初步观察、切分房型来看一共就5个房型，只不过涉及的装饰比较多，deco per socket能否无视房型的占位宽度，因此灯具、广告牌用deco per socket实现。 2024-3-13更新：deco per socket可以无视房型占位宽度，以xx0、xx1、xx2命名可以反复利用同名socket。    corner其中一个我觉得要用到gable mesh，视情况若不能3个corner">
+    <meta name="description" content="1.初步观察、切分房型来看一共就5个房型，只不过涉及的装饰比较多，deco per socket能否无视房型的占位宽度，因此灯具、广告牌用deco per socket实现。 2024-3-13更新：deco per socket可以无视房型占位宽度，以xx0、xx1、xx2命名可以反复利用同名socket。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-2-29-第一个外部引入复杂装饰部件的PBG练习">
 <meta property="og:url" content="http://zhudian.xyz/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="记录伟大征程">
-<meta property="og:description" content="1.初步观察、切分房型来看一共就5个房型，只不过涉及的装饰比较多，deco per socket能否无视房型的占位宽度，因此灯具、广告牌用deco per socket实现。 2024-3-13更新：deco per socket可以无视房型占位宽度，以xx0、xx1、xx2命名可以反复利用同名socket。    corner其中一个我觉得要用到gable mesh，视情况若不能3个corner">
+<meta property="og:description" content="1.初步观察、切分房型来看一共就5个房型，只不过涉及的装饰比较多，deco per socket能否无视房型的占位宽度，因此灯具、广告牌用deco per socket实现。 2024-3-13更新：deco per socket可以无视房型占位宽度，以xx0、xx1、xx2命名可以反复利用同名socket。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://zhudian.xyz/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-7023f8002998791dc13a2a34a7558d78_1440w.jpg">
 <meta property="og:image" content="http://zhudian.xyz/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-d354125de722954fc2c0e7209c42b6d0_1440w.jpg">
@@ -51,7 +51,7 @@
 <meta property="og:image" content="http://zhudian.xyz/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-66115e4bf00f1fdc239e473b7b894c5b_1440w.jpg">
 <meta property="og:image" content="http://zhudian.xyz/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-c6203cd04fba0ba03092475d2b6bc86c_1440w.jpg">
 <meta property="article:published_time" content="2024-03-13T00:52:33.000Z">
-<meta property="article:modified_time" content="2024-03-13T00:55:58.513Z">
+<meta property="article:modified_time" content="2024-03-13T01:16:43.564Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="综合技术3d场景制作">
 <meta property="article:tag" content="blender">
@@ -182,7 +182,7 @@
         <span class="column is-narrow">
             
             
-            12 分钟 读完 (约 1766 字)
+            12 分钟 读完 (约 1767 字)
         </span>
         
     </div>
@@ -191,6 +191,8 @@
         <html><head></head><body><p>1.初步观察、切分房型来看一共就5个房型，只不过涉及的装饰比较多，deco per socket能否无视房型的占位宽度，因此灯具、广告牌用deco per socket实现。</p>
 <p>2024-3-13更新：deco per socket可以无视房型占位宽度，以xx0、xx1、xx2命名可以反复利用同名socket。</p>
 <p><img src="/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-7023f8002998791dc13a2a34a7558d78_1440w.jpg"></p>
+<span id="more"></span>
+
 <p><img src="/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-d354125de722954fc2c0e7209c42b6d0_1440w.jpg"></p>
 <p><img src="/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-a3bb53589e653e42d430ef7baa9bb0c2_1440w.jpg"></p>
 <p>corner其中一个我觉得要用到gable mesh，视情况若不能3个corner自动使用gable则用3个PBG构成3个curve。复杂穹顶作为外部mesh到时候手动移到这个corner上。</p>
@@ -248,7 +250,9 @@
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/">2024-3-5-米棕典型住宅小高层PBG练习</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">

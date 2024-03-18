@@ -12523,4 +12523,153 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>PBG</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-2-28-BlenderToUE问题集锦2</title>
+    <url>/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/</url>
+    <content><![CDATA[<html><head></head><body><p>1.对齐房型设置好基准pivot房型的pivot之后，把cursor用shift s锁定到这个位置，下一个房型直接q快捷菜单origin to 3d cursor，即可在y、z轴精确与基准pivot对齐，再者就是简单的x轴吸附对齐该房型的x轴方向边缘了。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-d9bdd8ad88d6ea8a2545e8eb45a15a88_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>2.后续楼层加盖，先用ctrl shift v启动snapping tool，将高层房型的某个点位与低层的吸附对齐，使其“上楼”。如1中办法，cursor to selected，之后逐个origin to 3d cursor。再x轴吸附到边缘顶点。</p>
+<p>3.rename tool点亮sort target objectsx\轴向,输入前缀x层房型，可以使选中的房型从左到右从001依次递进，这样在PBG中meshlist配合grammar list时可以保证房型编号是连续的，grammar可以整个立面每层复用。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-35208329847abe45211d2b7462c973da_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-2676c992d939f8d7a66ad4ae1d22619a_1440w.jpg"></p>
+<p>4.每层的rightcorner mesh的length y坐标值都得一致这样才能保障每个立面上下的mesh对齐。</p>
+<p>5.我觉得涉及cornice的部分应该保证完整性，cornice要切分，后续的各种拐弯、对齐十分麻烦，几乎铁板钉钉要干两回。另外这样割裂可能海会导致cornice顶端大，在转角部分下层没给足而要返工（下面这个转角的“柱头”部分比较粗大，这么小的转角导致容纳不了它，拉伸下层的mesh则若有brick、block涉及uv重排，缩进上层柱头在几何上会出一些外观问题）。像宝华这个图2的效果，考虑到cornice完整性就直接1、2、3、4层为一整个PBG层，以后在制作前可以用微信截图用红框比划，事先确定好切分，而不是在脑中反复推测。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-a877e1e3d9f0f7ee41e028c0f1de9841_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-daf37b1ea8eaea67b851e1f4a82246d5_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-b1c1545d55180eb0ccc8868204340ddf_1440w.jpg"></p>
+<p>6.有时候内侧wall 不知道什么问题bevel出问题，用shift g选中内墙材质相关多边形，vertex group remove将它从wall bevel移除。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-b477e918e3ab337a4c9410a1064b371e_1440w.jpg"></p>
+<p>7.copy modifer 添加多重vertex group bevel很卡,30个房型copy modifier卡了1分钟，然后逐个删除多余的bevel。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-8c8966efc5b3b3adc00b50048d634c94_1440w.jpg"></p>
+<p>8.通过在blender中设定PBG的曲线引导bezier curve，curveExport到ue，ue中先选择curve再shift加选PBG，右键scripted actor spline即可将PBG按照设定的曲线引导排布，这意味着分段设定配合倒装语法，只要对第二个立面的corner mesh做修改就可以实现corner mesh的自定义。注意两个PBG的交界处很难实现完美对接，最好是预留平墙重合一小部分。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-8ea17cf4eb788354636c0f54958f9d71_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-f32bfc067fc241a7943b710cf89111d9_1440w.jpg"></p>
+<p>9.send to unreal 插件可以直接将blender中的物体批量发送到ue，且跳过ue的editor窗口，安装插件后要保证ue开启python插件、python 打开remote，Multicast Bind Address我默认是0.0.0.0这个情况下传输不成功，改成127.0.0.1成功了，网上也有一说是反着的，看来家家有本难念的经。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-d6bf3235f58a73ce382c9ae981fca10c_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-fa9b0e5060b6a9524d9bcaeb0f5311ca_1440w.jpg"></p>
+<p>使用此法转移到ue中的物体保留了blender中的smooth设置、object link（instance关系），shift h可以隐藏选中物体之外的其他，此情况下再使用push assets只会对blender当前显示的物体做更新，alt h可以恢复被隐藏的物体。push assets前需将物体m键迁移到Export这个collection中</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-1f91d9bdbd4d7aa41501456e6fe72b0f_1440w.jpg"></p>
+<p>10.su导入blender的建筑先clean parent，clean object data。初始导入发现有上万个object，无法框选建筑，quick snapping巨卡。其中c-群组为一堆不明所以的物体，占了10000多个。此时还有2800多个物体，但是可以发现框选有效了，并且框选只占据900多个物体，再用反选删除即可，现在quick snapping正常了，apply rotation and scale ,flip normal并set origin to geometry center， alt j合并为四边面，这样一番之后的su建筑部件可以放心利用不必担心之后的各种link object出现法线、origin问题。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-f7966099da96beb7338e1e7038b05c3c_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-1a8b95b20afd276bd235039f05f2b8b9_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-2541ae88580f2122b5642de5055bebfe_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-50ad1f134da93633c23686569e0db068_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-f7966099da96beb7338e1e7038b05c3c_1440w.jpg"></p>
+<p>11.batch export的快捷键e容易误点导致开启批量导出，当su建筑模型导入后，可能有成千上万的物体，误点会导致blender卡住，因此得预先设置好batch export 为select，只有选中的物体才能导出。</p>
+<p>12.制作过程中搞出大量的xxx-1,xxx-2,xxx-3 .blender文件逻辑混乱，目前来看应该是这样3份，1份是清理完的su导入模型，第二份是不含bevel的房型asset zoo，第三份是bevel apply的房型asset zoo。在没有bevel的那一份blender工程文件中，开始建模时将部件归类大纲，比如wall、cornice、fakeinterior，之后复制这些部件做修改时会保持在各自的collection中。所有部件不做join合并，通过框选多选来整体移动房型，没有bevel的情况下对齐工作是比较容易的，房型asset zoo形成后确认pivot，因为join合并的pivot会参照最后一个物体的pivot，此时确认不涉及bevel容易操作。第三份blender工程，通过collection select object批量选取部件按照部件特征批量给相应的bevel然后apply all，最后join，批量rename房型。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-0aa173144e46dfb3e87e54dff2140ad1_1440w.jpg"></p>
+<p>13.之前这种转角cornice拼接得用布尔去切分，今天发现是可以用pivot的相对位置来控制两个房型交接部分的对齐的.以图3为例，交界部分的宽度为白色cube的宽度，为了使左边的这个大门入口房型与右边对齐，左边需要将pivot向左偏移cube的宽度。而图4中左边的房型与大门入口房型不仅要计算它们重叠的部分还要把之前大门入口房型的偏移量加上，也就是说后续的房型pivot都要考虑初始房型pivot的偏移。不过由于corner mesh是固定的这导致最后的corner拼接不上，要想解决得另开一个PBG。当然还有一个解决方法是把包含交界的部分延伸出去合并两个房型为一个，我觉得应该是这么做，PBG拼接是个麻烦事儿，pivot递归计算偏移也很麻烦，到时候一改动要全改，等于说没法灵活变动房型了这属于颠覆了PBG的初衷。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-b439dd94b3110a675329fa16d4660d57_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-effbbcb2990d07902dae873e5ae6770d_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-b32621747980672f48f2d60e89766464_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-83c257da332c5863c9ce01053e140f9f_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-af440f86e0e1c3f7dbadf287cb658e97_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-1b152fe542059237bc1f76cd4469af50_1440w.jpg"></p>
+<p>当房型有交接的部分时将其合并为一个，而不是去切分布尔。这么一来对于左右corner相同前后两组corner不同的情况只要做两个PBG，两两相接即可。若要在这个合并的房型上做变化么，再合并前对于两个（多个）单体做几个变化的版本，整体合并做几份作为备选替换即可。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-23ad976f6f6dbee531ad860800272e16_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-60d44d6e29c19ef029c6e94e225fb516_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-ea7f71db210fd8bc7928f6b5577b0875_1440w.jpg"></p>
+<p>14.ue的reimport 检测只有在ue工程文件夹下才能起效。</p>
+<p>15.对于blender的duplicate master插件，使用时计算好到顶端的位置，部件本身的pivot置于底部。</p>
+<p>16.Object ‣ Clean Up ‣ Remove Unused Material Slots 可以去除一个物体未使用的所有material slots。全选所有使用即可对整体做material slots的清理。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>PBG</tag>
+        <tag>SendToUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-3-13-紫御府新古典含户型</title>
+    <url>/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/</url>
+    <content><![CDATA[<html><head></head><body><p>自这个项目起我觉得有必要从PBG的工作流转变为SendToUE工作流了，后者对于建筑设计装配的自由度更灵活，在duplicate master、material assignment tool、packed level blueprint actor的加持下，后者可以通过一个blender工程在指定的地形位置导入整体建筑，无需一层层反复定义语法指派meshlist，能更为精准的落实建筑到地形上，彻底将布局和建模落实在blender，而非用ue来布局建筑。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-760784951473db52350e88b6856f40ad_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-a23288cbbfc91783e88a6c515456d5f8_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-35a34bbe7398ba35abd71b986a7839eb_1440w.jpg"></p>
+<p>pbg不支持非对称corner mesh因此顶部需要后期加装上去。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-616bfc441a4a42f19193c7f639ec50ee_1440w.jpg"></p>
+<p>侧面可以是多重转角也可以视作整体是4边面，背面为pivot置后的前凸房型。我按照前凸房型来做。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-d0c2fc10063669157f8684818250c9ef_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-ad9053f5c2062596895f4e8444309d1e_1440w.jpg"></p>
+<p>Object ‣ Clean Up ‣ Remove Unused Material Slots 可以去除一个物体未使用的所有material slots。全选所有使用即可对整体做material slots的清理。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-200620c9d324d57395906a3485b118db_1440w.jpg"></p>
+<p>经过1天半把几个房型需要的零部件拼装到位了，由于此建筑涉及砖石切分，因此在组装房型前让相同的部件保持instance关系，UV一遍互相共用，前期由于没有确定房型各个部件手动位移其实涉及到instance的可以暂时只做“主体”确认的部分。比如这个阳台前侧墙板若不确定那么阳台内侧先合并打包移动，到时候只要其中一个阳台把这个前侧墙板join进来其余的阳台instance会自动伴随生出墙板。今天好几次涉及到这种上下楼层移动对齐出了问题，多个部件需要对齐总是会百密一疏.</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-63a4d0fafcccac3f116232b8230a2033_1440w.jpg"></p>
+<p>进一步来说完全可以用array去排布上下层重复的部件而不是手动复制instance，反正这些东西要合并成房型的到时候也无关instance，且array状态下等于有关联。等需要合并房型时apply array，edit 模式全选seperate by loose part，由于都是同个floor上涉及合并因此框选也不会有太大麻烦。回看之前多个项目涉及部件重复利用时也可以套用array节省大量时间。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-dfd316c931e54cbac7474232417049af_1440w.jpg"></p>
+<p>关于cornice，用curve模式下bevel 成型，替代转角一个个拼接，curve直接在顶视图沿着墙体绘制即可然后取cornice profile，之前做cornice太费时费力了，等分房型时再切分完整的cornice。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-8215c35b526682feb48e8a86513a3977_1440w.jpg"></p>
+<p>在网上看了紫御府实景，可以深刻体会一下它的砖石切分以及材质的特点。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-4c60a6c40239804520456666225a043e_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-1199e5ab3b030ffe1bc263c297495456_1440w.jpg"></p>
+<p>这个超长墙体模块化如同cornice一样可以整体搞好再切分的，若不是等长无法用link object转移uv，下图所示使用150texel density铺横向砖石切分12米长度，可以估计最长大约是可以处理30米左右高度的部件，由于我没有按照整体做，在这个案例中，墙体部分分割uv重复干了3遍。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-20937bddd9313bf23e1792dde66ae1b0_1440w.jpg"></p>
+<p>blender中想使用array并且instance能够导出到ue，在blender market中花了45块钱购买了duplicate master基本解决了这个问题，linear array下把目标物体pivot设置为底端，cursor置于合计的高度上-1即可生成相应数量的instance，导入ue保持instance。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-b0679a5d23962423a342f4caa87f1648_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-51a99b9e73ebeb5fd5cac36cf4988c66_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-a6d4365beead661106f0f61a2e7812b2_1440w.jpg"></p>
+<p>bevel需要在instance之前做，instance阵列之后加bevel无法被apply。</p>
+<p>整个建筑以部件组装形式导入ue后，全选转化为level packed blueprint actor会自动将所有的部件转换为ism或hism，目测似乎面数高的是hism面数低是ism。ue中ctrl alt框选物体存在遮挡问题，导致选中不完全，目前只有通过顶视图框选能解决。</p>
+<p>level packed blueprint actor生成后会自动删除被选中的这些mesh，并且产生相应的整体map和blueprint，即使不保存，第二次打开也会记录下这个操作，即原先的static mesh都被删除了，并且map、blueprint生成。</p>
+<p>blender项目文件通过SendToUE导入的部件，关闭再打开blender工程再次alt d生成更多实例并导出到ue，ue会识别出是先前导入过的部件保持同个mesh关系，这就意味着在blender中做好一个建筑模板以后，在不同的位置生成楼房导入可以产生不同平面布局、楼层的相同样式的建筑。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-0d1d561f525edefaa8ecd30bc2697809_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-20385a97e5463eb9059925a2a1507b73_1440w.jpg"></p>
+<p>material assignment tool这个插件似乎可以对选中的static mesh的material slot合并同类项，然后一次性批量赋予材质，不过后期修改了物体再导入我想它需要再次批量选中做修改，还不能做到对material slot做恒定的材质适配。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-a0b058bb5d8d7c4b1694ed58db73e1d2_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-1699d659b4eb207bf7bce29b779dd6fc_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-232870331ec7f4faa4936d8dd4e91922_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-87a2420842f49c29c6b458fa546d3293_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-0e4cb729890d5b5a80ba3e5908679043_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>SendToUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-3-18-SendToUE程序化建筑从blender到ue</title>
+    <url>/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/</url>
+    <content><![CDATA[<html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径，勾选place in level、use mesh instances.若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>4.建模，每个部件都命名后期复制就会自带之前的前缀了，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？注意非最外侧的墙体需要将两侧的面删除，以免bevel后互相间有明显的分割。若是内收阳台则无需考虑bevel。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-f3c418afad0e21e14dc9c6b4a57687e8_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a88f04415b48c10f8fcdb6a879583f20_1440w.jpg"></p>
+<p>装饰部件有的是“附着”在墙体上如一些浮雕，中段的cornice，这种没有对齐问题。还有的如上图1中左1、2的黑色槽板，它等于构成了墙体的一部分。</p>
+<p>阳台房型分开放附着型与封闭内凹型，开放附着型可以视为地面部分通过基础墙体挤出在其上添加一个外部的围栏mesh如下图。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5982af4d6a485c2b43d54c79ad98c832_1440w.jpg"></p>
+<p>窗和门使用的外部模型删除玻璃面部分，用一整块面片填充作为玻璃，材质为内景客厅、内景卧室或反光玻璃。</p>
+<p>制作好一层部件，用Object ‣ Clean Up ‣ Remove Unused Material Slots 把多余无用的材质清理掉，uv统一为uvmap，若有block、brick则复制一个uvmap.001。</p>
+<p>5.每一个后期会使用duplicate master用array instance叠加的部件都需要将其pivot置于底端，我暂时不清楚哪个插件有这个功能，若是纯粹保证z轴一致为底端由于同层的部件底端势必一致可以origin to 3d cursor，将cursor随意置于xy轴随机的固定z轴位置。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-86908df1faa147a40aedd918d72b5307_1440w.jpg"></p>
+<p>6.如果立面涉及block、brick，展开uvmap.001，熟练使用alt u快捷键调取zenuv的zenUnwrap、quadify，感觉texel density到最后一层的部件一起统一这样可以不用重复工作。cornice的建模通过画polygon curve沿着墙面再用curve bevel拾取profile整体放样，若需切分则需对每个夹角用edge loop则限定，来保证uv的打直。</p>
+<p>7.对需要镜像的房型选一个mirror，其余的copy modifier 全选apply、seperate，按照不同部件给bevel modifier。</p>
+<p>8.做完所有楼层的模型保存，另存为部件导出检查，添加bevel将部件转移到export集合中，push asset，发现部件有问题则在ue中删除，在blender中对出问题的部件做修改然后shift h只显示选中的修改部件，push asset部分导出，使用material assignment tool对所有mesh全选批量修改材质，直到所有的部件没有问题。删除ue中用于检查的asset。</p>
+<p>9.另存为组装整栋布局导出1，之后有别的布局就是2、3、4，对需要叠加楼层的部件apply bevel，将建筑移到对应的位置，配合duplicate master组装整栋建筑。导出到ue用packed level blueprint actor，将mesh转化为instance并打包。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>SendToUE</tag>
+      </tags>
+  </entry>
 </search>

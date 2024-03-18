@@ -119,6 +119,138 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-03-18T09:07:01.000Z" itemprop="datePublished">3月 18 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1364 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径，勾选place in level、use mesh instances.若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/" itemprop="url">2024-2-28-BlenderToUE问题集锦2</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-03-18T09:04:07.000Z" itemprop="datePublished">3月 18 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2339 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.对齐房型设置好基准pivot房型的pivot之后，把cursor用shift s锁定到这个位置，下一个房型直接q快捷菜单origin to 3d cursor，即可在y、z轴精确与基准pivot对齐，再者就是简单的x轴吸附对齐该房型的x轴方向边缘了。</p>
+<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-d9bdd8ad88d6ea8a2545e8eb45a15a88_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/" itemprop="url">2024-3-13-紫御府新古典含户型</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-03-18T06:33:29.000Z" itemprop="datePublished">3月 18 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            11 分钟 读完 (约 1702 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>自这个项目起我觉得有必要从PBG的工作流转变为SendToUE工作流了，后者对于建筑设计装配的自由度更灵活，在duplicate master、material assignment tool、packed level blueprint actor的加持下，后者可以通过一个blender工程在指定的地形位置导入整体建筑，无需一层层反复定义语法指派meshlist，能更为精准的落实建筑到地形上，彻底将布局和建模落实在blender，而非用ue来布局建筑。</p>
+<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-760784951473db52350e88b6856f40ad_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/03/13/2024-3-8-%E7%8E%BB%E7%92%83%E7%AB%8B%E9%9D%A2%E9%AB%98%E5%B1%82%E5%85%AC%E5%AF%93%E6%A5%BCPBG%E7%BB%83%E4%B9%A0/" itemprop="url">2024-3-8-玻璃立面高层公寓楼PBG练习</a>
         
     </h1>
@@ -235,136 +367,6 @@
 <p><img src="/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/v2-7023f8002998791dc13a2a34a7558d78_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/03/13/2024-2-29-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5%E5%A4%8D%E6%9D%82%E8%A3%85%E9%A5%B0%E9%83%A8%E4%BB%B6%E7%9A%84PBG%E7%BB%83%E4%B9%A0/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/" itemprop="url">2024-2-16-BlenderToUE问题集锦1</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-02-26T12:04:25.000Z" itemprop="datePublished">2月 26 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            19 分钟 读完 (约 2881 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。</p>
-<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-2-26-PBG程序化建筑从blender到ue</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-02-26T08:04:16.000Z" itemprop="datePublished">2月 26 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1239 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>制作PBG程序化建筑：</p>
-<p>1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？</p>
-<p>建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/02/14/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/" itemprop="url">2024-1-26-建筑部件局部uv图案彩绘与室内场景视差贴图随机分布</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-02-14T12:02:13.000Z" itemprop="datePublished">2月 14 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            33 分钟 读完 (约 4925 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>下面四个图从左到右分别为从prop中treebase的材质系统、sidewalk的材质系统以及剩下两个是brick-block材质系统。treebase的看起来很有阴天雨水打湿的感觉，sidewalk的可以产生随机的细粒度很高的黑色污渍、还有裂纹、垃圾，brick-block的最右边这个没有添加packedA的mask，于是污渍、水渍整体比较均匀的涂抹导致偏黑。相对而言左起第三个带了packedA遮罩的brickblock最为完美，毕竟它还可以继承边缘、接缝的污渍、水渍、磨损智能分布，大块面的水渍来自于grime ground的设置，这套系统还支持色相、饱和度、亮度（这里的饱和度甚至可以局部根据色相调整？），具体对污渍水渍的控制还得排摸一下grime crevice和grime drip.</p>
-<p><img src="/2024/02/14/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/v2-fa5ef0c46f32343d9eb6fc874ca143ef_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/02/14/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/#more">阅读更多</a>
         </p>
     
     </div>

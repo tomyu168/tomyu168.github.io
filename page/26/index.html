@@ -119,6 +119,152 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/" itemprop="url">6.20 3dsmax家具建模</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-20T07:36:26.000Z" itemprop="datePublished">6月 20 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 读完 (约 772 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>bevel挤出可以和被挤出面形成一个坡度，chamfer可以将几何体的边角圆滑其效果与曲线的fillet相似。<br><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/bevel%E6%8C%A4%E5%87%BA%E5%B8%A6%E6%9C%89%E6%B8%90%E8%BF%9B%E6%A2%AF%E5%BA%A6%E9%9D%A2.jpg" alt="2022-6.20 3dsmax家具建模"></p>
+<p>cloth，pressure 1， stimulate local damped差不多暂停即可模拟沙发靠垫等柔性物体。</p>
+<p>X型布线将其交点前拉，形成一个阵列turbosmooth可以形成布艺沙发鼓起的质感。对8边相交的点做extrude可以形成一个8边相连的环形布线包围这个点，这个操作被用于turned wood椅子腿放样不断拉伸微调建模，在今天的案例中可以用于将此点后拉，形成沙发的网孔样式。</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/%E6%B2%99%E5%8F%91%E7%BD%91%E5%AD%94%E7%9A%84%E7%BB%98%E5%88%B6%E4%BB%A5%E5%8F%8A%E6%B2%99%E5%8F%91%E9%BC%93%E5%87%BA%E7%9A%84%E5%8C%85%E8%A6%86%E6%84%9F.jpg" alt="6.20 3dsmax家具建模"></p>
+<p>两组ring线十分临近可以使得turbosmooth后保持硬边缘，否则则会产生圆化失去原先的几何特征。不过对于像沙发扶手这种需要弯曲面的而言，原先用ring线组拟合弯曲造型则不应该添加过多ring线相邻导致弯曲造型中有不自然的硬边缘。</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/%E6%A3%B1%E8%A7%92%E5%AF%B9%E6%AF%94.jpg" alt="6.20 3dsmax家具建模"></p>
+<p>Christopher Guy 的MONTE CARLO椅子其椅背木框架和软包是不规则曲面，尝试之前的透视调整以此为基准建模失败，视频参考中也没有用这种办法，关于透视调整指导建模的可行性目前还不清楚其中的问题。（通过下面两个图作为参考建模均在实际比例上出现了大问题）</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/christopher_guy_monte_chair1.jpg" alt="6.20 3dsmax家具建模"></p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/christopher_guy_monte_chair2.jpg" alt="6.20 3dsmax家具建模"></p>
+<p>这里的切入点在于整体尺寸，用一个立方体框定整体尺寸，然后借助正侧顶三视图的参考以及对形体的想象构造面，在面到位后用shell控制器成体块，这样就把椅背软包部分给构造出来了，对于紧贴椅背的大开叉木框架如果用detach面重新构造独立物体，则在最终turbosmooth时二者之间多少会产生间隙。</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/qumian.png" alt="6.20 3dsmax家具建模"></p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/shell.png" alt="6.20 3dsmax家具建模"></p>
+<p>至于软包上的“边条”，则是通过bevel梯度挤出，再挤出inset再挤出，形成多个大环形坡面来产生的效果。</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/%E6%A2%AF%E5%BA%A6%E8%BE%B9%E7%BC%98.jpg" alt="6.20 3dsmax家具建模"></p>
+<p>在大型出来之后，用ffd拉伸控制器去调节构件比例与规格参考的立方体尽量一致。</p>
+<p>坐垫部分现在已经比较驾轻就熟了，通过cloth pressure可以较好模拟比较自然的鼓起。</p>
+<p><img src="/2022/06/20/2022-6-20-3dsmax%E5%AE%B6%E5%85%B7%E5%BB%BA%E6%A8%A1/mc%E6%A4%85%E5%AD%90.jpg" alt="6.20 3dsmax家具建模"></p>
+<p>渲染产品效果图打光课的那个课忘得一干二净，产品展示渲染这块不理想。过段时间补课需要记录。</p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/06/20/2022-6-13-6-19%E6%80%BB%E7%BB%93/" itemprop="url">6.13-6.19总结以及6.20开始的一周安排</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-20T01:38:51.000Z" itemprop="datePublished">6月 20 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/gallery/">gallery</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 读完 (约 363 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>上周看完了《罪与罚》，并写了观后感，这本书给我震撼的余音希望能够一直萦绕在我耳边，在我动摇之时，欲望泛滥时警醒自己。</p>
+<p>zbrush上手了基本操作，接下来中英文教程要多线并进，互相补充，比如在龙哥家具zbrush教程中用1234数字键定义雕刻笔刷快捷键，而在FlippedNormals的zbrush初探教学中是用首字母层级选择雕刻笔刷，如b c b是brush claybuilder的首字母缩写，我觉得后者的方法更好。（4个半天，zbrush绝对是块难啃的骨头）</p>
+<p>sketchup看了一个流程教学，涉及工具界面布局，视图操作，模型导入，通过google地球之类的软件导入带有等高线的地形。感觉基本等于白看。sketchup先不搞</p>
+<p>3dsmax用数位板做很不习惯，这样看来还是绘画和zbrush用数位板操作。这周先看5个教学，描1个线稿再看安排。半天</p>
+<p>3dsmax家具跟做3个，今天先把上次的沙发重新搞一下。3个半天</p>
+<p>中国建筑史分两天推进住宅、陵墓，然后是结构与部件、建筑装饰、家具。 2天</p>
+<p>学俄语3个早晨。俯卧撑每天120个，跑步2-3次。</p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/06/16/2022-zbrush%E7%AC%AC%E4%BA%8C%E5%A4%A9%E8%B7%9F%E5%81%9A%E5%85%8B%E8%8B%8F%E9%B2%81%E5%A4%96%E6%98%9F%E5%A4%B4%E5%83%8F%E9%9B%95%E5%88%BB/" itemprop="url">zbrush第二天跟做克苏鲁外星头像雕刻</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-06-16T06:30:14.000Z" itemprop="datePublished">6月 16 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 读完 (约 338 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>move拉伸雕刻很容易导致突出的部分面数不够而诡异化，所以拉一点需要dynamesh重构面。局部做的不好就用trimrect切掉，再modify topology里面镜像。</p>
+<p>镜像注意要在左侧，将物体放在右侧镜像则会出异常，默认是x轴镜像。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/06/16/2022-zbrush%E7%AC%AC%E4%BA%8C%E5%A4%A9%E8%B7%9F%E5%81%9A%E5%85%8B%E8%8B%8F%E9%B2%81%E5%A4%96%E6%98%9F%E5%A4%B4%E5%83%8F%E9%9B%95%E5%88%BB/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/06/16/2022-6-15%E6%95%B0%E4%BD%8D%E6%9D%BF%E6%BC%AB%E7%94%BB%E7%BA%BF%E6%9D%A1%E3%80%81%E7%BA%BF%E7%A8%BF/" itemprop="url">6.15数位板漫画线条、线稿</a>
         
     </h1>
@@ -244,135 +390,6 @@
 <p>4.slice可以通过一个面去切割一个几何体。</p>
 <p>通过最近两个家具模型的课程预览来看，可以将部件在建模上区分为，loft旋转放样型和四边形拉伸型，其主要特征区别在于turbosmooth之前的棱角细化方面很不一样，具体区别还需要实际操作中再进一步体会。</p>
 <p>今天晚上就不加班了，120个俯卧撑，把罪与罚剩下的100页干完。模型这两天抽空补掉，明天记得带耳机。</p>
-</body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/13/2022-midjourney%E6%9E%84%E4%BB%B6%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E5%8E%9F%E5%9E%8B%E5%BA%93%E7%9A%84%E6%80%9D%E8%B7%AF/" itemprop="url">midjourney构件建筑装饰原型库的思路</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-13T08:10:43.000Z" itemprop="datePublished">6月 13 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 读完 (约 476 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://jieduanxin.com/From/Discord">https://jieduanxin.com/From/Discord</a></p>
-<p>这个网站可以接收discord验证短信，每天大概申请2-3个邮箱用于获取原型。关键词从metmuseum和之前写的学习总结中提取。貌似一个号只能invite5个号试用。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/06/13/2022-midjourney%E6%9E%84%E4%BB%B6%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E5%8E%9F%E5%9E%8B%E5%BA%93%E7%9A%84%E6%80%9D%E8%B7%AF/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/13/2022-6-13%E4%B8%BA%E6%9C%9F%E4%B8%80%E5%91%A8%E7%9A%84%E5%AE%89%E6%8E%92/" itemprop="url">6.13为期一周的安排</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-13T03:30:58.000Z" itemprop="datePublished">6月 13 2022</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分钟 读完 (约 142 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这周重点是zbrush建模（3个晚上），每天30个左右创意试验，用建筑相关构件关键词去演化。也就是每天晚上想好第二天需要的30个关键词，以及参考图。</p>
-<p>sketchup跟一个b站教学系列。</p>
-<p>3次学习俄语（早起7点半左右来学），跑步2次（晚上跑9点左右）。看完《罪与罚》并总结（半天）。</p>
-<p>家具建模2-3个（每次半天左右）。</p>
-<p>秦汉篇建筑总结完结。</p>
-</body></html>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/06/13/2022-6-6%E4%B8%80%E5%91%A8%E6%80%BB%E7%BB%93%E4%BB%A5%E5%8F%8A6-13%E5%BC%80%E5%A7%8B%E7%9A%84%E8%B0%83%E6%95%B4/" itemprop="url">6.6一周总结以及6.13开始的调整</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-06-13T01:12:14.000Z" itemprop="datePublished">6月 13 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/gallery/">gallery</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 634 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>6.6这周超额完成了《罪与罚》的阅读，但没有学习俄语，从之前的经验来看学习俄语可以切割到1小时学习，但是看《罪与罚》这种书似乎需要很长时间连续专注，周末十分费劲的看了大概200-250页吧，还剩100多页完结。人物画面感很强烈，是透过夸张的情节巧合以及与我周围价值观的剧烈反差造成的，书的语言很晦涩，读感体验很差，但不能否认其核心的矛盾、扭曲、掩饰、狂放、挣扎给我的震撼，在有思想共鸣的情况下会放缩其夸张自我代入到日常生活的思考以及行为中。这样强烈的刺激是不宜持续的，所以我很好奇那些一年看几十本书的人是什么样的心境，如果他们看的都是这类书，内心还能受得了嘛？关于《罪与罚》，这两天抽空把阅读总结补充到上次那一篇。</p>
-<p>秦汉建筑装饰的总结达标完成，不过我发现理论方面的总结至少是1-2天连续的无法切割更短的时间周期。</p>
-<p>railclone依旧没有4、5的破解版，无法用mark定位，并且参数栏显示不全，一些功能似乎还有程序异常。正版是230欧元，目前还没有买的必要，做了一个云霄飞车的案例，要上手还是很快的，先强化绘图和建模能力再说。</p>
-<p>zbrush的手绘板到了一周我还没拆封，关于雕刻建模目前还没有概念，这周一定要推进了，至少加班3晚测试，每晚3小时左右。</p>
-<p>3dsmax家具做了一个北欧几何的，还有一个loft旋转放样桌腿的没有完成。这次回来3dsmax vray的材质库打开程序就会崩溃，目前只有通过管理员权限打开可以解决，原因不明。但是渲染原先项目涉及到vray材质不打开材质库的话不会碰到崩溃问题。</p>
-<p>跑步完成两次5公里，右肩膀在后段总会不舒服。</p>
-<p>地形软件没有操作。</p>
-<p>这周没有画图，6.13开始的这周必须重拾画图。</p>
 </body></html>
     
     </div>

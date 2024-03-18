@@ -126,6 +126,138 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/" itemprop="url">2024-2-16-BlenderToUE问题集锦1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T12:04:25.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2881 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-2-26-PBG程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T08:04:16.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1239 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作PBG程序化建筑：</p>
+<p>1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？</p>
+<p>建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/" itemprop="url">2023-7-10-blender几何节点buildingnodes-osm插件</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-19T08:26:03.000Z" itemprop="datePublished">7月 19 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1108 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。</p>
+<p>目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固定写死的，无法变化。另外buildify中每个墙面模块尺寸必须相同不然会出现拼接问题，它的错落高度阶梯式房屋效果无法用面模式挤出，而是选择面复制分离在几何节点属性参数中调节高度，我不知道重叠的mesh会不会产生什么问题或者是性能上不好。buildify的building节点是可以输出几何体的利用join geometry可以在osm中散布不同风格的建筑。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg"></p>
+<p>​​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/" itemprop="url">2023-7-4-blendertoue西部世界案例</a>
         
     </h1>
@@ -263,144 +395,13 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/03/05/2023-3-5%20%E8%BF%91%E4%B8%A4%E5%91%A8blender%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%BB%BA%E6%A8%A1%E7%AF%87/" itemprop="url">2023-3-5近两周blender学习笔记建模篇</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-03-05T12:24:15.000Z" itemprop="datePublished">3月 5 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            25 分钟 读完 (约 3820 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>2.23我的日记说“3天一次跟练30节内容 一节5分钟练习10分钟，一天就是450分钟打底”，现实是2周下来从未达成过这样。问题主要有3个方面：</p>
-<p>1.目前这个桌面座椅，连续坐那么久似乎不是太舒服，天气有时还有些冷</p>
-<p>2.作息安排、自觉性不足，这个是很大的问题，下周开始必须把刷手机的毛病戒掉，10点左右睡觉，6点左右起床，每天要有一定的运动或者家务</p>
-<p>3.对技术路线有质疑，有些教学包的课程安排不是太合理，比如我一开始看的这个系列blender教学包含了uv展开，贴图着色器材质，环境贴图、灯光、合成、大气、粒子、动画等等，针对性太差了，属于概念普及，这个跟练以后再深入各个模块怕不是前学后忘，当然这和2也有关，因为练习密度太差了，即使深入某一个环节也是进展迟缓</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/03/05/2023-3-5%20%E8%BF%91%E4%B8%A4%E5%91%A8blender%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%BB%BA%E6%A8%A1%E7%AF%87/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/" itemprop="url">2023.3.3 关于我把自己即将到期的网站部署到本地而引发的感悟</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-03-03T16:07:58.000Z" itemprop="datePublished">3月 4 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            20 分钟 读完 (约 3060 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>转眼3年过去了，依稀记得那是淘宝销售开始走下坡路了，一直有个想做网站展示画和软装搭配的想法，想搞houzz那样的东西。于是选择了magento2这个网店插件，一贯讲究“样子”的我找了好几个主题，在ps上摆了摆页面效果，可能那时钱多就毫不犹豫的买了一个3年期的服务器，腾讯名曰1折好像是1000多块来着？还是3000？我也忘记了，反正这个后台想看交易记录是麻烦的很，续费的通道那是有10几个，邮箱，短信，qq微信随时提醒你。我看了下接下来续费是400一个月。一贯的舍不得丢弃以前的东西，编了很多理由，总之就是要把它转移到本地。</p>
-<p><img src="/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/2023.3.3/v2-89a77a388feacff606d7d2047892ee69_1440w.png"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/03/04/2023-3-3-%E5%85%B3%E4%BA%8E%E6%88%91%E6%8A%8A%E8%87%AA%E5%B7%B1%E5%8D%B3%E5%B0%86%E5%88%B0%E6%9C%9F%E7%9A%84%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%AC%E5%9C%B0%E8%80%8C%E5%BC%95%E5%8F%91%E7%9A%84%E6%84%9F%E6%82%9F/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/" itemprop="url">2022 11 14 人物雕塑pose造型利用mixamo在blender与zbrush中互导</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-14T02:03:37.000Z" itemprop="datePublished">11月 14 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 586 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>周末效率比较差，本来是想入门一下人物雕塑肌肉质感的，结果一笔都没有动，主要是消耗在了mixamo这个在线绑定角色的平台上，这是一个去年底上线的平台，提供了大量的动作。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/mixamo1.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
         <a href="/tags/blender/">上一页</a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
+    <div class="pagination-next">
         <a href="/tags/blender/page/3/">下一页</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
@@ -408,6 +409,8 @@
         <li><a class="pagination-link" href="/tags/blender/">1</a></li>
         
         <li><a class="pagination-link is-current" href="/tags/blender/page/2/">2</a></li>
+        
+        <li><a class="pagination-link" href="/tags/blender/page/3/">3</a></li>
         
     </ul>
 </nav>

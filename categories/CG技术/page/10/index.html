@@ -126,6 +126,145 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/19/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/" itemprop="url">2023-7-8-欧洲小镇街道场景解析-1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-19T08:41:54.000Z" itemprop="datePublished">7月 19 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            29 分钟 读完 (约 4302 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这个系列有45小时和西部世界那个场景可以说是一个类型的项目，都是小规模建筑街道场景带一些地形绘制且都没有用到zbrush做模型方面的细节，本项目中没有涉及substance designer自己做材质。其中用到的材质目前看都是bridge上下载的，这个可以说科技树分支限定的很小了，易于观察。看这个教学要对比与西部世界中master material的设定，在无雕刻的情况下是如何处理细节的。另外这个项目中用到了不少blueprint的程序做路沿、道路的spline铺设，这个暂时不研究。重点放在材质创建、管理上，此项目有材质函数。</p>
+<p>本项目用到了3dsmax、bridge、substance painter。</p>
+<p>4节制作道路模型，调整uv，材质来源于bridge，以ue mannequinn作为参考。</p>
+<p><img src="/2023/07/19/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/v2-5d0e92b55234bd05831684c91cb1da32_1440wtuya.jpg"></p>
+<p>​​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/19/2023-7-8-%E6%AC%A7%E6%B4%B2%E5%B0%8F%E9%95%87%E8%A1%97%E9%81%93%E5%9C%BA%E6%99%AF%E8%A7%A3%E6%9E%90-1/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/" itemprop="url">2023-7-10-blender几何节点buildingnodes-osm插件</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-19T08:26:03.000Z" itemprop="datePublished">7月 19 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1108 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在建筑程序化制作方面昨天看到citybld出了一个类似ue官方city sample那种集成道路、城市布局、建筑模块化以及其自身道具模块化的工具，不过什么时候上市暂时不得而知。</p>
+<p>目前已知的工具buildify支持和osm插件联用，可以快速生成大型城市，它支持道具的散布以及屋顶道具的散布，它和building nodes一样也是facade概念，即整个建筑立面由多个“小”的立面组成，而每个立面则是固定写死的，无法变化。另外buildify中每个墙面模块尺寸必须相同不然会出现拼接问题，它的错落高度阶梯式房屋效果无法用面模式挤出，而是选择面复制分离在几何节点属性参数中调节高度，我不知道重叠的mesh会不会产生什么问题或者是性能上不好。buildify的building节点是可以输出几何体的利用join geometry可以在osm中散布不同风格的建筑。</p>
+<p><img src="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/v2-3dd4520ee9520a0d1e9b389c6d4c43c4_1440wtuya.jpg"></p>
+<p>​​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/19/2023-7-10-blender%E5%87%A0%E4%BD%95%E8%8A%82%E7%82%B9buildingnodes-osm%E6%8F%92%E4%BB%B6/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/" itemprop="url">2023-7-4-blendertoue西部世界案例</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-07-07T08:41:59.000Z" itemprop="datePublished">7月 7 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            42 分钟 读完 (约 6301 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>qq截图黏贴的话默认还是png，另外obsidian上直接黏贴用local命令反而没法把图保存到文件夹中，那还是知乎上写完再转移。</p>
+<p>我想西部世界和artstation那个神庙遗迹场景两个教学能在这两周里完成，十分大的挑战啊！话不多说先来看看西部世界案例。</p>
+<p>这个系列一共80节包含了西部小镇建筑建模、建筑部件模块化手动拼装、uv unwrap、基本纹理材质、顶点着色、substance painter遮罩纹理添加表面的污渍、高光、油漆、marmoset/substance designer制作木板纹理贴图、地形编辑、人流、骑马动画。目前我看到37节左右，暂时好像就这么多，后续有新的再加上。</p>
+<p>为了后期做地形的水沟、脚印等等需要地形有很高的像素用来雕刻细节?</p>
+<p>建立场景先用一个部件导入ue测试相对尺寸大小并以此为标准制作接下来的部件，相对尺寸大小的参照是ue中的mannequin，这个角色180cm左右。作者分析整个小镇建筑后在脑中切图，将部件模块列了一个清单并以此在blender中建模，所有部件按照collection分块，pivot移动到左下角点便于在ue中平铺吸附。这样做十分的模块化，不过应该对想象力、模数比例有很高的要求，在blender中没有可视化的组装等于说建筑的拼装是数值上计算好的，一旦ue中发现不对就要回去改再reimport这还不算多个组件的相对关系问题。3-7节都在做建筑模块部件的block out，然后在ue中摆放组装建筑。</p>
+<p><img src="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/v2-80f7bed2fc50cb8cf72dfe560c4226e9_1440wtuya.jpg"></p>
+<p>​​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/07/2023-7-4-blendertoue%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E6%A1%88%E4%BE%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/02/2023-7-2-blender%E5%AF%BC%E5%85%A5ue%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/" itemprop="url">2023-7-2-blender导入ue模块化建筑部件制作流程</a>
         
     </h1>
@@ -259,143 +398,6 @@
 <p>​​​</p></body></html>
         <p class="article-more-link">
             <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/" itemprop="url">2023-6-7-Artstation的unreal场景教学跟做</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-06-07T11:07:55.000Z" itemprop="datePublished">6月 7 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1251 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这个系列有70几集，原计划是10天可以啃完，现在看来貌似一个月都要打个问号。撇开开场白、简历介绍、项目介绍、参考收集，开始的maya blockout场景雏形我用blender做还是很快的，然后是下载asset摆放、landmass，这一块也不难，要点是在landscape mode下，blueprint创建layer会产生一个曲线，按上面的vertex alt键可以拖出新的vertex，配合其falloff angle,curl strength,displacement height，可以对山丘的坡度、散步小山丘、细节凹凸做调整，这些都是随机性的。</p>
-<p><img src="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/v2-fcd9ba2d499a452aa4695cb628d0f8e8_1440wtuya.jpg"></p>
-<p>​​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/04/18/2023-4-18-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%80%A0%E5%9E%8B%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B1/" itemprop="url">2023-4-18-杂七杂八的造型学习历程1</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-04-18T03:10:41.000Z" itemprop="datePublished">4月 18 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            39 分钟 读完 (约 5857 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>今天看了有一天的教学其他什么都没有干，我想知道经过昨天做长颈鹿是不是有什么进步，我不理解的地方应该怎样继续做下去。</p>
-<p>现在看来昨天是有进步的，我第一次意识到要去表现骨点，但是我的做法跟不上，我还不能用面概括，直线替代曲线的办法去模拟动物的造型（用笔幅度太大，概括时大多是用move笔刷用低强度做微调）。b站龟龟11在他简洁的教学中很好的说明了“概括”的意识，将点、线、面都十分清晰的表达出来。</p>
-<p><img src="/2023/04/18/2023-4-18-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%80%A0%E5%9E%8B%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B1/2023-4-18-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%80%A0%E5%9E%8B%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B1/v2-e7d5f51918d44903b4226b8e33146ade_1440wtuya.jpg"></p>
-<p>​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/04/18/2023-4-18-%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%80%A0%E5%9E%8B%E5%AD%A6%E4%B9%A0%E5%8E%86%E7%A8%8B1/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/" itemprop="url">2023-4-8-zbrush人体雕刻必备知识系列课程</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-04-08T02:35:40.000Z" itemprop="datePublished">4月 8 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            23 分钟 读完 (约 3482 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>zbrush人体雕刻必备知识系列课程有30几节，每节2小时左右原本打算1天看1集，现在说不好，可能先看了跟着它练习能更好的提升，不然练习量实际并不会有进步，因为观察方法没有提升。 第1节课：</p>
-<p>前半段评讲作业，提到了“概括”,包含了这么几个点</p>
-<p>1.用直线分割形体的曲线，转折部分做一下倒角。用直线把物体的结构、转折表现出来。</p>
-<p>2.用trimdynamic、hpolish把物体的面明确出来。</p>
-<p>这种做法反映了自身对形体的理解，没有任何摸棱两可浑水摸鱼。我之前做模型从未达到这种能力，对这种初期造型有畏惧感，感觉做不出样子来，一方面我的想法是不用这种思维，如果浑水摸鱼也能做到形体上的相似，”以假乱真“岂不是很省事呢？事实上来说，目前我觉得很多时间浪费在中后期调整形体，可能是前期造型上的摸棱两可导致的，也可能是这种浑水摸鱼的思路导致观察能力不足。</p>
-<p><img src="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/v2-0441c3232355a07cf3232ffa1e00fd81_1440wtuya.jpg"></p>
-<p>​</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/04/08/2023-4-8-zbrush%E4%BA%BA%E4%BD%93%E9%9B%95%E5%88%BB%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97%E8%AF%BE%E7%A8%8B/#more">阅读更多</a>
         </p>
     
     </div>

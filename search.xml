@@ -12660,7 +12660,19 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-86908df1faa147a40aedd918d72b5307_1440w.jpg"></p>
 <p>6.如果立面涉及block、brick，展开uvmap.001，熟练使用alt u快捷键调取zenuv的zenUnwrap、quadify，感觉texel density到最后一层的部件一起统一这样可以不用重复工作。cornice的建模通过画polygon curve沿着墙面再用curve bevel拾取profile整体放样，若需切分则需对每个夹角用edge loop则限定，来保证uv的打直。</p>
 <p>7.对需要镜像的房型选一个mirror，其余的copy modifier 全选apply、seperate，按照不同部件给bevel modifier。</p>
+<p>2024-3-20更新：</p>
+<p>这两天通过bakemaster解决了批量烘焙4个遮罩贴图，如下图设置好烘焙预设之后，框选需要烘焙的物体，选两次rgbaForMatrix的烘焙预设即可，烘焙前需要对物体所有面选中做一次smart UV unwrap（bakemaster对uv要求似乎不能有重叠？不过我试了下matrix的模型用bakemaster烘焙也不行），这样做会破坏窗户内景，因此玻璃窗室内伪装的面片单独分离。另外透明双向材质不支持nanite，这类材质的部件需要分离开来单独设置。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-9f7d41cf35bc86f64f665ee2b38c6d1c_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-2cb2e30a9aecfa1dd427d963d4405981_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5abfb3ef96a4dca21ed4b717556398d9_1440w.jpg"></p>
+<p>若待烘焙物体面数较大则需要将物体分离成几个部分，这样得到4个遮罩的效果会好很多。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-ce1b6207e69c634603def6d8b6bdc1ff_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a3cf08af1345af2084f5041b25338791_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-800ba8b7ad139f99989e2b4d59585c29_1440w.jpg"></p>
 <p>8.做完所有楼层的模型保存，另存为部件导出检查，添加bevel将部件转移到export集合中，push asset，发现部件有问题则在ue中删除，在blender中对出问题的部件做修改然后shift h只显示选中的修改部件，push asset部分导出，使用material assignment tool对所有mesh全选批量修改材质，直到所有的部件没有问题。删除ue中用于检查的asset。</p>
+<p>material assignment tool全选static mesh之后无法通过点选方式添加材质只可以下拉框输入材质名。</p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-04567937632b706f09ae2b134a810292_1440w.jpg"></p>
+<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8f2264d77ebf9cdfb3cc8aa2fbd6b9ed_1440w.jpg"></p>
 <p>9.另存为组装整栋布局导出1，之后有别的布局就是2、3、4，对需要叠加楼层的部件apply bevel，将建筑移到对应的位置，配合duplicate master组装整栋建筑。导出到ue用packed level blueprint actor，将mesh转化为instance并打包。</p>
 </body></html>]]></content>
       <categories>
@@ -12670,6 +12682,34 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>综合技术3d场景制作</tag>
         <tag>blender</tag>
         <tag>SendToUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-3-19-bakemaster批量烘焙4个智能遮罩</title>
+    <url>/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/</url>
+    <content><![CDATA[<html><head></head><body><p>没想到还有这等神器，如下图设置好烘焙预设之后，框选需要烘焙的物体，选两次rgbaForMatrix的烘焙预设即可，烘焙前需要对物体所有面选中做一次smart UV unwrap，这样做当然会破坏窗户内景，等烘培完之后再还原回去即可或者所有的内景独立物体不掺和在烘培中，我觉得应该是后者做法，前者还是蛮麻烦的。</p>
+<p>4个部件用了40秒完成了drip、large ao、damage curvature、ao贴图的烘焙导出，在UE中测试没问题。</p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-53d6c1a7ddadc2abd788dad9902f7333_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-19ad7f5d9805465b26814e6d851f7e7a_1440w.jpg"></p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-d9dc900871aa578721269c70423ea5eb_1440w.jpg"></p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-9c157444b776a4bfb08f0fb66da99d9f_1440w.jpg"></p>
+<p>对于面数较大的物体在matrix部件的测试中无论是single tile还是udim展开uv做烘培，4个遮罩的效果很差，经过几次控制变量测试可能和布线、面数有关，udim展开增加texel density无效。bake sample调高对4个遮罩的效果影响不大，速度倒是会下降很多。</p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-4bab9da8b8376b4a88d70ab195c93ed0_1440w.jpg"></p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-ada14c0f11bc99a96066701938d1cdf5_1440w.jpg"></p>
+<p>若待烘焙物体面数较大则需要将物体分离成几个部分，这样得到4个遮罩的效果会好很多。</p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-bed7f28ce704c37fd0a80c8757173dbd_1440w.jpg"></p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-d0d0565d1cef804e21447caa656432d2_1440w.jpg"></p>
+<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-57276c6be1ae3b978f201d0f200bed60_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>BakeMaster</tag>
       </tags>
   </entry>
 </search>

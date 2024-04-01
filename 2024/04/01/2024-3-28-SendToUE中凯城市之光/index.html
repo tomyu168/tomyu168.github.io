@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-3-28-SendToUE中凯城市之光 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="这是第一个仅通过参考图片来制作模块化建筑的项目，比起现成的项目有3d模型作为参考，在尺寸上完全不需要多考虑，部件切分方面由于不是正视图因此观察较为困难容易混淆。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-3-28-SendToUE中凯城市之光">
+<meta property="og:url" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="这是第一个仅通过参考图片来制作模块化建筑的项目，比起现成的项目有3d模型作为参考，在尺寸上完全不需要多考虑，部件切分方面由于不是正视图因此观察较为困难容易混淆。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3183cbe848788421f5934ac73ca16c35_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-55af4325d6a946ee0139fad776bca606_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bfadc68ac9142c5d5af602d526b6007d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bc780782ede9fbc9dfecd29b9da4fe3e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-f76f2eb162fe29ecfd26c097050e6ec1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e39efa9c420d5bd75c719e63b45fb6ae_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-9386298d234359602c43a5894e8ebb8b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-15b385ca14ca5a3e3c2841824c853850_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3c1874547581a08a401555d9cf1307a4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-165ed4dbdb76cf52973e4ab0920fe94d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-662930e99ef977a6278b5b3ee1cc20fd_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-2cc237609babcd460ed9b5179e6816e2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3b07b69f74b0267bbdc85ebc23ff47d7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d8bd739ebd5a63e211190600978e1bf7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-7b6e800c4c81acf01f01d33fe4c19ee3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-b450b5014d79aa8e14e5595d31fb2d81_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-16e1a977dfe7d89dfc6cfde4bae72644_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d4817c9e0183adf26f499229cfffd278_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-c268d6f60b02f4acb8cd1fef58de21d6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e4dad34e4b6cb0dc31d00e08e074464f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-9ff590fcebff1677ebeaee1be713bac5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-18a4e4b8c2c1537ed933959484d428c2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e2ec145c33f53608f0ac4e0ee76b3476_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-ecc32da654412deaf13cddc4835a1042_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bd3e8f7a96d03331ff8e887574e30c9e_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-21fa27f2daf7d01ca880b0c16771b37d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-86c6e8b648e9186a02de06bb792a8bf3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-301a20783e123e8397373d3a2e1d99f5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-4e1f210e7fe43637685bfa2aed69f159_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-61a543bb12fb45e3c26e12ae82877341_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-450004e88174b7aabc1205c9cf58be5d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-1754ee8a9f4db0c65c737cb495e268ec_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e8e09e93645d476158e51c8eea69956f_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-7bd6d41727939ce3489b6daf13c8a6f7_1440w.jpg">
+<meta property="article:published_time" content="2024-04-01T00:40:35.000Z">
+<meta property="article:modified_time" content="2024-04-01T00:55:28.400Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="SendToUE">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3183cbe848788421f5934ac73ca16c35_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-3-28-SendToUE中凯城市之光
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-01T00:40:35.000Z" itemprop="datePublished">4月 1 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            15 分钟 读完 (约 2255 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这是第一个仅通过参考图片来制作模块化建筑的项目，比起现成的项目有3d模型作为参考，在尺寸上完全不需要多考虑，部件切分方面由于不是正视图因此观察较为困难容易混淆。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3183cbe848788421f5934ac73ca16c35_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-55af4325d6a946ee0139fad776bca606_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bfadc68ac9142c5d5af602d526b6007d_1440w.jpg"></p>
+<p>确定要做5栋样式的楼房</p>
+<p>第一栋主体部分其实就3个房型其中两个做两次镜像拓展。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bc780782ede9fbc9dfecd29b9da4fe3e_1440w.jpg"></p>
+<p>背面如右边两个图，左边应该是第二栋的背面</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-f76f2eb162fe29ecfd26c097050e6ec1_1440w.jpg"></p>
+<p>第二栋主体也是3个房型</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e39efa9c420d5bd75c719e63b45fb6ae_1440w.jpg"></p>
+<p>第三栋，暂时没找到正面的参考图</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-9386298d234359602c43a5894e8ebb8b_1440w.jpg"></p>
+<p>第四栋，侧面不是弧形过渡的。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-15b385ca14ca5a3e3c2841824c853850_1440w.jpg"></p>
+<p>第五栋，阶梯式上行的。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3c1874547581a08a401555d9cf1307a4_1440w.jpg"></p>
+<p>2024-3-29更新：</p>
+<p>缺乏背面照片参考让我反复折腾背面的设计，目前我还没能力通过几组正面照片就推断背面。可能是实战太少，看得少没感觉，也可能是凭空设计确实很难。ai人工智能同样是只能给一个面的参考，现在看来只有积累大量的项目参考才能让制作时没有设计上的障碍。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-165ed4dbdb76cf52973e4ab0920fe94d_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-662930e99ef977a6278b5b3ee1cc20fd_1440w.jpg"></p>
+<p>尺寸方面我是自己估计的，由于开始就确立对称目标，因此这次做的很顺利。建模方面的返工出在了block、brick第二套uv展开，开窗部分的缺口布线乱了没有方方正正导致uv扭曲，若需要block、brick UV系统则得布线是垂直、水平的。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-2cc237609babcd460ed9b5179e6816e2_1440w.jpg"></p>
+<p>测试了批量烘焙29个简易部件，5分钟内解决了。</p>
+<p>对于非1楼起的部件，以层为单位向上叠加则这些部件先把cursor置于这一层的底部，然后将所有部件的pivot置于cursor，注意这得除开对称目标，因此对称目标不能是instance，安全起见这个对称目标应该独立于项目非建筑部件仅仅是一个对齐锚点。要叠加多少层将cursor移到所需高度-1层，比如每层3米，需要6层，则cursor向上15米，linear array 6层即可。加20楼层蛮快的，但convert to mirror搞了好久应该超过20分钟了，我估计应该先convert to mirror然后再用duplicate master加盖楼层。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3b07b69f74b0267bbdc85ebc23ff47d7_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d8bd739ebd5a63e211190600978e1bf7_1440w.jpg"></p>
+<p>我发现duplicate master加盖楼层很慢，且cursor批量变换对instance有大小旋转穿插的情况会出问题。选取整层alt d添加instance楼层 z位移叠加很快，再用shift r可以重复上述操作快速叠加楼层。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-7b6e800c4c81acf01f01d33fe4c19ee3_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-b450b5014d79aa8e14e5595d31fb2d81_1440w.jpg"></p>
+<p>4600多个部件导出到ue需要1小时左右，需要测试下将rail、bar合并减少物体后导出速度是不是能快很多。</p>
+<p>1楼大堂暂时没有内景，全黑看起来诡异还是得找些凑合的内景应付，现在链家都有360室内看房，我想要自己拍摄大堂的内景图应该不是很难？内景方面只要保证uv在第一单元格铺开居中基本撑满即可，所有不同规格的窗拉伸变形不影响内景显示。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-16e1a977dfe7d89dfc6cfde4bae72644_1440w.jpg"></p>
+<p>这次所有部件都带了对应的bevel，墙体材质方面有4个遮罩。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d4817c9e0183adf26f499229cfffd278_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-c268d6f60b02f4acb8cd1fef58de21d6_1440w.jpg"></p>
+<p>对于一个模块墙体叠加楼层使用matrix block brick系统可以自动解决砖块同质化问题，水渍的分布是连续的。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e4dad34e4b6cb0dc31d00e08e074464f_1440w.jpg"></p>
+<p>一下午给32个材质添加对应的遮罩贴图，目前是ctrl d一个个复制，然后一个个手动修改名称对应遮罩名称，暂时想不到有什么好办法.看看One Click Asset Manager/Apply Material By Rules/multi tool是不是可以解决，理想状况是一键生成选中的static mesh创建material instance并且是根据static mesh继承命名。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-9ff590fcebff1677ebeaee1be713bac5_1440w.jpg"></p>
+<p>SendToUE的mesh命名是根据object data properties（绿色倒三角）中的命名，在场景中每个actor的命名则是来自object property（橙色方块）。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-18a4e4b8c2c1537ed933959484d428c2_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e2ec145c33f53608f0ac4e0ee76b3476_1440w.jpg"></p>
+<p>2024-3-31更新：</p>
+<p>在project setting中勾选develope mode并添加additional path，这个path下存放python文件。</p>
+<p><a target="_blank" rel="noopener" href="https://www.rendereverything.com/automatic-material-creation-in-unreal-engine-with-python/">Automatic material creation in Unreal Engine with Python</a> 这篇文章的代码可以对多选的物体批量生成material instance并配置对应的texture贴图。做法是设定Textures、Materials、Meshes文件夹，多选要创建材质的mesh，在窗口菜单栏Tools中选recent python scripts执行程序，python程序中通过这条代码set_mi_texture(mi_asset, “PackedA Tex”, tex_folder + “T_” + asset_name + “_PackedATex”)实现了对PackedA Tex（四个遮罩打包的贴图）自动匹配填充。</p>
+<p>这也就是说大量的智能遮罩贴图填充以及material instance生成与命名还有给static mesh添加对应material instance可以一键到位！</p>
+<p>需要注意的是一个物体有多个material slot，添加材质通过这段代码 sm_asset.set_material(0, mi_asset) 实现，其中第一个参数就是material slot的索引，0是第一个材质，1是第二个依次而下。因此所有部件材质的索引必须保持一致，假设出现1号部件包含a、b、c、d、e材质，2号部件包含a、c、e材质，3号部件包含b、c、d材质那无论如何排序都无法保持材质索引一致，不过我暂时想不到这种极端情况。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-ecc32da654412deaf13cddc4835a1042_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-bd3e8f7a96d03331ff8e887574e30c9e_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-21fa27f2daf7d01ca880b0c16771b37d_1440w.jpg"></p>
+<p>这里同时还提醒了我一个问题，即SendToUE工作流的文件夹架构我还没确定。在PBG的流程中按照层分为一个个文件夹然后下属Material 、Mesh、Texture。对于SendToUE没有层的概念了，其余我想正好也可以这样分，这样也不用再测试验证python小程序对于文件夹结构变化会不会出问题了。建筑部件导入ue后组装的packed level actor会产生一个blueprint和一个map它们放在文件夹顶端即可。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-86c6e8b648e9186a02de06bb792a8bf3_1440w.jpg"></p>
+<p><img src="/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-301a20783e123e8397373d3a2e1d99f5_1440w.jpg"></p>
+<p>bar、rail金属加不加智能遮罩，短的rail效果区别挺明显的。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-4e1f210e7fe43637685bfa2aed69f159_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-61a543bb12fb45e3c26e12ae82877341_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-450004e88174b7aabc1205c9cf58be5d_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-1754ee8a9f4db0c65c737cb495e268ec_1440w.jpg"></p>
+<p>测试了把rail、bar合并，从4600多个部件化为1700多个，导出到ue耗时12分钟。之前4600个是1小时多，看来导出速度和部件数量有关与instance关联无关。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e8e09e93645d476158e51c8eea69956f_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-7bd6d41727939ce3489b6daf13c8a6f7_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/SendToUE/">#SendToUE</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/python/">#python</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/04/01/2024-3-27-%E4%B8%80%E4%BA%9B%E5%BB%BA%E7%AD%91%E7%9B%B8%E5%85%B3%E7%9A%84ai%E6%A8%A1%E5%9E%8B/">2024-3-27-一些建筑相关的ai模型</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

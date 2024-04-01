@@ -126,6 +126,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/" itemprop="url">2023-12-26-关于全局与局部地形起伏的处理</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-01-02T05:32:48.000Z" itemprop="datePublished">1月 2 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1400 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>道路提取内圈曲线作为curb的array curve路径，这条曲线再转mesh offset至curb内侧f键填充成面，用inset 8米生成人行道，此时将人行道内圈曲线提取转mesh offset填充成面，将这个面分离scale z方向归零对齐，这个面的边缘再和人行道bridge对接，这样可以使得中心面相对于整个街区的地形在z轴方向居中，既有高起也有下沉。</p>
+<p>原先的方案里先做小区最后处理起伏，我想了下小区内的起伏应该不影响主路，因此不存在主路起伏调整好之后因为相邻区块内的起伏调整（如构造坡面绿化、阶梯）导致主路波动，从而影响另一侧区块的设计。</p>
+<p><img src="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/v2-dd400a30b8d8bff3f1c691bf9bb88803_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/01/02/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/" itemprop="url">2023-12-20-FRG之curve-radius控制路宽与道路铺砖</a>
         
     </h1>
@@ -336,50 +380,6 @@
 <p><img src="https://picx.zhimg.com/80/v2-347adc865334acc805b95fe6172d4ff9_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2023/12/05/2023-12-5-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%903/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/" itemprop="url">2023-12-4-完整景观项目分析2-2</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-05T04:07:58.000Z" itemprop="datePublished">12月 5 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA/">建筑理论</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            26 分钟 读完 (约 3852 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>苏州耦前别墅 / （株）桝井淳介设计工作室</p>
-<p>带天井的独栋别墅，环绕式包围景观，不清楚外部是什么样子。</p>
-<p><img src="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/v2-f90d72b03385839c148cceaa260362fb_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-2/#more">阅读更多</a>
         </p>
     
     </div>

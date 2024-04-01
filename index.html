@@ -119,6 +119,52 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-01T09:07:01.000Z" itemprop="datePublished">4月 1 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2373 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/" itemprop="url">2024-3-28-SendToUE中凯城市之光</a>
         
     </h1>
@@ -138,7 +184,7 @@
         <span class="column is-narrow">
             
             
-            15 分钟 读完 (约 2255 字)
+            15 分钟 读完 (约 2288 字)
         </span>
         
     </div>
@@ -235,52 +281,6 @@
 <p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-53d6c1a7ddadc2abd788dad9902f7333_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-18T09:07:01.000Z" itemprop="datePublished">3月 18 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 分钟 读完 (约 1770 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
-<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径，勾选place in level、use mesh instances.若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
-<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
-<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
         </p>
     
     </div>

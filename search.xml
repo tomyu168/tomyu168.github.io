@@ -12640,40 +12640,50 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
   </entry>
   <entry>
     <title>2024-3-18-SendToUE程序化建筑从blender到ue</title>
-    <url>/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/</url>
+    <url>/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/</url>
     <content><![CDATA[<html><head></head><body><p>制作SendToUE程序化建筑：</p>
-<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径，勾选place in level、use mesh instances.若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
 <p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
 <p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p>
 <span id="more"></span>
 
 <p>4.建模，每个部件都命名后期复制就会自带之前的前缀了，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？注意非最外侧的墙体需要将两侧的面删除，以免bevel后互相间有明显的分割。若是内收阳台则无需考虑bevel。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-f3c418afad0e21e14dc9c6b4a57687e8_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a88f04415b48c10f8fcdb6a879583f20_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-f3c418afad0e21e14dc9c6b4a57687e8_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a88f04415b48c10f8fcdb6a879583f20_1440w.jpg"></p>
 <p>装饰部件有的是“附着”在墙体上如一些浮雕，中段的cornice，这种没有对齐问题。还有的如上图1中左1、2的黑色槽板，它等于构成了墙体的一部分。</p>
 <p>阳台房型分开放附着型与封闭内凹型，开放附着型可以视为地面部分通过基础墙体挤出在其上添加一个外部的围栏mesh如下图。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5982af4d6a485c2b43d54c79ad98c832_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5982af4d6a485c2b43d54c79ad98c832_1440w.jpg"></p>
 <p>窗和门使用的外部模型删除玻璃面部分，用一整块面片填充作为玻璃，材质为内景客厅、内景卧室或反光玻璃。</p>
 <p>制作好一层部件，用Object ‣ Clean Up ‣ Remove Unused Material Slots 把多余无用的材质清理掉，uv统一为uvmap，若有block、brick则复制一个uvmap.001。</p>
+<p>2024-4-1更新：</p>
+<p>SendToUE的mesh命名是根据object data properties（绿色倒三角）中的命名，在场景中每个actor的命名则是来自object property（橙色方块）。所以一开始就要对这两处都命名规范，instance关系绿色倒三角名称一致，橙色方块使.00x递增。若有部件基于之前的部件shift d复制出来修改制作，则重新命名两处.由于MaterialConvertInstance涉及material slot的索引，因此material的排序上要保持一致。</p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-35e882fbb0d02d2321326f9a3639312d_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-f42a4459cfdc8a0468f675fe9707a989_1440w.jpg"></p>
 <p>5.每一个后期会使用duplicate master用array instance叠加的部件都需要将其pivot置于底端，我暂时不清楚哪个插件有这个功能，若是纯粹保证z轴一致为底端由于同层的部件底端势必一致可以origin to 3d cursor，将cursor随意置于xy轴随机的固定z轴位置。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-86908df1faa147a40aedd918d72b5307_1440w.jpg"></p>
+<p>2024-4-1更新：</p>
+<p>对于存在放缩同层间高度位置不同的instance，pivot to 3d cursor并不能使它们的pivot置于目标位置。因此不好用duplicate master，而且duplicate master的处理速度很慢、很卡。直接框选一层用alt d复制instance并设定z轴偏移，shift R可以重复这一动作快速叠加整个楼层。</p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-86908df1faa147a40aedd918d72b5307_1440w.jpg"></p>
 <p>6.如果立面涉及block、brick，展开uvmap.001，熟练使用alt u快捷键调取zenuv的zenUnwrap、quadify，感觉texel density到最后一层的部件一起统一这样可以不用重复工作。cornice的建模通过画polygon curve沿着墙面再用curve bevel拾取profile整体放样，若需切分则需对每个夹角用edge loop则限定，来保证uv的打直。</p>
 <p>7.对需要镜像的房型选一个mirror，其余的copy modifier 全选apply、seperate，按照不同部件给bevel modifier。</p>
 <p>2024-3-20更新：</p>
 <p>这两天通过bakemaster解决了批量烘焙4个遮罩贴图，如下图设置好烘焙预设之后，框选需要烘焙的物体，选两次rgbaForMatrix的烘焙预设即可，烘焙前需要对物体所有面选中做一次smart UV unwrap（bakemaster对uv要求似乎不能有重叠？不过我试了下matrix的模型用bakemaster烘焙也不行），这样做会破坏窗户内景，因此玻璃窗室内伪装的面片单独分离。另外透明双向材质不支持nanite，这类材质的部件需要分离开来单独设置。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-9f7d41cf35bc86f64f665ee2b38c6d1c_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-2cb2e30a9aecfa1dd427d963d4405981_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5abfb3ef96a4dca21ed4b717556398d9_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-9f7d41cf35bc86f64f665ee2b38c6d1c_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-2cb2e30a9aecfa1dd427d963d4405981_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5abfb3ef96a4dca21ed4b717556398d9_1440w.jpg"></p>
 <p>若待烘焙物体面数较大则需要将物体分离成几个部分，这样得到4个遮罩的效果会好很多。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-ce1b6207e69c634603def6d8b6bdc1ff_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a3cf08af1345af2084f5041b25338791_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-800ba8b7ad139f99989e2b4d59585c29_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-ce1b6207e69c634603def6d8b6bdc1ff_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-a3cf08af1345af2084f5041b25338791_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-800ba8b7ad139f99989e2b4d59585c29_1440w.jpg"></p>
 <p>8.做完所有楼层的模型保存，另存为部件导出检查，添加bevel将部件转移到export集合中，push asset，发现部件有问题则在ue中删除，在blender中对出问题的部件做修改然后shift h只显示选中的修改部件，push asset部分导出，使用material assignment tool对所有mesh全选批量修改材质，直到所有的部件没有问题。删除ue中用于检查的asset。</p>
-<p>material assignment tool全选static mesh之后无法通过点选方式添加材质只可以下拉框输入材质名。</p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-04567937632b706f09ae2b134a810292_1440w.jpg"></p>
-<p><img src="/2024/03/18/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8f2264d77ebf9cdfb3cc8aa2fbd6b9ed_1440w.jpg"></p>
-<p>9.另存为组装整栋布局导出1，之后有别的布局就是2、3、4，对需要叠加楼层的部件apply bevel，将建筑移到对应的位置，配合duplicate master组装整栋建筑。导出到ue用packed level blueprint actor，将mesh转化为instance并打包。</p>
+<p>material assignment tool全选static mesh之后无法通过点选方式添加材质只可以下拉框输入材质名。material assignment tool进作用于通用的材质，室内伪装、不透明玻璃、透明玻璃。</p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-04567937632b706f09ae2b134a810292_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8f2264d77ebf9cdfb3cc8aa2fbd6b9ed_1440w.jpg"></p>
+<p>其他材质需要用到智能遮罩贴图，使用MaterialConvertInstance.py这个脚本小程序，选中包含某种材质的所有部件，在菜单栏Tools下选recent python script使用MaterialConvertInstance.py会对定义好的目标材质生成material instance并填充对应部件名称的遮罩texture然后为这些部件赋予材质。参考<a href="https://zhudian.xyz/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/">2024-3-28-SendToUE中凯城市之光</a></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-bee1e8edc2e69c0ca8831cc98aa151bd_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-d02e2f7146041463be4c6d3c65478bf7_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-5b1cf88d0eecba76fcdd4818ccf4c244_1440w.jpg"></p>
+<p>9.另存为组装整栋布局导出1，之后有别的布局就是2、3、4，对需要叠加楼层的部件apply bevel，将建筑移到对应的位置，配合duplicate master组装整栋建筑。导出到ue用packed level blueprint actor，将mesh转化为instance并打包。目前实测4600个部件导出需1小时，1700个则为12分钟，（去除了2900个rail，将他们合并为一个部件）部件过多是否影响ue的性能暂时不清楚。</p>
 </body></html>]]></content>
       <categories>
         <category>CG技术</category>
@@ -13085,26 +13095,25 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-165ed4dbdb76cf52973e4ab0920fe94d_1440w.jpg"></p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-662930e99ef977a6278b5b3ee1cc20fd_1440w.jpg"></p>
 <p>尺寸方面我是自己估计的，由于开始就确立对称目标，因此这次做的很顺利。建模方面的返工出在了block、brick第二套uv展开，开窗部分的缺口布线乱了没有方方正正导致uv扭曲，若需要block、brick UV系统则得布线是垂直、水平的。</p>
-<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-2cc237609babcd460ed9b5179e6816e2_1440w.jpg"></p>
 <p>测试了批量烘焙29个简易部件，5分钟内解决了。</p>
 <p>对于非1楼起的部件，以层为单位向上叠加则这些部件先把cursor置于这一层的底部，然后将所有部件的pivot置于cursor，注意这得除开对称目标，因此对称目标不能是instance，安全起见这个对称目标应该独立于项目非建筑部件仅仅是一个对齐锚点。要叠加多少层将cursor移到所需高度-1层，比如每层3米，需要6层，则cursor向上15米，linear array 6层即可。加20楼层蛮快的，但convert to mirror搞了好久应该超过20分钟了，我估计应该先convert to mirror然后再用duplicate master加盖楼层。</p>
-<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3b07b69f74b0267bbdc85ebc23ff47d7_1440w.jpg"></p>
-<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d8bd739ebd5a63e211190600978e1bf7_1440w.jpg"></p>
 <p>我发现duplicate master加盖楼层很慢，且cursor批量变换对instance有大小旋转穿插的情况会出问题。选取整层alt d添加instance楼层 z位移叠加很快，再用shift r可以重复上述操作快速叠加楼层。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-7b6e800c4c81acf01f01d33fe4c19ee3_1440w.jpg"></p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-b450b5014d79aa8e14e5595d31fb2d81_1440w.jpg"></p>
 <p>4600多个部件导出到ue需要1小时左右，需要测试下将rail、bar合并减少物体后导出速度是不是能快很多。</p>
 <p>1楼大堂暂时没有内景，全黑看起来诡异还是得找些凑合的内景应付，现在链家都有360室内看房，我想要自己拍摄大堂的内景图应该不是很难？内景方面只要保证uv在第一单元格铺开居中基本撑满即可，所有不同规格的窗拉伸变形不影响内景显示。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-16e1a977dfe7d89dfc6cfde4bae72644_1440w.jpg"></p>
+<p>2024-4-1更新：</p>
+<p>我试了下用手机P360 、360 photo sphere camera可以获取质量还可以的全景照片用于HDRI to Cubemap转化室内伪装所用的贴图，也就是说我实地去商场、医院、学校、杂货店、小区大堂就可以解决内景问题。</p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-98c091c732b9b8d9de012ef2d0e637c5_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-dd358012ffdd29038ac84a98d12e0184_1440w.jpg"></p>
 <p>这次所有部件都带了对应的bevel，墙体材质方面有4个遮罩。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-d4817c9e0183adf26f499229cfffd278_1440w.jpg"></p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-c268d6f60b02f4acb8cd1fef58de21d6_1440w.jpg"></p>
 <p>对于一个模块墙体叠加楼层使用matrix block brick系统可以自动解决砖块同质化问题，水渍的分布是连续的。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e4dad34e4b6cb0dc31d00e08e074464f_1440w.jpg"></p>
 <p>一下午给32个材质添加对应的遮罩贴图，目前是ctrl d一个个复制，然后一个个手动修改名称对应遮罩名称，暂时想不到有什么好办法.看看One Click Asset Manager/Apply Material By Rules/multi tool是不是可以解决，理想状况是一键生成选中的static mesh创建material instance并且是根据static mesh继承命名。</p>
-<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-9ff590fcebff1677ebeaee1be713bac5_1440w.jpg"></p>
 <p>SendToUE的mesh命名是根据object data properties（绿色倒三角）中的命名，在场景中每个actor的命名则是来自object property（橙色方块）。</p>
-<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-18a4e4b8c2c1537ed933959484d428c2_1440w.jpg"></p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-e2ec145c33f53608f0ac4e0ee76b3476_1440w.jpg"></p>
 <p>2024-3-31更新：</p>
 <p>在project setting中勾选develope mode并添加additional path，这个path下存放python文件。</p>
@@ -13116,7 +13125,7 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-21fa27f2daf7d01ca880b0c16771b37d_1440w.jpg"></p>
 <p>这里同时还提醒了我一个问题，即SendToUE工作流的文件夹架构我还没确定。在PBG的流程中按照层分为一个个文件夹然后下属Material 、Mesh、Texture。对于SendToUE没有层的概念了，其余我想正好也可以这样分，这样也不用再测试验证python小程序对于文件夹结构变化会不会出问题了。建筑部件导入ue后组装的packed level actor会产生一个blueprint和一个map它们放在文件夹顶端即可。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-86c6e8b648e9186a02de06bb792a8bf3_1440w.jpg"></p>
-<p><img src="/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-301a20783e123e8397373d3a2e1d99f5_1440w.jpg"></p>
+<p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-301a20783e123e8397373d3a2e1d99f5_1440w.jpg"></p>
 <p>bar、rail金属加不加智能遮罩，短的rail效果区别挺明显的。</p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-4e1f210e7fe43637685bfa2aed69f159_1440w.jpg"></p>
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-61a543bb12fb45e3c26e12ae82877341_1440w.jpg"></p>

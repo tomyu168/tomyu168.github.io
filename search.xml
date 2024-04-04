@@ -12494,7 +12494,7 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       <tags>
         <tag>综合技术3d场景制作</tag>
         <tag>blender</tag>
-        <tag>SendToUnreal</tag>
+        <tag>SendToUE</tag>
       </tags>
   </entry>
   <entry>
@@ -13143,6 +13143,73 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>blender</tag>
         <tag>SendToUE</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-4-2-BluePrint探索自研DecoPerSocket</title>
+    <url>/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/</url>
+    <content><![CDATA[<html><head></head><body><p>PBG中的Deco per Socket可以通过标记socket，以一定概率去分布一个集合的mesh，从而实现在建筑立面上布局广告牌、空调外机、旗帜等等道具。初步看了下想要破解PBG的blueprint难度太高了，那个Add Deco per Socket的代码太复杂可能还与其他几个函数有耦合关系。我开始设想blender中有没有类似的功能，对特定的instance物体标记特定点，随机以一定概率添加一个集合的物体并instance化并可以控制大小、偏移？之前FRG可以在一条曲线上以一定的间隔做到此效果，但这意味着要不断画线计算距离，且很多情况下并非连续的物体需要添加道具，间断曲线搞这个似乎有些麻烦，且每次变动立面布局，这个曲线要跟着重新画。</p>
+<p>顺带一提<a href="https://ytmp3.so/en/youtube-4k-downloader">ytmp3.so</a>这个网站似乎比savetube.io要好用，可以下载清晰度更高的youtube视频。</p>
+<p>在ue的marketplace也没有找到类似decopersocket功能的插件，既然要在Unreal Engine上做大项目，我觉得掌握BluePrint看来是势在必行的。这次参考的教学来源博主似乎之前是专攻家具建模的，几年后开始出ue、blender的编程相关教学。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-c6a004ffbb0beb3c9359a405a8b4f26a_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>我开始查找blueprint中如何生成物体，如何与socket“挂钩”。起初发现的线索是下面这俩，spawnActor to Actor和Attach to Component。不过前者似乎只能添加blueprint，我看了好几个教学是新建一个blueprint，里面引入一个物体。看了几个教学，又去<a href="http://blueprintue.com/">blueprintue.com</a>找相关的案例，我感觉对blueprint编程有些迷茫又去b站看了基础就这么一天过去了。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-a2a5e4e33bc3e46a10dbd592919e2d4b_1440w.jpg"></p>
+<p>今天醒来是有些慌的，一天过去了啥进展都没有，硬啃blueprint感觉要很长时间，b站的教学扫了一眼似乎都比较弱智没有实战意义，直到看了<a href="https://www.youtube.com/watch?v=8NLBM1PnBV0">Creating UE5 Array blueprint for efficient asset population, for performance in VR and Mobile.</a>这个教学，让我有点信心来啃啃这块硬骨头了。</p>
+<p>首先，最终我希望实现的功能可以基于deco per socket来看看，1.需要可以全局移除deco即globally add deco per socket。2.socket name用于归类某种deco。3.remove deco用于移除某种deco。4.probability用于控制deco出现的概率。5.random seed，用于添加更新随机分布deco。6.min transform和max transform用于微调布局。7.deco meshes用于添加deco的static mesh。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-17267063726909a2140ffff350c36238_1440w.jpg"></p>
+<p>教学中展示了添加instance。设置random seed作用于transform min和transform max。添加static mesh。删除指定索引的instance。可以说除了获取socket位置以及遍历socket其他东西都可以照着这个教学依葫芦画瓢。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-b507599f09ce67a0a829de136a7dcc16_1440w.jpg"></p>
+<p>2024-4-3更新：</p>
+<p>成功遍历了所有socket。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-fc4562c9e1fb570b8a531a7d8858450a_1440w.jpg"></p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-ea405db2687b12d373f09e9a747e652e_1440w.jpg"></p>
+<p>这个教学中配合blueprint structure实现了动态添加多个StaticMesh转换为HISM到场景分配数量、设置随机偏移、scale、rotation。</p>
+<p>首先是构建一个structure里面包含了transform、mesh、count、offset，注意这些属性的类型。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-4cf4717d94ca80aabc671dd46564dfb9_1440w.jpg"></p>
+<p>作者提到可以将structure的类型设为array或者map，推荐map，因为后者的2元数据可以为任意类型，而array的第一个数据为整数递增，map可以定义字符串这样看起来更直观。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-cf0126a9b2f407afd7fc202e88b748cf_1440w.jpg"></p>
+<p><a href="https://www.youtube.com/watch?v=oP5MD03JLio">Unreal Engine Tutorial Blueprint 12: Arrays, Lists and Maps</a> 这个视频介绍了array、map的区别。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-f857b1f86dc0005a1a37c9655033c749_1440w.jpg"></p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-dad026ef5b0474631797ab9a0c7f18ce_1440w.jpg"></p>
+<p>定义好structure的变量类型，编译后拖入场景可以看到选中这个blueprint面板可以添加structure，并显示字符串-structure定义的数据。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-a3589a75fbeab4cc307e48fb16fae01b_1440w.jpg"></p>
+<p>values函数可以将map中的值全部取出形成一个数组，for each loop每有一个对象创建一个HISM组件，这里将array element转化为变量以便后面的函数需要用到structure中的static mesh。</p>
+<p>关于static mesh component和static mesh的关系，以下是kimi 人工智能的说法：</p>
+<blockquote>
+<p>在Unreal Engine中，Static Mesh Component 和 Static Mesh 之间的关系是组件与资源的关系。 Static Mesh 资源： Static Mesh 资源是一种游戏资产，它包含了三维模型的几何数据、材质和纹理信息。这种资源是静态的，意味着它不会在游戏中改变形状或进行动画处理。Static Mesh 资源通常用于创建游戏世界中的静态物体，如建筑物、道具、地形等。在内容浏览器中，Static Mesh 资源是一个单独的文件，可以被导入到项目中，并且可以在多个地方重用。 Static Mesh Component： Static Mesh Component 是一个运行时的组件，它被附加到Actor上用于在游戏世界中渲染和显示Static Mesh 资源。Static Mesh Component 包含了渲染Static Mesh所需的所有信息，包括引用到Static Mesh 资源的指针、碰撞设置、是否可见、是否接收光照等属性。当你在蓝图编辑器或C++代码中向Actor添加一个Static Mesh Component时，你实际上是在创建一个Static Mesh 资源的实例，并将其放置到游戏世界中的特定位置。 简而言之，Static Mesh 是一个静态的三维模型资源，而Static Mesh Component 是一个在游戏世界中实例化和显示该资源的组件。Static Mesh Component 依赖于Static Mesh 资源来显示模型，而Static Mesh 资源可以通过多个Static Mesh Component 在游戏世界中被多次使用。这种分离资源和组件的方法提高了资源的可重用性，并且使得游戏的性能更加可控。 想象一下，Static Mesh就像是一本书的印刷版，它是固定的内容，不会改变。这本书可以是任何主题，比如一本小说、一本科学教科书或者一本艺术画册。这本书的内容是静态的，一旦印刷完成，它的故事、图片和信息就不会再改变。 现在，Static Mesh Component就像是图书馆里的一本书的副本。当你想要在游戏世界中展示这本书（即Static Mesh）时，你不需要把整本书的内容重新打印一遍，你只需要从书架上取下一本已经印刷好的副本（即Static Mesh Component），然后放到你想要的位置。你可以在图书馆的多个地方放置这本书的多个副本，每个副本都展示相同的内容，但是它们可以被单独处理，比如放在不同的书架上，或者用不同的方式展示。 在这个比喻中，图书馆就是Unreal Engine的游戏世界，而书架上的每本书的副本就相当于游戏世界中的一个Static Mesh Component。你可以创建多个副本（Static Mesh Component），并将它们放置在不同的位置，每个副本都会展示相同的内容（Static Mesh）。这样，你就可以在整个游戏世界中重复使用同一个Static Mesh资源，而不需要每次都重新创建相同的内容，这大大提高了效率并节省了资源。</p>
+</blockquote>
+<p>大体上可以理解为unreal engine场景中的物体是一个个actor，actor作为容器包含了运行时组件如static mesh component，而static mesh component需要static mesh提供内容。</p>
+<p>其位置用structure中的transform，对HISM组件设置static mesh，最后add instance函数创建物体的instance。这里的Set是函数输出结果的引线拖出来promote to variable使其成为一个变量，可以在别处使用。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-758415ba521bbf9f95694f2c4983d81c_1440w.jpg"></p>
+<p>这里连入Set static mesh的New Mesh的变量为之前for each loop 中array element输出转化的变量，也就是每个structure当前循环中的对象，将其中的Mesh作为Set static Mesh的mesh。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-6db30b7f01844c4163dba86a4ebf9739_1440w.jpg"></p>
+<p>通过一番摸索，我成功将mesh分布到了socket上。通过get all actors of class设定static mesh可以读取场景中的所有static mesh，然后用get all socket names读取socket，再用get socket location即可将deco、prop分布到socket的位置。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-6fb517a8baf0e1f0db27c3fa87556106_1440w.jpg"></p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-08836dd0fc65f1d3e9af363b7856e8f9_1440w.jpg"></p>
+<p>然而遇到了问题blueprint用construction script add instance产生的物体与场景中的static mesh是耦合的，当我将这些static mesh打包成为packed level actor blueprint后势必会丢失互相间的关系，毕竟原来的static mesh没有了，找了很久没找到如何将blueprint中的instance提取出来转化为static mesh。后来无意间想到hillside的MeshToISM widget，没想到用它一点即可将blueprint中的instance提取出来转化为static mesh！再打包成pack level actor，物体全部自动归类instance，完美！</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-2f4d4bb0e0c6928e654331e93c3d81b7_1440w.jpg"></p>
+<p>2024-4-4更新：</p>
+<p>经过4天的钻研总算把deco per socket复现完成了。上来和昨天的一样先加载所有的static mesh读取所有的socket。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-1a8701c0d8848f063c129d27f9f1e840_1440w.jpg"></p>
+<p>从某个输出引脚拖出转化为变量连入输入和从引脚直接拖出连入输入有时候效果是不一样的。目前看来还是直接连入保险。第二个循环加载第一个static mesh的所有socket names,并通过socket name获取相应的socket location。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-a97c2d133e91ad9604b72e5d54025879_1440w.jpg"></p>
+<p>第三个循环加载所有结构体对象，一一核对static mesh上的socket name有没有包含结构体对象设定的socket name，比如cc_2、cc_3，在ue中socket复制会以上面的形式增殖，比如有时需要在一个模块上分布多个壁灯、广告那么需要static mesh上标记多个socket对应结构体的同一个socket name。一开始并不知道contains函数，我通过kimi 人工智能成功解决了此问题。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-df9b06e369616870f13ea9679b66bb32_1440w.jpg"></p>
+<p>当包含结构体的socket name时，创建HISM。对当前的结构体对象获取其mesh成员个数用random integer in range函数随机获取一个下标配合get函数即可随机获取一个mesh成员对象，作为添加instance的static mesh。将当前结构体的min max transform分割开用random float in range 来限定一个范围，使socket附加的道具在这个范围内随机形变，我发现如果用random float in range from stream则每个结构体对象下附加的道具形变会一致。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-bc63c1add31d1d9662ecc7fd01f90848_1440w.jpg"></p>
+<p>最后通过random bool with weight来设定概率判断是否创建instance，remove deco布尔变量判断是否清空所有的instance。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-2fa77fb095c193776dd54c9e26989cde_1440w.jpg"></p>
+<p>这个deco per socket blueprint配合SendToUE，在static mesh阶段散布好所有道具，然后用hillside的Mesh to HISM工具把blueprint转化为static mesh。在顶视图框选导入的建筑部件和deco道具，打包成packed level actor，ue会自动将他们转化为ISM和HISM。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-bb4e4a5b7e2496f7bb0d5cb168fb87b2_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>SendToUE</tag>
+        <tag>Blueprint</tag>
       </tags>
   </entry>
 </search>

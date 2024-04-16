@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-4-15-SendToUE世界地形道路人行道的构建流程 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-4-15-SendToUE世界地形道路人行道的构建流程">
+<meta property="og:url" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-389b401de53d1600707d855f13443049_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-b2e411c142cf0271e25e951963a31b34_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-f81294e2cfe7f1f56851cdf5cca4284c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-5bc6148d371b3b91533f3450bafa00e4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-2e3b77d76cd0e49d02e4713a8108c6ef_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-c21214419e79ba9a3bd548c7ad814457_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-51c0322af866a1206240fe55c0f655bf_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-e81e85eb0a59dd0cf339dfaf1970c94b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-6cf4416ee47b7f866f3fbbc1f6cf15b8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-6cf4416ee47b7f866f3fbbc1f6cf15b8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-98c8c88399201ae1d69d6698f26c30a0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-d2ae8f1767e311c62a6238e471a02fb3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-5b141b16f028810c975993070e5d5ee3_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-4d5d3fd8cb929be1c9c04dc4966f7212_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-90b6ebca77c55e34513fdb67a84e5fb1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-209ab4bf67809ef8f8ac5a875164ad60_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-7bc22636ed5435b7cb4e9cf2484c3cca_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-9f468c61ddc5f90579349620be7383f7_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-ca7bf716ca7f8c53bf83ca488ac9a1a8_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-2ee1bbe363a1de4abbc00fa5830b3246_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8a968011582c69bd607d658ca21ec5d5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-f49705b254ef8b55561d65b14fa0cf3b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-abb45f62a486bb158b426386283e6979_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-66331561acbab8b2745454211cdfbc59_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-762752d4f70cdfe635984a57d4ffcdcf_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-0560aa2941cfac59e49e851c7a9b5369_1440w.jpg">
+<meta property="article:published_time" content="2024-04-16T13:11:59.000Z">
+<meta property="article:modified_time" content="2024-04-16T13:20:48.452Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="FRG">
+<meta property="article:tag" content="UE的Landscape">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-4-15-SendToUE世界地形道路人行道的构建流程
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-16T13:11:59.000Z" itemprop="datePublished">4月 16 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2079 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过这里要更改旋转、uvtile和uv偏移，使用地形是为了利用world partition特性，让巨大场景在动态运行时只加载一定范围的物体，另一方面是我希望借助landscape的paint解决自然环境的一些材质，比如土壤青草什么的，ue的water插件水景也需要landscape。为了让blender导入ue的道路、建筑在blender和ue的位置相同，需要找一些基准定下来，地形大致到位用湘江和橘子洲作为参照，然后将整体到路mesh导入调整landscape材质的偏移使其能和道路对上。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-389b401de53d1600707d855f13443049_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-b2e411c142cf0271e25e951963a31b34_1440w.jpg"></p>
+<p>用FRG做的道路面片（extrude为0），在vertex mode下可以用alt全选内圈循环边，将其导出曲线作为curb的引导曲线。curb加bevel，array，curve3个modifier，将curb与曲线xyz align即可得到图三的效果，再z偏移-0.05（向下）即可。edit工具将引导曲线outline，转换mesh内圈f键封闭，z偏移0.16（向上）。内圈面inset，thickness为人行道以及人行道和内圈的缓冲区，一般来说可以设定8米宽度？inset在边脚会产生一些拓扑混乱，将错位的点merge center合并。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-f81294e2cfe7f1f56851cdf5cca4284c_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-5bc6148d371b3b91533f3450bafa00e4_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-2e3b77d76cd0e49d02e4713a8108c6ef_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-c21214419e79ba9a3bd548c7ad814457_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-51c0322af866a1206240fe55c0f655bf_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-e81e85eb0a59dd0cf339dfaf1970c94b_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-6cf4416ee47b7f866f3fbbc1f6cf15b8_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-6cf4416ee47b7f866f3fbbc1f6cf15b8_1440w.jpg"></p>
+<p>选中大地型进入vertex mode全选ctrl加选内圈面片，mesh菜单下knife project获取面片在大地型上的投影，点击投影面片，先做一次quadmesh优化面数，不然会像图3出现一些明显的“皱纹”。在右侧nav选择create &gt; terrain创建archipack terrain。进入archipack&gt;earthwork &gt;from curve即可根据一个轮廓范围平整地面。esc键进入移动轮廓区域模式。border为falloff，地平的缓坡范围。地平全部做完以后apply 地平的archipack 相关modifier再次quadremesh（两次都在4万面），然后alt选取外侧循环边，添加到vertex group，shrinkwrap选nearest surface point，并启用刚才的vertex group即可得到带建筑地平的大地型起伏特征的区块地形。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-98c8c88399201ae1d69d6698f26c30a0_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-d2ae8f1767e311c62a6238e471a02fb3_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-5b141b16f028810c975993070e5d5ee3_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-4d5d3fd8cb929be1c9c04dc4966f7212_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-90b6ebca77c55e34513fdb67a84e5fb1_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-209ab4bf67809ef8f8ac5a875164ad60_1440w.jpg"></p>
+<p>区块内建筑地基平整后使用frg绘制区块内的道路，此时需要配合百度地图给区块上贴图作为参考，frg的curve length，intersection mesh的bevel amount需要适当调整。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-7bc22636ed5435b7cb4e9cf2484c3cca_1440w.jpg"></p>
+<p>frg构建好之后，convert mesh提取面片shrinkwrap吸附区块地形，apply modifier最后把这个道路面片挤出给出道路厚度。用给大地型做人行道、curb的方式对区块地形内的道路添加它们。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-9f468c61ddc5f90579349620be7383f7_1440w.jpg"></p>
+<p>当FRG convert mesh之后，uv maps是空的，在attributes中找到uv，箭头点开convert attribute选项设置为face corner 和 2d vector。人行道的材质要正常显示则需用zenuv 打直uv。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-ca7bf716ca7f8c53bf83ca488ac9a1a8_1440w.jpg"></p>
+<p>至此区块从blender导入ue的流程基本明了，后期将每个区块作为一个blender工程单独处理道路大地型作为位置参考基准始终伴随即可。对于区块内的地形添加土壤等一些额外材质得找一个vertex paint工具。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-2ee1bbe363a1de4abbc00fa5830b3246_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8a968011582c69bd607d658ca21ec5d5_1440w.jpg"></p>
+<p>foliage paint设置不在landscape只在static mesh添加植被结果还是出现了植被悬空的现象，问题出在了上下有两层不同static mesh，另外就是在复杂坡面的大mesh上无论面数怎么优化都不行，远看可以近看会暴露，植被只有在ue的landscape地形上绘制可以保障根部吸附。其实之前的工作流中blender和ue中的地形是有偏差的，理想中的状况是二者完全相同，我意外发现ue的地形是可以作为fbx的mesh导出的，导出后再导入blender其位置和ue是吻合的，只不过丢失了材质和uv，我把涉及道路建筑的部分选中导出再导入blender，6个局部landscape合计300万面，分别用quadremesh重构拓扑后合并再上材质调整uv偏移和scale，其中scale和ue是完全相同的，不过偏移有变化只能手动微调，我根据地图上给3点用基本几何体来大致核对位置，使贴图能调整到和ue基本一致。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-f49705b254ef8b55561d65b14fa0cf3b_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-abb45f62a486bb158b426386283e6979_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-66331561acbab8b2745454211cdfbc59_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-762752d4f70cdfe635984a57d4ffcdcf_1440w.jpg"></p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-0560aa2941cfac59e49e851c7a9b5369_1440w.jpg"></p>
+<p>FRG在地形上的shrinkwrap之前选的tagent normal模式到了ue地形fbx导入blender后不行了，我一度以为是拓扑问题，搞了半天发现只要shrinkwrap改成project模式同时开启positive和negative即可，和地形的面数、拓扑无关。修改terrain的拓扑不会让贴图出问题，几何特征也基本保持，感觉超大的地形也可以用此法到blender做垫图铺好整体道路，然后按照区块切分。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/FRG/">#FRG</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/UE%E7%9A%84Landscape/">#UE的Landscape</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/">2024-4-9-SendToUE水石国际中国特色连排别墅</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

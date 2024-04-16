@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" itemprop="url">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-16T13:11:59.000Z" itemprop="datePublished">4月 16 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2079 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过这里要更改旋转、uvtile和uv偏移，使用地形是为了利用world partition特性，让巨大场景在动态运行时只加载一定范围的物体，另一方面是我希望借助landscape的paint解决自然环境的一些材质，比如土壤青草什么的，ue的water插件水景也需要landscape。为了让blender导入ue的道路、建筑在blender和ue的位置相同，需要找一些基准定下来，地形大致到位用湘江和橘子洲作为参照，然后将整体到路mesh导入调整landscape材质的偏移使其能和道路对上。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" itemprop="url">2024-4-9-第二套UV的必要性</a>
         
     </h1>
@@ -336,49 +379,6 @@
 <p><img src="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/v2-3183cbe848788421f5934ac73ca16c35_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/01/2024-3-27-%E4%B8%80%E4%BA%9B%E5%BB%BA%E7%AD%91%E7%9B%B8%E5%85%B3%E7%9A%84ai%E6%A8%A1%E5%9E%8B/" itemprop="url">2024-3-27-一些建筑相关的ai模型</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-01T00:35:15.000Z" itemprop="datePublished">4月 1 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 小时 读完 (约 7262 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>平面布局参考 lora：LWZP-老王建筑总平面填色_V0.1P 配合chilloutmix效果稳定，清晰度也可以</p>
-<p><a target="_blank" rel="noopener" href="https://www.liblib.art/modelinfo/774f579aae8d1774b900957ce7d3b4b9">LWZP-老王建筑总平面填色_V0.1P</a></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/01/2024-3-27-%E4%B8%80%E4%BA%9B%E5%BB%BA%E7%AD%91%E7%9B%B8%E5%85%B3%E7%9A%84ai%E6%A8%A1%E5%9E%8B/#more">阅读更多</a>
         </p>
     
     </div>

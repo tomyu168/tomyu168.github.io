@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" itemprop="url">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-16T13:11:59.000Z" itemprop="datePublished">4月 16 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2079 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过这里要更改旋转、uvtile和uv偏移，使用地形是为了利用world partition特性，让巨大场景在动态运行时只加载一定范围的物体，另一方面是我希望借助landscape的paint解决自然环境的一些材质，比如土壤青草什么的，ue的water插件水景也需要landscape。为了让blender导入ue的道路、建筑在blender和ue的位置相同，需要找一些基准定下来，地形大致到位用湘江和橘子洲作为参照，然后将整体到路mesh导入调整landscape材质的偏移使其能和道路对上。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/" itemprop="url">2024-4-9-SendToUE水石国际中国特色连排别墅</a>
         
     </h1>
@@ -328,49 +371,6 @@
 <p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-53d6c1a7ddadc2abd788dad9902f7333_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/" itemprop="url">2024-2-28-BlenderToUE问题集锦2</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-18T09:04:07.000Z" itemprop="datePublished">3月 18 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2339 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>1.对齐房型设置好基准pivot房型的pivot之后，把cursor用shift s锁定到这个位置，下一个房型直接q快捷菜单origin to 3d cursor，即可在y、z轴精确与基准pivot对齐，再者就是简单的x轴吸附对齐该房型的x轴方向边缘了。</p>
-<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-d9bdd8ad88d6ea8a2545e8eb45a15a88_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/#more">阅读更多</a>
         </p>
     
     </div>

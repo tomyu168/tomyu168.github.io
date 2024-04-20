@@ -126,6 +126,52 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/" itemprop="url">2023-12-25-ue散布工具iascatter实现绿化园林</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-25T08:43:44.000Z" itemprop="datePublished">12月 25 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 分钟 读完 (约 2736 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。</p>
+<p>为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出instance也是暴卡，颠覆了我以往的想法是blender中只要做了instance关联就可以无限生产物体而不会有性能问题。那天晚上我甚至在纠结可否用导出json，在ue中用json循环读取，创建实例。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaqyCV5Ho9g&amp;t=158s">Unreal Engine 5 Tutorial - Instance Importer - Reading Files With Blueprints [3/4]</a></p>
+<p>后来我想到citypark项目以及目前尝试过的绿化，1是用landscape paint刷一层底，2是笔刷刷foliage给绿化地基添加实体形成层次，3是逐个添加树木再同类asset转化instance。前期暂时遇到的问题有，1.curb通过blender curve export用prg widget转，曲线会被改动变得诡异很难修；2.植物的散布不能精确在指定范围的地块控制，笔刷画一圈还要擦一遍；3.地块在ue中没办法精确规划。结合geo-scatter，我希望地块在blender中可以导入ue，然后对这个地块精确识别，曲面吸附，带有geo-scatter中的散布控制，大量散布不会卡死，操作视图流畅。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/" itemprop="url">2023-12-14-blender道路uv展开FRG替换PRG</a>
         
     </h1>
@@ -334,52 +380,6 @@
 <p><img src="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/v2-84145b8daf4dc3c6eaeec01ec7d454bf_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2023/11/21/2023-10-12-%E5%B0%8F%E5%8C%BA%E6%99%AF%E8%A7%82%E5%9C%B0%E5%BD%A2%E7%9A%84%E5%88%9B%E5%BB%BA/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/01/2023-10-5-%E4%B8%80%E4%BA%9B%E4%BA%BA%E8%A1%8C%E9%81%93%E5%AE%9E%E6%99%AF%E5%8F%82%E8%80%83/" itemprop="url">2023-10-5-一些人行道实景参考</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-01T05:42:56.000Z" itemprop="datePublished">11月 1 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分钟 读完 (约 1275 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>为了防止人行道内圈接缝问题，人行道内侧看来必须得铺设花砖,matrix整个地面是平的因此一个</p>
-<p>建筑本身必然是垂直于世界平面的，和地形起伏无关，不会因为房子在一个坡面上因而与坡面垂直，在建筑所在的区域其平面也与世界平面平行，问题是这个平面如何与有起伏的人行道如何连接？</p>
-<p>下面来看一下现实中的人行道与建筑群的交界，分析归纳总结各种情况：</p>
-<p>1.沿街有绿化与人行道阶梯过渡，下图1中绿化部分可以用landscape雕刻糊弄过去，阶梯如果是单独做的mesh那么在起伏部分必然有部分“埋入”人行道，这个交界部分可能会比较诡异。在matrix中对建筑与人行道的底面交界处沿线做了污渍decal，这个可以在PBG中设置。可以理解为做了一大圈的阶梯保证阶梯上的平面与世界平面平行，阶梯部分与人行道有高低错落，这个解决办法有几个问题，1是若坡度过大会穿帮，2是每次要针对不同街区去做平面并反复导入调整大小。</p>
-<p><img src="/2023/11/01/2023-10-5-%E4%B8%80%E4%BA%9B%E4%BA%BA%E8%A1%8C%E9%81%93%E5%AE%9E%E6%99%AF%E5%8F%82%E8%80%83/2023-10-5-%E4%B8%80%E4%BA%9B%E4%BA%BA%E8%A1%8C%E9%81%93%E5%AE%9E%E6%99%AF%E5%8F%82%E8%80%83/v2-79a00e44462061a3c0750449762dbf53_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/01/2023-10-5-%E4%B8%80%E4%BA%9B%E4%BA%BA%E8%A1%8C%E9%81%93%E5%AE%9E%E6%99%AF%E5%8F%82%E8%80%83/#more">阅读更多</a>
         </p>
     
     </div>

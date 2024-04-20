@@ -126,6 +126,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/" itemprop="url">2024-4-20-全局地形x道路建设x路肩x人行道x地平x绿化</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-20T09:28:56.000Z" itemprop="datePublished">4月 20 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1348 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>地形：</p>
+<p>在blender中用osm获得一个地形mesh，通过ue5.2插件mesh convert terrain在ue中创建landscape，转换world partition版本导出到5.3版本。地形方面的一致性通过选中landscape proxy在ue中导出fbx，再到blender中导入，其相对位置是一样的，然后找3个点放置模型观察两个软件中模型所处地形的相对位置，来确认贴图位置使blender和ue的地形位置一致。</p>
+<p>道路建设：</p>
+<p>frg对着贴图铺好车用道路后，convert mesh再用shrinkwrap的project模式，开启positive和negative，将车道吸附到地形上。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" itemprop="url">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
         
     </h1>
@@ -341,52 +386,23 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+    
         
-            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-17T14:30:07.000Z" itemprop="datePublished">12月 17 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            43 分钟 读完 (约 6433 字)
-        </span>
-        
+<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+    <div class="pagination-previous is-invisible is-hidden-mobile">
+        <a href="/tags/FRG/page/0/">上一页</a>
     </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>一些sweep profile在su导入的模型中不尽如人意，利用hardop曲线提取路径曲线和形状曲线，在路径曲线到曲线编辑面板bevel中选取形状曲线，形状曲线需在编辑模式下翻转方可使得sweep正常显示。曲线在编辑模式下f键可以闭合、打开曲线。j键在物体编辑模式下连接曲线。</p>
-<p>目前来看导入的模型要是朝右前方显示才能在PBG中正常使用，具体配合导入时的旋转设置。一些部件有附件、装饰超出主体的边界需要用socket length修正，目前看来是物体本身的blender边界尺寸减去超出的部分，在ue的socket length中填入y值。</p>
-<p>今天发现stable diffusion不能用了折腾了一会儿浪费了不少时间脑细胞，最后整个压缩包重新解压启动就完事了，几个插件安装会被网速折腾，直接原来安装好的按照路径填充即可。明天开机再看看。</p>
-<p>之前做的这个版本facade外立面逻辑不正确，这样会导致无法转角做连续的segment，facade应该是薄的一层而非整个体块，这里参考matrix的模型，facade mesh厚度在25cm也没问题，corner mesh无需在语法中定义，PBG会自动添加，right corner的pivot需要在左前下处顶点，corner mesh需要是以转角轴线对称的，不然就会像下面这般一边空心露馅了。</p>
-<p><img src="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/v2-ab281f8691afa94352f4b3a7a57cb458_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/#more">阅读更多</a>
-        </p>
-    
+    <div class="pagination-next">
+        <a href="/tags/FRG/page/2/">下一页</a>
     </div>
-    
-    
-</article>
-
-
-
-
-    
+    <ul class="pagination-list is-hidden-mobile">
+        
+        <li><a class="pagination-link is-current" href="/tags/FRG/">1</a></li>
+        
+        <li><a class="pagination-link" href="/tags/FRG/page/2/">2</a></li>
+        
+    </ul>
+</nav>
     
     </div>
 </section>

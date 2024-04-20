@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-4-20-全局地形x道路建设x路肩x人行道x地平x绿化 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="地形： 在blender中用osm获得一个地形mesh，通过ue5.2插件mesh convert terrain在ue中创建landscape，转换world partition版本导出到5.3版本。地形方面的一致性通过选中landscape proxy在ue中导出fbx，再到blender中导入，其相对位置是一样的，然后找3个点放置模型观察两个软件中模型所处地形的相对位置，来确认贴图位置使bl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-4-20-全局地形x道路建设x路肩x人行道x地平x绿化">
+<meta property="og:url" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="地形： 在blender中用osm获得一个地形mesh，通过ue5.2插件mesh convert terrain在ue中创建landscape，转换world partition版本导出到5.3版本。地形方面的一致性通过选中landscape proxy在ue中导出fbx，再到blender中导入，其相对位置是一样的，然后找3个点放置模型观察两个软件中模型所处地形的相对位置，来确认贴图位置使bl">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-ac9badd0e365c53f34e004654999e580_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-a2d8a8c3d2e4b4d4f6e45a860593ee03_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-7ebde1cfa9790f1aeeec4efd859ed477_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-d5f67536544012a3f71d1ac728d88524_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-9b7adf0917dc6dc8de9a9b46ec7c6db2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-5aee219bf88aeaa6b2297e14418c8896_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-82d0ac49266d735d11f0735acf3f6c4b_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-d036b9fa764a362ae99f3b1f81c7707a_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-270cf4f7c5b07b57aec479c3fdde9e6c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-4923e8c1019cea1e014f6748509cfb39_1440w.jpg">
+<meta property="article:published_time" content="2024-04-20T09:28:56.000Z">
+<meta property="article:modified_time" content="2024-04-20T09:35:12.062Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="综合技术3d场景制作">
+<meta property="article:tag" content="FRG">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="UE的Landscape">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-ac9badd0e365c53f34e004654999e580_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-4-20-全局地形x道路建设x路肩x人行道x地平x绿化
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-20T09:28:56.000Z" itemprop="datePublished">4月 20 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1348 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>地形：</p>
+<p>在blender中用osm获得一个地形mesh，通过ue5.2插件mesh convert terrain在ue中创建landscape，转换world partition版本导出到5.3版本。地形方面的一致性通过选中landscape proxy在ue中导出fbx，再到blender中导入，其相对位置是一样的，然后找3个点放置模型观察两个软件中模型所处地形的相对位置，来确认贴图位置使blender和ue的地形位置一致。</p>
+<p>道路建设：</p>
+<p>frg对着贴图铺好车用道路后，convert mesh再用shrinkwrap的project模式，开启positive和negative，将车道吸附到地形上。</p>
+<span id="more"></span>
+
+<p>路肩：</p>
+<p>选择边缘上的任意一点，select&gt;select all by trait&gt;non manifold可以将物体所有的边缘边选中，q键extract curve可以批量将所有curb的引导曲线提取出来，curbmesh添加array、curve modifier，此时选取这个复合曲线只会随机生成一个内接curb，选中状态下配合multiple_curves_array这个script，可以批量对所有的内侧包围曲线添加curb，curb的方向会根据曲线方向，这里只能手动对Y scale -1和1做调整来协调curb的方向。这些curb无法apply互相间存在instance关系，q键object data清除instance关联即可。</p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-ac9badd0e365c53f34e004654999e580_1440w.jpg"></p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-a2d8a8c3d2e4b4d4f6e45a860593ee03_1440w.jpg"></p>
+<figure class="highlight python hljs"><figcaption><span>物体在复合曲线上做array curve，可以用于道路的curb批量添加</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> bpy</span><br><span class="line"></span><br><span class="line">merge = <span class="hljs-literal">False</span></span><br><span class="line"></span><br><span class="line">scn = bpy.context.scene</span><br><span class="line">ob = bpy.context.<span class="hljs-built_in">object</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> ob.modifiers:</span><br><span class="line">    <span class="hljs-keyword">if</span> m.<span class="hljs-built_in">type</span> == <span class="hljs-string">'ARRAY'</span>:</span><br><span class="line">        curve = m.curve</span><br><span class="line"></span><br><span class="line">curves = []</span><br><span class="line">objects = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.select_all(action=<span class="hljs-string">'DESELECT'</span>)</span><br><span class="line">bpy.context.view_layer.objects.active = curve</span><br><span class="line">curve.select_set(<span class="hljs-literal">True</span>)</span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.mode_set(mode = <span class="hljs-string">'EDIT'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">"split curves"</span>)</span><br><span class="line"></span><br><span class="line">n_splines = <span class="hljs-built_in">len</span>(curve.data.splines)</span><br><span class="line"><span class="hljs-built_in">next</span> = curve</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_splines):</span><br><span class="line">    new_crv = <span class="hljs-built_in">next</span>.copy()</span><br><span class="line">    new_crv.data = <span class="hljs-built_in">next</span>.data.copy()</span><br><span class="line">    <span class="hljs-keyword">if</span> i &gt; <span class="hljs-number">0</span>: new_crv.data.splines.remove(new_crv.data.splines[<span class="hljs-number">0</span>])</span><br><span class="line">    <span class="hljs-built_in">next</span> = new_crv.copy()</span><br><span class="line">    <span class="hljs-built_in">next</span>.data = new_crv.data.copy()</span><br><span class="line">    curves.append(new_crv)</span><br><span class="line">    delete = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> new_crv.data.splines:</span><br><span class="line">        <span class="hljs-keyword">if</span> delete: new_crv.data.splines.remove(s)</span><br><span class="line">        delete = <span class="hljs-literal">True</span></span><br><span class="line">    scn.collection.objects.link(new_crv)</span><br><span class="line"></span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.mode_set(mode = <span class="hljs-string">'OBJECT'</span>)</span><br><span class="line"></span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.select_all(action=<span class="hljs-string">'DESELECT'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">"copy objects"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> curves:</span><br><span class="line">    new_ob = ob.copy()</span><br><span class="line">    <span class="hljs-keyword">if</span> merge:</span><br><span class="line">        new_ob.data = ob.data.copy()</span><br><span class="line">        objects.append(new_ob)</span><br><span class="line">    scn.collection.objects.link(new_ob)</span><br><span class="line">    <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> new_ob.modifiers:</span><br><span class="line">        <span class="hljs-keyword">if</span> m.<span class="hljs-built_in">type</span> == <span class="hljs-string">'CURVE'</span>: m.<span class="hljs-built_in">object</span> = c</span><br><span class="line">        <span class="hljs-keyword">if</span> m.<span class="hljs-built_in">type</span> == <span class="hljs-string">'ARRAY'</span>: m.curve = c</span><br><span class="line"></span><br><span class="line">bpy.context.scene.update()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> merge:</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">"merge objects"</span>)</span><br><span class="line">    <span class="hljs-keyword">for</span> o <span class="hljs-keyword">in</span> objects:</span><br><span class="line">        o.data = o.to_mesh(scn, apply_modifiers=<span class="hljs-literal">True</span>, settings = <span class="hljs-string">'PREVIEW'</span>)</span><br><span class="line">        o.modifiers.clear()</span><br><span class="line">        o.select = <span class="hljs-literal">True</span></span><br><span class="line">        scn.objects.active = o</span><br><span class="line">    bpy.ops.<span class="hljs-built_in">object</span>.join()</span><br><span class="line">    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> curves: bpy.data.objects.remove(c)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>人行道：</p>
+<p>复合曲线由于方向问题若直接outline则会导致有的向内、有的向外偏移，把这个复合曲线convert mesh，f键填充面，再用inset可以确保向内收缩，然后面模式下反选删除外侧循环面即可,再对整体提取curve即实现了复合曲线向内offset，这样等于是实现了批量制作人行道的基准曲线，对于相同宽度的人行道分类合并故技重施即可批量制作不同宽度的人行道。</p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-7ebde1cfa9790f1aeeec4efd859ed477_1440w.jpg"></p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-d5f67536544012a3f71d1ac728d88524_1440w.jpg"></p>
+<p>地平：</p>
+<p>knife project投影的地形mesh无需quad remesh使用了archipack terrain会无视之前mesh的细分，整个重构。使用earthwork创建地平时，注意不要过度细分，十分相近的建筑合并共用一个地平。两个地平间应该有足够的距离可以容纳二者地平的渐进offset，offset过小会导致地平与附近的坡度过大。</p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-9b7adf0917dc6dc8de9a9b46ec7c6db2_1440w.jpg"></p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-5aee219bf88aeaa6b2297e14418c8896_1440w.jpg"></p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-82d0ac49266d735d11f0735acf3f6c4b_1440w.jpg"></p>
+<p>offset无需在terrain激活update下就可生效，可以发现图2明显渐进平缓坡度。</p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-d036b9fa764a362ae99f3b1f81c7707a_1440w.jpg"></p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-270cf4f7c5b07b57aec479c3fdde9e6c_1440w.jpg"></p>
+<p>当两个地平的offset相交时会互相影响，因此下图中的情况会导致一个明显的坡面。</p>
+<p><img src="/2024/04/20/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/2024-4-20-%E5%85%A8%E5%B1%80%E5%9C%B0%E5%BD%A2x%E9%81%93%E8%B7%AF%E5%BB%BA%E8%AE%BEx%E8%B7%AF%E8%82%A9x%E4%BA%BA%E8%A1%8C%E9%81%93x%E5%9C%B0%E5%B9%B3x%E7%BB%BF%E5%8C%96/v2-4923e8c1019cea1e014f6748509cfb39_1440w.jpg"></p>
+<p>绿化：</p>
+<p>对于区块内的绿化在一个闭环曲面上可以用foliage fill模式下填充这个取面快速散布绿化，不过这可能超出边界“跑到”主路上，因此要对闭环取面做inset测试。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E7%BB%BC%E5%90%88%E6%8A%80%E6%9C%AF3d%E5%9C%BA%E6%99%AF%E5%88%B6%E4%BD%9C/">#综合技术3d场景制作</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/FRG/">#FRG</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/python/">#python</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/UE%E7%9A%84Landscape/">#UE的Landscape</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

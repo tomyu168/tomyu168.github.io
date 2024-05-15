@@ -13560,4 +13560,116 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>BakeMaster</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-4-24-地形环境sketchup设计思路问题</title>
+    <url>/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<html><head></head><body><p>在解决了建筑地平、道路投射地形吸附后，我不禁思考——这就完了？面对一个区块还是觉得畏手畏脚，无从下手。建筑方面可以对一个区块内归纳分类几种，摆放上参考百度地图的建筑布局。然而景观方面我感觉制作的流程不对，或者说目前从没有看到一个基于blender的景观范例、教学，目前我这个思路做下去真的对吗，我一直很纠结地形高差问题，希望能在一个区块中表现形形色色的高差，然而画好所有的“局部功能”（如停车位、绿地、treebase、坡道、阶梯等）是将这些线框投射到区块terrain上？然后绿地可以通过起泡泡做些高差，坡道阶梯拉伸出来。另外这似乎是个高度耦合的问题，不像建筑按照房型可以“通用”修改，比如下图中这个坡道一改坡度，势必两边的草地也要跟着动。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-0399ae7c1e4fa5accc4f91cb54a2bb54_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>我想再这么想下去可能脑袋也炸了，至少现在直观的在sketchup看到了许多高差的处理方式，景观的手法。以及相关的教学演示怎样做一个整体规划。明天根据这两个教学以及移动硬盘中的建筑素材\SU488-滨水公园生态湿地景观su模型做一下景观、地形制作的su流程，看看能不能归纳出在blender中实现。</p>
+<p><a href="https://www.bilibili.com/video/BV1Vt4y1j7Wu?p=40&amp;vd_source=9211ca883c846624ea76e0f08321331f">草图大师从入门到精通实战教程园林景观建模</a> <a href="https://www.bilibili.com/video/BV1Ag4y1F72U/?spm_id_from=333.788&amp;vd_source=9211ca883c846624ea76e0f08321331f">风景园林快题节点设计思路</a></p>
+<p>在《草图大师从入门到精通实战教程园林景观建模》这个教学系列中，可以看到景观元素（道路、阶梯、intersection、草坪、路肩等）一开始皆为平面的线框，这个线框是从cad导入过来然后通过插件做封闭，清理。然后按照线框所代表的物体添加材质。su中添加的材质应该是无视uv的triplanar映射。我之前在做小区内的道路时uv折腾了很久，这感觉没必要，太费力了，效果差别有限。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-0d134cd7e28b0c377e8cd3164a40a76b_1440w.jpg"></p>
+<p>草坪、阶梯形成的高差在填充完材质后推拉。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-911c52e3b4513ef362a53aa1de4168e0_1440w.jpg"></p>
+<p>最后添加面片形式的绿化以及人物。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-7efda720261b3348593eff520e36a497_1440w.jpg"></p>
+<p>第二个项目是新中式的示范区。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-68e3c6d532ac904f1f78751fe3a8ea7b_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-6ca3e9e076ca34bf38a9b74e5708b0e1_1440w.jpg"></p>
+<p>细致布景到这个层面可能可以脱离开始的线框平面。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-96925178b23ae6b243939e517f478932_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-fa34a19cf424508e7aff53b6a5fedc6a_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-d37452c99b004b4eb95f2d554a8dc839_1440w.jpg"></p>
+<p>似乎su中相交的平面可以互相覆盖而不会产生材质重合闪烁，blender中要这么做得额外使用布尔挖除，或者说在贴图上编辑，后者很繁琐。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-1066a0d0ee4a6dfd037670dd58303892_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-ff11d5d3a558d44c4f4f4d96a03f5eea_1440w.jpg"></p>
+<p>线框确定好位置，后期一个个元素添加进来，可能开始不清楚元素的具体形态，这个可以通过参考集合、素材集合来确定。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-49e3060a3a106970d1b953fe3e362468_1440w.jpg"></p>
+<p>blender中曲线在xy平面上outline正常，其他平面诡异需要借助higgsas的几何节点，不过感觉效果并不理想，不精确。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-c8e63769e058473489f746c4a5aaa5ab_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-24a51c5ae2e07cda0d1054f9d09c4956_1440w.jpg"></p>
+<p>第三个项目是一个art deco风格小区，可以看到线框十分复杂。砖花是通过线框绘制的硬石镶嵌。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-d64db8d1cf78cb02f03d53406228d0c7_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-fe047d8e2609f5ef76ecedfb1b19606e_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-f501f3abed89eafd7eabe36d59b0b8db_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-13a3564c7660e27f9778ad188486d88e_1440w.jpg"></p>
+<p>这样就好理解像我家楼下这个“大平台”的复杂组合砖花是怎么搞得了，就是一个个形状画出来给不同的材质。</p>
+<p><img src="/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-ba74519e1607cd1a9f107c4091439442_1440w.jpeg.jpg"></p>
+<p>对于一个小区而言其“大平台”（或者说一片完整空地）是完全平的不存在凹凸，连接“大平台”的道路可以存在坡面，这种坡面可以用权重偏移来模拟.</p>
+<p><img src="/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-34193ff225d281d64795430cdd1e5a88_1440w.jpeg.jpg"></p>
+<p><img src="/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-0777bdb46b95339b3e2c04993e85b6df_1440w.jpeg.jpg"></p>
+<p>blender curve boolean似乎不太好处理曲线间断，higgsas 几何节点的curve mesh boolean可以做到如下的非破坏性布尔，便于调整平台位置形状和道路曲线的宽度走向。转换成mesh如图2,su封面后能把图三那个道路包围的面形成，其封面过程是全自动的，但我感觉这种自动封面应该只能针对平面吧，若是后期有这种草坪随着道路起伏su应该不能做伴随吧？</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-25bdcdd78980e53c208be6c8574f9a48_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-3d5292db5fa6d78b18da51a3def24245_1440w.jpg"></p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-4b68492c29caeef0e8e1cd9bfc81ef79_1440w.jpg"></p>
+<p>车道和沿街人行道是依照卫星地图的走势起伏的，特点是很不规则。景观的起伏应该是有规则的如上图，但是同时要考虑真实地形，不能在一个显著的坡面上去做“大平台”，建筑应该一系列在一个高度平面上排布，这也就是等高线的作用了。通过higgsas几何节点在4.1版本中的mesh contour可以将原先地形按照一个特定高差（如0.3米、0.5米）绘制出等高线，依照一个建筑景观项目以建筑排布为先，顺着等高线罗列建筑可以避免用百度地图贴图校准约束设计，百度地图贴合一方面很麻烦而且对不准且和osm上的有出入。将等高线贴合在archipack terrain上配合earthwork对建筑、“大平台”沿着等高线排布并实现渐进地平。</p>
+<p><img src="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/v2-5d63a81dfa8e814fdceb19cddf6021bd_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>景观</tag>
+        <tag>Higgsas几何节点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-4-25-建筑规范</title>
+    <url>/2024/04/25/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<html><head></head><body><p>有待进一步学习</p>
+<p>车道宽度，小区入口的位置要求</p>
+<p><img src="/2024/04/25/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/v2-ff3f3965dbe4bd5f7ee867da241ebe2d_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>绿化的“厚度”，景观道路的坡度</p>
+<p><img src="/2024/04/25/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/v2-346f344b041739644e1d17064160cec4_1440w.jpg"></p>
+<p>建筑强排：</p>
+<p>强排就是最高盈利强度排布建筑总图。这是是地产开发商控制设计的一个方式，目标很简单：寻找到税后利润最大化的建筑业态组合。</p>
+<p>对我而言只要怎么好看怎么排布建筑就好，可以看出来建筑排布应该在景观设定之前。</p>
+<p><img src="/2024/04/25/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/v2-aa92842d4b77bb9c69823aab3be061da_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>建筑理论</category>
+      </categories>
+      <tags>
+        <tag>建筑规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-5-6-中式建筑建模初探</title>
+    <url>/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<html><head></head><body><p>撇开屋脊上的兽类雕刻来说，中式传统建筑的屋顶建模上面有些困难，那个起翘要怎么做并没有一个很好的通用办法，我甚至想入坑houdini去搬运网上几个开源的houdini digital asset。当然做事肯定兵分两路，从matrix团队的houdini 程序化城市建筑来看，局限性还是很大的，没法在设计上搞出名堂来，好处是可以对整体背景的细节程度提升很高的档次。我的重点是建筑设计创新，背景的细节是要考虑，但是主要还是在建筑装饰的表达上，所以我想houdini是万不得已的时候再深入研究，目前顶多带着看。</p>
+<p>屋顶前两天我花了100多买了个插件结果应该是打水漂了，那个几何节点的屋顶插件和archipack的roof模块一样有很多限制，尽管Procedural Roof Generator可以对屋脊走向自由控制了，但是不能做如下的歇山屋顶带起翘。严格来说是不能一步到位的制作，我在初次尝试Procedural Roof Generator失败后，改用mesh配合higgsas的mesh subdivide再用tissue，这个方法有局限性，需要将屋顶45度两侧拆开弄，而且tissue需要计算瓦片大小和屋顶面的mesh subdivide，并且不能是三角面得在图2这种状态下完成tissue铺盖表皮瓦片然后用布尔切除，最后通过两个lattice做起翘。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-fc5b8fe4ba826e878434323d05add633_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-46e20d94afee08b9534ba633bdea7780_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-6573ea4e9419a0afbc25ac54f77412b6_1440w.jpg"></p>
+<p>相比而言使用Procedural Roof Generator可以直接一步到位整个歇山的1/4形态，自动细分铺瓦不用对屋顶mesh做细分，且bevel都给你自带了，只需要最后添加一个lattice，单点权重偏移即可得到起翘，最后4面mirror即可。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-870564bd0b87fab999bfbf4559670b33_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-7aad573c9ea0427dea1ee1c1a26b7bb8_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-11cdc948b5f6b6aa6a66e705d29f6d94_1440w.jpg"></p>
+<p>我看了下之前淘宝买的中式古建筑素材可以说都没啥用，不能直接照搬，但是可以相当于高配版的su部件参考，故宫系列的可以说是最好的了，每个文件夹下的tga图片为最终渲染效果。500个中国风古建筑利用asset library可以导入进来对部件的结构做学习参考，整体建筑则可以参考其拼装结构作为白模。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-4a02408389db5348d16fb1d9fa397019_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-ed33386b2f4334846447297f95232b1a_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-cd4aea7b1b6a3480c8a256dd7d18f0d4_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-4ee418152047ecda5dde6a48343f1cfd_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-ae420de2c7b3feb5b81933344188fb84_1440w.jpg"></p>
+<p>故宫系列的模型从中远距离看还过得去有材质肌理，我暂时觉得用matrix材质不一定能达到它这个中远距离的观感，然而拉近看就很惨不忍睹了，可能是古早时期的建模对面数有要求，倒角做的都比较夸张。门板上的雕花，柱础都是棱角分明如同利器，倒角形同虚设。筒瓦不是圆的，圆柱分段不够，屋脊曲线弧度僵硬，其上的兽雕完全是糊弄。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-5c509d2926763d55a30c944f5f45f586_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-da47178577b5b32b9bcab859c77283d3_1440w.jpg"></p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-913cd4d2af795b9683b8c0a330b3aa6f_1440w.jpg"></p>
+<p>我想第一阶段就和复刻公寓楼一样，把这些现成的故宫建筑复刻出来即可，在各个部件上能有自己的建模见解，明天把故宫系列的tga都拿出来转jpg预览一下，做一套之前规划的SendToUE，后天看看玻璃盒子房的建设思路。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>建模</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>中式建筑</tag>
+      </tags>
+  </entry>
 </search>

@@ -126,6 +126,92 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" itemprop="url">2024-4-9-第二套UV的必要性</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-14T08:43:25.000Z" itemprop="datePublished">4月 14 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 读完 (约 323 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在立面部件水平垂直的情况下，即使不用第二套uv直接用matrix paint附带一个有切分的texture就能得到图2、图3这样的效果，大体上可以混混，但是当大面积平铺会发现略明显的重复痕迹，另外水渍不会在grout上显现。</p>
+<p><img src="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/v2-6536dda1f14063d3ca37ea463b11449a_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/" itemprop="url">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-10T15:07:58.000Z" itemprop="datePublished">4月 10 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            13 分钟 读完 (约 1920 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在完成模型制作后，对部件选中批量命名，然后data name from object使网格体名称能够规范化。在SendToUE的工作流中，网格体的名称是static mesh名称，物体名称是场景中的actor名称。对于同一网格体的部件会有多个instance对象，理想中的状况是选中其中一个instance对象烘焙而不需要所有的instance都拿去烘焙，我搜了很久并没有找到对若干包含多组instance的物体选中其中单个instance的办法。后来我想了个思路，既然有插件可以对instance操控必然是可以获取instance的，那么按照网格体分类获取其data name然后移动到各自的collection里面，再从collection着手选取其中一个对象，那么就能实现我的想法了。然而我对python几乎没什么印象了，更别说还要去啃blender python的api文档。抱着死马当活马医的态度，我试了下用kimi人工智能和chatgpt，居然在一番循序渐进的诱导下成功做出了这两段代码。</p>
+<p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/1.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/" itemprop="url">2024-4-2-BluePrint探索自研DecoPerSocket</a>
         
     </h1>
@@ -288,93 +374,6 @@
 <p><img src="/2024/03/21/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/v2-ae0886f9b30ef8f9d3e00c6c06e3bd42_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/03/21/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/" itemprop="url">2024-3-19-bakemaster批量烘焙4个智能遮罩</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-20T03:02:46.000Z" itemprop="datePublished">3月 20 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 读完 (约 490 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>没想到还有这等神器，如下图设置好烘焙预设之后，框选需要烘焙的物体，选两次rgbaForMatrix的烘焙预设即可，烘焙前需要对物体所有面选中做一次smart UV unwrap，这样做当然会破坏窗户内景，等烘培完之后再还原回去即可或者所有的内景独立物体不掺和在烘培中，我觉得应该是后者做法，前者还是蛮麻烦的。</p>
-<p>4个部件用了40秒完成了drip、large ao、damage curvature、ao贴图的烘焙导出，在UE中测试没问题。</p>
-<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-53d6c1a7ddadc2abd788dad9902f7333_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/" itemprop="url">2024-2-28-BlenderToUE问题集锦2</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-18T09:04:07.000Z" itemprop="datePublished">3月 18 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2339 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>1.对齐房型设置好基准pivot房型的pivot之后，把cursor用shift s锁定到这个位置，下一个房型直接q快捷菜单origin to 3d cursor，即可在y、z轴精确与基准pivot对齐，再者就是简单的x轴吸附对齐该房型的x轴方向边缘了。</p>
-<p><img src="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/v2-d9bdd8ad88d6ea8a2545e8eb45a15a88_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/18/2024-2-28-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A62/#more">阅读更多</a>
         </p>
     
     </div>

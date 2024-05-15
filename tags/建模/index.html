@@ -126,6 +126,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/" itemprop="url">2024-5-6-中式建筑建模初探</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-05-06T06:07:18.000Z" itemprop="datePublished">5月 6 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1131 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>撇开屋脊上的兽类雕刻来说，中式传统建筑的屋顶建模上面有些困难，那个起翘要怎么做并没有一个很好的通用办法，我甚至想入坑houdini去搬运网上几个开源的houdini digital asset。当然做事肯定兵分两路，从matrix团队的houdini 程序化城市建筑来看，局限性还是很大的，没法在设计上搞出名堂来，好处是可以对整体背景的细节程度提升很高的档次。我的重点是建筑设计创新，背景的细节是要考虑，但是主要还是在建筑装饰的表达上，所以我想houdini是万不得已的时候再深入研究，目前顶多带着看。</p>
+<p>屋顶前两天我花了100多买了个插件结果应该是打水漂了，那个几何节点的屋顶插件和archipack的roof模块一样有很多限制，尽管Procedural Roof Generator可以对屋脊走向自由控制了，但是不能做如下的歇山屋顶带起翘。严格来说是不能一步到位的制作，我在初次尝试Procedural Roof Generator失败后，改用mesh配合higgsas的mesh subdivide再用tissue，这个方法有局限性，需要将屋顶45度两侧拆开弄，而且tissue需要计算瓦片大小和屋顶面的mesh subdivide，并且不能是三角面得在图2这种状态下完成tissue铺盖表皮瓦片然后用布尔切除，最后通过两个lattice做起翘。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-fc5b8fe4ba826e878434323d05add633_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/08/29/2023-8-24-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF2/" itemprop="url">2023-8-24-Artstation的unreal场景2</a>
         
     </h1>
@@ -333,52 +377,6 @@
 <p>大型场景是我做建筑装饰的终极目标，看一下整个制作流程，需要注意的要点那是蛮有必要的。在第一节中作者说这个场景从原画来看可能需要10-15名cg艺术家，enviroment、material、lighting艺术家几周去完成（在eva那个教学里说像eva这样的模型可能要近万元完成，这些成本、工时相关的信息值得注意），因此这个系列教学会有很多简化，教学时长可能是20-30小时，但是会有对半的时间用time lapse的形式完成一些建模、雕刻。</p></body></html>
         <p class="article-more-link">
             <a href="/2022/10/19/2022-10-19-ue5-Large-Game-Environment-Creation%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/" itemprop="url">game character的制作流程</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-07-19T04:01:39.000Z" itemprop="datePublished">7月 19 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 561 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><a href="https://www.youtube.com/watch?v=ISgdREmFO7w" title="" target="">Full 3D Character Workflow Explained - Sculpting, Retopo &amp; Textures</a>展示了角色从“基本模型”到高模（zbrush），重新拓扑（maya），到uv展开（maya），到绘制材质的流程。
-
-<p>一般而言就像zbrush灯箱里自带了一些动物，人物的“基本模型”，在这个基础上按照需求细化并完成人物、动物的高模制作。<br><img src="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/26000%E9%9D%A2%E7%9A%84%E6%80%AA%E7%89%A9.jpg" alt="2022-game character的制作流程"></p>
-
-<div style="text-align:center">zbrush中26000面的怪物看上去已经颇具形象了</div></body></html>
-        <p class="article-more-link">
-            <a href="/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
         </p>
     
     </div>

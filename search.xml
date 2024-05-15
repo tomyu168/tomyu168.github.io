@@ -13802,4 +13802,51 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>中式建筑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-5-9-SendToUE红砖大理石叠墅</title>
+    <url>/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-f3dc84a989b760dfb98529e5a46cefce_1440w.jpg">  </p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-18de18b0859c703a7d311cb50a08a1b9_1440w.jpg"></p>
+<p>这套搞了2天了，建模还没完成，应该反省一下自己。不过两天下来我不清楚问题出在哪里，或许是因为制作初期没有做房型、部件切分，导致制作时逻辑混乱，想到哪里做到哪里，频繁的改动部件。另一方面是前后两个立面不同，在对称上没有做好事先的规划，而在后期设法去硬凑合。今天完成这套之后，立刻再尝试下一套把这两点落实看看能不能提高效率。</p>
+<span id="more"></span>
+
+<p>沿着curve的array带有旋转扭曲，理想状态是沿着法线方向instance化。配合instance follow curve将它append进来提取lamps 几何节点，可以根据选定曲线沿着曲线散布指定物体，注意rotation这里要断开连接。然后再用realize instance将它们互相独立instance化，这样散布的物体没有旋转扭曲，但是方向不对，先选取若干instance复制回原场景查看相对嵌合位置，调整lamp 几何节点中的offset，相对位置确认后选取同一方向的将transform pivot point设置为individual旋转到正确朝向。</p>
+<p>大量物体join前注意保存，blender可能闪退，若闪退打开后先convert mesh再join。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-f5b2ce35e91941759311ffe2017c2395_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-dfbc06fc0d3ff92c80ad926ec542f095_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-30bbb1d26767b34aa77b3c0ef5e64105_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-7808994632359f50005faf1b18329f98_1440w.jpg"></p>
+<p>2024-5-15更新：</p>
+<p>这套最终用了4天，其中3天建模，一天是烘焙、uv展开brick-block、导入ue和添加材质。建模方面我觉得最多应该是1天就解决掉的，这里面折腾比较久的一个是cornice上的ornament，还有就是侧面的凹陷构造和镂空处的露天楼梯。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-3424719f67832216f90b23cfcedfa035_1440w.jpg"></p>
+<p>cornice上的ornament属于duplicate along curve ridge情景，可以省去旋转对齐法线方向，还解决了曲线上的散布方向问题。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-68837b18ad2c4c08c9132733be547d33_1440w.jpg"></p>
+<p>NumCustomDataFloats构造函数里添加20个instance变量会使得生成建筑blueprint很慢，6个变量就很快。目前还没想好如何根据instance数量各自添加对应的变量数。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-d90816a8e481efd188a30dd9805ef826_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-87c6937d2b7e4b602621cc0db323fcea_1440w.jpg"></p>
+<p>对于一个楼面的uv展开，宽度大了就会导致超出udim单元格上限，因此分割楼板facade还是很有必要的即使后期合并在起初做好uv再合并可以对重复部件省去重复的uv展开。窗户的墙面延伸包边若连带墙面参与uv展开会导致大量额外工作。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-68f4b70d6b76b6d6c3954626ce602950_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-a07be15c009caeca2b96687ec1f746b5_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-875174df58e6359afb9c0b597c7200e7_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-0351ac0da6e93472b93535969f361694_1440w.jpg"></p>
+<p>整个建筑使用硬盘420mb，其中遮罩用的贴图占了300mb。之前的外滩一号院风格大理石贴面小高层是150mb，遮罩用了130mb。两套老公房都是50mb，遮罩45mb。若平均一套建筑是150mb，100套就是15gb，我不知道硬盘占用对性能的影响是什么关系。</p>
+<p>chatgpt的解答如下：</p>
+<p>通常来说，一个 Unreal 项目占用的硬盘空间大小并不直接决定其运行速度。项目的大小可能会影响加载时间，特别是在首次加载时，因为更大的项目需要更多的数据从硬盘读取到内存中。但一旦项目被加载到内存中，其大小通常不会直接影响运行速度。运行速度更多地受到计算机的硬件配置、项目中的内容数量和复杂度、以及优化程度的影响。如果项目包含大量复杂的资源（如高分辨率的纹理、复杂的模型等），或者脚本代码量很大，可能会导致运行速度变慢。因此，要提高 Unreal 项目的运行速度，除了减少硬盘空间占用外，还可以考虑优化资源、改进脚本性能、优化场景等方面。</p>
+<p>看起来占用硬盘大只是对初始加载有影响，我依稀记得matrix那套是18gb，加载了几分钟。经测试virtual texture最小是1024x1024，而bakemaster支持的众多输出格式中tiff要比exr小不少。图1为tiff的遮罩，图2为exr的遮罩。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-ab0600d14dcc6c1e2bd1810ba2f4444e_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-4354e4e813732ea075e54ea98bd8f00d_1440w.jpg"></p>
+<p>图1为tiff的遮罩，图2为exr的遮罩。</p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-40d2c7ba73ac7153effe87e734bc31b7_1440w.jpg"></p>
+<p><img src="/2024/05/19/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/2024-5-9-SendToUE%E7%BA%A2%E7%A0%96%E5%A4%A7%E7%90%86%E7%9F%B3%E5%8F%A0%E5%A2%85/v2-26c0bd85ba4ffd82b564e20f7030bed5_1440w.jpg"></p>
+<p>经测试我发现exr格式下broad 污渍更自然渐进，但crevice完全不对劲。tiff格式broad 和 crevice污渍都强度过大了，边缘磨损damage和drip水渍二者差不多。不纠结细节的话看起来用tiff可以节约不少硬盘空间。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>SendToUE</tag>
+        <tag>BakeMaster</tag>
+      </tags>
+  </entry>
 </search>

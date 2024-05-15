@@ -126,6 +126,98 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/" itemprop="url">2023-9-28-建筑部件的第一套用于生成4个mask的uv展开及drip-mask在sp中的模拟</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-28T14:52:29.000Z" itemprop="datePublished">9月 28 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1362 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>matrix模型分两套uv，第一套uv是给物体添加4种蒙皮用的，可以看到它们按照不同的材质被排列在不同的uvtile层。这些建筑部件并没有复杂的局部上色，而且属于同一种材质，我想这种情况下不可能是手动去展uv，那么问题有3个：</p>
+<p>1.怎样对拥有复合材质的物体展开uv</p>
+<p>答：选中某个面，shift+g即可选中该物体所有使用这个材质的面，然后smart uv project自动展开。</p>
+<p>2.如何保证所有物体统一纹理密度、uv大小？</p>
+<p>答：每次smart uv project之后用Texel Density插件set my TD，事先设定号texel density大小，根据matrix，这个值是0.64 cm/px。</p>
+<p>3.如果uv展开后超过一个uvtile单元格怎么办？</p>
+<p>答：用uvpackmaster的tile模式，勾选fixed Scale，Pack！它会自动将超过1个单元格的uv填充到一个个uvtile中按照行列排布。</p>
+<p><img src="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/v2-5c2d554bf34738ed7480a0c897c26a12_1440wtuya.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/09/28/2023-9-28-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A5%97%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%904%E4%B8%AAmask%E7%9A%84uv%E5%B1%95%E5%BC%80%E5%8F%8Adrip-mask%E5%9C%A8sp%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%8B%9F/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/09/25/2023-9-24-%E6%9B%BF%E6%8D%A2sidewalk-corner%E6%9D%90%E8%B4%A8%E7%A1%AE%E5%AE%9A%E9%9C%80%E8%A6%81%E5%88%B6%E4%BD%9C%E7%9A%84%E9%81%93%E8%B7%AF%E9%83%A8%E4%BB%B6%E8%A7%84%E6%A0%BC%E5%92%8C%E6%95%B0%E9%87%8F/" itemprop="url">2023-9-24-替换sidewalk-corner材质确定需要制作的道路部件规格和数量</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-09-25T01:39:30.000Z" itemprop="datePublished">9月 25 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            13 分钟 读完 (约 1918 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>利用megascan的材质，在ps里对部分区域进行替换调色，与路基mesh合并后会有两个material slot，其中sidewalk corner mesh使用matrix的材质，改一下base color、normal、roughness即可。</p>
+<p><img src="/2023/09/25/2023-9-24-%E6%9B%BF%E6%8D%A2sidewalk-corner%E6%9D%90%E8%B4%A8%E7%A1%AE%E5%AE%9A%E9%9C%80%E8%A6%81%E5%88%B6%E4%BD%9C%E7%9A%84%E9%81%93%E8%B7%AF%E9%83%A8%E4%BB%B6%E8%A7%84%E6%A0%BC%E5%92%8C%E6%95%B0%E9%87%8F/2023-9-24-%E6%9B%BF%E6%8D%A2sidewalk-corner%E6%9D%90%E8%B4%A8%E7%A1%AE%E5%AE%9A%E9%9C%80%E8%A6%81%E5%88%B6%E4%BD%9C%E7%9A%84%E9%81%93%E8%B7%AF%E9%83%A8%E4%BB%B6%E8%A7%84%E6%A0%BC%E5%92%8C%E6%95%B0%E9%87%8F/v2-05b2f7ed27538bdc396ed855ae14888b_1440wtuya.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/09/25/2023-9-24-%E6%9B%BF%E6%8D%A2sidewalk-corner%E6%9D%90%E8%B4%A8%E7%A1%AE%E5%AE%9A%E9%9C%80%E8%A6%81%E5%88%B6%E4%BD%9C%E7%9A%84%E9%81%93%E8%B7%AF%E9%83%A8%E4%BB%B6%E8%A7%84%E6%A0%BC%E5%92%8C%E6%95%B0%E9%87%8F/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/09/24/2023-9-23-intersection%E5%B2%94%E5%8F%A3%E4%B8%8E%E9%81%93%E8%B7%AF%E8%BF%9E%E6%8E%A5/" itemprop="url">2023-9-23-intersection岔口与道路连接</a>
         
     </h1>
@@ -300,92 +392,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/15/2023-9-4-citypark%E6%99%AF%E8%A7%82%E9%81%93%E8%B7%AF%E6%A0%91%E6%9C%A8%E8%8A%B1%E8%8D%89%E8%B5%84%E4%BA%A7%E7%9A%84%E5%B8%83%E7%BD%AE%E5%88%86%E6%9E%90/" itemprop="url">2023-9-4-citypark景观道路树木花草资产的布置分析</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-09-15T12:19:53.000Z" itemprop="datePublished">9月 15 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2471 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这个项目中包含一个优化和一个未优化的map，目前我发现的区别是道路，在优化的map中道路独立于landscape，是由几个单独的非常宽广的mesh组成。而未优化的map中道路是在landscape中用spline mesh实现的。</p>
-<p><img src="/2023/09/15/2023-9-4-citypark%E6%99%AF%E8%A7%82%E9%81%93%E8%B7%AF%E6%A0%91%E6%9C%A8%E8%8A%B1%E8%8D%89%E8%B5%84%E4%BA%A7%E7%9A%84%E5%B8%83%E7%BD%AE%E5%88%86%E6%9E%90/2023-9-4-citypark%E6%99%AF%E8%A7%82%E9%81%93%E8%B7%AF%E6%A0%91%E6%9C%A8%E8%8A%B1%E8%8D%89%E8%B5%84%E4%BA%A7%E7%9A%84%E5%B8%83%E7%BD%AE%E5%88%86%E6%9E%90/v2-fdc18720ba97c5d962d9f547aec09745_1440wtuya.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/15/2023-9-4-citypark%E6%99%AF%E8%A7%82%E9%81%93%E8%B7%AF%E6%A0%91%E6%9C%A8%E8%8A%B1%E8%8D%89%E8%B5%84%E4%BA%A7%E7%9A%84%E5%B8%83%E7%BD%AE%E5%88%86%E6%9E%90/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/" itemprop="url">2023-9-14-ue官方hillside世博园1967建筑项目分析</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-09-15T10:55:53.000Z" itemprop="datePublished">9月 15 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            24 分钟 读完 (约 3587 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>此建筑群为Moshe Safdie为1967年加拿大世博会设计，并有局部落地，下图为当今的实拍照片。Epic Game团队联合建筑设计团队通过建模对此项目做复原。</p>
-<p><img src="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/v2-0686646df8becdd39963e6133d3552d3_1440wtuya.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/15/2023-9-14-ue%E5%AE%98%E6%96%B9hillside%E4%B8%96%E5%8D%9A%E5%9B%AD1967%E5%BB%BA%E7%AD%91%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -409,7 +415,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/19/">19</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/20/">20</a></li>
         
     </ul>
 </nav>

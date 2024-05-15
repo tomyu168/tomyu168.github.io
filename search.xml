@@ -13672,4 +13672,134 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>中式建筑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-5-11-SendToUE畅音阁</title>
+    <url>/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/</url>
+    <content><![CDATA[<html><head></head><body><p>初步切分来看畅音阁，一共只需要做10个部件即可。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-1fddd995530a67076f0537ff5e47bfe6_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>古建筑要讲求质感，得做出石材的磨损，木材护栏也是。仅仅是matrix的damage材质不太够用，得从几何特征上着手，今天花了70多连带gfx上白嫖引入了3个新的插件。</p>
+<p>Duplicate Along Curve Without Deformation使用Duplicate Along Curve Rigid可以将物体沿着曲线分布，且不形变，这解决了不规则形状曲线cornice上散布ornament。ctrl a make instance real将沿着曲线的物体instance化。</p>
+<p><img src="/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-695857269fcd8efddfc97c82bbb7b875_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-7fdf64cfca142c4d083ede76d9789185_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-0d32ed6017fc75c16a58cc15916315ef_1440w.jpg"></p>
+<p>Objects Replacer可以将目标物体转换为指定collection中的物体随机分配并instance化。source collection为指定的collection，target是要转化的目标物体。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-0bba69e4b2602a04d77e9d2aaf84ad50_1440w.jpg"></p>
+<p>One Click Damage可以对物体做磨损雕刻，注意这个插件需要在blender 4.1中使用，不然hero模式显示不正常且速度很慢。hero作为一个几何节点，可以用copy modifier复制给ocd物体以保持同一细节刻画，voxel size越小模糊光滑越少棱角越分明，两个noise texture将物体分为两部分控制其上细节。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-9407cb5bb8a392170b5837fa938c0fb5_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-089fa7de78a5e69838643930190cedbe_1440w.jpg"></p>
+<p>配合三者实现带几何特征磨损的物体随机散布在指定曲线上并保持instance关联。要对齐的话需要在scale上调整，而不是vertex偏移。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-c1c6a5689d4f487864f7a545cfbd0bff_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-6df2144e15cc7d8be29aae47278b0822_1440w.jpg"></p>
+<p>对于较小的物体combine之后使用ocd效果会出现异常，分开使用效果会诡异，而且change pattern居然导致blender崩溃闪退。后来发现不是物体大小的关系，只要保证物体是封闭的无开口即可，与apply scale也无关，使用ocd会自动apply scale。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-f36dd2a07fb7f0c8faf69160f058f68c_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-4f02b8732dced12caf405b1ad77037e8_1440w.jpg"></p>
+<p>批量添加ocd时，磨损的几何特征大小是以最后一个选中的物体为参照，下图中这种情况会因为最后一个物体过小而导致其他物体上的划痕几乎看不清。相反若对大的物体作为目标，那么小的物体会被划痕侵蚀到几乎不复存在。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-bd1f12477e17af917bf9c0a25832906f_1440w.jpg"></p>
+<p>对于大量重复且较大件或者为装饰特征的物体使用ocd，比如中国古建筑上的瓦片斗拱。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-6d80ae3c481e8de417a5c2ba994994ca_1440w.jpg"></p>
+<p>对于扭曲细长的物体无法使用ocd。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-da924fbbb4c2bd47a0413decbaf96a89_1440w.jpg"></p>
+<p>由于插件数量太多导致插件导航栏装不下了，我想了下把几个插件分散开来，比如box cutter、curve machine、hardops放 3.6版本，ocd、higgas 几何节点必须放4.1版本，其余暂时放3.3版本，好几次3.6版本和4.1版本打开会崩溃，3.3版本有个uvmasterpack之前是配合substance painter做智能遮罩的3.6版本使用不正常，好像现在除了这个之外3.3版本是不行了。blender4.x复制给blender3.3会崩溃，不过可以复制到3.6再复制给3.3就没有问题。2024-5-12我把3.6版本整顿了一下，一早启动崩溃了一次，看看后续使用会不会有问题，两个python script在3.6使用没问题，bakemaster还没做好输出预设。</p>
+<p>中式建筑的立柱布局、栏杆、斗拱都用Duplicate Along Curve Without Deformation配合ctrl a make instance real实现部件在曲线上沿着法线方向以固定值间距分布，到时候可以考虑对斗拱做几个ocd的磨损版本用objects replacer替换。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-b83082fdc3c17f66b2a909f41fa6b640_1440w.jpg"></p>
+<p>屋檐铺瓦先用一个梯形面把铺瓦的范围划分出来，梯形高度为瓦片铺盖的垂直投影长度，梯形上底边为两侧立柱的圆心，下底边为上底边沿着两侧45度斗拱平分线的相交处。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-46354ed53fe31f813558237c58c89392_1440w.jpg"></p>
+<p>屋檐铺瓦有这么几个外观元素，椽子为一个圆柱加一些分段配合higgsas几何节点的curve deform做曲线变形，筒瓦板瓦的初始单体做几次复制扩展长度后合并和椽子一样也是通过curvedeform做曲线变形，图3为筒瓦板瓦与椽子经过curve deform后形成的单体，curve用3个点拟合中间那个点配合curve machine y键bevel出圆润弧度。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-db3600c115c15cae19bf32f6a2a36d43_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-916999ddf3f214219173b4889b154307_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-9cbb17ebec03de45b1b6b9cb9c80541a_1440w.jpg"></p>
+<p>在顶视图下通过multilattice调整屋檐出檐的弧度。在前视图调整屋檐的立面弧度。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-b464a7aa89d59922d055aa2f33bb63be_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-437fe7e70352604e4f718ac67ffbfc53_1440w.jpg"></p>
+<p>可以发现屋檐的弧度变化后原先绘制的椽子不贴和了，因此椽子得在屋檐弧度multilattice之后制作。curve deform在勾选fit curve的情况下无视原先物体的长度会自动适配曲线的长度因此无需担心物体的尺寸、旋转，不过得注意apply scale。由于屋檐筒瓦板瓦经过multilattice其中心位置向两侧是逐渐向上弯折向后收缩，因此椽子也需要通过multilattice调整，至此铺瓦和椽子贴合。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-4d8995f7851848e9cd16841e25f2616c_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-b04087279ca33773828832889035b86f_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-fd9ef4315c5cc930831077fa192e1960_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-2a30113762706a2a44c9d82c17f07ef5_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-0a79049e7dd5a2d1f9ea7c48e784145b_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-c9a51a10ee78858ba2938fdb8efb672d_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-b2d95836359e618b59da2e94846eb24b_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-ffa03ffb2d213fdd3babe4c9543dad1a_1440w.jpg"></p>
+<p>飞子用Duplicate Along Curve Without Deformation配合ctrl a make instance real实现，曲线通过正视图按照屋檐立面的走势绘制，望板在飞子完成后通过这条曲线转mesh拉出长度、挤出厚度即可。望板和飞子通过权重偏移做出贴合屋檐的形变。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-6a78635481fb19b99a0e520baaa3eb77_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-e763d8c24383519ff9d3bd6ce21d69e3_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-8b077be6965538768f35d99097faf1b2_1440w.jpg"></p>
+<p>合并瓦片、椽子、飞子、望板，沿着45度用体积对称的布尔切除。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-910d692190b38eed5a02d19238b18e3e_1440w.jpg"></p>
+<p>复制四个顶角立柱合并成一个物体把pivot置于其体积中心，cursor to pivot。然后把屋檐的pivot to cursor，alt d复制45度。其中两个的x改为-1可以使4个屋檐首尾相连完美对称贴合，其接缝处由侧屋脊覆盖。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-8344835f71b210b128d9a3f5a83c0119_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-16fda944cf0eceab6949bf087a523ff9_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-17985e95895ada9508d4177cfdde790b_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-9114b84c584335bc5fca5984f572fe4d_1440w.jpg"></p>
+<p>檐枋置于斗拱上承载椽子。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-3851cc3a6d6d02b11c7a924b86be93f3_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-42bfd1a4f7a015916594347ab00dfccb_1440w.jpg"></p>
+<p>在4侧铺瓦的内循环边靠外一些的地方有一圈屋脊，再向上就是二楼的“底座”了？这个底座看起来是通过一圈石板垫在屋脊上再由石板垫起二楼底座，而从独乐寺来看是斗拱架在这圈屋脊上托起二楼底座。</p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-c041a4a13087bad37c04330af8224e72_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-571a178f2406d4a02e7d2048b0dca5c0_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-94c20dddc277495c0d5ff8623db84b21_1440w.jpg"></p>
+<p><img src="/2024/05/11/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/2024-5-11-SendToUE%E7%95%85%E9%9F%B3%E9%98%81/v2-a2b7d2fc988ce413597cb0409e1cfb3d_1440w.jpg"></p>
+<p>2024-5-15更新：</p>
+<p>除开11号研究3个插件，从blender3.3转移到3.6，在牙疼的情况下3天基本完成了畅音阁的建模组装。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>中式建筑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-5-15-中式建筑的制作流程</title>
+    <url>/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<html><head></head><body><p>花了5天断断续续做好了第一个中式建筑的模型组装，以下的制作流程不包含部件的建模。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-4e11402c5ec478817efa1b871a4919b6_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-bdac3e77e6dd0d20d2099128f2b36541_1440w.jpg"></p>
+<p>在不考虑精确尺寸的情况下，中式古建筑应该先确认立柱、墙面的排布，继而可以确认每层的地面平面布局；阑额若是非矩形而是如同cornice一样多重曲折的不要逐个挤出用地面提取曲线路径引导，斗拱架在阑额上抬起檐枋，这三个部件在布局上是绑定的；</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-36d5970f915743f76c1138a7cce84c27_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-d5496893dcf050160d9d1d37ce845fa0_1440w.jpg"></p>
+<p>筒瓦板瓦组成一个单体，x、y方向array。筒瓦滴水组成一个单体x方向array。后期不同规格的屋檐都由这些单体制备，因此注意备份单体。array apply之后合并，用higgsas几何节点curve deform（调节tilt和axis两个参数）可以将屋檐的大致轮廓构造出来。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-dcc456c03fad6a4244a0b6dde583b3ae_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-de5c6c5f119c9947d929b9275092b9ae_1440w.jpg"></p>
+<p>convert mesh之后全选所有面，seperate by loose part可以将所有部件分离为单个。使用smart select 快捷键 ctrl f 按照相等体机可以选出同规格部件，将他们以此分collection，在blender 4.1中使用ocd构造几个磨损版本，再用object replacer按照collection替换，最后再合并，理论上这样可以获取带有几何特征磨损形态各异的屋檐铺瓦。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-3e8cf43bdc5a79e94ef4105cfc3feea1_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-67489b173fbd2ab9f2044e1c392af471_1440w.jpg"></p>
+<p>屋檐用一个等腰梯形面片对准阑额顶角45度分割线，出檐宽度可以通过在梯形上切边来缩进。屋檐的筒瓦板瓦、椽子、飞子用array和望板宽度占满梯形下底，apply array合并所有这些部件（之前飞子和望板是后续在铺瓦和椽子之后用曲线分布飞子再曲线转换面片做望板，现在看来多此一举），添加multilattice在顶视图和前视图用权重偏移调整屋檐的弧度.</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-827431a7ee82310c252fa23f972e99d0_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-41141b032922826b4d40c41ffe75097a_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-c7bd382beab66fb36fd4ececee802e11_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-2cdda4292c8f5d0054d39d09a4856a25_1440w.jpg"></p>
+<p>45度用标准几何体切fast模式布尔得到一侧屋檐，若建筑地块是正方形可以把屋檐pivot居中到地块平面用rotate 90 180 270得到四边的屋檐，如果非正方形由于屋檐存在弧度因此没法切掉部分镜像，只能重新按照上述方法做一个屋檐。因此做中式建筑屋顶时，飞子、望板、铺瓦、椽子的部件单体要备份一个随时用来组装不同规格的屋檐。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-fcf30a11f701a62dfbd30c1bcdf3db13_1440w.jpg"></p>
+<p>对于矩形屋面的屋檐是4个对角沿着45度切分再用侧屋脊覆盖切割缝隙。若是建筑楼层平面非矩形，那么就涉及屋檐的折线走势与拼接,直角转折的和矩形屋面的布尔切割是一样的。而对于图3这种屋檐与另一个屋面相交的，保留一侧屋檐的连续完整，另一侧切除以后会留出缺少屋檐的真空，用面片封住。</p>
+<p>侧屋脊先画水平的，然后根据屋檐的轮廓曲线用curve deform即可得到对应的弧度。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-d5e09fa6f104666203ecc5d7acdf358a_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-a4b3e2d7c7e2772c1715a6e5055225cc_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-75a46156cf96b0164cc205a8be7ed5d9_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-6c21eb039aab63e3afcc3ccdf3da4ae9_1440w.jpg"></p>
+<p>卷棚顶由常规坡面屋檐加一个卷棚屋檐，卷棚屋檐和常规坡面屋檐做法一样也是array apply之后合并multilattice调整弧度，最后布尔fast切除。卷棚顶的两侧切割后需用曲线引导带状的cornice包覆还有一圈瓦片装饰用duplicate along curve ridge实现。不知为何包覆的屋脊所用的profile昨天死活就是大的异常，今天大小正常了。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-c2572c22df5b175cc85059b6745fe6a5_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-b2f9a5dee618ebd3003e7521bdb4941f_1440w.jpg"></p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-5dded65bdf82a58f4ee026d7def57360_1440w.jpg"></p>
+<p>斗拱和栏杆、环绕石板都是用duplicate along curve ridge制作的。栏杆、环绕石板在最后添加，不然的话屋面、立柱布局一变这些都要跟着变。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-7cfcbee05cb0e295b16fc6a84be269d6_1440w.jpg"></p>
+<p>higgsas几何节点中有个fit size感觉应用场景蛮多的，某个维度放缩到一个精确尺寸，其他几个尺寸等比例放缩。</p>
+<p><img src="/2024/05/15/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/2024-5-15-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/v2-6b05f1b452e0d682ee2ed5f245baddc1_1440w.jpg"></p>
+<p>blender3.6工程之间复制会导致卡住死机，似乎保存以后就可以避免死机。blender4.1的死机目前还原因不明。</p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>中式建筑</tag>
+      </tags>
+  </entry>
 </search>

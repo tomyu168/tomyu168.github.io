@@ -126,6 +126,52 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-29T09:07:01.000Z" itemprop="datePublished">4月 29 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 3015 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/24/2024-4-24-%E5%9C%B0%E5%BD%A2%E7%8E%AF%E5%A2%83sketchup%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF%E9%97%AE%E9%A2%98/" itemprop="url">2024-4-24-地形环境sketchup设计思路问题</a>
         
     </h1>
@@ -329,51 +375,6 @@
 <p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/1.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/" itemprop="url">2024-4-2-BluePrint探索自研DecoPerSocket</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-04T13:06:26.000Z" itemprop="datePublished">4月 4 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            22 分钟 读完 (约 3299 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>PBG中的Deco per Socket可以通过标记socket，以一定概率去分布一个集合的mesh，从而实现在建筑立面上布局广告牌、空调外机、旗帜等等道具。初步看了下想要破解PBG的blueprint难度太高了，那个Add Deco per Socket的代码太复杂可能还与其他几个函数有耦合关系。我开始设想blender中有没有类似的功能，对特定的instance物体标记特定点，随机以一定概率添加一个集合的物体并instance化并可以控制大小、偏移？之前FRG可以在一条曲线上以一定的间隔做到此效果，但这意味着要不断画线计算距离，且很多情况下并非连续的物体需要添加道具，间断曲线搞这个似乎有些麻烦，且每次变动立面布局，这个曲线要跟着重新画。</p>
-<p>顺带一提<a target="_blank" rel="noopener" href="https://ytmp3.so/en/youtube-4k-downloader">ytmp3.so</a>这个网站似乎比savetube.io要好用，可以下载清晰度更高的youtube视频。</p>
-<p>在ue的marketplace也没有找到类似decopersocket功能的插件，既然要在Unreal Engine上做大项目，我觉得掌握BluePrint看来是势在必行的。这次参考的教学来源博主似乎之前是专攻家具建模的，几年后开始出ue、blender的编程相关教学。</p>
-<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-c6a004ffbb0beb3c9359a405a8b4f26a_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/#more">阅读更多</a>
         </p>
     
     </div>

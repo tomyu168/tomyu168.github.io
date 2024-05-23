@@ -13916,4 +13916,64 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>chatgpt</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-5-22-SendToUE养性殿</title>
+    <url>/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/</url>
+    <content><![CDATA[<html><head></head><body><p>2024-5-23更新不知道为啥今天突然电脑卡住完全不动两次了，暂时不清楚啥原因。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/123.jpg"></p>
+<p>UE5 关闭材质编辑器以及保存时经常会跳出Updating Texture Streaming Data，然后卡死，造成白做，制作时时刻感到心慌。今天通过这个方法貌似是解决了project setting&gt;rendering&gt;enable virtual texture anisotropic filtering.（话说早了结果又出现了这个毛病，不过只出现了一次，应该是大幅改善了）</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-31cca875592d94a428955218672ebd1d_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>之前不是太在意ps总是骚扰式的弹窗，然而之后用到ps的脚本如果被这个弹窗截胡了那可就糟心了，看网上说用下图方法可以屏蔽，测试下来暂时还未弹窗。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-49337e745fb30636b55182e8fb4cf68a_1440w.jpg"></p>
+<p>原本打算一天搞三套中式古建筑结果昨天一天弄下来一套都没搞好，2024-5-18制作诚宵宫时碰到了屋顶砖瓦uv展开时为udim tiles，而bakemaster目前不支持channel packing udim贴图，后来我找了ue的channel pack插件诡异的是效果不对，而且要批量处理也是个问题。花了两天时间通过chatgpt先后用python和ps的javascript解决了udim贴图打包的问题，整个贴图烘焙流程也变了，取消bakemaster的channel pack和autounwrap，用script smart unwrap，再uvpackmaster group independent 模式pack uv，python创建对应物体贴图的子文件夹，ps javascript通道打包并输出贴图。</p>
+<p>模型方面感觉是可以半天解决的，接着的新问题是彩画纹理用什么材质？sidewalk材质在scale 0.01的情况下uv是适配blender的。对于不规则形状得精确贴图没法用matrix材质系统，只能用传统的uv块手动去贴合贴图，下图为斗拱用sidewalk材质做出来的效果。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-5e364be7a7249bcc178a726efa0e1dbd_1440w.jpg"></p>
+<p>下图左是sidewalk材质配合外部贴图，右边是matrix材质模型用bevel，select sharp edge赋予边缘材质，蓝绿部分手动选取添加材质。左边用了一个材质而右边是三个材质实例。目前暂时还不好说哪边</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-ca6911b723e57072226f309598adf691_1440w.jpg"></p>
+<p>使用matrix材质修改Tex，xyz offset和Tex Size M1，对矩形、非弯折区块添加阑额彩画。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-48c8ebbc3ab9413cb17bd5a48f44eb48_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-207f5872b2ee2ac1ba3c6562d11a7628_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-0ea0802928261a6c857dd48610e2ac41_1440w.jpg"></p>
+<p>底座上的切分上面两层是真实几何体最下面的是matrix block，可以混合着使用增加材质的丰富度，就施工难度而言matrix block要方便很多，直接用curve转mesh再zenuv即可，注意每个折角需要用循环边夹紧避免uv展开扭曲，而加循环边的工作之前很麻烦，由于折角导致添加的非水平垂直还要做scale 0，其实如图2可以在curve状态下通过subdivide加点夹紧折角到时候转mesh会转换成循环边，curve状态加点移动还是很方便的，注意profile的origin 居中，不然出来的cornice形状会诡异。图1中用的是block limestone grey而paint是white，通过调节颜色可以使二者相仿，前者颗粒度较大，减少normal intense可以减少表面的颗粒度。</p>
+<p>古建筑石板平台要营造凹凸起伏，先用平整石板array成型，apply之后全选seperate by loose part，origin to geometry,养性殿的工程中石板程不规则起伏，暂时不知道作者是怎么搞的，我将它们 seperate by loose part放在一边选若干整合一个horizontal、一个vertical的collection，然后用object replacer即可将他们替换，最后整体合并。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-9be9d251a8fc565d28bf542877d0f2b8_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-1165a01796269d8a5378e0e4fb4e5345_1440w.jpg"></p>
+<p>大块面的石板平台用单一uv tile unwrap得到的uv块很小，用于智能遮罩的的uv texel density只有8左右。不过从效果上来看好像也看的过去。这意味着我得测试一下对于复杂高面数的浮雕、雕塑物体有没有必要对智能遮罩的的uv texel density有过高要求？还是说两种得分情况？从图三来看遮罩贴图是有必要的，明显可以增加物体的立体感。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-5b60ebe0951faab4c19b1b136eb327ba_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-1596095e30344cf83e20b4d79b676866_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-aef4762ac739b4e19a43bd4f370fe617_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-86c89d487d2125890c7fe259c508672f_1440w.jpg"></p>
+<p>之前在做中式古建筑时一直纠结屋面和屋顶结合处的“漏风”处如何处理。目前我看了4、5个素材在这一块都没有做处理，意味着细节经不起考究。昨天无意间看到一个门廊的处理适用椽子架起木板解决的。也就是绘制一个贴合屋檐曲线走势的curve转换mesh加个厚度，再用这个curve作为curve deform引导转换圆柱，array做出弯折的椽子阵列</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-707b1af37491af271ac77affca024ea3_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-3e56dc1224025c4fc22ce291190e223c_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-81ff3e2957398a3ff9c6c2bb1f6aa58b_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-9548fcfc17d060b5d5438156d3652837_1440w.jpg"></p>
+<p>屋面上架阑额添加彩画，而屋面上的斗拱后的环绕式阑额就不加彩画了以免过于重复，檐枋加彩画。用matrix材质修改Tex Albedo M1可以在matrix材质的基础上添加彩画。调节xyz offset即可控制贴图的位置，Tex Size M1控制贴图大小也就是uv tile scale。相较于手动贴合uv，对于立方体部件而言，matrix这套稍微修改y offset能让整个贴图“循环”起来。其不足之处在于下图1中柱头两侧飞翼，无法做出对称的效果，贴图会如同阑额和檐枋那样整个贯穿，解决办法是创建多个材质实例去控制贴图区域。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-8ebf6beabffd06bef6e3b32057d3a96f_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-2eea4aef3b08c53c629342288de83a33_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-982e55819f20f1b726d0fad3280c006b_1440w.jpg"></p>
+<p>“飞翼”的贴图也tile平铺，对于较近对称的地方用一个材质，下图2的大门左侧和右侧为两个材质。同一个材质没法控制不等距的长距离不规则面块彩画。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-8231cc3b61e116da155fba3f036eabca_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-2316f687504cac36c95838f90c67feb1_1440w.jpg"></p>
+<p>斗拱方面需要指定区域给不同色彩，这里还涉及到边缘处有颜色描边。我的处理方法是bevel制造边缘apply，select sharp edges可以选中边缘面添加边缘材质，其余的面在添加另一种材质。斗和升都用instance关联，从而批量替换最后再合并物体。斗和升不同规格的用higgsas fit size节点做精准的放缩替换。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-b412c3d708eeb1984153aad4526e1df7_1440w.jpg"></p>
+<p>左边是80右边是260texel density，grime broad 为1时几乎没有什么区别。grime broad 为2时，右边效果好很多。通过两个matrix 10万面物体来看58和130texel density产生的智能遮罩没啥区别，看来没必要搞udim 智能遮罩？测试了下屋顶（碰巧死机了）没有区别.</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-95bd31bba89032adf6987e96cc8b11aa_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-e7e4ddf4241e3409894c5e1bc56a62d5_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-395f1818ed6c20abaa7cb6dd2292a14e_1440w.jpg"></p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-19ea13d7ec07ad2045efb9b5203979c3_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>BakeMaster</tag>
+        <tag>中式建筑</tag>
+        <tag>彩绘纹理贴图</tag>
+      </tags>
+  </entry>
 </search>

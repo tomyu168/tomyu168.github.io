@@ -119,6 +119,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/" itemprop="url">2024-5-22-SendToUE养性殿</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-05-23T08:50:20.000Z" itemprop="datePublished">5月 23 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2100 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>2024-5-23更新不知道为啥今天突然电脑卡住完全不动两次了，暂时不清楚啥原因。</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/123.jpg"></p>
+<p>UE5 关闭材质编辑器以及保存时经常会跳出Updating Texture Streaming Data，然后卡死，造成白做，制作时时刻感到心慌。今天通过这个方法貌似是解决了project setting&gt;rendering&gt;enable virtual texture anisotropic filtering.（话说早了结果又出现了这个毛病，不过只出现了一次，应该是大幅改善了）</p>
+<p><img src="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/v2-31cca875592d94a428955218672ebd1d_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="url">2024-5-20-bakemaster烘焙udim贴图通道打包问题</a>
         
     </h1>
@@ -333,57 +378,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/" itemprop="url">2024-4-30-SendToUE中式ArtDeco外滩壹号院风格大理石贴面小高层</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-30T05:10:29.000Z" itemprop="datePublished">4月 30 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分钟 读完 (约 858 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这套制作了两天，原本想半天搞掉的。最终效果还算满意，影响制作时间的几点：</p>
-<p>1.过分追求instance关联，许多立柱凑尺寸，长的立柱追求以后的项目可以复用以及担忧block brick系统uv块不足而拆分。目前看来整件拆立柱uv不算繁琐，texel density130的情况下可以支持45米的立柱一步到位，也就是说对于10几层的小高层不用考虑立柱拆分，20、30几层的才考虑。</p>
-<p>2.玻璃窗和建筑砖石的bevel不一样，一开始就要拆分，窗户也是。</p>
-<p>3.双窗并列的情况下想只添加一个内景面片，应该在初期就把双窗并列合并为一个mesh。</p>
-<p>4.屋顶的uv切分应该在mirror apply之前避免重复劳动。</p>
-<p>5.导入后注意随时保存避免崩溃重做。</p>
-<p>6.block brick使用其他贴图时会有显示问题，把贴图的压缩格式换成BC7。</p>
-<p>7.material assignment tool先于materialconvertinstance使用，若顺序反了也可能导致ue崩溃。</p>
-<p>8.部件批量命名方面一开始统一wall。</p>
-<p><img src="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/v2-b38c351f21ba3647728a96f7c6eb5dd8_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -401,7 +395,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/33/">33</a></li>
+        <li><a class="pagination-link" href="/page/34/">34</a></li>
         
     </ul>
 </nav>

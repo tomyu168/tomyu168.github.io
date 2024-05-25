@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/" itemprop="url">2024-2-16-BlenderToUE问题集锦1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T12:04:25.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2881 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-2-26-PBG程序化建筑从blender到ue</a>
         
     </h1>
@@ -329,49 +372,6 @@
 <p><img src="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/v2-dd400a30b8d8bff3f1c691bf9bb88803_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/01/02/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/" itemprop="url">2023-12-20-FRG之curve-radius控制路宽与道路铺砖</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-01-02T05:23:42.000Z" itemprop="datePublished">1月 2 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            6 分钟 读完 (约 896 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>对于不同路宽的连接，情况1：在路口处垂直于窄路构造两个平行线，其中宽路的控制线段位于紧贴窄路一侧如下图。</p>
-<p><img src="/2024/01/02/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/v2-9b059431a8b0d8b06ff980a175a5356d_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/01/02/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/#more">阅读更多</a>
         </p>
     
     </div>

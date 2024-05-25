@@ -13976,4 +13976,60 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>彩绘纹理贴图</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-5-25-SendToUE澄瑞亭</title>
+    <url>/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-69a06d0a9c91f4f1b7d031c3225e58a4_1440w.jpg"></p>
+<p>这两天电脑频繁卡机黑屏，最终都开不了机了，今天去修说是内存供电的电路、模块坏了，不懂这个也不知道之后会不会再出问题，看来有必要再搞个机箱以备不时之需。现在还心有余悸，今天修完回来同时运行blender、ue、ps、浏览器暂时还没有卡住和黑屏。</p>
+<span id="more"></span>
+
+<p>这个项目建模搞了一天，这是建立在屋顶铺瓦、椽子、滴水、屋脊、斗拱、阑额已经有模板的基础上，感觉还是慢了。大概有这么几个耽搁时间的地方，1是选取阑额间的这个雕刻装饰，前后换了好几个。2</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-68cbe5e91a91bbed7055ca8a72e339da_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-6ff626420e06e14722b52ac950611ab9_1440w.jpg"></p>
+<p>2是屋顶这个圆柱变种的饰带，得多次测试array的个数在变换圆形引导的curve deform要合适比例大小。对于梯度收缩的饰带用multilattice处理。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-1c738f98b7e9172f53d97268282993a1_1440w.jpg"></p>
+<p>3是屋脊覆盖屋顶对角接缝不充分，强迫症手动去整理了一下暴露在外的布尔残余。另外望板是在四段屋顶拼接合并后直接用檐枋mesh来拟合的，将它与屋顶合并参与multilattice。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-db856212d766713466ce9a1a9d98b9f0_1440w.jpg"></p>
+<p>4是这个第二段屋脊和脊兽与第一段屋脊的对齐手动调整了会儿，看起来curve deform的引导曲线应该拉足到底，然后切分成两段，这样能保证连续性？</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e6d4c3469c5a783d22d86512a4dc9c28_1440w.jpg"></p>
+<p>5异形inset用knife project不可取，会严重破面还得是布尔。雕花方面好久没接触zbrush了，有点抵触畏惧，感觉最近得拾起来了，不过板子还在长沙可能过段时间去几周？</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-594b12b14225093a1a684e64a2a3b4be_1440w.jpg"></p>
+<p>6天花板和藻井一开始没有概念不知道咋搞现在看来就是两种规格的棍状立方体array交错，然后面片array填充在交错的格子做一个inset挤出，中心是梯度挤出，8边形是我用polygon curve转换的，合并后的布线纠结了一会儿，8边形向上挤出变圆形面用到了smart loop这个插件。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c183407c01c0852d009dd8df6d16af7d_1440w.jpg"></p>
+<p>补充说明udim 遮罩，这次发现第一轮自动unwrap后的遮罩不行（2texel density），然后我手动smart unwrap是29td，转换到80td产生了10个udim tile测试遮罩效果不错。可能至少要80td才能保证遮罩的准确。</p>
+<p>澄瑞亭29 texel density的grime分布不正确。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-21445fec98b26be5c01a7ede7b8e395c_1440w.jpg"></p>
+<p>80 texel density的grime分布基本正确</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-635d215aa4cf9c5775093a56a4f97da2_1440w.jpg"></p>
+<p>材质通过开两个content browser window，可以将之前项目中的沿用building的材质实例直接copy过来，而不用每次去building生成实例再move到新的工程文件夹。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-67c80461adbe40a1fdbc7bd22cd8a860_1440w.jpg"></p>
+<p>彩画还是老套路，矩形的就用matrix材质系统即可。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-821fc748074c41ac57164582469c7ed5_1440w.jpg"></p>
+<p>这个三角形的部分我也用了matrix材质系统，感觉有点勉强很难调整到合适位置，而圆形穹顶matrix材质系统是无法解决的，这涉及到uv展开，用zenuv展开后调整一下大小，然后配合sidewalk材质系统完成。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-f321b97d520feafd872d8159d8869fa6_1440w.jpg"></p>
+<p>天花板的小画，我用的死的walk材质系统，ps里面将16个ai生成地相似贴图合成一个阵列然后blender里面用random select对几组instance添加不同部分的彩画，最后将它们合并起来。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-7f93adfa55484baf3b5c4ad4e5845195_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-741a6eacf8b51383ff0c16348d05c314_1440w.jpg"></p>
+<p>这个项目快的话感觉一天内是足够完成的，接下来要在中式传统建筑上面玩出变化么看来得对人工智能生成多样性的檐枋、阑额贴图、天花板checker小画、藻井得研究一下构成原理了。</p>
+<p>最后看一下最终效果：</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e76aec4be768ac6b8f29019d033250b9_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-408a16d713096072b7393e2dc0633e79_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-43219f17e2e7e9fb89ded99f43e20244_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-9cd3e237b4e7b5f3ec0f8d9851f532f9_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>建筑装饰构件理论</tag>
+        <tag>BakeMaster</tag>
+        <tag>中式建筑</tag>
+        <tag>彩绘纹理贴图</tag>
+      </tags>
+  </entry>
 </search>

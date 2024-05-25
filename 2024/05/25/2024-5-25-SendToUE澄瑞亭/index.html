@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-5-25-SendToUE澄瑞亭 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="这两天电脑频繁卡机黑屏，最终都开不了机了，今天去修说是内存供电的电路、模块坏了，不懂这个也不知道之后会不会再出问题，看来有必要再搞个机箱以备不时之需。现在还心有余悸，今天修完回来同时运行blender、ue、ps、浏览器暂时还没有卡住和黑屏。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-5-25-SendToUE澄瑞亭">
+<meta property="og:url" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="这两天电脑频繁卡机黑屏，最终都开不了机了，今天去修说是内存供电的电路、模块坏了，不懂这个也不知道之后会不会再出问题，看来有必要再搞个机箱以备不时之需。现在还心有余悸，今天修完回来同时运行blender、ue、ps、浏览器暂时还没有卡住和黑屏。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-69a06d0a9c91f4f1b7d031c3225e58a4_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-68cbe5e91a91bbed7055ca8a72e339da_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-6ff626420e06e14722b52ac950611ab9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-1c738f98b7e9172f53d97268282993a1_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-db856212d766713466ce9a1a9d98b9f0_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e6d4c3469c5a783d22d86512a4dc9c28_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-594b12b14225093a1a684e64a2a3b4be_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c183407c01c0852d009dd8df6d16af7d_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-21445fec98b26be5c01a7ede7b8e395c_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-635d215aa4cf9c5775093a56a4f97da2_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-67c80461adbe40a1fdbc7bd22cd8a860_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-821fc748074c41ac57164582469c7ed5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-f321b97d520feafd872d8159d8869fa6_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-7f93adfa55484baf3b5c4ad4e5845195_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-741a6eacf8b51383ff0c16348d05c314_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e76aec4be768ac6b8f29019d033250b9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-408a16d713096072b7393e2dc0633e79_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-43219f17e2e7e9fb89ded99f43e20244_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-9cd3e237b4e7b5f3ec0f8d9851f532f9_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg">
+<meta property="article:published_time" content="2024-05-25T15:06:55.000Z">
+<meta property="article:modified_time" content="2024-05-25T15:11:38.883Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="建筑装饰构件理论">
+<meta property="article:tag" content="BakeMaster">
+<meta property="article:tag" content="中式建筑">
+<meta property="article:tag" content="彩绘纹理贴图">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-69a06d0a9c91f4f1b7d031c3225e58a4_1440w.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-5-25-SendToUE澄瑞亭
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-05-25T15:06:55.000Z" itemprop="datePublished">5月 25 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1331 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-69a06d0a9c91f4f1b7d031c3225e58a4_1440w.jpg"></p>
+<p>这两天电脑频繁卡机黑屏，最终都开不了机了，今天去修说是内存供电的电路、模块坏了，不懂这个也不知道之后会不会再出问题，看来有必要再搞个机箱以备不时之需。现在还心有余悸，今天修完回来同时运行blender、ue、ps、浏览器暂时还没有卡住和黑屏。</p>
+<span id="more"></span>
+
+<p>这个项目建模搞了一天，这是建立在屋顶铺瓦、椽子、滴水、屋脊、斗拱、阑额已经有模板的基础上，感觉还是慢了。大概有这么几个耽搁时间的地方，1是选取阑额间的这个雕刻装饰，前后换了好几个。2</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-68cbe5e91a91bbed7055ca8a72e339da_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-6ff626420e06e14722b52ac950611ab9_1440w.jpg"></p>
+<p>2是屋顶这个圆柱变种的饰带，得多次测试array的个数在变换圆形引导的curve deform要合适比例大小。对于梯度收缩的饰带用multilattice处理。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-1c738f98b7e9172f53d97268282993a1_1440w.jpg"></p>
+<p>3是屋脊覆盖屋顶对角接缝不充分，强迫症手动去整理了一下暴露在外的布尔残余。另外望板是在四段屋顶拼接合并后直接用檐枋mesh来拟合的，将它与屋顶合并参与multilattice。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-db856212d766713466ce9a1a9d98b9f0_1440w.jpg"></p>
+<p>4是这个第二段屋脊和脊兽与第一段屋脊的对齐手动调整了会儿，看起来curve deform的引导曲线应该拉足到底，然后切分成两段，这样能保证连续性？</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e6d4c3469c5a783d22d86512a4dc9c28_1440w.jpg"></p>
+<p>5异形inset用knife project不可取，会严重破面还得是布尔。雕花方面好久没接触zbrush了，有点抵触畏惧，感觉最近得拾起来了，不过板子还在长沙可能过段时间去几周？</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-594b12b14225093a1a684e64a2a3b4be_1440w.jpg"></p>
+<p>6天花板和藻井一开始没有概念不知道咋搞现在看来就是两种规格的棍状立方体array交错，然后面片array填充在交错的格子做一个inset挤出，中心是梯度挤出，8边形是我用polygon curve转换的，合并后的布线纠结了一会儿，8边形向上挤出变圆形面用到了smart loop这个插件。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c183407c01c0852d009dd8df6d16af7d_1440w.jpg"></p>
+<p>补充说明udim 遮罩，这次发现第一轮自动unwrap后的遮罩不行（2texel density），然后我手动smart unwrap是29td，转换到80td产生了10个udim tile测试遮罩效果不错。可能至少要80td才能保证遮罩的准确。</p>
+<p>澄瑞亭29 texel density的grime分布不正确。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-21445fec98b26be5c01a7ede7b8e395c_1440w.jpg"></p>
+<p>80 texel density的grime分布基本正确</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-635d215aa4cf9c5775093a56a4f97da2_1440w.jpg"></p>
+<p>材质通过开两个content browser window，可以将之前项目中的沿用building的材质实例直接copy过来，而不用每次去building生成实例再move到新的工程文件夹。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-67c80461adbe40a1fdbc7bd22cd8a860_1440w.jpg"></p>
+<p>彩画还是老套路，矩形的就用matrix材质系统即可。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-821fc748074c41ac57164582469c7ed5_1440w.jpg"></p>
+<p>这个三角形的部分我也用了matrix材质系统，感觉有点勉强很难调整到合适位置，而圆形穹顶matrix材质系统是无法解决的，这涉及到uv展开，用zenuv展开后调整一下大小，然后配合sidewalk材质系统完成。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-f321b97d520feafd872d8159d8869fa6_1440w.jpg"></p>
+<p>天花板的小画，我用的死的walk材质系统，ps里面将16个ai生成地相似贴图合成一个阵列然后blender里面用random select对几组instance添加不同部分的彩画，最后将它们合并起来。</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-7f93adfa55484baf3b5c4ad4e5845195_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-741a6eacf8b51383ff0c16348d05c314_1440w.jpg"></p>
+<p>这个项目快的话感觉一天内是足够完成的，接下来要在中式传统建筑上面玩出变化么看来得对人工智能生成多样性的檐枋、阑额贴图、天花板checker小画、藻井得研究一下构成原理了。</p>
+<p>最后看一下最终效果：</p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-e76aec4be768ac6b8f29019d033250b9_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-408a16d713096072b7393e2dc0633e79_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-43219f17e2e7e9fb89ded99f43e20244_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-9cd3e237b4e7b5f3ec0f8d9851f532f9_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-c39e78ef539ed75e722c20c53561c6ad_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg"></p>
+<p><img src="/2024/05/25/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/2024-5-25-SendToUE%E6%BE%84%E7%91%9E%E4%BA%AD/v2-ec83dd79d11e1224874eb0b8eb6977c5_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BB%BA%E7%AD%91%E8%A3%85%E9%A5%B0%E6%9E%84%E4%BB%B6%E7%90%86%E8%AE%BA/">#建筑装饰构件理论</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/BakeMaster/">#BakeMaster</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91/">#中式建筑</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%BD%A9%E7%BB%98%E7%BA%B9%E7%90%86%E8%B4%B4%E5%9B%BE/">#彩绘纹理贴图</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/05/23/2024-5-22-SendToUE%E5%85%BB%E6%80%A7%E6%AE%BF/">2024-5-22-SendToUE养性殿</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

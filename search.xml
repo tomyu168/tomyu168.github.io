@@ -14032,4 +14032,313 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>彩绘纹理贴图</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-5-31-chatgpt和discord配置代理规则以及obsidian博客图片同调流程修改</title>
+    <url>/2024/05/31/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<html><head></head><body><p>昨天买了一个共享版midjourney，不过这玩意儿涉及discord，一直以来我都没在意，要用时切换到全局代理，但如果要长期高频率使用midjourney那就麻烦了。网上一些教程说的玄乎，其实就是把几个域名在规则中设置为节点选择，节点改成美国的代理就好了。另外service mode安装不知道是不是起到了做用，以后再说吧。</p>
+<p>同时也解决了我自己的日记本zhudian.xyz hexo博客访问加载慢的问题。</p>
+<p><img src="/2024/05/31/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/v2-3cba4b87f91dda289c2d97935dc2d688_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/05/31/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/v2-4e987ac1f65668c8d71f3714b44ad6d6_1440w.jpg"></p>
+<ul>
+<li><p>DOMAIN-SUFFIX,<a href="http://chatgpt.com/">chatgpt.com</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://openai.com/">openai.com</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://auth0.com/">Auth0: Secure access for everyone. But not just anyone.</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://live.com/">live.com</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discord.com/">discord.com</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discord.gg/">discord.gg</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discord.media/">520: Web server is returning an unknown error</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discordapp.com/">discordapp.com</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discordapp.net/">discordapp.net</a>,🔰 节点选择</p>
+</li>
+<li><p>DOMAIN-SUFFIX,<a href="http://discordstatus.com/">Discord Status</a>,🔰 节点选择</p>
+</li>
+</ul>
+<p>另外是拦截ps的弹出警告窗口</p>
+<ul>
+<li>DOMAIN-SUFFIX,<a href="http://adobe.io/">adobe.io</a>,REJECT</li>
+</ul>
+<p>obsidian的local images对大量图片总是会无作用，暂时不知道是为什么。今天下载了local images plus，这个插件可以自动对当前文件的图片链接修改地址为本地，不过缺点在于无法识别中文。于是统一的做法是以后文章文件、图片文件夹都是日期命名，规避一天两篇同日期的文章。最后在.md的title添加文章的标题，即可在hexo博客 zhudian.xyz上显示正常标题，且图片显示正常。</p>
+<p><img src="/2024/05/31/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/aa1.jpg"></p>
+<p><img src="/2024/05/31/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/2024-5-31-chatgpt%E5%92%8Cdiscord%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%E8%A7%84%E5%88%99/aa2.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+        <tag>代理技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-5-30-flowgpt生成图片</title>
+    <url>/2024/05/30/2024-5-30/</url>
+    <content><![CDATA[<html><head></head><body><p>flowgpt旗下有各种各样的ai模型，一次只能生成一个图，对于不同类型主题的产生的图片有很大差异。目前看来只有输出正方形图的比较好用，长方形图的效果不佳，没法做出创意来，另外sd的ip adapter和t2i adapter没法很好的模仿flowgpt生成的图。另外flowgpt里的regenerator有时候不起做用，在一些图上使用regenerator会较好继承之前那张图的风格。</p>
+<p>18+conversation这个在传统的整栋建筑和独立主题雕塑尤其是西方风格的表现不错</p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/d96362543c57fa4c1828c39f43f96a65_MD5.jpg"></p>
+<span id="more"></span>
+
+
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/2caa0b4e860e627dff24998f64844bd3_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/ba18067270c112cd9f180ea41b051e49_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/db5a0658bbc46b8649751f6a56fecb3c_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/8b5dc3ac58c60cbffb725c3fdc65baab_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/3267a23137dfa6174cbcc4e8b88a46c8_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/22fa3e6d8a0877127f31236a2fe4f736_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/c881f116199edfc87cf46e04b90fbd85_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/13ecf4a7e197fdf8b4229ff1a1de6966_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/1c2d9291e3761da9297da320656deb36_MD5.jpg"></p>
+<p>Image generator在传统整栋建筑表现方面也不错，雕塑也是偏西方</p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/c3e7042785809e91486f34bf256bb722_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/b5a7afbbbf72a44dc833b551c4e82b7b_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/bc51e1a96c05113b18351fece3754bbc_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/042c12245ff03e78d4f87aa3596dde78_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/92a941650b1791a28920f4e6571ea822_MD5.jpg"></p>
+<p>ArtAlchemist</p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/9b4c02cf0d18e11ba7735a3829bcda70_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/b1ebd0002f5f0bd9b451589c710d95a1_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/c04a4d3fecc85e68f3df217f6b029317_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/773229d479b0e1f50c5952c2b7c9b12a_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/dbb9256ce0e31e7e4ef185d1e97522b6_MD5.jpg"></p>
+<p>Photographic 它做的雕塑和建筑都更具有创意和戏剧性</p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/046a27f69a7d7f8effde79298b99b039_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/2efebc7331ea4907ffa8bf3e83a2ac03_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/20cc98b495a3a37e2015d1e584e494eb_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/c17be451584b5c05ebff65ad699d0be5_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/e936fad4a76fa2a7c514331362ed2a6e_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/4b009b9d59dea763c4a0106aae3963d6_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/087c42ce924d2327e5f55be80fa06d28_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/45a541e6757ca1c8612e47e58c009bc5_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/921c2cf0f20aaf78990725e1fde92423_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/271c362bcfbb4d5b995e0460a49e9e57_MD5.jpg"></p>
+<p>Phoenix_AI它在中式雕塑方面似乎表现意外的好</p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/6e9d7617c88fd9f397caf22cf97c77b1_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/4c3b334ff8fade2e0479f7d399d20bab_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/b7e72a388e2bd8aae0c4625a3834129f_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/a3092e1d142cee1caf3c597aff99fccf_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/1daf61d7998d30f3b9407c0f8741e068_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/e894638793f71a78a2d9ad79816efa68_MD5.jpg"></p>
+<p><img src="/2024/05/30/2024-5-30/2024-5-30/642aeb8be59a683d763831aacc67b6e7_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>ai人工智能作图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-1-9-kitbash建筑部件概览</title>
+    <url>/2024/05/31/2024-1-9/</url>
+    <content><![CDATA[<html><head></head><body><p>kitbash系列包含许多拓扑布线完美的模型可以在组装房型时套用，以下为asset zoo预览,blender的shade smooth只能在显示上改变平滑，不是真的平滑，到了ue会暴露棱角。想要做到平滑得用subd加细分，但是得注意哪些部分加细分，比如倒角处那么其他硬边面需要用shift e加crease。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/c059e160b3402407a0bc978c5bc9e4e3_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/d062bab33a7aa43d253056aa65debc5f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/524b18b34e5a69663096bee44459c565_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/dfb35081717daaa4996cda393f9c9da1_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/93cedca19599e410f7dd17cb7fc40c29_MD5.jpg"></p>
+<p>一个不带雕刻装饰的拱窗、窗框、简单壁柱低模不到500面，而通过加crease，硬化边缘以及subd加细分光滑后，居然到了35000多面才有效果，从房型组装的流程来说我觉得应该用低模参与组装，然后拷贝出部件，加细分做高模，这里的问题在于房型组装后还需要拷贝出来做高模，这时需要部件的高模能在位置上替换，目前想到的是部件低模高模的pivot位置相同用align xyz让高模移到低模的位置，再删除低模。</p>
+<p>2024-1-11更新：在参考了matrix建筑部件模型后感觉并不需要细分，只要合适的倒角就可以。目前不清楚matrix模型为什么没有倒角宽度依然在shading上可以看出倒角，blender这边我觉得大多数情况给1mm倒角即可，matrix中墙体外侧没有给倒角是单边的，也有极少的转折边没给倒角。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/05ff7c48a4dbf8f18da4a415b2593f44_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/27b5356b01165c9b1915fed52186694f_MD5.jpg"></p>
+<p>要达到什么细节程度参考matrix的模型，比如cornice从布线来看明显是加了细分的，但同时应该做了crease折边保留了倒角的硬度。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/de9cfdea7fc65bf0f98c76aa19b3bf8f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/94435c93c201fb01401a0aa186a1030a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1de1ff22d70daaa81a7afa8a8e0af91c_MD5.jpg"></p>
+<p>所有转折部分都做了倒角分出2条边。在blender就是bevel segments为2</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/bd908b1c364c0589e440942f16c51642_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f87a28170919768dbefa0c04a00d35ed_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7a82b77dd6a0a5c82c05cf1865d867fc_MD5.jpg"></p>
+<p>细看发现matrix中一些部件的布线属于无关几何形体的，去掉并不影响，那么它为什么这么做呢？从布线来看部件并没有整体的subd。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1e2088ca59a44b3c923efd0b499fcc39_MD5.jpg"></p>
+<p>可能要用到zen bbq，可以看到matrix中的部件各个部分倒角不同，统一倒角宽度可能效果不理想。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/dedcef7b0dc4cca4c70be98edefe19d1_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/0e1464e13cf3f58483a56543b42a1598_MD5.jpg"></p>
+<p>PBG的平面可以确认屋顶的平面，以此独立去做屋顶到时候对位移动也是个办法。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6695ef21572a9ded5313c5bf0314ac64_MD5.jpg"></p>
+<p>比如像这种屋顶</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/192c2894f07d17bfcf34a020166eb2c3_MD5.jpg"></p>
+<p>圆形结构需要保证48面，最好是64面，不然就不光滑，看起来有棱角。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ad1255d2679421bdd4d6787645fb8cee_MD5.jpg"></p>
+<p>Victorian</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/68fceb22b7f8de397df7f4eb9e8b9681_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/c47bfdf75c4e11d67d2efadba6388440_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7e97f49e58955eb84da485453b0485d5_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7bad70c88536aa50e46c49b1594f3fe4_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6ee4851bea043e41d31c0e6445af8555_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6b58e7835e147d63fad41c1c74c88d0a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1bb147b34141813c2288f7ade3b034b2_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a7cc46fc77cf664f4210c9424297a74e_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2ea281ae97114efcf177060c57f48a6f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8ab87083c76d9f67e59624a7f94b0190_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/438af3c4b1ef51a960f34bad7e41d3f7_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/da021137a7b72056f8a61559ce92688b_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/4c558d60eb83324f76df31c01ee76f38_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f83f76a87c23abee3281dcebe4876ad6_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/cd65763886f433cd81bf43be19a52812_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/146a8007d94eec40b46a630067045573_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2fc9c168f2b272371cd2f5d13337a9e0_MD5.jpg"></p>
+<p>roman系列</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/876109fd21f57ed57ed77eb7513b1486_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1cccb8096678f949f57fdecd37ba5d1e_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/e3e59f9691ff93792f274e3db6661777_MD5.jpg"></p>
+<p>domus住宅</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1e9beec9aafcf549d2eb3148429873cb_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/31801491741aa1f9ef4ba9f082ae6e9e_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6add61784b52f642762c59b1f073f6e3_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/0b65c88a8d7d914a913ff388076957fe_MD5.jpg"></p>
+<p>寺庙</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7598bbc6d5bbc94404eda4b58d57796c_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/e471d0fbf8e298903fc8df8bfa960e77_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7b062506311c6b85aaa41f48c3676639_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f6be82e9df6a14ec50c8accf8d634fbe_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/e923e20cf7ae03d978f2101b4a48c86a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/9d83381a2327c21965d5b8a4b10f9377_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/694ea7193323b9cd3524ad87b6c54708_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5a949161fdc356c4d1daea99dd4d5eaa_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7827b359d729c9f3c296f345d9ee04fd_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/34c298c5d75efb88f83a542a3670f38a_MD5.jpg"></p>
+<p>Mini Kit Boroughs，这个系列包含多种拱形窗框、三角楣窗框、多层拱窗框、槽板</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/e26bf393e40dfcadfa9d959070c8ca22_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a8955d3ad9774d3658474cf38e4f0e7f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/395839fdabca85dc34c552b8a58da096_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/891fc8c914ccf9ed58da95c90f462468_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/22430f45d49594b7d13589a3d0dcd42f_MD5.jpg"></p>
+<p>A字型三角屋顶我想试试看没有corner mesh的情况下整个一排用wall mesh能不能做出这种效果。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5d7bcead3c2b098e657cd2009494ab94_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/368cd5959e367677e2f630bdb6f137b6_MD5.jpg"></p>
+<p>复合嵌入的不知道在shading上会不会产生重合闪烁flickering</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/42ce2cfa9f5271981a479f3a3f59a672_MD5.jpg"></p>
+<p>Edo Japan</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/773ad8f8f539012e279b5d40ce4efd48_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/02bd94c7b80297ca4596c700f66297b7_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/13140916d8605580af596711624cac23_MD5.jpg"></p>
+<p>哥特</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/fb6cb64b9d8776e92f11dc835bc30150_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/56a82770dd9706602565e94cb8fd8bc8_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1b75695561b618ece543513215f6a663_MD5.jpg"></p>
+<p>art deco</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8c2303f68928378edfa8ffda87656fff_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/14466ddf11715868c9082393c5f136e1_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5dff59abfb1f829ceab79eda5e5a9dee_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/abd89cb762e3444c11a7d4fdf7aec458_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/c3a971734c2de72d2a10220e4c6bea8d_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6722796e40c1e175e3a1502a38a089ae_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/851007d3245467fcf4bc9b954fabd7f8_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8533e10f98625b912a810d69d7a4a977_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/dc363b06a0225c0377df1a704b2d6017_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8cb06d87ff70df4f04fe3c5d85dd0c97_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/223961589a1d899d52c3f9e158a1073a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/4de65bcc2ad05d5fd0fe403d56fd9e5d_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/692c2cba4733a89d3384c868c426ad5a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ecc57772c63bde3899891c773fcfed5d_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/0076fc3956d1fc1a80f0223714e0f6ea_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/44444cb5eb32195a78768083ef9f3a5a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/455bc2cc8297a20211e5e23669d0eb89_MD5.jpg"></p>
+<p>Neo Tokyo 2，这个系列有很多现代简约的盒子房用的矩形窗框、栅格</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5cfeb58b3d6d8e8be654c97bf44e1812_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f3d609288ef075240ec19ee6db6739a1_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/297fbdbe368d27e968639ac189f14bcd_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f85bda57dca5b908fae711fc9c94351f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/bf1e85c812b8a96a9e3ec56c4f60bbfb_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f572ead48f97f8c1316fe90e9633a9a8_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8cdd805433bf5a1c20f2314b036c317a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/445142ea62c356e5d5a21d918294e966_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ac65fc226030f86f7df9a584435f2a90_MD5.jpg"></p>
+<p>mini skyline,可以参考一下建筑平面布局到贴立面的步骤过程。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/3fd2a9546775aed11f9d8cfbbfb68ac0_MD5.jpg"></p>
+<p>香港kitbash，这个系列的精度做的特别高，可以用来研究搞模的要点</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/7ec65f933e2cbe81c335a0c9b44a3069_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2278413619f84d15f156170fba313649_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2e51074cf078614da88d4e5bdfc6a690_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1db65d5c74147d4a29c364d194418a0f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/9c6eebf6d434b0ccc64a970d6255c547_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/01fcb6c43579c48c7060221811ff54f6_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1c895b80812eaa865dbacc38fd1beb86_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5ed6f8edbc68235968a7c9717114ee5f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a46b61c91dfe918a59382f4fca5187cb_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/9042f456f0b83639664e93245c7c36cb_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/9977b74437605cdf0d6650c7512edb77_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/cdd3c51908621635a0580fb53a35e7bf_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ef9bd964821c33180bf43cf9ae31582f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/980c15a26698c7ca9691c79e60062062_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/78edab20ec0e2494da061f80735e1ccf_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/4304a4924cca870d6780ffd9b5050695_MD5.jpg"></p>
+<p>圆弧面的玻璃幕墙是由立方体积分组成的，并非连续的弧面。可以通过array curve生成。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/9e4697249bb8b92389b06ddd0ff6c13c_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a6eff94df6f5bfdaafbfae81bf7f229a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/221298cc1a354bcdf3d74ec79aec00a0_MD5.jpg"></p>
+<p>对于细致对齐的玻璃幕墙，用frg也无能为力，似乎只能用array curve。加粗连接处可以在视觉上修复接口错位问题从而实现幕墙的任意曲线路径实例化。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1c76e1a311d12d8bdba61e6a45d55a7a_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1521496c48b12f1b69f6d2f6f005c9fa_MD5.jpg"></p>
+<p>异形写字楼就不考虑用PBG了，这里可以考虑使用auto-building等blender的程序化建筑工具。香港系列里有间断圆弧、布尔切面，层层叠、“同心圆式”包络。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/91ec999e3d03dcf5efbc8bf9873daf10_MD5.jpg"></p>
+<p>布尔切面，提取边缘曲线做个offset f键加盖再挤出？</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a0f59f22b801853d194bb9569e73694d_MD5.jpg"></p>
+<p>八边形不同边长同心，部分布尔切除形成的包络叠加。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1fef69516b6745206ba8ff919a10068b_MD5.jpg"></p>
+<p>老公房可以用到的大门、窗户、门面房。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/fd2a6fc7dde4540af8589da9fe6e1f70_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ef959a94b498993fbf475bb8f87c47c4_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/d483a8c7ee6f6ba7cba9a3d10eb4b47f_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1a9b101d68ad1c2d4d02131e68e49050_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ca3e9996d7eede60ce6105ebce7bd0cd_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/03b581412ec34f0e3633d66725c3ef95_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2c9276f9d43dbffeccbb443c759fd047_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/05c907c650389b766dccb53fdcc530fc_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/4353fc9300de6015855d5c7161bfb997_MD5.jpg"></p>
+<p>brutalist，这个系列本质上还是现代简约，但是在布尔切面上有了更多变化，一个建筑整体往往由几个完全独立的大体块拼接。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/6a55a998eb80b1742b7d8efe6d117d0b_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/bd5cb217b7c540389678e3b44cc3b398_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/f62930c95b121cb2c54a0e9adffba2d5_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a882a50c5128b74fda92c92db9b2baf2_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8ba04cfb103474aa92d3a0b309b378f0_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/fb42aa5d14f70447cb805e882900858b_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/a29cf16a9fd5c2ae83c05276ec6cc2c5_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/37869ac72febc6c53f70fc81108b6ead_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/ae76d290b21574ea3be482c89ad9c794_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/23dc9828a0244dd99a47a09f42ee59ed_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/b2cda2bde688fd2936a5b07bf73ab365_MD5.jpg"></p>
+<p>streetside</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/cff70046e0a57e0b29a82f51ea39749a_MD5.jpg"></p>
+<p>parisian</p>
+<p>多边形几何用长条包覆</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/1bd69dc5f030cd928ecba77b1cc82ebc_MD5.jpg"></p>
+<p>穹顶自上而下的楞脊不能用array curve生成，那样会导致局部变形，只能通过提取曲线bevel成面再挤出，而处于曲线附近的可以用array curve。另一方面，能做出来和效果好又是两码事，图1可以看出来要做出“长水滴”状的凹陷很难，另外要提取间隔的曲线，可能需要用到smart loop toolkit对edge loop重排。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/16ffc392faca032205ce4a19a20789e6_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/10e4ecd3ec85014dfe0109c75b6a43fc_MD5.jpg"></p>
+<p>各种线条沿着部件轮廓形成一种inset式的凹凸装饰。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/99c747ff974b057f8945e31ed048ce88_MD5.jpg"></p>
+<p>带托梁的cornice，cornice上面加铁艺，gable上挖孔做拱形老虎窗。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2009e4a3633d75ae42210ac58c92ef26_MD5.jpg"></p>
+<p>各种三角楣可以直接拉伸作为A字型屋顶，</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/677e7d95b4e8f76c8b530980e8c97c56_MD5.jpg"></p>
+<p>几种窗户、门，半圆拱22面、18面都还看着可以，12面的就棱角分明了。</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/5ec1669de7734bce5f160c5510f992c1_MD5.jpg"></p>
+<p>一些天窗和门</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/42f491bbfffd5bc70e89763c427b9807_MD5.jpg"></p>
+<p>异形窗框到时候怎么拼接墙体？用布尔吗？</p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/2b077507b9954f12c5ea391835c095a7_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/085a3c684ae5bdc987620dc917b42f59_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/8d4486fbc54b6f1306ae6fe399afa8e5_MD5.jpg"></p>
+<p><img src="/2024/05/31/2024-1-9/2024-1-9/657b2e1de167f3df3245744c1f0e4e94_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>模型素材</tag>
+        <tag>kitbash</tag>
+      </tags>
+  </entry>
 </search>

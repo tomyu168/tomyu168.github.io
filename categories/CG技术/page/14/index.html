@@ -126,6 +126,106 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/06/28/2023-6-23-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%902/" itemprop="url">2023-6-23-unreal-engine官方出品的黑客帝国场景学习分析2</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-06-28T13:40:47.000Z" itemprop="datePublished">6月 28 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 小时 读完 (约 8698 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>之前的教程都是很小范围的景观或者小镇局部，这对展示建筑场景而言是不足够的，做出来的话顶多选几个摄像机位置截图一下，这样的话有没有ue的实时渲染没啥区别，在max、blender中做也差不多，顶多就是制作过程中ue可以通过实时渲染观察效果，但搞了半天最后就是为几张静态的图。</p>
+<p>最前面当然是官方的动图分布教学，整个city sample项目文件貌似是93gb，目前没有wifi下个月初下载，正好这几天试一下blender手动低配版。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.0/en-US/city-sample-quick-start-for-generating-a-city-and-freeway-using-houdini/">City Sample Quick Start - Generating a City and Freeway using Houdini</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.0/en-US/city-sample-quick-start-for-generating-a-city-and-freeway-in-unreal-engine-5/">City Sample Quick Start - Generating a City and Freeway in Unreal Engine 5</a></p>
+<p>第一篇的总结从47分钟视频中剔除了动画、特效、交互、光影相关的技术介绍，剩下的部分足足看了我一整天，目前还是头昏脑胀的，一方面是基础太差，另一方面是项目确实够庞大其涉及的技术范围十分广。以至于如何整理这几篇总结，把科技树整理清晰感觉都是个不小的挑战，毕竟在没有上手实践是要对一门技术去做分类心里是没底的。方才快速过了一遍昨天写的东西，从副标题创造世界，相对于这一篇的生成世界，再结合内容来看的话，可以概括的说第一篇是如何解决16平方公里的城市3d化问题，一个城市涉及道路、建筑、街道和建筑的道具（广告牌、长椅、路灯）、车辆、行人等等，在第二篇中得知整个项目创建了7000多栋建筑，这在开始时可能是难以预计的？如果手动去做一个个建筑并去摆放需要多大的工作量我还没有概念，在blender中用building nodes也是一种通过建筑部件模块化生成建筑的方式。我感觉先用blender的building nodes配合trim sheet uv着色的方式过一遍做个局部能更加深刻体会程序化城市建筑的思想。对于matrix这个项目而言，无非就是其模块更多，模块排布的规则更加复杂多样化而已，这在blender building nodes中做应该来说是差不多的。区别点在于blender中的部件是极低面数的，而配合houdini程序化生成的建筑所使用的部件是在maya中做的极高面数的模型，我不知道在blender中几何节点操作高模去做排布是否可形，照理来说操作的都是实例，只是增加了位置信息。</p>
+<p><img src="/2023/06/28/2023-6-23-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%902/2023-6-23-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%902/v2-d413b6cfe766c2af6b0799d092743868_1440wtuya.jpg"></p>
+<p>​<br>​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/06/28/2023-6-23-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%902/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/" itemprop="url">2023-6-22-unreal-engine官方出品的黑客帝国场景学习分析</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-06-21T16:53:24.000Z" itemprop="datePublished">6月 22 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 小时 读完 (约 8582 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>之前的教程都是很小范围的景观或者小镇局部，这对展示建筑场景而言是不足够的，做出来的话顶多选几个摄像机位置截图一下，这样的话有没有ue的实时渲染没啥区别，在max、blender中做也差不多，顶多就是制作过程中ue可以通过实时渲染观察效果，但搞了半天最后就是为几张静态的图。</p>
+<p>第一篇：基于官方字幕《[技术演讲]黑客帝国觉醒：创造世界》的总结</p>
+<p>matrix这个项目基于一个4x4平方公里的城市局部，其制作目的是要创建一个介于影视与游戏之间的实时大型场景,使用程序化工具和工作流让小团队能做大场景.</p>
+<p>用ue的MassAI生成行人和车流，MetaSounds生成环境声音。</p>
+<p>3d assets（资产/模型）</p>
+<p>matrix这个项目用了1000多个组件，每个由50000-500000个polygons组成。所有的资产都是nanites。尽可能使用megascan的资产。</p>
+<p>textures（纹理）:</p>
+<p>纹理方面都使用4k分辨率，如果需要更高的像素，则把uv分割为udims，然后增加更多的4k纹理。</p>
+<p>所有的纹理都被转换为虚拟纹理（virtual textures）,关于这个概念b站上有很多教程有介绍，目前基础还差很多类似这样的概念、技术分支需要逐个突破。</p>
+<p><img src="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/v2-f4c8af9da3c9fc78ceb5f53ce90f2374_1440wtuya.jpg"></p>
+<p>​​​</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/06/22/2023-6-22-unreal-engine%E5%AE%98%E6%96%B9%E5%87%BA%E5%93%81%E7%9A%84%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%9C%BA%E6%99%AF%E5%AD%A6%E4%B9%A0%E5%88%86%E6%9E%90/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/06/07/2023-6-7-Artstation%E7%9A%84unreal%E5%9C%BA%E6%99%AF%E6%95%99%E5%AD%A6%E8%B7%9F%E5%81%9A/" itemprop="url">2023-6-7-Artstation的unreal场景教学跟做</a>
         
     </h1>
@@ -305,95 +405,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/03/05/2023-3-5%20%E8%BF%91%E4%B8%A4%E5%91%A8blender%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%BB%BA%E6%A8%A1%E7%AF%87/" itemprop="url">2023-3-5近两周blender学习笔记建模篇</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-03-05T12:24:15.000Z" itemprop="datePublished">3月 5 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            25 分钟 读完 (约 3820 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>2.23我的日记说“3天一次跟练30节内容 一节5分钟练习10分钟，一天就是450分钟打底”，现实是2周下来从未达成过这样。问题主要有3个方面：</p>
-<p>1.目前这个桌面座椅，连续坐那么久似乎不是太舒服，天气有时还有些冷</p>
-<p>2.作息安排、自觉性不足，这个是很大的问题，下周开始必须把刷手机的毛病戒掉，10点左右睡觉，6点左右起床，每天要有一定的运动或者家务</p>
-<p>3.对技术路线有质疑，有些教学包的课程安排不是太合理，比如我一开始看的这个系列blender教学包含了uv展开，贴图着色器材质，环境贴图、灯光、合成、大气、粒子、动画等等，针对性太差了，属于概念普及，这个跟练以后再深入各个模块怕不是前学后忘，当然这和2也有关，因为练习密度太差了，即使深入某一个环节也是进展迟缓</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/03/05/2023-3-5%20%E8%BF%91%E4%B8%A4%E5%91%A8blender%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%BB%BA%E6%A8%A1%E7%AF%87/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/02/16/2023-2-16-zbrush%E7%A1%AC%E8%A1%A8%E9%9D%A23%E5%A4%A9%E5%B0%8F%E7%BB%93/" itemprop="url">2023.2.16 zbrush硬表面3天小结</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-02-16T02:53:56.000Z" itemprop="datePublished">2月 16 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1069 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>2.13</p>
-<p>周日的尝试不好，双屏幕需求待定</p>
-<p>人体解剖学做骷髅跟做下来并没有学到zbrush的技巧，或者说只有damstandard反向定义小的转角面，但是这个系列对许多做人像起手的拉伸造型原理有了认识，关键在于各个部分的比例，估计就是个熟能生巧的过程。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/02/16/2023-2-16-zbrush%E7%A1%AC%E8%A1%A8%E9%9D%A23%E5%A4%A9%E5%B0%8F%E7%BB%93/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -417,7 +428,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/20/">20</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/21/">21</a></li>
         
     </ul>
 </nav>

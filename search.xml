@@ -14591,6 +14591,8 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
     <url>/2024/06/06/2024-6-6/</url>
     <content><![CDATA[<html><head></head><body><p>目前发现欧式盒子房建筑在不考虑装饰自己建模直接套用的情况下，cornice的对齐是十分耗时的一项工作，我想随着多次制作后积累一些profile曲线，就不用每次做提取修整profile可以重复利用了。引导曲线开始时多复制几份，不要每次要用重新去提取甚至还要merge修整曲线。</p>
 <p><img src="/2024/06/06/2024-6-6/2024-6-6/fc1f4d858b38859e111e80ff65d44d94_MD5.jpg"></p>
+<span id="more"></span>
+
 <p><img src="/2024/06/06/2024-6-6/2024-6-6/b156c6854d14f61347498f6a56a89638_MD5.jpg"></p>
 <p>art deco中的飞翼石缝做法先是纵向edge loop，然后随着低段数的圆拱做折线连接。石缝由edgeloop bevel配合向法线方向挤出产生。</p>
 <p><img src="/2024/06/06/2024-6-6/2024-6-6/b9d86a6b9d07a4fd5d2156d19e0347dc_MD5.jpg"></p>
@@ -14628,9 +14630,9 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p>以下链接为Climbing with Control Rig的安装和基本使用，昨天折腾v3版的安装感觉太复杂了，没有撑下去。</p>
 <p><a href="https://www.youtube.com/watch?v=9DhZaw8pHF8">安装Climbing with Control Rig可兼容不同的角色模型做调整</a></p>
 <p>视频是我简单录制的展示第一人称、第三人称视角切换，视角缩小放大，建筑表面攀爬。</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-qFoMvtuMLDwLCpyZ" src="https://player.bilibili.com/player.html?bvid=BV1oT421Y7ja&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-qFoMvtuMLDwLCpyZ").style.height=document.getElementById("mmedia-qFoMvtuMLDwLCpyZ").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-GcKjQfkuRKfVuAqj" src="https://player.bilibili.com/player.html?bvid=BV1oT421Y7ja&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-GcKjQfkuRKfVuAqj").style.height=document.getElementById("mmedia-GcKjQfkuRKfVuAqj").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-qFoMvtuMLDwLCpyZ").style.height=document.getElementById("mmedia-qFoMvtuMLDwLCpyZ").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-GcKjQfkuRKfVuAqj").style.height=document.getElementById("mmedia-GcKjQfkuRKfVuAqj").scrollWidth*0.76+"px";
     }; </script></body></html>]]></content>
       <categories>
         <category>CG技术</category>
@@ -14638,6 +14640,33 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       <tags>
         <tag>Blueprint</tag>
         <tag>欧式建筑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-6-7-evermotion玻璃盒子房1</title>
+    <url>/2024/06/07/2024-6-7/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2024/06/07/2024-6-7/2024-6-7/5e6fe2afdac8ce7db118a7f8c0d6064e_MD5.jpg"></p>
+<p>这个效果暂时还算满意，不过离真实效果还是差不少。</p>
+<span id="more"></span>
+
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/fa49a20691a5271932e80e0af7eaac15_MD5.jpg"></p>
+<p>玻璃房涉及到海量房型数如果用文艺复兴式建筑房型instance化的概念去实现，那么物体数会非常多，我暂时不知道这样对性能是什么概念，有一点需要说明的是物体数过多会导致sendtoue十分慢，另外若是用instance化实现房型对于不规则折线布局的建筑而言转角的处理将需要手动做调整。</p>
+<p>因此对于玻璃盒子房用到的是tissue，通过预先设置好的体块按照房型宽度细分，选中房型再选体块面片即可将单位房型铺设到整个体块面片上，这部分是玻璃立面的栏杆分割以及一些小变化如添加石板面片等。而玻璃材质和内景的实现则是整个体块切分面片以后uv展开配合cubemap_tileables材质，这里的uv展开可以无视uv单元格大小，没有长度限制。</p>
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/30365f93a03524656a340221987226b5_MD5.jpg"></p>
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/e934248039877140fc771f7b801fa1a6_MD5.jpg"></p>
+<p>对于体块不同在确保每一层切分的高度大小一致配合一样的uv texel density展开会使最终立面展示时内景大小高度基本一致，届时由楼层切分的部件做遮挡可以解决细小的纰漏吧？</p>
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/71bea71bb624716594b0c7395def8243_MD5.jpg"></p>
+<p>对于沿着cornice的装饰部件用duplicate ridge along curve后合并起来，不然物体数太多了。不同的形态的黑色rail簇的制作思路是先做5组左右rail簇将它们归在一个集合中，用duplicate ridge along curve按照一定间距散布某个rail簇再用object replacer对它替换集合中的rail簇，最后合并物体。</p>
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/081e7686c524e5f463906913871c2157_MD5.jpg"></p>
+<p><img src="/2024/06/07/2024-6-7/2024-6-7/624db3dd3bcf04027135c0ed6203379f_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>现代建筑</tag>
+        <tag>tissue</tag>
+        <tag>cubemap室内伪装</tag>
       </tags>
   </entry>
 </search>

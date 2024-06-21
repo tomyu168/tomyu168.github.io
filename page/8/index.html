@@ -119,6 +119,93 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/" itemprop="url">2024-1-5-混合简易社区组成的区块用frg布局道路archipack修整地平</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-01-10T01:53:19.000Z" itemprop="datePublished">1月 10 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2423 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>不过做每个区块前先看一下这个区块的实景参考一下，不过也不一定要采用实景的手法就是了</p>
+<p><img src="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/v2-94e55b80762b308db3498850d5855d56_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/" itemprop="url">2023-12-26-关于全局与局部地形起伏的处理</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-01-02T05:32:48.000Z" itemprop="datePublished">1月 2 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1400 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>道路提取内圈曲线作为curb的array curve路径，这条曲线再转mesh offset至curb内侧f键填充成面，用inset 8米生成人行道，此时将人行道内圈曲线提取转mesh offset填充成面，将这个面分离scale z方向归零对齐，这个面的边缘再和人行道bridge对接，这样可以使得中心面相对于整个街区的地形在z轴方向居中，既有高起也有下沉。</p>
+<p>原先的方案里先做小区最后处理起伏，我想了下小区内的起伏应该不影响主路，因此不存在主路起伏调整好之后因为相邻区块内的起伏调整（如构造坡面绿化、阶梯）导致主路波动，从而影响另一侧区块的设计。</p>
+<p><img src="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/v2-dd400a30b8d8bff3f1c691bf9bb88803_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/01/02/2023-12-26-%E5%85%B3%E4%BA%8E%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%9C%B0%E5%BD%A2%E8%B5%B7%E4%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/01/02/2023-12-20-FRG%E4%B9%8Bcurve-radius%E6%8E%A7%E5%88%B6%E8%B7%AF%E5%AE%BD%E4%B8%8E%E9%81%93%E8%B7%AF%E9%93%BA%E7%A0%96/" itemprop="url">2023-12-20-FRG之curve-radius控制路宽与道路铺砖</a>
         
     </h1>
@@ -280,97 +367,6 @@
 <p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/" itemprop="url">2023-12-14-blender道路uv展开FRG替换PRG</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-20T03:36:12.000Z" itemprop="datePublished">12月 20 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            22 分钟 读完 (约 3238 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>首先做到这一步我发现之前大量时间用在选取物体“/”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。</p>
-<p>关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。</p>
-<p>道路的绘制直线可以直接用cube去拼凑，若是曲线路径那么有两种做法一个是bezier绘制，这个方法适用于不规则超长贯穿式路径的绘制，可以快速搞出很不规则的曲线，缺点是其弧度很僵硬，与绘制的笔法有关系，可能有数位板会好一些？下图中白色为bezier绘制的曲线路面。第二种方式是对挤出的cube用spin tool做拱形挤出，这种方法每次只能搞一个弯曲，优点是做出来的弧度十分圆润。</p>
-<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-17T14:30:07.000Z" itemprop="datePublished">12月 17 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            43 分钟 读完 (约 6433 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>一些sweep profile在su导入的模型中不尽如人意，利用hardop曲线提取路径曲线和形状曲线，在路径曲线到曲线编辑面板bevel中选取形状曲线，形状曲线需在编辑模式下翻转方可使得sweep正常显示。曲线在编辑模式下f键可以闭合、打开曲线。j键在物体编辑模式下连接曲线。</p>
-<p>目前来看导入的模型要是朝右前方显示才能在PBG中正常使用，具体配合导入时的旋转设置。一些部件有附件、装饰超出主体的边界需要用socket length修正，目前看来是物体本身的blender边界尺寸减去超出的部分，在ue的socket length中填入y值。</p>
-<p>今天发现stable diffusion不能用了折腾了一会儿浪费了不少时间脑细胞，最后整个压缩包重新解压启动就完事了，几个插件安装会被网速折腾，直接原来安装好的按照路径填充即可。明天开机再看看。</p>
-<p>之前做的这个版本facade外立面逻辑不正确，这样会导致无法转角做连续的segment，facade应该是薄的一层而非整个体块，这里参考matrix的模型，facade mesh厚度在25cm也没问题，corner mesh无需在语法中定义，PBG会自动添加，right corner的pivot需要在左前下处顶点，corner mesh需要是以转角轴线对称的，不然就会像下面这般一边空心露馅了。</p>
-<p><img src="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/v2-ab281f8691afa94352f4b3a7a57cb458_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/#more">阅读更多</a>
         </p>
     
     </div>

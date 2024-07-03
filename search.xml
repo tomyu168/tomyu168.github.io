@@ -14795,4 +14795,37 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>奇域ai</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-7-2-人工智能程序转换2d图片为3d模型</title>
+    <url>/2024/07/03/2024-7-2/</url>
+    <content><![CDATA[<html><head></head><body><p>之前效果都很差，没法看直到上周试用tripoai感觉一下子厉害了，然而它一个月生成24个，多了要收费。我去看了相关的几个项目，era3d、crm、triposr，安装环境简直都要晕过去了，在线测试下来效果也不好，且每个都需要安装大量的huggingface 上的模型，我不知道这些所谓的权重模型是否能共通，很多名字相同，估计应该是不行的。</p>
+<p><img src="/2024/07/03/2024-7-2/2024-7-2/c0abcf0c4d7f8c809d39662ff098b483_MD5.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-d55bb491e81f996cd3e9c4481de16b88_1440w.jpg"></p>
+<span id="more"></span>
+
+<p><img src="https://pica.zhimg.com/80/v2-96dd12ac23632e83cd324717dadc91e6_1440w.jpg"></p>
+<p>anaconda pkg下的tar包可以通过conda clean –all清除掉。anaconda下载慢配置源和代理实测都没用，只有每次pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> 才能切换源。pytorch3d的安装必须保证cuda torch torchvision的版本一致，xformers也是，这些玩意儿别自己单个安装，在pytorch官网选好cuda版本以后用run this command来安装。我原来是cuda11.8+cpu这个好像会导致xformers出问题运行不起来，在控制面板-程序里卸载所有nvidia带有11.8版本的程序，然后到cuda官网下载12.1版本。</p>
+<p><img src="https://pica.zhimg.com/80/v2-3b619923f799a1e133d21f4dd1103368_1440w.jpg"></p>
+<p><img src="https://pica.zhimg.com/80/v2-1f1a164c8d5c694c2f300d8f4bf52ac9_1440w.jpg"></p>
+<p>之后遇到了gradio版本问题，升级了gradio总算127.0.0.1：7680能运行了。第一次运行会下载大量的模型，这导致c盘一下子容量变小，我看了模型跑到了C盘/用户/cache下面，通过网上的介绍配置了系统变量将cache转移了。还有一部分模型需要放在unique3d项目文件夹下建立一个ckpt，模型有15gb左右大小，huggingface下载了好几个小时看不出速度，在84%的时候我放弃了，通过清华云盘下载，直接下很容易一会儿断线，复制链接在迅雷里面速度还快些也稳定。</p>
+<p>然后是[ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126，这个问题卡了我昨天一晚上，主要是每次要验证测试效果需要5分钟左右运行之后才知道。作者这里十分概括的说了下要安装tensorRT，tensorRT下载下来是一个压缩包，网上有很多种说法，根据官网的说法需要对tensorRT的lib添加path环境变量，另外还得把lib下的dll文件复制到cuda的bin目录下，我暂时还没测试如果cuda下没有tensorRT的dll文件会如何，根据我国网友的总结，用where命令搜若不在cuda bin目录下，这些tensorRT的dll文件搜不出来，这种情况下会导致ONNXRuntimeError onnxruntime::python::RegisterTensorRTPluginsAsCustomOps Please install TensorRT libraries as mentioned in the GPU requirements page, make sure they’re in the PATH or LD_LIBRARY_PATH, and that your GPU is supported.</p>
+<p><img src="https://picx.zhimg.com/80/v2-2e93a235640daeb12b727e842abc8db2_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-47ef3a2947993c6b86fb3e459c991486_1440w.jpg"></p>
+<p>这还没完，还需要安装cudnn，关于版本一开始没细看随便选的，后来发现ONNXRuntime对cuda、cudnn是有版本要求的，我一开始随便下了一个8.9.5的后来改回8.9.2。cudnn解压出来的东西要放到NVIDIA GPU Computing Toolkit下建一个cudnn的目录，并配置Path环境变量。nvidia在cudnn早期版本安装提到了需要zlib，后来的安装指导没了，也不知道需不需要，在google搜zlib winimage出来官网，下载win64版本的按照要求放到cudnn对应的目录下。</p>
+<p><img src="https://pica.zhimg.com/80/v2-9683558a2c490f591de04c42ae35527a_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-4841a730d86f6dc934d26cf248edc39a_1440w.jpg"></p>
+<p>该做的都做了，我多次关闭anaconda再重开反复测试依旧是[ONNXRuntimeError] : 1 : FAIL : LoadLibrary failed with error 126。简直令人万念俱灰，大约凌晨1点多，我测试了网友的办法卸载了rembg再安装rembg[gpu]居然神奇的解决了，今天定睛一看居然22年10月就有相关的问题了。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-f97fef407298013384ba488479d2585a_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-ca6600bc6f932cef34069fb5fc3262cb_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-27f71dedd9ef740c8f751e0f11675958_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>ai人工智能作图</tag>
+        <tag>python</tag>
+        <tag>anaconda</tag>
+      </tags>
+  </entry>
 </search>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-7-23-基于rhino地形景观的blender操作 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="常规阶梯，测算整个坡面的距离，比如是1.5米，那么按照0.15米一节阶梯的高度，宽度则是0.3米左右，就是10阶，那么edgeloop切分9个，将edgeloop分离出来向内侧array0.15米,全选边模式右键bridge edge loop即可，这样做出来的阶梯是紧贴临近坡面的，solidify给了厚度之后再对水平面复制分离挤出与坡面做布尔可以让阶梯侧面与坡面融合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-7-23-基于rhino地形景观的blender操作">
+<meta property="og:url" content="http://zhudian.xyz/2024/07/23/2024-7-23/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="常规阶梯，测算整个坡面的距离，比如是1.5米，那么按照0.15米一节阶梯的高度，宽度则是0.3米左右，就是10阶，那么edgeloop切分9个，将edgeloop分离出来向内侧array0.15米,全选边模式右键bridge edge loop即可，这样做出来的阶梯是紧贴临近坡面的，solidify给了厚度之后再对水平面复制分离挤出与坡面做布尔可以让阶梯侧面与坡面融合。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/04f79cede2346c8a0d106f7123e09a37_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/d325b923c92c680429f04e1b30e38b5a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/1dd09fe5cb4d4cb36a1abf9b226b3734_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/e4af05afe6c106b32d260ddd43b88cb3_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/846ba5a209e0cde9fb67540ef76c347d_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/5f8f6ba08f1963bceb004f116f9d674c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/9a5e57816457d8b3aa901f334409890b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/bd3107053671143ea07362de0227b167_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/f68fab54056739d395a6b563559f8a5b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/ee0d300bf8363f402f0e50c72f97468e_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/3702085b80c6a27bcc7cb30c714b9ff4_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/3d94a372d52bc4ff6e667159814c5a60_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/d312b3f72c152163e1a75a8dfcb1fade_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/141515da7a3ed533be416b8e40990595_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/795af1e042c8634029a813d2fa31df49_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/811e8ab0c70ace700f5425e4da628623_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/9387b3740561904e384298776f7b633b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/d92fe484f6ae3c8897388647ece72afb_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/618c704ebbeb114020a14f3de895800c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/4acdb05607660d86209d87fd24ba3348_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/ab371b016e818002c80b7c4807ac4263_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/4138335737b13895806a1e2686ea4866_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/face279657bd83d42ba4f0c9592dc342_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/89883cf9773aac44bc16e545195fa970_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/7efc28966fa060916b317cb28cb99823_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/ae6c49307c0b609dfae46d37b0e8fce0_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/2606af816d0e553820f477c1a7c021c1_MD5.jpg">
+<meta property="article:published_time" content="2024-07-23T12:50:53.000Z">
+<meta property="article:modified_time" content="2024-07-23T12:56:20.680Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="景观">
+<meta property="article:tag" content="rhino">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/07/23/2024-7-23/2024-7-23/04f79cede2346c8a0d106f7123e09a37_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-7-23-基于rhino地形景观的blender操作
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-07-23T12:50:53.000Z" itemprop="datePublished">7月 23 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1315 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>常规阶梯，测算整个坡面的距离，比如是1.5米，那么按照0.15米一节阶梯的高度，宽度则是0.3米左右，就是10阶，那么edgeloop切分9个，将edgeloop分离出来向内侧array0.15米,全选边模式右键bridge edge loop即可，这样做出来的阶梯是紧贴临近坡面的，solidify给了厚度之后再对水平面复制分离挤出与坡面做布尔可以让阶梯侧面与坡面融合。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/04f79cede2346c8a0d106f7123e09a37_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/d325b923c92c680429f04e1b30e38b5a_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/1dd09fe5cb4d4cb36a1abf9b226b3734_MD5.jpg"></p>
+<p>对于多段不规则拓扑的可以用dice v2根据距离来分割段数。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/e4af05afe6c106b32d260ddd43b88cb3_MD5.jpg"></p>
+<p>birail3+做不规则曲面,blender中目前现成的插件只有2.8版本的sverchok vstable6可以实现，使用此插件时得注意rail1、rail2的选取也是有讲究的暂时不知道为什么上下调换会出不一样的效果。profile根据曲线的起点与终点是有方向性的，因此需要对其规范命名，对于像如下图这样的环形排列没法用某一轴像递增命名，只能逐个手动选取再rename。轨道至少起点终点要设置profile，中间部分可以随意。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/846ba5a209e0cde9fb67540ef76c347d_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/5f8f6ba08f1963bceb004f116f9d674c_MD5.jpg"></p>
+<p>实测发现higgsas的curve offset对点数是有要求的,图左的offset明显不正常。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/9a5e57816457d8b3aa901f334409890b_MD5.jpg"></p>
+<p>blender中制作有机曲面坡面，要得到一个平滑起伏的坡面对曲线两端连线在平移成面以后增加细分，权重偏移，进入面模式全选面在顶视图视角下透明显示加选目标曲线轨道，mesh&gt;knife project得到曲线轨道在曲面上的投射，分离出来这个面再提取曲线即可，然后就是birail3+成面。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/bd3107053671143ea07362de0227b167_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/f68fab54056739d395a6b563559f8a5b_MD5.jpg"></p>
+<p>blender中higgsas 的spline patch可以使四条相交贴合的曲线成曲面，grid fill也能使封闭曲线成面，不过实测发现grid fill无法解决这个飞船式的几何体。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/ee0d300bf8363f402f0e50c72f97468e_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/3702085b80c6a27bcc7cb30c714b9ff4_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/3d94a372d52bc4ff6e667159814c5a60_MD5.jpg"></p>
+<p>从目前看的rhino教学来看，对于区块地形的处理应该是路网绘制好之后自然形成的交界面。以前没深入考虑，其实关于地形上的“修补”简化一下就是双轨成面和封闭曲线成面两种情况。在没有birail3+时，一个地平和周围道路的封闭曲线之间如何连接是个无解问题，因此要考虑地平如何渐进，道路shrinkwrap吸附到区块地形上，整个一块地形高度耦合，无法自由修改。现实中区块中的道路不至于大幅度倾斜上下起伏，而这在之前的做法中无解。像图2中一级一级向下的平台，楼梯加坡面再到外围的道路，这其实就涵盖了所有关于地形的问题！</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/d312b3f72c152163e1a75a8dfcb1fade_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/141515da7a3ed533be416b8e40990595_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/795af1e042c8634029a813d2fa31df49_MD5.jpg"></p>
+<p>curve offset配合bezier utilities，可以快速分割道路，之前测试过即使不分割开，全部bridge edge loop然后合并mesh统一给道路材质貌似ue也没出显示问题，这个到时候再看。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/811e8ab0c70ace700f5425e4da628623_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/9387b3740561904e384298776f7b633b_MD5.jpg"></p>
+<p>局部景观地带的技巧1，对部分点做权重偏移，rhino里面貌似是nurbs曲面因此很少的控制点可以得到很好的曲面过渡，blender里面就没办法要得到平滑过渡，细分得多一些，然而细分太多了会导致看起来坑坑洼洼。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/d92fe484f6ae3c8897388647ece72afb_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/618c704ebbeb114020a14f3de895800c_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/4acdb05607660d86209d87fd24ba3348_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/ab371b016e818002c80b7c4807ac4263_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/4138335737b13895806a1e2686ea4866_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/face279657bd83d42ba4f0c9592dc342_MD5.jpg"></p>
+<p>技巧2是hardop自带的cloth，可以做出非常圆润平滑的地形起伏用于模拟草坪。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/89883cf9773aac44bc16e545195fa970_MD5.jpg"></p>
+<p>既然无法三边成面，那么就先四边成面再合并点让它成为3边面，spline patch中V向设置为2（尽量小一些）方便到时候平滑合并点。这对于需要在两端有profile的birail3+也是一样的，末端合并即可。靠坡面的平台把不靠的一端曲线投射到坡面再提取以后用四边成面。</p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/7efc28966fa060916b317cb28cb99823_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/ae6c49307c0b609dfae46d37b0e8fce0_MD5.jpg"></p>
+<p><img src="/2024/07/23/2024-7-23/2024-7-23/2606af816d0e553820f477c1a7c021c1_MD5.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/rhino/">#rhino</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/07/21/2024-7-21/">2024-7-21-blender地形微景观仿rhino学习</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-7-21-blender地形微景观仿rhino学习 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="进阶景观坡道楼梯Rhino建模–海洋之森购物公园_哔哩哔哩_bilibili 人行道与建筑间带坡道升降和景观混合，之前不知道如何处理这种情况，往往会陷入复杂曲面权重偏移的想法中，而这会导致楼梯、绿化很难处理贴合问题以及满目疮痍式的凹凸不平。网上我暂时没看到相关的教学，好像就犀牛这个，之前看到一个公园微景观也是犀牛做的，有想试试看犀牛的想法，但是在birail3+被maya这个我以前用过的软件劝退后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-7-21-blender地形微景观仿rhino学习">
+<meta property="og:url" content="http://zhudian.xyz/2024/07/21/2024-7-21/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="进阶景观坡道楼梯Rhino建模–海洋之森购物公园_哔哩哔哩_bilibili 人行道与建筑间带坡道升降和景观混合，之前不知道如何处理这种情况，往往会陷入复杂曲面权重偏移的想法中，而这会导致楼梯、绿化很难处理贴合问题以及满目疮痍式的凹凸不平。网上我暂时没看到相关的教学，好像就犀牛这个，之前看到一个公园微景观也是犀牛做的，有想试试看犀牛的想法，但是在birail3+被maya这个我以前用过的软件劝退后">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/23dda0f556d02355c152e93cb93e8a08_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/4e91f0f09003557a3acc791df258e3e6_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/980881a8ed37b51787c5ba45ab931601_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/644a4f234d7c3e4bd554c399aa90dcc0_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/012976c2a47ea62c15227cd84c3545e8_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/1bbaca524798371d0e09017e501a1ad8_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/00660ba14fe62055c210287a76eee10d_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/68e07382a86c4c8a8fc73c76bb120deb_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/220c37d54c90169649a035a100327174_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/19c64836e8c065ded53dc0ae9df892ae_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/17a4f6bd3ef04303f7067e2fdb47ea1a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/ed425c27dd5484d5451dcc9618391ec9_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/a80d3dc036039c62d368962ad68f91d8_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/44314dd1a489d11dca9512c97aa4800b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/4ccf270f06ba203c7c4abcbb8acf5b03_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/1d710c536be9a2bf723d26f4127ce693_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/b3c31623471133982cf33e4af31d1381_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/1c2d5a4c957c5f002ed09349710ac790_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/235437ea24a5bbd66d8fb5efc850c35c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/59d4a77ce6798b3d96d10a960d10f76e_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/b53a106271b8285e2bc445dee332d06b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/33a82644710305cd051fad8f64441756_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/4a7d2b3cba613049dd2132977c343a22_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/86b1a64185b67843e079966826774e88_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/1f4ffbf079ec9afb0adb8e6915f3b938_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/ba4014ef0069ab8798bd2dd41e7587e3_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/6444094288c1ad16dad8b56c377804d3_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/33410f899b0d3f9a5453f3844272be36_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/434d99853b5b7c6df04cdb2711c8d127_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/002364a6bd4d15012acf669d7793f0d2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/4071358d7bd4451cd2e3a6cbb5202a59_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/5228ce95f9b372763386f7e7f8857ad3_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/91a9654d3a3eebe8db76275ccd1bcfdc_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/f6c25221d353c13cd86393e8701e0ce1_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/3420d8ade1a8e49388f20c59b7e2724f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/8227998eb1c40cb8535ec9ef47d91580_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/4138335737b13895806a1e2686ea4866_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/51b220bf5891c351ae60e2b35afeb297_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/1510d8a3d8b2e5e40ef4f589cb0b9fa3_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/eabec013473e860cc9e350e80704484c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/58204755f50e881b921e58cdedbd5914_MD5.jpg">
+<meta property="article:published_time" content="2024-07-21T12:43:18.000Z">
+<meta property="article:modified_time" content="2024-07-23T12:56:16.392Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="blender">
+<meta property="article:tag" content="景观">
+<meta property="article:tag" content="rhino">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-7-21-blender地形微景观仿rhino学习
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-07-21T12:43:18.000Z" itemprop="datePublished">7月 21 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            12 分钟 读完 (约 1811 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rs4y137EW/?p=1&amp;vd_source=9211ca883c846624ea76e0f08321331f">进阶景观坡道楼梯Rhino建模–海洋之森购物公园_哔哩哔哩_bilibili</a></p>
+<p>人行道与建筑间带坡道升降和景观混合，之前不知道如何处理这种情况，往往会陷入复杂曲面权重偏移的想法中，而这会导致楼梯、绿化很难处理贴合问题以及满目疮痍式的凹凸不平。网上我暂时没看到相关的教学，好像就犀牛这个，之前看到一个公园微景观也是犀牛做的，有想试试看犀牛的想法，但是在birail3+被maya这个我以前用过的软件劝退后，我暂时放弃了入手rhino，而是想着如何用教学中的思路在blender中实现。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg"></p>
+<span id="more"></span>
+
+<p>假设可以用midjourney生成景观平面参考？我觉得这种平面我可能都没有直观感受它的效果，那么从立面实拍去反向倒推咯？对于这样一个复杂结构拆解，画出来几个坡面和阶梯的走向。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/23dda0f556d02355c152e93cb93e8a08_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4e91f0f09003557a3acc791df258e3e6_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/980881a8ed37b51787c5ba45ab931601_MD5.jpg"></p>
+<p>在不知道实际宽高的情况下教学假设坡度为1：12.先把确定的大坡面弄出来。接着看次一级的沿着楼梯的必然是斜坡面</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/644a4f234d7c3e4bd554c399aa90dcc0_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/012976c2a47ea62c15227cd84c3545e8_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1bbaca524798371d0e09017e501a1ad8_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/00660ba14fe62055c210287a76eee10d_MD5.jpg"></p>
+<p>初期主要问题就是分析共面、交线，blender在绘制这些面和点线的处理，我直觉上觉得比起rhino应该要简单不少，没那么多繁琐。大约用了20分钟，作者在rhino里面完成了这些分析并制作出了微地形的大形。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/68e07382a86c4c8a8fc73c76bb120deb_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/220c37d54c90169649a035a100327174_MD5.jpg"></p>
+<p>所有坡面全部构造好了以后，开始做阶梯。阶梯提供了一种思路用等分线提取出来然后向前向下挤出，具体到blender就是dice v2切分，然后用quicksnap在x、y轴上对最底层的边做轴像点对齐挤出台阶水平面，quicksnap在z轴上对最底层边做轴像点对齐挤出台阶竖直面。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/19c64836e8c065ded53dc0ae9df892ae_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/17a4f6bd3ef04303f7067e2fdb47ea1a_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/ed425c27dd5484d5451dcc9618391ec9_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/a80d3dc036039c62d368962ad68f91d8_MD5.jpg"></p>
+<p>坡道与阶梯的相交问题涉及到collection 布尔，对于复杂物体combine而成参与布尔经常会异常现象，此时可以将combine物体，比如此例中式阶梯竖直面的阵列seperate by loose part将它们塞到一个collection参与布尔。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/44314dd1a489d11dca9512c97aa4800b_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4ccf270f06ba203c7c4abcbb8acf5b03_MD5.jpg"></p>
+<p>后面似乎没有详细的怎么做花坛以及摆植物，下图为台阶填平局部扩展平台。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1d710c536be9a2bf723d26f4127ce693_MD5.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bW4y1F7mr/?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f">Rhino景观经典案例002：Lemvig滑板公园（附建模过程）_哔哩哔哩_bilibili</a></p>
+<p>参考图顶视图下勾线。这里的曲线光offset不行，后期得再调节图3为我offset后手动调节点。rhino中的思路是只画直线，中间的圆弧通过两侧直线连接自动生成，blender两条直线combine之后用f键连接点然后调整曲线手柄的控制点靠外的两个为vector靠内的4个为aligned即可获得圆润平滑的曲线过渡。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/b3c31623471133982cf33e4af31d1381_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1c2d5a4c957c5f002ed09349710ac790_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/235437ea24a5bbd66d8fb5efc850c35c_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/59d4a77ce6798b3d96d10a960d10f76e_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/b53a106271b8285e2bc445dee332d06b_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/33a82644710305cd051fad8f64441756_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg"></p>
+<p>第二步叫平地，我暂时不清楚这个叫法是什么意思。对线稿填充成面片，z轴偏移制造高差画出坡面、阶梯。图3为基础birail，双轨加一个profile。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4a7d2b3cba613049dd2132977c343a22_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/86b1a64185b67843e079966826774e88_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1f4ffbf079ec9afb0adb8e6915f3b938_MD5.jpg"></p>
+<p>第三步坡面，这里一开始我没看懂在做什么，原来是要确定高度，通过制造一个平缓的坡面将曲线垂直投射做出双轨。最后对前面那个面做多段profile的birail3+。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/ba4014ef0069ab8798bd2dd41e7587e3_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/6444094288c1ad16dad8b56c377804d3_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/33410f899b0d3f9a5453f3844272be36_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/434d99853b5b7c6df04cdb2711c8d127_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg"></p>
+<p>坡面与这个birail3+形成的拱面之间的衔接用到的是spline patch,4条curve成面。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/002364a6bd4d15012acf669d7793f0d2_MD5.jpg"></p>
+<p>birail3+形成一个有机聚拢的花坛坡面？</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4071358d7bd4451cd2e3a6cbb5202a59_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/5228ce95f9b372763386f7e7f8857ad3_MD5.jpg"></p>
+<p>第四步场地，示范中花了不少时间绘制篮球场的标线，</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/91a9654d3a3eebe8db76275ccd1bcfdc_MD5.jpg"></p>
+<p>这一圈柱子用duplicate along curve ridge可以实现</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/f6c25221d353c13cd86393e8701e0ce1_MD5.jpg"></p>
+<p>第五步地形，这里通过嵌面曲面命令对一个曲面地块做了填充，blender里面好像没有这种多段线成面的工具，另外如果有这个的话还需要什么birail3+呢？目前对于局部地形做较为精确的变化blender里面我想到的是曲线成面后用quad remesher添加规则细分，然后用权重偏移。若是没有精确要求只是想要一个光滑的曲面凹凸么，q键调出hardop的菜单，然后add modifier &gt; clothes。详细的移步</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/3420d8ade1a8e49388f20c59b7e2724f_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/8227998eb1c40cb8535ec9ef47d91580_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4138335737b13895806a1e2686ea4866_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg"></p>
+<p>演示不完全这部分没有完整的。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/51b220bf5891c351ae60e2b35afeb297_MD5.jpg"></p>
+<p>b站还有一个完整演示版的教学，看来这个滑板公园很有名气。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fv411J7Ww/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=9211ca883c846624ea76e0f08321331f">莱姆维滑板公园——新手级案例教学_哔哩哔哩_bilibili</a></p>
+<p>从这个教学来看上面那个示范中没有的这个部分也是birail3+实现的，其上半部分的轨道是通过下面的轨道沿着一个轴旋转得到的。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1510d8a3d8b2e5e40ef4f589cb0b9fa3_MD5.jpg"></p>
+<p>连续起伏部分的原理是逐个手动权重偏移，看起来rhino自带细分权重偏移的优化即使点数很少构造的面也很平滑过渡，而在blender中需要许多点数才行。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/eabec013473e860cc9e350e80704484c_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/58204755f50e881b921e58cdedbd5914_MD5.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/blender/">#blender</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/rhino/">#rhino</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/07/23/2024-7-23/">2024-7-23-基于rhino地形景观的blender操作</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/07/19/2024-7-19/">2024-7-19-kimi人工智能批量自动解析书籍章节内容</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

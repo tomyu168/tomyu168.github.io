@@ -119,6 +119,130 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" itemprop="url">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-16T13:11:59.000Z" itemprop="datePublished">4月 16 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2079 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过这里要更改旋转、uvtile和uv偏移，使用地形是为了利用world partition特性，让巨大场景在动态运行时只加载一定范围的物体，另一方面是我希望借助landscape的paint解决自然环境的一些材质，比如土壤青草什么的，ue的water插件水景也需要landscape。为了让blender导入ue的道路、建筑在blender和ue的位置相同，需要找一些基准定下来，地形大致到位用湘江和橘子洲作为参照，然后将整体到路mesh导入调整landscape材质的偏移使其能和道路对上。</p>
+<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/" itemprop="url">2024-4-9-SendToUE水石国际中国特色连排别墅</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-14T09:02:12.000Z" itemprop="datePublished">4月 14 2024</time>
+            
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2474 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>原版sketchup这个材质太诡异了，另外目前遇到个问题是sketchup的素材只有正面，背面自己创作暂时还没发借助人工智能实现，参考的pinterest案例。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-8e35ee5e006951a026760268e25c6ab1_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" itemprop="url">2024-4-9-第二套UV的必要性</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-14T08:43:25.000Z" itemprop="datePublished">4月 14 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 读完 (约 323 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在立面部件水平垂直的情况下，即使不用第二套uv直接用matrix paint附带一个有切分的texture就能得到图2、图3这样的效果，大体上可以混混，但是当大面积平铺会发现略明显的重复痕迹，另外水渍不会在grout上显现。</p>
+<p><img src="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/v2-6536dda1f14063d3ca37ea463b11449a_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/" itemprop="url">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a>
         
     </h1>
@@ -247,138 +371,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/01/2024-3-27-%E4%B8%80%E4%BA%9B%E5%BB%BA%E7%AD%91%E7%9B%B8%E5%85%B3%E7%9A%84ai%E6%A8%A1%E5%9E%8B/" itemprop="url">2024-3-27-一些建筑相关的ai模型</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-01T00:35:15.000Z" itemprop="datePublished">4月 1 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 小时 读完 (约 7262 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>平面布局参考 lora：LWZP-老王建筑总平面填色_V0.1P 配合chilloutmix效果稳定，清晰度也可以</p>
-<p><a target="_blank" rel="noopener" href="https://www.liblib.art/modelinfo/774f579aae8d1774b900957ce7d3b4b9">LWZP-老王建筑总平面填色_V0.1P</a></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/01/2024-3-27-%E4%B8%80%E4%BA%9B%E5%BB%BA%E7%AD%91%E7%9B%B8%E5%85%B3%E7%9A%84ai%E6%A8%A1%E5%9E%8B/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/21/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/" itemprop="url">2024-3-21-SendToUE龙湖洋房西班牙风格公寓</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-21T08:14:05.000Z" itemprop="datePublished">3月 21 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            10 分钟 读完 (约 1524 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>这一套我心急了忘记先做切分了，开干1天后补上。相比于之前的建筑这套看起来十分唬人，部件繁杂且存在多处不对称，通过su正视图仔细观察可以看到许多地方是外加了一个凸出式阳台，其内侧是一样的，而这个凸出架构自身又存在高高低低，所以好像建筑看起来目不暇接不知道如何起手。对于这个项目凸出式阳台和房型要分开做，保证凸出式阳台做出来可以调节开间大小复用，可以使用duplicate master叠加高度。</p>
-<p>若不算上凸出阳台的结构，前后两个主要立面的房型看起来是20个左右。阳台的框架是门字型嵌套和带拱型的嵌套，开间似乎5个规格。这个项目中有多层存在房型替换，</p>
-<p>skp文件导入后约有10000多object，主要是阳台的栏杆和栏杆上的装饰物，用shift L选择相同的material把大部分删除，clean parent，apply scale rotation，flip normal，2000多个物体flip大约卡几分钟，flip normal每次玻璃窗这种单薄物体总是给我搞反。</p>
-<p><img src="/2024/03/21/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/v2-ae0886f9b30ef8f9d3e00c6c06e3bd42_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/21/2024-3-21-SendToUE%E9%BE%99%E6%B9%96%E6%B4%8B%E6%88%BF%E8%A5%BF%E7%8F%AD%E7%89%99%E9%A3%8E%E6%A0%BC%E5%85%AC%E5%AF%93/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/" itemprop="url">2024-3-19-bakemaster批量烘焙4个智能遮罩</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-20T03:02:46.000Z" itemprop="datePublished">3月 20 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 读完 (约 490 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>没想到还有这等神器，如下图设置好烘焙预设之后，框选需要烘焙的物体，选两次rgbaForMatrix的烘焙预设即可，烘焙前需要对物体所有面选中做一次smart UV unwrap，这样做当然会破坏窗户内景，等烘培完之后再还原回去即可或者所有的内景独立物体不掺和在烘培中，我觉得应该是后者做法，前者还是蛮麻烦的。</p>
-<p>4个部件用了40秒完成了drip、large ao、damage curvature、ao贴图的烘焙导出，在UE中测试没问题。</p>
-<p><img src="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/v2-53d6c1a7ddadc2abd788dad9902f7333_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/20/2024-3-19-bakemaster%E6%89%B9%E9%87%8F%E7%83%98%E7%84%994%E4%B8%AA%E6%99%BA%E8%83%BD%E9%81%AE%E7%BD%A9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -402,7 +394,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/36/">36</a></li>
+        <li><a class="pagination-link" href="/page/37/">37</a></li>
         
     </ul>
 </nav>

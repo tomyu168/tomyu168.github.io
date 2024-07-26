@@ -126,6 +126,97 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/" itemprop="url">2023-12-14-blender道路uv展开FRG替换PRG</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-20T03:36:12.000Z" itemprop="datePublished">12月 20 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            22 分钟 读完 (约 3238 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>首先做到这一步我发现之前大量时间用在选取物体“/”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。</p>
+<p>关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。</p>
+<p>道路的绘制直线可以直接用cube去拼凑，若是曲线路径那么有两种做法一个是bezier绘制，这个方法适用于不规则超长贯穿式路径的绘制，可以快速搞出很不规则的曲线，缺点是其弧度很僵硬，与绘制的笔法有关系，可能有数位板会好一些？下图中白色为bezier绘制的曲线路面。第二种方式是对挤出的cube用spin tool做拱形挤出，这种方法每次只能搞一个弯曲，优点是做出来的弧度十分圆润。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-17T14:30:07.000Z" itemprop="datePublished">12月 17 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            43 分钟 读完 (约 6433 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>一些sweep profile在su导入的模型中不尽如人意，利用hardop曲线提取路径曲线和形状曲线，在路径曲线到曲线编辑面板bevel中选取形状曲线，形状曲线需在编辑模式下翻转方可使得sweep正常显示。曲线在编辑模式下f键可以闭合、打开曲线。j键在物体编辑模式下连接曲线。</p>
+<p>目前来看导入的模型要是朝右前方显示才能在PBG中正常使用，具体配合导入时的旋转设置。一些部件有附件、装饰超出主体的边界需要用socket length修正，目前看来是物体本身的blender边界尺寸减去超出的部分，在ue的socket length中填入y值。</p>
+<p>今天发现stable diffusion不能用了折腾了一会儿浪费了不少时间脑细胞，最后整个压缩包重新解压启动就完事了，几个插件安装会被网速折腾，直接原来安装好的按照路径填充即可。明天开机再看看。</p>
+<p>之前做的这个版本facade外立面逻辑不正确，这样会导致无法转角做连续的segment，facade应该是薄的一层而非整个体块，这里参考matrix的模型，facade mesh厚度在25cm也没问题，corner mesh无需在语法中定义，PBG会自动添加，right corner的pivot需要在左前下处顶点，corner mesh需要是以转角轴线对称的，不然就会像下面这般一边空心露馅了。</p>
+<p><img src="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/v2-ab281f8691afa94352f4b3a7a57cb458_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/" itemprop="url">2023-9-21-matrix与hillside中可以利用的东西</a>
         
     </h1>
@@ -297,92 +388,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/" itemprop="url">2023-11-6-不同版本stablediffusion大模型出的小区平面图</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-11T14:31:32.000Z" itemprop="datePublished">11月 11 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            19 分钟 读完 (约 2864 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>经过一天的测试来看，似乎有必要对每次测试实验都记录下提示词和所使用的大模型，目前就做平面图而言，我发现建筑ai里的pruned-emaonly这个似乎最稳定，每次搞出来都挺像模像样。</p>
-<p><img src="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/v2-8d379bb462f9c86e28ce2da9d9e6d495_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/11/2023-11-6-%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACstablediffusion%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%87%BA%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%B9%B3%E9%9D%A2%E5%9B%BE/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/" itemprop="url">2023-11-1-stablediffusion初步探索1</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-11T14:23:10.000Z" itemprop="datePublished">11月 11 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            43 分钟 读完 (约 6419 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>stable diffusion我看了下文件夹的日期信息，我是在去年10月份下载的，midjourney等一众ai作图软件也是那个时间开始接触的。那个时候我只知道midjourney可以根据关键词生成图，可以根据参考图生成图，可以对选定的图生成类似创意图，stable diffusion可以根据关键词生成图。 stable diffusion有繁杂的设置，我都没去碰。</p>
-<p><img src="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/v2-1cd56d09946e9af4147fc7a104c7cc6d_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/11/2023-11-1-stablediffusion%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%B4%A21/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -406,7 +411,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/22/">22</a></li>
+        <li><a class="pagination-link" href="/categories/CG%E6%8A%80%E6%9C%AF/page/23/">23</a></li>
         
     </ul>
 </nav>

@@ -119,6 +119,147 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/" itemprop="url">2024-5-6-中式建筑建模初探</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-05-06T06:07:18.000Z" itemprop="datePublished">5月 6 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1131 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>撇开屋脊上的兽类雕刻来说，中式传统建筑的屋顶建模上面有些困难，那个起翘要怎么做并没有一个很好的通用办法，我甚至想入坑houdini去搬运网上几个开源的houdini digital asset。当然做事肯定兵分两路，从matrix团队的houdini 程序化城市建筑来看，局限性还是很大的，没法在设计上搞出名堂来，好处是可以对整体背景的细节程度提升很高的档次。我的重点是建筑设计创新，背景的细节是要考虑，但是主要还是在建筑装饰的表达上，所以我想houdini是万不得已的时候再深入研究，目前顶多带着看。</p>
+<p>屋顶前两天我花了100多买了个插件结果应该是打水漂了，那个几何节点的屋顶插件和archipack的roof模块一样有很多限制，尽管Procedural Roof Generator可以对屋脊走向自由控制了，但是不能做如下的歇山屋顶带起翘。严格来说是不能一步到位的制作，我在初次尝试Procedural Roof Generator失败后，改用mesh配合higgsas的mesh subdivide再用tissue，这个方法有局限性，需要将屋顶45度两侧拆开弄，而且tissue需要计算瓦片大小和屋顶面的mesh subdivide，并且不能是三角面得在图2这种状态下完成tissue铺盖表皮瓦片然后用布尔切除，最后通过两个lattice做起翘。</p>
+<p><img src="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/v2-fc5b8fe4ba826e878434323d05add633_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/05/06/2024-5-6-%E4%B8%AD%E5%BC%8F%E5%BB%BA%E7%AD%91%E5%BB%BA%E6%A8%A1%E5%88%9D%E6%8E%A2/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/" itemprop="url">2024-4-30-SendToUE中式ArtDeco外滩壹号院风格大理石贴面小高层</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-30T05:10:29.000Z" itemprop="datePublished">4月 30 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分钟 读完 (约 858 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这套制作了两天，原本想半天搞掉的。最终效果还算满意，影响制作时间的几点：</p>
+<p>1.过分追求instance关联，许多立柱凑尺寸，长的立柱追求以后的项目可以复用以及担忧block brick系统uv块不足而拆分。目前看来整件拆立柱uv不算繁琐，texel density130的情况下可以支持45米的立柱一步到位，也就是说对于10几层的小高层不用考虑立柱拆分，20、30几层的才考虑。</p>
+<p>2.玻璃窗和建筑砖石的bevel不一样，一开始就要拆分，窗户也是。</p>
+<p>3.双窗并列的情况下想只添加一个内景面片，应该在初期就把双窗并列合并为一个mesh。</p>
+<p>4.屋顶的uv切分应该在mirror apply之前避免重复劳动。</p>
+<p>5.导入后注意随时保存避免崩溃重做。</p>
+<p>6.block brick使用其他贴图时会有显示问题，把贴图的压缩格式换成BC7。</p>
+<p>7.material assignment tool先于materialconvertinstance使用，若顺序反了也可能导致ue崩溃。</p>
+<p>8.部件批量命名方面一开始统一wall。</p>
+<p><img src="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/v2-b38c351f21ba3647728a96f7c6eb5dd8_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/30/2024-4-30-SendToUE%E4%B8%AD%E5%BC%8FArtDeco%E5%A4%96%E6%BB%A9%E5%A3%B9%E5%8F%B7%E9%99%A2%E9%A3%8E%E6%A0%BC%E5%A4%A7%E7%90%86%E7%9F%B3%E8%B4%B4%E9%9D%A2%E5%B0%8F%E9%AB%98%E5%B1%82/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-29T09:07:01.000Z" itemprop="datePublished">4月 29 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 3015 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/25/2024-4-25-%E5%BB%BA%E7%AD%91%E8%A7%84%E8%8C%83/" itemprop="url">2024-4-25-建筑规范</a>
         
     </h1>
@@ -248,130 +389,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/" itemprop="url">2024-4-15-SendToUE世界地形道路人行道的构建流程</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-16T13:11:59.000Z" itemprop="datePublished">4月 16 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            14 分钟 读完 (约 2079 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>由于Num Custom Data Floats 5.3版本开始才有相关的set函数，没有这个暂时解决不了packed level actor室内伪装重复，因此昨天陆续开始移植之前的项目到5.3版本。Mesh convert Terrain这个插件5.3版本好像不能用，测试了下在5.2版本生成好之后再导入5.3，这里我添加了来自CityPark的地形材质并做了些修改，引入了长沙卫星图作为垫图，不过这里要更改旋转、uvtile和uv偏移，使用地形是为了利用world partition特性，让巨大场景在动态运行时只加载一定范围的物体，另一方面是我希望借助landscape的paint解决自然环境的一些材质，比如土壤青草什么的，ue的water插件水景也需要landscape。为了让blender导入ue的道路、建筑在blender和ue的位置相同，需要找一些基准定下来，地形大致到位用湘江和橘子洲作为参照，然后将整体到路mesh导入调整landscape材质的偏移使其能和道路对上。</p>
-<p><img src="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/v2-8d541d5a113c42d2a14068dbe5d9accf_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/16/2024-4-15-SendToUE%E4%B8%96%E7%95%8C%E5%9C%B0%E5%BD%A2%E9%81%93%E8%B7%AF%E4%BA%BA%E8%A1%8C%E9%81%93%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/" itemprop="url">2024-4-9-SendToUE水石国际中国特色连排别墅</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-14T09:02:12.000Z" itemprop="datePublished">4月 14 2024</time>
-            
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2474 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>原版sketchup这个材质太诡异了，另外目前遇到个问题是sketchup的素材只有正面，背面自己创作暂时还没发借助人工智能实现，参考的pinterest案例。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-8e35ee5e006951a026760268e25c6ab1_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" itemprop="url">2024-4-9-第二套UV的必要性</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-14T08:43:25.000Z" itemprop="datePublished">4月 14 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            2 分钟 读完 (约 323 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>在立面部件水平垂直的情况下，即使不用第二套uv直接用matrix paint附带一个有切分的texture就能得到图2、图3这样的效果，大体上可以混混，但是当大面积平铺会发现略明显的重复痕迹，另外水渍不会在grout上显现。</p>
-<p><img src="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/v2-6536dda1f14063d3ca37ea463b11449a_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/14/2024-4-9-%E7%AC%AC%E4%BA%8C%E5%A5%97UV%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -395,7 +412,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/36/">36</a></li>
+        <li><a class="pagination-link" href="/page/37/">37</a></li>
         
     </ul>
 </nav>

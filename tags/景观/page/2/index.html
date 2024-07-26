@@ -126,6 +126,98 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/" itemprop="url">2023-12-25-ue散布工具iascatter实现绿化园林</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-25T08:43:44.000Z" itemprop="datePublished">12月 25 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 分钟 读完 (约 2736 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。</p>
+<p>为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出instance也是暴卡，颠覆了我以往的想法是blender中只要做了instance关联就可以无限生产物体而不会有性能问题。那天晚上我甚至在纠结可否用导出json，在ue中用json循环读取，创建实例。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaqyCV5Ho9g&amp;t=158s">Unreal Engine 5 Tutorial - Instance Importer - Reading Files With Blueprints [3/4]</a></p>
+<p>后来我想到citypark项目以及目前尝试过的绿化，1是用landscape paint刷一层底，2是笔刷刷foliage给绿化地基添加实体形成层次，3是逐个添加树木再同类asset转化instance。前期暂时遇到的问题有，1.curb通过blender curve export用prg widget转，曲线会被改动变得诡异很难修；2.植物的散布不能精确在指定范围的地块控制，笔刷画一圈还要擦一遍；3.地块在ue中没办法精确规划。结合geo-scatter，我希望地块在blender中可以导入ue，然后对这个地块精确识别，曲面吸附，带有geo-scatter中的散布控制，大量散布不会卡死，操作视图流畅。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-17T14:30:07.000Z" itemprop="datePublished">12月 17 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            43 分钟 读完 (约 6433 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>一些sweep profile在su导入的模型中不尽如人意，利用hardop曲线提取路径曲线和形状曲线，在路径曲线到曲线编辑面板bevel中选取形状曲线，形状曲线需在编辑模式下翻转方可使得sweep正常显示。曲线在编辑模式下f键可以闭合、打开曲线。j键在物体编辑模式下连接曲线。</p>
+<p>目前来看导入的模型要是朝右前方显示才能在PBG中正常使用，具体配合导入时的旋转设置。一些部件有附件、装饰超出主体的边界需要用socket length修正，目前看来是物体本身的blender边界尺寸减去超出的部分，在ue的socket length中填入y值。</p>
+<p>今天发现stable diffusion不能用了折腾了一会儿浪费了不少时间脑细胞，最后整个压缩包重新解压启动就完事了，几个插件安装会被网速折腾，直接原来安装好的按照路径填充即可。明天开机再看看。</p>
+<p>之前做的这个版本facade外立面逻辑不正确，这样会导致无法转角做连续的segment，facade应该是薄的一层而非整个体块，这里参考matrix的模型，facade mesh厚度在25cm也没问题，corner mesh无需在语法中定义，PBG会自动添加，right corner的pivot需要在左前下处顶点，corner mesh需要是以转角轴线对称的，不然就会像下面这般一边空心露馅了。</p>
+<p><img src="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/v2-ab281f8691afa94352f4b3a7a57cb458_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/12/05/2023-12-5-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%903/" itemprop="url">2023-12-5-完整景观项目分析3</a>
         
     </h1>
@@ -287,93 +379,6 @@
 <p><img src="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/v2-5715855159992e1afa479bd0f8304352_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/" itemprop="url">2023-12-2-环境细化与stable-diffusion</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-02T08:07:19.000Z" itemprop="datePublished">12月 2 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA/">建筑理论</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1203 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>之前设法通过stable diffusion生成了许多小区平面图，不过这些平面图顶多指导建筑、道路、绿化布局，在设计样式上几乎没什么参考。</p>
-<p><img src="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/v2-4c77c9b052eb11143f3df42e3061baa7_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/" itemprop="url">2023-9-21-matrix与hillside中可以利用的东西</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-11-21T02:09:42.000Z" itemprop="datePublished">11月 21 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            10 分钟 读完 (约 1437 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>matrix中需要的东西：</p>
-<p>road 文件夹包含 马路 kit city road、马路标线 kit meshdecals、桥梁除了主路的部件 kit freeway、人行道和广场的方形花砖kit sidewalk</p>
-<p><img src="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/v2-06f75a17ecdba6ee236b690163a67c2c_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/11/21/2023-9-21-matrix%E4%B8%8Ehillside%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/#more">阅读更多</a>
         </p>
     
     </div>

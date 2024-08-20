@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-8-20-CharacterCreator快速生成人物雕塑动态 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="目前对于unique3d而言要生成完整全身的人物动态雕塑在精度上欠缺还是很大的，从下图中的9个测试来看人物面部细节完全丢失了，勉强凑合也行目前我还不清楚characterCreator工作流熟练以后效率能达到多少，用unique3d来做效果氛围初探是没问题的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-8-20-CharacterCreator快速生成人物雕塑动态">
+<meta property="og:url" content="http://zhudian.xyz/2024/08/20/2024-8-20/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="目前对于unique3d而言要生成完整全身的人物动态雕塑在精度上欠缺还是很大的，从下图中的9个测试来看人物面部细节完全丢失了，勉强凑合也行目前我还不清楚characterCreator工作流熟练以后效率能达到多少，用unique3d来做效果氛围初探是没问题的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-20/2024-8-20/aa35f73dffa86b8d5c62a7ef543ca066_MD5.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e7313f9517dff38fe130d71502f17126_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-48986a8e1dad49b9df133ed32e224ec4_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-9b8a13bd46d3af57394a86504b786c70_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-d596f8e6a3552dcc9f9d29ced89f1952_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-750c40fc2e1cae7c4d5e8c52199c4720_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-02f6faec8e698294e2acee0f0b0692e8_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-4b242db0e6b84dfbde7f4d0778f625e1_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-1e797d56ee2452ba803b5942e85b3b5f_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-841fe52a39a97f948b30273c5fd8e1f4_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-3d7330df38ff0e1f2a988e3a44cd2ec3_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-3f899fc5bb297358b87bd35574b51b7d_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-a87ea27830f3ff771675f9f1185e0946_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-e658ac34add890eaf9312f3dc9d147ad_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-f9ad09032ee9d8c2fcccd61b653f2879_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-9c7eae0778c355334fa47d5c7b120001_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-ac5b00dfbbd2901aef4906fc3f5d7542_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-c7de14beed09ef6f537a9172726bba62_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e5cb2bd094459390d4d77d68474089ed_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-e6fdd6a2d1119ba76ab7675956ba88a1_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e0289152e269924cdcfb5e0fdaf1fb8f_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-46bc20b712e769cb6450b2304878f6e7_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-95a4fc866bd9720a7bd1de69ade01270_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-c4e49be9e126c7ffbd258f8349fe6edb_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-f82db3ef098e7bbfe2d95b353e6e2166_1440w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-124aee77d2dc4c96e5b0612b2f840bec_1440w.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-9449720ad6bd039738e176419755d692_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-8dcbc76ec51daf9d94bbb37eea3eb945_1440w.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-89d6404a23c9d1b6cdc157259cec4294_1440w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-2561342e7651de0ffdef99852ce6bf53_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-4c194c64dfdebb9231e8ab8cceba5ca3_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-543dc9e6f4e54bef25b2567c22f36815_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-14a1f4d858c913dd35d1753d108e2af0_1440w.jpg">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-50b3201592970acf8fcc08376f1dd2e0_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-ccb057a87769bdc8da3135ba65eac374_1440w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-828b1b2ba170d699bc0da656a55b4730_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-57ba88f76446a7ddb3a9ffbabfe3dae6_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-11e6ef4c175d569167a0cafe55864f7d_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-3aafc3a29c21321fd69a257d1dc82dba_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-83cd57978fd3e8da2a463e4702f7c0e9_1440w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-ad3afad09d379a7fa472b2b6ada15ab5_1440w.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-fd9de31a62e1b454bb855f2aac8d3880_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-0e4b5450a831a21abb0b1c057fe1fa41_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-eef994de36f2d2013f0168ded4db061b_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-19a5e0d81c0a292bb316e197eea1df17_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-865d80774541b2b51f679da37482b792_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-c20f0c9b786d6145ca078b26fc70aa24_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-fcc8459eb719eed8e29b35ba56c14b64_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-d50bc1c15f2dc435ced22ed5d57797d3_1440w.jpg">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-593a3109c651625586f167ef1e085ba6_1440w.jpg">
+<meta property="article:published_time" content="2024-08-20T10:12:36.000Z">
+<meta property="article:modified_time" content="2024-08-20T11:06:43.991Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="人物雕塑">
+<meta property="article:tag" content="CharacterCreator">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/08/20/2024-8-20/2024-8-20/aa35f73dffa86b8d5c62a7ef543ca066_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#">1&nbsp;&nbsp;<b></b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#-1">2&nbsp;&nbsp;<b></b></a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-8-20-CharacterCreator快速生成人物雕塑动态
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-20T10:12:36.000Z" itemprop="datePublished">8月 20 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2817 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>目前对于unique3d而言要生成完整全身的人物动态雕塑在精度上欠缺还是很大的，从下图中的9个测试来看人物面部细节完全丢失了，勉强凑合也行目前我还不清楚characterCreator工作流熟练以后效率能达到多少，用unique3d来做效果氛围初探是没问题的。</p>
+<p><img src="/2024/08/20/2024-8-20/2024-8-20/aa35f73dffa86b8d5c62a7ef543ca066_MD5.jpg"></p>
+<span id="more"></span>
+
+<p>要解决人物高精度的话意味着头部和躯干应该是分离的，衣服也要额外的添加。要获得指定人物的头部特征，用blender facebuilder插件通过一个基础头部mesh比对多角度照片贴合，最后可以获得图3的效果。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e7313f9517dff38fe130d71502f17126_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://picx.zhimg.com/80/v2-48986a8e1dad49b9df133ed32e224ec4_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://pica.zhimg.com/80/v2-9b8a13bd46d3af57394a86504b786c70_1440w.jpg?source=d16d100b"></p>
+<p>通过插件可以自动将头部mesh导入cc，在refine mesh/mesh to head窗口下attach to body将头部连接到身体。</p>
+<p><img src="https://picx.zhimg.com/80/v2-d596f8e6a3552dcc9f9d29ced89f1952_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-750c40fc2e1cae7c4d5e8c52199c4720_1440w.jpg?source=d16d100b"></p>
+<p>为人物添加头发、衣服，设置姿势。</p>
+<p><img src="https://picx.zhimg.com/80/v2-02f6faec8e698294e2acee0f0b0692e8_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://picx.zhimg.com/80/v2-4b242db0e6b84dfbde7f4d0778f625e1_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-1e797d56ee2452ba803b5942e85b3b5f_1440w.jpg?source=d16d100b"></p>
+<p>在headshot面板下可以对皮肤贴图做修改，这个似乎对我要做雕塑装饰没用。</p>
+<p><img src="https://pica.zhimg.com/80/v2-841fe52a39a97f948b30273c5fd8e1f4_1440w.jpg?source=d16d100b"></p>
+<p>在scene面板下可以修改头发颜色，头部、颈部、肩部大小等等。</p>
+<p><img src="https://picx.zhimg.com/80/v2-3d7330df38ff0e1f2a988e3a44cd2ec3_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://pica.zhimg.com/80/v2-3f899fc5bb297358b87bd35574b51b7d_1440w.jpg?source=d16d100b"></p>
+<p>在motion中可以对角色设置动画，然后导出到blender，确保blender安装了cc插件。在blender中导入动画，示范中先导出mesh，导入mesh我不知道是不是可以合并成一步还是说必须有mesh的基础才能进一步导入动画。</p>
+<p><img src="https://picx.zhimg.com/80/v2-a87ea27830f3ff771675f9f1185e0946_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://picx.zhimg.com/80/v2-e658ac34add890eaf9312f3dc9d147ad_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://pica.zhimg.com/80/v2-f9ad09032ee9d8c2fcccd61b653f2879_1440w.jpg?source=d16d100b"></p>
+<p>选择动画，preview retarget，运行动画即可在blender中播放cc的动画设置，即获得了指定人物的动态。</p>
+<p><img src="https://pica.zhimg.com/80/v2-9c7eae0778c355334fa47d5c7b120001_1440w.jpg?source=d16d100b"></p>
+<p>指定服饰导入，create&gt;cloth hair acc，将衣服导入后移动衣服使其和人物基本贴合。</p>
+<p><img src="https://pica.zhimg.com/80/v2-ac5b00dfbbd2901aef4906fc3f5d7542_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://picx.zhimg.com/80/v2-c7de14beed09ef6f537a9172726bba62_1440w.jpg?source=d16d100b"></p>
+<p>transfer skin weights,默认选项即可。此时再变换姿势，衣服便与身体贴合了。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e5cb2bd094459390d4d77d68474089ed_1440w.jpg?source=d16d100b"></p>
+<p><img src="https://picx.zhimg.com/80/v2-e6fdd6a2d1119ba76ab7675956ba88a1_1440w.jpg?source=d16d100b"></p>
+<p>导入裤子流程也是一样的。然而裤子部分在变换姿势后出现了诡异的面拉伸。这需要在transfer skin weight里设置lateral partition。对于裤子的破面显示在手动skin weight模式下设置对应的骨骼，然后如同雕塑中的smooth一样将局部面数提升？</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e0289152e269924cdcfb5e0fdaf1fb8f_1440w.jpg?source=d16d100b"></p>
+<p>在conform面板下选择计算碰撞，使衣服和裤子不会发生错乱，可以通过多次点击优化结果？图层设置越下面越贴合人物的皮肤，越上面则是外衣。</p>
+<p><img src="https://picx.zhimg.com/80/v2-46bc20b712e769cb6450b2304878f6e7_1440w.jpg?source=d16d100b"></p>
+<p>鞋子要对其两个脚需要单独移动，在element模式下对单个鞋子做位移。</p>
+<p><img src="https://picx.zhimg.com/80/v2-95a4fc866bd9720a7bd1de69ade01270_1440w.jpg?source=d16d100b"></p>
+<p>到衣服目录下，选中衣服点面板底部的加号可以将这个衣服保存到cc，下次可以直接调用。</p>
+<p><img src="https://picx.zhimg.com/80/v2-c4e49be9e126c7ffbd258f8349fe6edb_1440w.jpg?source=d16d100b"></p>
+<p>还有一种情况是下载的服装是带角色的一整套，并不是单独的衣服帽子裤子，那么先要进入edit mesh&gt;element模式extract mesh把帽子服装裤子鞋子分割开来。然后对每个元素transfer skin weight</p>
+<p><img src="https://pic1.zhimg.com/80/v2-f82db3ef098e7bbfe2d95b353e6e2166_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-124aee77d2dc4c96e5b0612b2f840bec_1440w.jpg"></p>
+<p>按照cc的图层顺序要求设置不同服饰、配件的图层顺序，然后多次run collision，使所有的服饰都贴合角色。</p>
+<p><img src="https://pica.zhimg.com/80/v2-9449720ad6bd039738e176419755d692_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-8dcbc76ec51daf9d94bbb37eea3eb945_1440w.jpg"></p>
+<p>接下来是转换配件，convert to accessory暂时不知道这么做的目的是什么。</p>
+<p><img src="https://pica.zhimg.com/80/v2-89d6404a23c9d1b6cdc157259cec4294_1440w.jpg"></p>
+<p>以下为chatgpt的解释：</p>
+<p>在Character Creator（CC）中，“Convert to Accessory”（转换为附件）功能主要用于将某些3D模型（如道具、装饰品、服装的一部分）转换为附件，以便在角色上灵活调整和使用。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Cloth 和 Accessory 的区别</p>
+<ul>
+<li><p>Cloth（衣物）：</p>
+</li>
+<li><p>衣物是与角色身体动态关联的物品，通常是指角色穿在身上的衣服、裤子、鞋子等。</p>
+</li>
+<li><p>这些物品会根据角色的骨骼、体型和动作进行动态调整，允许布料模拟等物理效果。</p>
+</li>
+<li><p>衣物通常会覆盖角色的身体，并可以根据角色的姿势和动作进行变形。</p>
+</li>
+<li><p>Accessory（附件）：</p>
+</li>
+<li><p>附件是指角色身上的非衣物部分，比如帽子、眼镜、耳环、手表、武器等。这些物品通常不会随着角色的骨骼和体型自动调整。</p>
+</li>
+<li><p>附件通常是“挂”在角色的特定部位（如头部、手腕、腰部等），可以手动调整位置、大小和角度。</p>
+</li>
+<li><p>附件与角色身体的绑定方式较为简单，通常不会受到布料模拟和物理效果的影响。</p>
+</li>
+</ul>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><p>Convert to Accessory 的用途</p>
+<ul>
+<li><p>如果你导入一个物品到Character Creator中，并且希望这个物品能够作为角色的附件使用，而不是衣物，你可以使用“Convert to Accessory”功能。</p>
+</li>
+<li><p>这将使该物品成为一个独立的、可以调整的附件，不会自动绑定到角色的身体变形上。你可以将它附加到角色的任何部位，并手动调整其位置和比例。</p>
+</li>
+</ul>
+<p>这个功能特别适合处理那些并不需要动态调整的物品，比如武器、饰品或角色使用的道具。</p>
+<p>这样解释基本就清楚了也就是说配件是附着在角色的某个部位但是不涉及布料变形，而衣服涉及布料变形。配件有点类似于ue的socket。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-2561342e7651de0ffdef99852ce6bf53_1440w.jpg"></p>
+<p>最后进入animation player点击motion测试一个动画从多个角度观察看看有没有传模。</p>
+<p><img src="https://picx.zhimg.com/80/v2-4c194c64dfdebb9231e8ab8cceba5ca3_1440w.jpg"></p>
+<p>选择服装在content中save。</p>
+<p><img src="https://picx.zhimg.com/80/v2-543dc9e6f4e54bef25b2567c22f36815_1440w.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=F7ZQk6ZuhEA">How to import 2500 Mixamo free animations into Chatiz Characters in Character Creator?</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ACMtPwzXox0">iClone 8 &amp; CC4 Tutorial - Auto Import Motion from Known Standard</a></p>
+<p>在上面2个链接中演示了将mixamo的动画直接添加在cc的角色中。</p>
+<p>在<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wAv9eNEpW/?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f">使用 ZBrush和Character Creator One Sculpt、Infinite Poses 进行3D打印和角色造型</a>这个教学中演示了从草图概念到zbrush建模到cc里自动绑定通过cc的动画赋予角色动态再回到zbrush修改加工最后导出到3d打印。</p>
+<p>第一步草图么现在都可以用midjourney来弄了。</p>
+<p><img src="https://picx.zhimg.com/80/v2-14a1f4d858c913dd35d1753d108e2af0_1440w.jpg"></p>
+<p>第二步zbrush建模先搞一个头部，这个其实也可以通过一些插件实现吧，至少zbrush里面有zbuilder。</p>
+<p><img src="https://pica.zhimg.com/80/v2-50b3201592970acf8fcc08376f1dd2e0_1440w.jpg"></p>
+<p>躯体部分示范用cc的模型来做调整，可调节手长，手指关系，一键goz导入zbrush。接着就是zbrush中的那套anatomy雕塑了，然后dynamesh合并头部，用subd和zremesher不同细分度投射细节。</p>
+<p><img src="https://picx.zhimg.com/80/v2-ccb057a87769bdc8da3135ba65eac374_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-828b1b2ba170d699bc0da656a55b4730_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-57ba88f76446a7ddb3a9ffbabfe3dae6_1440w.jpg"></p>
+<p>用zbrush的zmodeler做装甲，我不知道示范是怎么做好以后装备到角色身上的，</p>
+<p><img src="https://picx.zhimg.com/80/v2-11e6ef4c175d569167a0cafe55864f7d_1440w.jpg"></p>
+<p>先导入角色除去衣服，示范说也可以一起导入。使用accurRig自动绑定，使用动画测试绑定效果。</p>
+<p><img src="https://picx.zhimg.com/80/v2-3aafc3a29c21321fd69a257d1dc82dba_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-83cd57978fd3e8da2a463e4702f7c0e9_1440w.jpg"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-ad3afad09d379a7fa472b2b6ada15ab5_1440w.jpg"></p>
+<p>导入布料部分，作者好像自己做的weight map而不是用cc自带的transfer skin weight，然后设置了自定义的collision。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-fd9de31a62e1b454bb855f2aac8d3880_1440w.jpg"></p>
+<p>这里的装甲和其他配件是用pick parent附着的和之前苏丹武士服装里的convert to accessory一样，应该是软件版本升级，逻辑有所改变，把配件和衣服区分开来了。</p>
+<p><img src="https://picx.zhimg.com/80/v2-0e4b5450a831a21abb0b1c057fe1fa41_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-eef994de36f2d2013f0168ded4db061b_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-19a5e0d81c0a292bb316e197eea1df17_1440w.jpg"></p>
+<p>cc有付费的动画库actor core，淘宝上可以近乎白嫖，选取动画中特定一帧作为姿势，可以保存这个姿势。在pose editor中调整姿势，手势也有很多预设可以选用。最后用zbrush post tool一键导出回到zbrush，会把目前的姿势传递给zbrush。</p>
+<p><img src="https://picx.zhimg.com/80/v2-865d80774541b2b51f679da37482b792_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-c20f0c9b786d6145ca078b26fc70aa24_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-fcc8459eb719eed8e29b35ba56c14b64_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-d50bc1c15f2dc435ced22ed5d57797d3_1440w.jpg"></p>
+<p><img src="https://picx.zhimg.com/80/v2-593a3109c651625586f167ef1e085ba6_1440w.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91/">#人物雕塑</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/CharacterCreator/">#CharacterCreator</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/08/20/2024-8-19/">2024-8-19-midjourney生产图片周期测试以及blend进展</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

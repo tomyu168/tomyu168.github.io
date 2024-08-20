@@ -170,50 +170,6 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2024/08/05/2024-8-5/" itemprop="url">2024-8-5-midjourney共享版批量做图提交定时暂停手动暂停</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-08-05T15:15:06.000Z" itemprop="datePublished">8月 5 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2439 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>由于midjourney手动提交1天搞下来大改只能收集150个图，非常疲惫而且会经历排队等待、队列占满导致的沮丧、进退两难。于是我想捣鼓一个自动提交的程序，经过这一天我大概看出来行为模式是用建筑装饰特征的图+楼面房型排列来实现建筑风格的生产。根据chatgpt的说法可以根据屏幕坐标来控制.exe文件中的/blend 命令实现自动化上传？我觉得可以试试看，用笔记本电脑全天开着自动匹配来生成素材？一方面是穷举几个文件夹中的图片排列组合使用/blend。还有一个是/imagine + 关键词，关键词应该是一个txt文件按照行来读取关键词，关键词提前准备好。还有一个是/describe + 图片链接，图片链接这一块通过selenium交互浏览器，批量抓取pinterest收藏的facade。</p>
-<p>以下4天的进度跟踪是/blend的实现。主要依托pyautogui控制鼠标和键盘行为，遇到的难点有中文路径，自动暂停、手动暂停与任务执行时间关系、状态的计算。在这个过程中我觉得自动暂停、手动暂停控制执行任务的这个逻辑可以通用到其他日后类似需求的程序当中。另外就是制作程序时，遇到需要时长测试的先把任务部分简化为print输出，把时长放缩使周期缩短，这样能快速调试。当然这一整天的程序逻辑部分我丝毫没有去研究，完全就靠人工智能的概率论去蒙，做到了我理想状态的“我不懂，但我知道随心所欲”。</p>
-<p><img src="/2024/08/05/2024-8-5/2024-8-5/aea87c0b0aa7126ec04729c58bf65c62_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/08/05/2024-8-5/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
             <a href="/2024/07/26/2024-7-26/" itemprop="url">2024-7-26-pdf切分章节与自动批量下载kimi回复并整理</a>
         
     </h1>
@@ -375,6 +331,52 @@
 <p><img src="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/v2-0f7061ca1a6d8ef16f1151a8c3ec8e87_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-29T09:07:01.000Z" itemprop="datePublished">4月 29 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 3015 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
+<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
+<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
+<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
+<p><img src="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
         </p>
     
     </div>

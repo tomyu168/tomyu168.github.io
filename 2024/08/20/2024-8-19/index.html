@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-8-19-midjourney生产图片周期测试以及blend进展 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="目前实测了3轮2.5小时也就是9000秒期间没有发生退出，都完整运行下来了，运行周期是3.1minutes&#x2F;次，后两次测试发生了大量的队列占满不知道是不是频次太高？还需要进一步测试来确定，如果这个测试没问题，从早上8点开始到10.30一次，10.30到下午1点，1点到3.30，4点-7点。一天这么4轮感觉差不多，每40分钟断一次去折腾感觉还是会分神。 2024-8-20更新： 今天的3轮测试1次顺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-8-19-midjourney生产图片周期测试以及blend进展">
+<meta property="og:url" content="http://zhudian.xyz/2024/08/20/2024-8-19/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="目前实测了3轮2.5小时也就是9000秒期间没有发生退出，都完整运行下来了，运行周期是3.1minutes&#x2F;次，后两次测试发生了大量的队列占满不知道是不是频次太高？还需要进一步测试来确定，如果这个测试没问题，从早上8点开始到10.30一次，10.30到下午1点，1点到3.30，4点-7点。一天这么4轮感觉差不多，每40分钟断一次去折腾感觉还是会分神。 2024-8-20更新： 今天的3轮测试1次顺">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/5369ebdb61458a66075603ec76a6db66_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/7c5b24d9950a095e26663605bbcf7682_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/343eaa240f13d1612b41b103fb66d329_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/e0347c6e3c07b4ce41248de84c65b196_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/2f1a82d1caa4b2f573d97434e0a8f15f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/8720fc5d92a43ec869770f0b9cd39c59_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/7eede59f574d8892a6d2b63f7b9657cb_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/7c1f24dbd1b4dbc648083de775dd29de_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/ae90d8d8613e38711aefd49c189e4583_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/363eb3190b04946e6bc39e92d94cdb78_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/46cced60b6726f594f0ebab997b51a7b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/842bef0634bbc3fa685ad97c094904a6_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/6dd79320efa084e4acb65aaf21e8ef9f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/5f6370f1b975728422825d0bd6824070_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/77efe60884e286f369f20354dfabec6a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/01c7b979dd9dabae2a7fce16ef25b858_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/f9bbfd58253547099acb55cc0322b790_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/5817602b3c0a9d21967f28ee67bdd0b1_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/4350e7af0d72579484a4f147cc3b2df8_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/a8d7e7cb229bd6a52f9238302020708f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/710f0dfb5fa916eceabfcee615b49c08_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/5a956c075a71f68eb1980a87dfffc19c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/6805ef4ec1ebc373d151808607b4bf1d_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/0a7637d2bbede136c7725e291a98b23a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/073d02d540221399f544c65e83ca2c5e_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/40277bcdb68080094b66c56a16e6b246_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/e26bc996ff8bbe4a2de35b9bd5c4571b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/cd4dd8ef79eb26ed1d07e7fb59c57c1d_MD5.jpg">
+<meta property="article:published_time" content="2024-08-20T10:01:21.000Z">
+<meta property="article:modified_time" content="2024-08-20T10:12:15.589Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ai人工智能作图">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/08/20/2024-8-19/2024-8-19/5369ebdb61458a66075603ec76a6db66_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-8-19-midjourney生产图片周期测试以及blend进展
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-20T10:01:21.000Z" itemprop="datePublished">8月 20 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            20 分钟 读完 (约 3052 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>目前实测了3轮2.5小时也就是9000秒期间没有发生退出，都完整运行下来了，运行周期是3.1minutes/次，后两次测试发生了大量的队列占满不知道是不是频次太高？还需要进一步测试来确定，如果这个测试没问题，从早上8点开始到10.30一次，10.30到下午1点，1点到3.30，4点-7点。一天这么4轮感觉差不多，每40分钟断一次去折腾感觉还是会分神。</p>
+<p>2024-8-20更新：</p>
+<p>今天的3轮测试1次顺利。1次发生了不明原因的点击图片，导致后续出错，我不清楚这种情况是不是后续会自我调整回来从之前的记录看来好像是可以的。还有一次软件退出了。看来并不是完全稳定的，不过也不要太在意，总之继续观察运行状态。</p>
+<p>blend使用方面经过这两天的测试，目前我想到的用法如下：</p>
+<p>1.为整体建筑装饰添加某种色调或者图案风格，比如图2是由图1中从左到右的f1 f2 f3 blend而成，这种blend3通过两个建筑的整体结构和排布来定出建筑风格基调确保出图结果为建筑整体，可以看出来较为优秀的结果是由f1中的柱式cornice解析插图和中式古建筑彩画解析图引导而成的，图3用极为不规则的壁画或者像图1这个集成电路抽象艺术来引导，彩绘、色调的重排就会十分“剑走偏锋”从而使得绝大多数情况不尽如人意。那么由此可以推断，想要“小幅度”（我所认为的小幅度，实际上这种色调、彩绘涂装对于世界范围内的建筑装饰可以说已经是构成另一个体系了）的对建筑装饰的色调、彩绘做创新、个性化，那么f1的原料图引导应该是对f2、f3中目标建筑整体构建拆分后给出个性化涂装色彩，这种pattern book式的部件解析图网上有不少关键词可以去生成所以问题不大。</p>
+<p>不过这是针对一个20240804这一批次blend测试的结论，我还没有用这个结论优化f1来验证，理想中状态可以把龙凤热带壁纸和芯片电路抽象图先设法弄到建筑部件解析图上然后再来blend3可以使这两种十分大胆、随意的彩绘布置到任意的建筑整体立面上。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/5369ebdb61458a66075603ec76a6db66_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/7c5b24d9950a095e26663605bbcf7682_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/343eaa240f13d1612b41b103fb66d329_MD5.jpg"></p>
+<p>在20240807的测试中我保持f1、f3不变，将f2替换为了图1中的这些。其中让我比较眼前一亮的有图2、3、4。从图2的3、4来看比较好论证之前的结论，即使f2采取了十分诡异的布局形状，由于f1所用的色彩引导用了pattern book的部件预制色彩填充，所以最后生产图尽管在形状布局上十分天马行空，但是色调、彩绘并没有出现十分离谱的分布。由于色彩被pattern book式的构建公整规范化，因此与f2中极为不和谐、混乱的海螺blend也能得到图4中的拱廊、以及拱门。还有像图4中的那个玫瑰金带植物缠绕的未来感建筑，居然可以通过f2的cyborg球形、管道式未来建筑转变为商场的2、3层廊道建筑且与f1的色彩和谐搭配。图5就比较明显的论证了，其布局立面结合了动物骨骼f2和黑色窗框转角玻璃小窗盒子房，f1用的应该是pattern book式的部件解析图，彩绘被精确的涂装到了柱头、天花板、拱腹。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/e0347c6e3c07b4ce41248de84c65b196_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/2f1a82d1caa4b2f573d97434e0a8f15f_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/8720fc5d92a43ec869770f0b9cd39c59_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/7eede59f574d8892a6d2b63f7b9657cb_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/7c1f24dbd1b4dbc648083de775dd29de_MD5.jpg"></p>
+<p>2.第2种用法是房型变换，即对两个整体建筑结构、布局用blend2，这种基本弄不出装饰创新，以下为20240813的blend2部分结果。说完全没有创新可能也有点过了，可以对普通商品房做这种处理。用/imagine + 图片链接 + iw 1.3-2.3的延伸法所产生的图与这种blend2的做用类似也是用来做房型变换，后者能通过关键字设法改变视角、整体布局。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/ae90d8d8613e38711aefd49c189e4583_MD5.jpg"></p>
+<p>20240815我对古建筑群现代景观和现代建筑群景观用blend2，我的企图是希望两种建筑群混合风格能创造出一种介于古建筑和现代建筑之间的变体，它能是我国古建筑装饰的一种转变。原料图f1、f2如下图1，得到的精选只有一个独栋有点世博积木的意思，红色飞檐翘脚的全部阵亡，和白色办公楼园区的组合出来的房子几乎看不出中式元素了。这是不是意味着不规则布局的建筑群blend，很难得到介于2者的东西？我觉得这还得进一步测试来证实。说到建筑群，我还没试过之前那些创新建筑装饰生产图用/imagine + complex来拓展出建筑群效果，这应该也有必要搞一下，然后再通过那些创新建筑装饰群来blend普通建筑群看看，是否能达到建筑群blend。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/363eb3190b04946e6bc39e92d94cdb78_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/46cced60b6726f594f0ebab997b51a7b_MD5.jpg"></p>
+<p>20240816我打算对中国古建筑群+各类型事物做blend。以下图1是f1，里面涵盖了几何流体抽象画；室内、事外栅格材质；风景摄影；建筑局部特征结构；立体几何形体特征也可以说是抽象雕塑；建筑材质景观立面。图2为部分精选，总的而言我没有看到几个生产图是建筑群，建筑群可取的只有图6这种是与pattern book部件解析图混合的，结果较为公整。其他基本上变成了把f2中古建筑群的光影移植到了f1，而不是把f1的特征施加到古建筑群。可能需要blend3确保有两个古建筑，才能翻转关系，变为我希望的那种效果？那么就需要进一步测试，另外为了解决光晕问题，我还需要那种正常现实光线的古建筑群。换一个视角来看这一组f1或许应该和局部建筑特征blend可以获得一些意想不到的东西？</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/842bef0634bbc3fa685ad97c094904a6_MD5.jpg"></p>
+<p>3.为建筑添加雕塑装饰，之前的建筑装饰创新主要是材质、彩绘与色调、结构与布局，在20240817的测试中我想添加带有中国特色的雕塑或者动物雕塑。现在回头来看明显那天我处于思路不清，那时是因为想起当时留了一大堆小红书的创意图，原本的想法只是随便选了几个小红书的创意图想撞撞大运，一方面通宵测试midjourney连续自动提交的最大时长。以下图1为本次测试的原料图f1、f2、f3，可以看出来我的测试思路是很混乱的。我的想法是希望能把特色瓦片、脊兽雕塑、不规则几何体与中国特色的彩绘、动物羽毛彩绘一同结合到建筑立面装饰上？思路清晰的话应该用blend2来做能更好的控制变量看看如何调节，这样搞blend3着实是完全难以预料后果的，理论上来看会很混乱。现实也不出所料，前两轮几乎没出什么有意义的图。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/6dd79320efa084e4acb65aaf21e8ef9f_MD5.jpg"></p>
+<p>几组比较好的都是f1 f3皆为雕塑装饰，这样使得生产图也出了雕塑装饰，这类生产图指引了f2建筑整体氛围下穿插指定类型的雕塑如何使二者和谐融洽！</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/5f6370f1b975728422825d0bd6824070_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/77efe60884e286f369f20354dfabec6a_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/01c7b979dd9dabae2a7fce16ef25b858_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/f9bbfd58253547099acb55cc0322b790_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/5817602b3c0a9d21967f28ee67bdd0b1_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/4350e7af0d72579484a4f147cc3b2df8_MD5.jpg"></p>
+<p>第二类误打误撞，我发现一个建筑整体布局+特定建筑部件结构+装饰元素，可以让装饰元素与部件在给定的建筑整体风格上替换同类部件的装饰手法。比如说f1中设置一个入口大门，在这次测试中产生了好几个对入口大门尝试十分独特创新的装饰手法如图1。f1设置为屋顶瓦片，则在有屋顶视角的建筑整体布局上将装饰施加在了屋顶瓦上如图2.脊兽与f3雕塑甚至动物画结合产生了混合f3动物特征的脊兽雕塑在屋顶的一些位置上如图3.但是绿色筒瓦那组结果并不好况且灰色板瓦用的不是传统的屋顶瓦铺排方式，照理来说midjourney应该没有能够识别出它是瓦片，所以这个结论我觉得还有待测试，可以对窗、柱子、门、槽板cornice啥的再测试测试。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/a8d7e7cb229bd6a52f9238302020708f_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/710f0dfb5fa916eceabfcee615b49c08_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/5a956c075a71f68eb1980a87dfffc19c_MD5.jpg"></p>
+<p>下面这组我印象里是我手动测试的用的是图2作为blend3，其中f1是哪个具体我记不清了应该是这种弯折表面，加上了一个橙红绿抽象在建筑中产生了橙红绿作为大形的抽象连接仿佛抽象画的构图。碧绿白流体抽象与弯折给建筑加上了舞动的幕布，我不知道若是单用弯折曲面对建筑立面会是什么样的呢？</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/6805ef4ec1ebc373d151808607b4bf1d_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/0a7637d2bbede136c7725e291a98b23a_MD5.jpg"></p>
+<p>轮到立面带曲面弯折元素和整体建筑布局+彩绘色调的blend3，第一轮下来大概50轮也就是200个图效果不理想，仅有5、6个有些许看点。其中蓝鸟我想逻辑应该是它本身正好处于一个米白的基座类似于曲面弯折f1中的材质，所以midjourney认为蓝鸟应该点缀f1，然后将这个局部建筑特征融入到整体建筑布局的风格取局部（蓝鸟也是局部特写）。相对而言红绿抽象和碧蓝水流抽象的“覆盖面积”更大，因此最后出图效果也是显示更大范围的局部，其对立面局部的调整“覆盖面积”也更大。由此可以想象一下若是要将蓝鸟的元素大范围在立面上排布那么需要将蓝鸟的图做某种阵列变换，使其“覆盖面积”增大。</p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/073d02d540221399f544c65e83ca2c5e_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/40277bcdb68080094b66c56a16e6b246_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/e26bc996ff8bbe4a2de35b9bd5c4571b_MD5.jpg"></p>
+<p><img src="/2024/08/20/2024-8-19/2024-8-19/cd4dd8ef79eb26ed1d07e7fb59c57c1d_MD5.jpg"></p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E5%9B%BE/">#ai人工智能作图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">#人工智能</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/08/20/2024-8-20/">2024-8-20-CharacterCreator快速生成人物雕塑动态</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/08/14/2024-8-9/">2024-8-9-baidu文心一言批量提交图片解析</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

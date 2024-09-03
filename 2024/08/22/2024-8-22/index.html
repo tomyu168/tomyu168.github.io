@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-8-22-midjourney批量动物雕塑图片到unique3d转换3d雕塑 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="建筑以及其环境上有许多浮雕和大型雕塑，理想状况下是能够快速生成获取任意风格的指定主题的雕塑用作装饰。昨天测试了一下批量提交unique3d可以达到2分钟一次也就是每小时转换30个，这提供了非常必要的容错空间，可以在一天内大量试错，而且unique3d的上传无需pyautogui，这意味着可以同时开midjourney和unique3d自动批处理（已实测可行，unique3d那边我觉得改成4分钟1次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-8-22-midjourney批量动物雕塑图片到unique3d转换3d雕塑">
+<meta property="og:url" content="http://zhudian.xyz/2024/08/22/2024-8-22/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="建筑以及其环境上有许多浮雕和大型雕塑，理想状况下是能够快速生成获取任意风格的指定主题的雕塑用作装饰。昨天测试了一下批量提交unique3d可以达到2分钟一次也就是每小时转换30个，这提供了非常必要的容错空间，可以在一天内大量试错，而且unique3d的上传无需pyautogui，这意味着可以同时开midjourney和unique3d自动批处理（已实测可行，unique3d那边我觉得改成4分钟1次">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/47cbc37d2f03b187fe78c3eb84a26227_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/86a585de01580da154f503763bb85fa2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a52f13ed21652ebe34159264f18d2896_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/3ec28fbdadfce5a71c3aa0de1a8ae930_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/69db46bcef80383a3126edeeae072253_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/6db60b50ea5b5631f2d2a36339bfc30a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/d89dc97f59f66280a99505b41decc818_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a1e8cb0523c3f81907db2cc040ba6619_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/c68cfd9c5240c5aec96bc8eed233985a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a85253aaf2430486fe296c1c7d62e7e5_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/61847541f2d0da889fdcc82a81ae5a54_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/9f32cd1bb03ca239209ab056b46d82d2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/6d3ae1547a2240331708771380e1ee92_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/d78c8d520ac52e3b3254a1ca30b4b36f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/7539b4dc945b55cfc963fe5412074b77_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/33ab70ec19378c106f390d9902a5f93e_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/3449be729b4b15fe175e842945adb304_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/f849ad49277836a73f5cc51a8978ea09_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/c7ebd34ff397282dac44f22c2bf3bf59_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/282791877d45a028dec1859220788192_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/8eaef7861c5f99334387720a5ff4e3f5_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/969a4f71b8882ed1fb3bdecc1e950684_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/7bcc0bbd401831bdf1412e539cdbe9dd_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/2c2373e83cd036cb95318fc7b99ec240_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/914147f1e4c50176676623ca1c38fdeb_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/df84473af5bfb82aad1b7e9e2318e910_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/5c2727d46593fb4407aad224eccd7289_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a5250504e86922cdebc5ae75ffe70dc0_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/4f0f71dae02125f700db50830912e6a7_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/0987cddc99f2a5665186215efb951f7f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/1126ffbdf77a14ecfc754a1ca365dcbd_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a5bbc5e952a7feebd35103b33312552a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/f351b06e55081abe7d6d6f3b6a8fadc2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/fc80fc1b063f927dad697cf7f21a26cf_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/858cb1d738bfb0a5a7541edad130bd11_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/9f84c896dd0db7a94a9cdc5bbbd16008_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/02bc74f92fa488f1e1722c13b04d37ba_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/f59a13762e1099c35cfc0c8b15bc83db_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/641bff7b4fc79e3a9dae022c3d985b7f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/cdd51e66ee7c6b2522fac5deae36c92f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/6ea64f3a45badedb3c92dadf4d73129e_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/67f6d493e134f30f2c5cd094c6660c70_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/fe6c916546b965f0e35e47edb38f0a9f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/5a97b88788838a13d32ba56155a4c236_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/32db201e458c4140f9b815ba60ad23f4_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/bd0e87881d6493b91e6d723fd02b5cb2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/895764ac561eabfc6b886f6c1879633f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/d8d444b35f65dfcbfc95fde2972f58dd_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/eed56af79ee3aa7eaec230dc540fa057_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/b090846b0cc82df0df8e5ee870960310_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/5781061c856892c9f67a26f58b8515b2_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/cc1b7ad451b65063479b72ef1b11fffd_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/0581118ba09fd2483177bad8b46fac25_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/f5cda05619bf0bc9aec0b13505765bd5_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/0a5711399dba0071f323078405697158_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/a83604b3ab9407e8da17312088e4f15c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/c224139d32a0e85b48fe7b53b177df43_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/d934c780572da1dce2256adcd584797a_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/9f879ce15dd83fe1882a9b5ece3beb17_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/4c81d2716224cde884d4e37ce39b4305_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/d721e8f24215e73ff825110651cae53e_MD5.jpg">
+<meta property="article:published_time" content="2024-08-22T15:07:17.000Z">
+<meta property="article:modified_time" content="2024-09-03T15:18:26.922Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="人物雕塑">
+<meta property="article:tag" content="动物雕塑">
+<meta property="article:tag" content="unique3d">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/08/22/2024-8-22/2024-8-22/47cbc37d2f03b187fe78c3eb84a26227_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-8-22-midjourney批量动物雕塑图片到unique3d转换3d雕塑
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-22T15:07:17.000Z" itemprop="datePublished">8月 22 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            28 分钟 读完 (约 4130 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>建筑以及其环境上有许多浮雕和大型雕塑，理想状况下是能够快速生成获取任意风格的指定主题的雕塑用作装饰。昨天测试了一下批量提交unique3d可以达到2分钟一次也就是每小时转换30个，这提供了非常必要的容错空间，可以在一天内大量试错，而且unique3d的上传无需pyautogui，这意味着可以同时开midjourney和unique3d自动批处理（已实测可行，unique3d那边我觉得改成4分钟1次上传差不多，另外登录状态多个电脑是共享的那边做好这边可以看结果，两次实测发生了中段大约都是上传10个左右时出现了问题，暂时不清楚原因，之后测试再看，win+G键可以启动windows自带的录屏功能，我不知道能否捕捉到selenium上传aiuni的故障。在第三轮测试中17个雕塑都做出来了，录屏1小时20分钟产生的视频占用了5gb硬盘，暂时未观察到故障）。</p>
+<p>aiuni的下载往往非即时，下载好了与2d原料图的对应关系会找不到，导入blender稍微有些麻烦，可以用<a target="_blank" rel="noopener" href="https://gltf-viewer.donmccurdy.com/">glTF Viewer</a>这个网页，拖入glb文件即可预览。</p>
+<p>2024-9-3更新：<br>写了一个批量把glb、gltf文件利用windows自带的3dviewer生成png预览图，代码放在下面。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/47cbc37d2f03b187fe78c3eb84a26227_MD5.jpg"></p>
+<span id="more"></span>
+
+<p>那么如何生成动物雕塑呢？我沿用了之前2次排列组合对建筑风格扩展的程序（2x排列组合），1个列表是动物名称，另一个是材质，构造的命令为/imagine + 动物名 + 材质 +sideview , black background, ultra detail, high res ,masterpiece 等等修饰词。对于动物而言正面视角会使得躯体部分的比例不对，侧面视角至少能保证躯体比例，ai往往会采取对称的法则使反面看起来也合理，如果不行么还可以手动对切镜像复制拼合。目前想到的动物有仙鹤crane、鹰eagle、火烈鸟flamingo、chinese dragon中国龙、kirin麒麟、horse马、chinese big fish锦鲤？whale鲸鱼、lion狮子、chinese phoenix中国凤凰、crocodile鳄鱼、rex霸王龙、tiger老虎、bull公牛，对于无法语言描述的异兽暂时不知道怎么搞大概可以先网上找几个发给midjourney倒推关键词，另外么可以用mystery creature from chinese anicent myth之类的修饰。用这套程序来生图，差不多2天就遍历完了，寻觅其他动物是一方面，另外就是要考虑为什么要这么做了。动物、人物雕塑用来装饰古建筑，在大航海时期葡萄牙建筑用贝壳、缆绳、锚等海洋相关的反应航海技术的物品作为建筑装饰，那么由此推理当代建筑应该也有相关的意向来做浮雕或者大型雕塑反应当今科技的发展，我暂时想不出来。以下是chatgpt对于这个疑惑的答复：</p>
+<p>你的推理非常有趣，将当代科技与建筑装饰相结合确实是一个很有创意的思路。考虑到当今科技的发展，以下是一些可能用于当代建筑装饰的意象，浮雕或大型雕塑：</p>
+<ol>
+<li><p><strong>数据流与二进制代码</strong>：可以设计出一些表现数据流或二进制代码的浮雕，这象征着信息技术和数字化世界。这种装饰可以以抽象的方式展现，例如在建筑的外墙上用连续的“0”和“1”构成图案，或者用光影效果模拟数据在光纤中传输的感觉。</p>
+</li>
+<li><p><strong>电路板与芯片</strong>：将电路板的复杂结构和微处理器芯片的图案作为装饰元素。这可以在建筑的玻璃幕墙、金属雕塑上表现，展现现代科技的核心——计算机硬件。</p>
+</li>
+<li><p><strong>DNA双螺旋</strong>：DNA是生命的基本构成元素，随着生物技术的进步，DNA的形象可以用来装饰建筑物，象征基因科技和医学的进步。</p>
+</li>
+<li><p><strong>卫星与太空技术</strong>：浮雕或雕塑中可以融入卫星、火箭、空间站等太空探索的元素，表现当代人类对宇宙的探索精神。</p>
+</li>
+<li><p><strong>网络与连接</strong>：互联网的网络结构和无数的连接节点可以用来作为装饰主题，象征全球化的联系与信息的无缝传递。这可以通过交织的线条或节点状的雕塑表现。</p>
+</li>
+<li><p><strong>风力涡轮机与太阳能电池板</strong>：可再生能源的发展是当今科技的重要领域，可以用风力涡轮机和太阳能电池板的形象来装饰建筑，象征环保与可持续发展。</p>
+</li>
+<li><p><strong>机器人与人工智能</strong>：机器人和AI已经渗透到生活的方方面面，用具象或抽象的机器人形象来装饰建筑，展示智能化的未来。</p>
+</li>
+<li><p><strong>纳米技术与分子结构</strong>：纳米技术可以通过微观的分子结构和原子排列作为设计元素，象征着科技在微观层面的突破。</p>
+</li>
+</ol>
+<p>这些意象不仅可以作为浮雕或雕塑的主题，还可以结合建筑的整体设计，使建筑物本身成为科技发展的象征。</p>
+<p>我进一步扩展领域可以让人工智能帮我构思更多的主题、意向，不过那些由于没有现实中的参考将会在生产中产生巨大的未知性，动物可以归纳为sideview，人物为front view，不定意向的物体尚不知需要多少种分类讨论限定视角或其他条件。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/86a585de01580da154f503763bb85fa2_MD5.jpg"></p>
+<p>无论是人物还是动物雕塑，我推测在面数限定的机制下，若做整个躯体则细节不够，那么若是把躯体和头部分离各做各的然后再合并起来呢？我想试试看这种思路，那么设计的思路应该为第一遍做好的雕塑，作为参考url参数，另一个参数是head portrait或者body statue without head，最终的命令示例：</p>
+<p>/imagine url ,+ head statue , sculpture made from wood , black background , ultra detail , high res , + –iw 1.3</p>
+<p>/imagine url ,+ body statue without head , sculpture made from wood , black background , ultra detail , high res , + –iw 1.3</p>
+<p>若是这样那么就是同种材质的可以批量一起做。</p>
+<p>2024-8-24更新：</p>
+<p>我测试了头身分离用mj去生图，效果不理想，根本没法生产只有躯体没头的图。于是我想既然unique3d带remove background功能么，我可以直接用ps随意切图，手工分离头身。实测这样分离头身再给unique3d转换模型，精度细节提升了许多。这样的话为了保持艺术造型的一致性其实也不用cc去做动态了，人物雕塑也用这套头身分离拼接法，若想细节增多，就多分割几段？不过考虑到unique3d的原理是基于图像识别的，分3段的话可能它已经无法识别物体了从而导致效果变差？</p>
+<p>头身分离么就需要拼接了，这意味着是时候把zbrush捡起来了。基于切分后的结果用zbrush微调进一步提升那就更好了，再看后续测试吧。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a52f13ed21652ebe34159264f18d2896_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/3ec28fbdadfce5a71c3aa0de1a8ae930_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/69db46bcef80383a3126edeeae072253_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/6db60b50ea5b5631f2d2a36339bfc30a_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/d89dc97f59f66280a99505b41decc818_MD5.jpg"></p>
+<p>三段式切分测试能让复杂衣物细节更上一层楼，但是拼接问题似乎是个大麻烦，我觉得这一块就不苛求了，二段切分足矣。而且确实出现了之前推测的由于切分半身导致ai识别出现问题从而对背面的塑造混乱。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a1e8cb0523c3f81907db2cc040ba6619_MD5.jpg"></p>
+<p>另一方面我一开始想分离了以后，图片的分辨率不行了，就拿sd的后期超分做优化。然而unique3d其实自带了超分辨率功能，实测下来基本没有区别（好像玉石中国古代服饰上的纹路肌理用sd超分会更明显感觉用不着那么苛求吧，到时候进ue实测再说。）。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/c68cfd9c5240c5aec96bc8eed233985a_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a85253aaf2430486fe296c1c7d62e7e5_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/61847541f2d0da889fdcc82a81ae5a54_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/9f32cd1bb03ca239209ab056b46d82d2_MD5.jpg"></p>
+<p>下面为几个拆分头身的转换效果，鸟类未展开羽翼的区别效果不大，感觉没必要拆分。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/6d3ae1547a2240331708771380e1ee92_MD5.jpg"></p>
+<p>人物解剖学雕塑肌肉的雕塑感可以的，对于专业的速雕要30分钟才能达到，我自己搞1个小时塑造效果还是很诡异。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/d78c8d520ac52e3b3254a1ca30b4b36f_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/7539b4dc945b55cfc963fe5412074b77_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/33ab70ec19378c106f390d9902a5f93e_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/3449be729b4b15fe175e842945adb304_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/f849ad49277836a73f5cc51a8978ea09_MD5.jpg"></p>
+<p>动物侧面作为参考图做的雕塑，这个龙不错。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/c7ebd34ff397282dac44f22c2bf3bf59_MD5.jpg"></p>
+<p>不规则角度动态的狮子，效果就不行了，不过好像也不尽然，另外狮子的头部涉及与身体拼接鬃毛是个棘手问题。麒麟这两组也是不规则角度，效果真是帅炸了，总的而言不规则角度动态是可以尝试的。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/282791877d45a028dec1859220788192_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/8eaef7861c5f99334387720a5ff4e3f5_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/969a4f71b8882ed1fb3bdecc1e950684_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/7bcc0bbd401831bdf1412e539cdbe9dd_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/2c2373e83cd036cb95318fc7b99ec240_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/914147f1e4c50176676623ca1c38fdeb_MD5.jpg"></p>
+<p>正面人物可以说是非常还原了。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/df84473af5bfb82aad1b7e9e2318e910_MD5.jpg"></p>
+<p>中国雕塑中的玉石、木雕都是有明显“手法”的，不少玉雕、木雕无法用铜雕、金雕来体现那种手法（下图1左边两个为木雕可以看出羽毛的那种锐利感觉，右边的金雕就没有）。在昨天的第一轮考察中我用了泥塑、象牙、陶瓷、玉、大理石、铜、金、木头这8种材质，目前看下来泥塑对动物雕塑好像效果不怎么样，难以在动物表面产生泥塑的肌理，unique3d基本把泥塑识别为了铜雕。</p>
+<p>2024-8-24更新：</p>
+<p>目前看来玉石、象牙、大理石、金、铜材质做出来比较“软”，只有木头的表现力比较硬朗，配合中国式雕塑手法，衣物、人物的棱角都比较硬挺，西方化雕塑着衣的一般偏软一些。铜我用的是copper，感觉可以用bronze替代再试试看。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/5c2727d46593fb4407aad224eccd7289_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a5250504e86922cdebc5ae75ffe70dc0_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/4f0f71dae02125f700db50830912e6a7_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/0987cddc99f2a5665186215efb951f7f_MD5.jpg"></p>
+<p>泥塑偶尔有这种硬质木头的感觉。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/1126ffbdf77a14ecfc754a1ca365dcbd_MD5.jpg"></p>
+<p>关于手法可以用url –iw 的方式用参考图中的特征引导，进一步来说可以循环嵌套url –iw来叠加多种手法？</p>
+<p>2024-8-26更新：</p>
+<p>今天用python程序实现了对glb、gltf格式的3d模型用3dviewer批量导出png预览图，之前下载aiuni的模型到本地glb无预览需要手动去找原料图复制文件名一一对应，十分耗时耗力影响状态，这个程序约10秒处理一个，50个模型也就10分钟不到。</p>
+<p>头身分离方面我对photoshop设置了ctrl+f3键为快速导出jpg格式图片，避免了需要点击文件菜单下拉另存为修改保存格式。</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a5bbc5e952a7feebd35103b33312552a_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/f351b06e55081abe7d6d6f3b6a8fadc2_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/fc80fc1b063f927dad697cf7f21a26cf_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/858cb1d738bfb0a5a7541edad130bd11_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/9f84c896dd0db7a94a9cdc5bbbd16008_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/02bc74f92fa488f1e1722c13b04d37ba_MD5.jpg"></p>
+<p>2024-9-3更新：</p>
+<p>继续分析一些雕塑</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/f59a13762e1099c35cfc0c8b15bc83db_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/641bff7b4fc79e3a9dae022c3d985b7f_MD5.jpg"></p>
+<p>鹿的头分离看起来可以对细节加强很多</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/cdd51e66ee7c6b2522fac5deae36c92f_MD5.jpg"></p>
+<p>猴子头身分离会使得身体本身变得不可识别，头部增加了一些细节</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/6ea64f3a45badedb3c92dadf4d73129e_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/67f6d493e134f30f2c5cd094c6660c70_MD5.jpg"></p>
+<p>玉石猿猴，效果一般般体现了圆润光滑</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/fe6c916546b965f0e35e47edb38f0a9f_MD5.jpg"></p>
+<p>石狮子完全侧面截图效果一般般</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/5a97b88788838a13d32ba56155a4c236_MD5.jpg"></p>
+<p>分离的身体不正常了</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/32db201e458c4140f9b815ba60ad23f4_MD5.jpg"></p>
+<p>分离的身体不正常了，这个45度分离也不理想</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/bd0e87881d6493b91e6d723fd02b5cb2_MD5.jpg"></p>
+<p>鸟类由于面部不是主要特征细节不多所以一体出来效果不错</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/895764ac561eabfc6b886f6c1879633f_MD5.jpg"></p>
+<p>人物整体雕塑几乎没有任何面部细节</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/d8d444b35f65dfcbfc95fde2972f58dd_MD5.jpg"></p>
+<p>人物雕塑几乎没有面部细节</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/eed56af79ee3aa7eaec230dc540fa057_MD5.jpg"></p>
+<p>头身分离，身体的表现不好头部细节加强，可以把头和完整版的融合加强面部</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/b090846b0cc82df0df8e5ee870960310_MD5.jpg"></p>
+<p>头身细节都加强了</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/5781061c856892c9f67a26f58b8515b2_MD5.jpg"></p>
+<p>非正面低头姿势的效果一般都很差，特别是身体部分</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/cc1b7ad451b65063479b72ef1b11fffd_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/0581118ba09fd2483177bad8b46fac25_MD5.jpg"></p>
+<p>可能还可以补救一下</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/f5cda05619bf0bc9aec0b13505765bd5_MD5.jpg"></p>
+<p>复杂坐姿分离一塌糊涂，但是完整的还看的过去</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/0a5711399dba0071f323078405697158_MD5.jpg"></p>
+<p>侧面较为延展的姿势头身分离效果还可以</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/a83604b3ab9407e8da17312088e4f15c_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/c224139d32a0e85b48fe7b53b177df43_MD5.jpg"></p>
+<p>这种有遮挡的估计不好弄</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/d934c780572da1dce2256adcd584797a_MD5.jpg"></p>
+<p>整体的表情完全没有表现出来</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/9f879ce15dd83fe1882a9b5ece3beb17_MD5.jpg"></p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/4c81d2716224cde884d4e37ce39b4305_MD5.jpg"></p>
+<p>这个头部没有我预想的效果号，分离的身体也不好</p>
+<p><img src="/2024/08/22/2024-8-22/2024-8-22/d721e8f24215e73ff825110651cae53e_MD5.jpg"></p>
+<figure class="highlight python hljs"><figcaption><span>批量生成glb模型的png预览图</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> pyautogui</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 你的 3D 查看器已经打开，我们跳过 subprocess.Popen 这部分</span></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">export_thumbnail</span>(<span class="hljs-params">glb_file</span>):</span><br><span class="line">    <span class="hljs-comment"># 使用 os.startfile 直接打开 .glb 文件</span></span><br><span class="line">    time.sleep(<span class="hljs-number">2</span>) </span><br><span class="line">    os.startfile(glb_file)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 等待文件在 3D 查看器中打开</span></span><br><span class="line">    time.sleep(<span class="hljs-number">3</span>)  <span class="hljs-comment"># 你可能需要根据文件大小调整此时间</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 模拟按键操作导出图像</span></span><br><span class="line">    pyautogui.hotkey(<span class="hljs-string">'ctrl'</span>, <span class="hljs-string">'e'</span>)  <span class="hljs-comment"># 打开文件菜单</span></span><br><span class="line">    pyautogui.scroll(<span class="hljs-number">3</span> * <span class="hljs-number">100</span>) </span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">print</span>(os.path.join(os.path.dirname(glb_folder),os.path.basename(glb_folder)))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 模拟保存对话框中的操作</span></span><br><span class="line">    pyautogui.press(<span class="hljs-string">'tab'</span>, presses=<span class="hljs-number">5</span>)</span><br><span class="line">    pyautogui.press(<span class="hljs-string">'enter'</span>)</span><br><span class="line">    <span class="hljs-comment"># pyautogui.click(2324, 1807)  # 使用相同文件名，但扩展名为 .png</span></span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    pyautogui.hotkey(<span class="hljs-string">'alt'</span>, <span class="hljs-string">'d'</span>) </span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    pyautogui.typewrite(os.path.join(os.path.dirname(glb_folder),os.path.basename(glb_folder)))</span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    pyautogui.press(<span class="hljs-string">'enter'</span>)  <span class="hljs-comment"># 确认保存</span></span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    pyautogui.press(<span class="hljs-string">'tab'</span>, presses=<span class="hljs-number">8</span>)</span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    pyautogui.press(<span class="hljs-string">'enter'</span>)</span><br><span class="line">    <span class="hljs-comment"># 等待文件保存完成</span></span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 关闭当前的 GLB 文件（如果需要的话）</span></span><br><span class="line">    pyautogui.hotkey(<span class="hljs-string">'alt'</span>, <span class="hljs-string">'f4'</span>)</span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">batch_export_thumbnails</span>(<span class="hljs-params">glb_folder</span>):</span><br><span class="line">    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> os.listdir(glb_folder):</span><br><span class="line">        <span class="hljs-keyword">if</span> filename.endswith(<span class="hljs-string">'.glb'</span>):</span><br><span class="line">            glb_file = os.path.join(glb_folder, filename)</span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Processing <span class="hljs-subst">{glb_file}</span>"</span>)</span><br><span class="line">            export_thumbnail(glb_file)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 指定 GLB 文件夹路径</span></span><br><span class="line">glb_folder = <span class="hljs-string">r"F:\midjourney_sculpture\dd"</span>  <span class="hljs-comment"># 替换为你的 GLB 文件夹路径</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 批量导出缩略图</span></span><br><span class="line">batch_export_thumbnails(glb_folder)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91/">#人物雕塑</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E5%8A%A8%E7%89%A9%E9%9B%95%E5%A1%91/">#动物雕塑</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/unique3d/">#unique3d</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2024/08/28/2024-8-28/">2024-8-28-suno自动批量制作音乐</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/08/20/2024-8-20/">2024-8-20-CharacterCreator快速生成人物雕塑动态</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

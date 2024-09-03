@@ -126,6 +126,92 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/30/2024-8-30/" itemprop="url">2024-8-30</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-30T07:39:35.000Z" itemprop="datePublished">8月 30 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1557 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>前几天midjourney的生产工具我自认为达到了一个不错的效率，大概3小时中断一次，然而月末时突然恶化为30分钟左右就断了。在好几次测试中断后，我觉得可能要换个平台了，另一方面我在想究竟是哪里出了问题导致频繁的中断呢，于是笔记本下载了一个captura同时买了另一个midjourney生产工具。另一个版本的工具有个优点是它是网页，它不会像先前那个版本莫名其妙强退，目前为止从没有强退过。在实战中发现这玩意儿能自动检测频次，5分钟内发起/imagine /blend基本会失败驳回，但这不会打断midjourney auto python，最后我在captura的录像中观察到问题出在了/blend /imagine命令输入后需要有一定时间等待sleep(10)左右，之前我是直接连着回车键有时候可能是网络原因来不及加载出命令，这会导致回车空砍从而还没出图片输入框就发动了点击图片输入框的动作请求（如下图，由于blend命令回车没起做用，图片输入框没出来接着去点击点到了临近的图片，再接着图片地址就跑到地址栏去了，后续全部崩塌），从而导致后面的逻辑全部崩塌。在修改这里的sleep等待后，目前验证10几小时都没出现过崩塌。</p>
+<p><img src="/2024/08/30/2024-8-30/2024-8-30/51ee3be992a1addfce455129d9223a5d_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/30/2024-8-30/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/08/28/2024-8-28/" itemprop="url">2024-8-28-suno自动批量制作音乐</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-28T07:28:30.000Z" itemprop="datePublished">8月 28 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            21 分钟 读完 (约 3195 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>去年年底试过suno自动作曲，我忘记了为什么当时没试用下去，可能那时还不支持歌词？前两天也不知道为啥想起来去摸这玩意儿，可能是在youtube听那些lofi集合实在是恶心，搞来搞去就那么点东西，自己的歌单也很有限。最近一直借用人工智能弄自动化，看到suno每天支持做5x2首歌（歌词相同版）于是我想挑战下用ai驱动开多账号来为自己生产歌单。当然这个想法不是纯粹想要苦行僧一样的挑战或是炫技，而是因为我大概用了一晚上在suno本身有600多积分的情况下，一次做歌是10积分，我一口气几乎都用完了，好像不是一晚而是1晚再加1天？总之在这个过程中，我生产了几首我觉得很不错的音乐，是那种我愿意反复循环的，我当时甚至是想付费来生产的。我的想法是如果每100首能产生2-3个好听的歌曲，那么买10000首就可以有200-300个了，这其实和midjourney暴力穷举筛选各种雕塑、景观、外立面设计一样就是设法用控制变量手法提高产出效率，当然前提是要量大管饱。</p>
+<p><img src="/2024/08/28/2024-8-28/2024-8-28/95cedd483b52f6de3769008c631a6e1b_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/28/2024-8-28/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/08/14/2024-8-9/" itemprop="url">2024-8-9-baidu文心一言批量提交图片解析</a>
         
     </h1>
@@ -288,95 +374,6 @@
 <p><img src="/2024/07/03/2024-7-2/2024-7-2/ac42f3f001679e6a72133b0961b1fd45_MD5.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/07/03/2024-7-2/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="url">2024-5-20-bakemaster烘焙udim贴图通道打包问题</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-05-20T12:03:08.000Z" itemprop="datePublished">5月 20 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            17 分钟 读完 (约 2574 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>制作诚宵宫开始碰到面数较高的几何体udim多项线烘培遮罩的问题，bakemaster目前无法channel packing udim贴图，后来我找了ue的channel pack插件诡异的是效果不对，而且要批量处理也是个问题。</p>
-<p><img src="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/v2-0f7061ca1a6d8ef16f1151a8c3ec8e87_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-3-18-SendToUE程序化建筑从blender到ue</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-29T09:07:01.000Z" itemprop="datePublished">4月 29 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            20 分钟 读完 (约 3015 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>制作SendToUE程序化建筑：</p>
-<p>1.设置batch export和SendToUE的参数，batch export勾选select obejct，SendToUE勾选build nanite 修改文件夹路径为建筑类别/建筑项目名/Meshes，勾选place in level、use mesh instances.在ue中创建这个文件夹，与Meshes平行的一级添加Textures和Materials文件夹，这便是SendToUE工作流的文件夹结构。若有su参考模型需要使用，先做清理工作，包含clean parent,clean object data关联关系，apply rotation scale，flip normal。</p>
-<p>2.创建好几个不同大小的bevel collection，比如外部的窗户、一些装饰已有bevel归为一个无需bevel的collection；墙体、cornice用默认的1cm bevel；金属栏杆是0.3cm左右的bevel。这个步骤可能一上来无法完全确认做完一层归类一次collection？</p>
-<p>3.建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。切分需要用ps或者微信截图切实画出来，以免后面思维混淆，尽管SendToUE工作流无需考虑房型之间的拼接，高度可以不用统一，但考虑到部件模块化复用，每一层通过duplicate master的array instance去向上叠加，因此还是需要有模块化的思维，尽量将各个部件模块化合并同类项。</p>
-<p><img src="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/v2-8041cef045ff763a7633f2c55d8c7103_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/29/2024-3-18-SendToUE%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
         </p>
     
     </div>

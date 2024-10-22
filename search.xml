@@ -13256,6 +13256,10 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <figure class="highlight python hljs"><figcaption><span>选取每个collection中的第一个物体</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> bpy</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取所有集合</span></span><br><span class="line">collections = bpy.data.collections</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 清除选择</span></span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.select_all(action=<span class="hljs-string">'DESELECT'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用于存储已经选择的物体，以避免重复选择</span></span><br><span class="line">selected_objects = <span class="hljs-built_in">set</span>()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 遍历每个集合</span></span><br><span class="line"><span class="hljs-keyword">for</span> collection <span class="hljs-keyword">in</span> collections:</span><br><span class="line">    <span class="hljs-comment"># 获取集合中的所有物体</span></span><br><span class="line">    objects_in_collection = collection.objects</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果集合中有物体，选择第一个物体并将其添加到已选择物体集合中</span></span><br><span class="line">    <span class="hljs-keyword">if</span> objects_in_collection:</span><br><span class="line">        first_object = objects_in_collection[<span class="hljs-number">0</span>]</span><br><span class="line">        <span class="hljs-keyword">if</span> first_object <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> selected_objects:</span><br><span class="line">            first_object.select_set(<span class="hljs-literal">True</span>)</span><br><span class="line">            selected_objects.add(first_object)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>测试都没问题！</p>
+<p>2024-10-21更新：</p>
+<figure class="highlight python hljs"><figcaption><span>选取每个collection中的第一个物体改版</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> bpy</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取所有集合</span></span><br><span class="line">collections = bpy.data.collections</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取当前的视图图层</span></span><br><span class="line">view_layer = bpy.context.view_layer</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 清除选择</span></span><br><span class="line"><span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> bpy.context.selected_objects:</span><br><span class="line">    obj.select_set(<span class="hljs-literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用于存储已经选择的物体，以避免重复选择</span></span><br><span class="line">selected_objects = <span class="hljs-built_in">set</span>()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 遍历每个集合</span></span><br><span class="line"><span class="hljs-keyword">for</span> collection <span class="hljs-keyword">in</span> collections:</span><br><span class="line">    <span class="hljs-comment"># 获取集合中的所有物体</span></span><br><span class="line">    objects_in_collection = collection.objects</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果集合中有物体，选择第一个物体并将其添加到已选择物体集合中</span></span><br><span class="line">    <span class="hljs-keyword">if</span> objects_in_collection:</span><br><span class="line">        first_object = objects_in_collection[<span class="hljs-number">0</span>]</span><br><span class="line">        <span class="hljs-keyword">if</span> first_object <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> selected_objects:</span><br><span class="line">            first_object.select_set(<span class="hljs-literal">True</span>)</span><br><span class="line">            selected_objects.add(first_object)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 更新视图图层以反映选择的更改</span></span><br><span class="line">view_layer.update()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
 <p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/v2-09680b924828056dd26fd7247f2ed657_1440w.jpg"></p>
 <p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/v2-ad3ae193e527f0b53ee42a7b9609d7bf_1440w.jpg"></p>
 <p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/v2-a8fe911f33d98383b1dab56d3db42c3b_1440w.jpg"></p>
@@ -21940,6 +21944,346 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>人工智能</tag>
         <tag>翻译</tag>
         <tag>每日吸引流量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-10-20-midjourney漫画带分镜描述简易版小镇喧嚣第11话</title>
+    <url>/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m1.jpg"></p>
+
+<div style="text-align:center">中国某小镇镇政府办公室，武仁杰镇长看着统计报表，眉头紧锁。</div>
+
+
+<br>
+
+<span id="more"></span>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m2.jpg"></p>
+
+<div style="text-align:center">武仁杰镇长说：“上半年，全镇财政收入进度位列全区第二，29 个村上缴财政任务 90 多万元，绝对数字理想，绝大多数村都完成了上半年应完成全年任务 30% 的指标，但是，大家也都知道这个指标是怎样得来的，那都是乡村干部垫出来的，如果不垫，就差得远，这样下去，对于经济基础差的村总归不是办法。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m3.jpg"></p>
+
+<div style="text-align:center">征收动员大会上，干部们纷纷点头。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m4.jpg"></p>
+
+<div style="text-align:center">陈志华书记无奈地说：“今年到目前为止，村里已经垫了两三万，这个税改改得村里更难了。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m5.jpg"></p>
+
+<div style="text-align:center">老罗也附和道：“账上还有二三十万，但这样垫下去也垫不了几年。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m6.jpg"></p>
+
+<div style="text-align:center">秦家畈村，毕华英在征收时遇到村民。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m7.jpg"></p>
+
+<div style="text-align:center">毕华英说：“上个月来你家，你说等过一段时间再来，这次又说没有，你总不是只凭卖谷子为生吧？”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m8.jpg"></p>
+
+<div style="text-align:center">那村民却回答：“我们家就是靠卖谷子，这谷子的质量也不好，我们还不吃，都是卖了谷子再买米吃。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m9.jpg"></p>
+
+<div style="text-align:center">秦家畈村，钱跃进在征收时遇到类似情况。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m10.jpg"></p>
+
+<div style="text-align:center">村民对钱跃进说：“我一分钱都不把，我的地早就给 ×× 了。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m11.jpg"></p>
+
+<div style="text-align:center">秦家畈村，马会计在整理账目。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m12.jpg"></p>
+
+<div style="text-align:center">马会计说：“有些村民明明有能力缴税，但就是故意拖延，这让我们的工作很难做。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m13.jpg"></p>
+
+<div style="text-align:center">秦家畈村，周达民作为民调主任很无奈。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m14.jpg"></p>
+
+<div style="text-align:center">周达民说：“村民们不配合，我们的工作很难开展。有时候，我们好话说尽，但他们就是不听。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m15.jpg"></p>
+
+<div style="text-align:center">秦家畈村，郭云霞在征收时很生气。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m16.jpg"></p>
+
+<div style="text-align:center">郭云霞说：“一些村民有钱打牌，却无钱缴税，这让我们很无奈。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m17.jpg"></p>
+
+<div style="text-align:center">镇财政所，严和平和刘丽面临压力。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m18.jpg"></p>
+
+<div style="text-align:center">严和平抱怨道：“现在上面不允许向农民强制收税，但税收从法律上讲本来就带有强制性，一旦不具有强制性就不好收了。现在的情况颠倒过来了，是我们向群众说好话，话说尽，口说干，路跑平，人搞生，狗搞熟，效果仍然不好。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m19.jpg"></p>
+
+<div style="text-align:center">刘丽也说：“我是老财政，快退休了，每月就 1000 多块钱收入，老婆原来是粮食部门的，早就下岗了，每月只有 120 元生活费。我有两个儿子，大儿子有工作，不要我管，小儿子还在读大学，我的经济很困难。没有办法，老婆只有在家里开牌场，星期六、星期天邀一些朋友来家里打牌，每人交 10 块钱，我们就给他们办伙食，这样一天下来能搞 50 元，如果一天有两桌人，就更多一些，一个月能够搞七八百元，如果不这样，就完全揭不开锅。农民难，我们也难啊！”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m20.jpg"></p>
+
+<div style="text-align:center">武仁杰镇长理解大家的困难。</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m21.jpg"></p>
+
+<div style="text-align:center">武仁杰镇长说：“既然吃了这碗饭，站在这个位置上，再难也要上。所以，第一，我们要进一步理解征收的意义。在农业税没有免征之前，征收说得大一点儿是国家利益的需要，说得小一点儿也是村级经济正常运转和确保干部利益的需要，收起来虽然不归村里，收不起来却要由你们垫。任务是一级压一级，区里找镇里，镇里找村里，村里找农户，农户不缴，村里就得兜。各级考核，也是考核镇、村两级，不会考核财政所。第二，征收也是保护农民利益、维护社会公正的需要。它可以从一个侧面看出干部办事是否公道，收了这户不收那户，对纳税的农户就是一种伤害，一种不公。第三，要进一步探索征收的办法。现在的纪律约束多了，但工作还照样要做。我提一点建议，以情感化。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/21/2024-10-20-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC11%E8%AF%9D/m22.jpg"></p>
+
+<div style="text-align:center">干部们听了武仁杰镇长的话，若有所思。</div>
+
+
+<br>
+
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>midjourney</tag>
+        <tag>ai人工智能作图</tag>
+        <tag>人工智能</tag>
+        <tag>漫画</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-10-21-midjourney漫画带分镜描述简易版小镇喧嚣第12话</title>
+    <url>/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m1.jpg"></p>
+
+<div style="text-align:center">中国某小镇范家坝村，黄豆田略显荒芜。</div>
+
+
+<br>
+
+<span id="more"></span>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m2.jpg"></p>
+
+<div style="text-align:center">皮德友副镇长找到范家坝村党支部书记范世玉和村委会主任。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m3.jpg"></p>
+
+<div style="text-align:center">皮德友说：“我们范家坝村的黄豆曾经很有名，但现在却面临着诸多问题。我们必须想办法重振豆乡的声誉。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m4.jpg"></p>
+
+<div style="text-align:center">范世玉点头表示赞同：“皮副镇长，您说得对。我们村的黄豆种植技术落后，产品质量也不高，市场销路也不畅。我们需要改进种植技术，提高产品质量，寻找市场销路。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m5.jpg"></p>
+
+<div style="text-align:center">村委会主任也表示支持：“我们会全力配合您的工作，带领村民们共同发展黄豆产业。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m6.jpg"></p>
+
+<div style="text-align:center">皮德友决定从改进种植技术入手，邀请农业专家来到范家坝村举办培训班。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m7.jpg"></p>
+
+<div style="text-align:center">培训班上，农业专家详细讲解黄豆种植要点，村民们认真听讲，积极提问。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m8.jpg"></p>
+
+<div style="text-align:center">大陈村五组，陈向辉和陈同年听说范家坝村举办黄豆种植培训班，赶来参加。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m9.jpg"></p>
+
+<div style="text-align:center">陈向辉说：“我们村也可以学习范家坝村的经验，发展黄豆产业。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m10.jpg"></p>
+
+<div style="text-align:center">陈同年也表示赞同：“是啊，我们要多学习，提高种植技术，增加收入。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m11.jpg"></p>
+
+<div style="text-align:center">皮德友鼓励村民们使用有机肥，减少农药使用，提高黄豆品质。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m12.jpg"></p>
+
+<div style="text-align:center">皮德友带领村干部们四处奔波，与各大经销商联系，推销黄豆。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m13.jpg"></p>
+
+<div style="text-align:center">一些经销商对范家坝村黄豆不太了解，不愿意合作。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m14.jpg"></p>
+
+<div style="text-align:center">皮德友和村干部们不断向经销商介绍黄豆优势。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m15.jpg"></p>
+
+<div style="text-align:center">大陈村，钱秉贵对范家坝村的发展非常关注。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m16.jpg"></p>
+
+<div style="text-align:center">钱秉贵说：“皮副镇长，你们的努力我们都看在眼里。我相信，只要坚持不懈，范家坝村的黄豆产业一定会重振辉煌。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m17.jpg"></p>
+
+<div style="text-align:center">皮德友感激地说：“钱书记，谢谢您的支持。我们会继续努力，不辜负大家的期望。”</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m18.jpg"></p>
+
+<div style="text-align:center">范家坝村面临资金短缺问题。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m19.jpg"></p>
+
+<div style="text-align:center">皮德友积极争取上级政府支持，鼓励村民自筹资金。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m20.jpg"></p>
+
+<div style="text-align:center">上级政府给予资金支持，村民们纷纷响应筹集资金。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m21.jpg"></p>
+
+<div style="text-align:center">有了资金支持，皮德友和村干部们改善农田基础设施，购买先进农业设备。</div>
+
+
+<br>
+
+<p><img src="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/m22.jpg"></p>
+
+<div style="text-align:center">范家坝村黄豆产业逐渐走上正轨，皮德友看着发展起来的产业，心中充满欣慰。</div>
+
+
+<br>
+
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>midjourney</tag>
+        <tag>ai人工智能作图</tag>
+        <tag>人工智能</tag>
+        <tag>漫画</tag>
       </tags>
   </entry>
 </search>

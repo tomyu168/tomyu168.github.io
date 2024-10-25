@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="第一个景观项目目前推进到了还差树木、花卉，我觉得这需要大量的图例来参考学习，找感觉。光靠文字解说局限性大，且见效慢。我想到的方法是在pinterest上找图丢给midjourney参考生产，一种是带url参考一种是describe获取关键词之后用关键词生产，后者的话自由度更高。我目前设计的程序是每次采用第一组–ar前的关键词去生产图，还没有结合图片url做参考，或许也可以考虑把第二个–ar和第一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图">
+<meta property="og:url" content="http://zhudian.xyz/2024/10/25/2024-10-25/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="第一个景观项目目前推进到了还差树木、花卉，我觉得这需要大量的图例来参考学习，找感觉。光靠文字解说局限性大，且见效慢。我想到的方法是在pinterest上找图丢给midjourney参考生产，一种是带url参考一种是describe获取关键词之后用关键词生产，后者的话自由度更高。我目前设计的程序是每次采用第一组–ar前的关键词去生产图，还没有结合图片url做参考，或许也可以考虑把第二个–ar和第一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/25/2024-10-25/2024-10-25/202c23782ca9e0524471498316be9ff8_MD5.png">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/25/2024-10-25/2024-10-25/9455646b38988d72f72ebbeed42aeba6_MD5.png">
+<meta property="article:published_time" content="2024-10-25T14:07:53.000Z">
+<meta property="article:modified_time" content="2024-10-25T14:33:29.617Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="midjourney">
+<meta property="article:tag" content="ai人工智能作图">
+<meta property="article:tag" content="景观">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/10/25/2024-10-25/2024-10-25/202c23782ca9e0524471498316be9ff8_MD5.png">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-10-25T14:07:53.000Z" itemprop="datePublished">10月 25 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            12 分钟 读完 (约 1864 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>第一个景观项目目前推进到了还差树木、花卉，我觉得这需要大量的图例来参考学习，找感觉。光靠文字解说局限性大，且见效慢。我想到的方法是在pinterest上找图丢给midjourney参考生产，一种是带url参考一种是describe获取关键词之后用关键词生产，后者的话自由度更高。我目前设计的程序是每次采用第一组–ar前的关键词去生产图，还没有结合图片url做参考，或许也可以考虑把第二个–ar和第一个–ar之间的内容分两次，那么一个链接理论上如果配套url可以生产3组。配套url我觉得关键词结合一次就好了，图片引导的作用会比较强。</p>
+<span id="more"></span>
+
+<p>做这几个程序时还是要多依靠chatgpt往xpath方向走，结合一些特殊属性，text()来定位元素。drissionpage本身只支持class和id，其他那些定位什么多属性复合就别去研究了都交给chatgpt出xpath。class属性其实很不稳，经常会有元素共用导致定位不准确。</p>
+<p>不用xpath定位我企图通过元素.ele()定位子元素失败了，反过来找父元素居然是通过层级1层1层试出来的，drissionpage貌似不能自己定位多重层级，这用tab.ele结合xpath根本就没这事儿。</p>
+<p>pinterest没有设定默认图板的功能，因此我开了一个账号，专门用来搞景观、建筑参考，不设置任何图板，那么保存只能在默认的“个人资料”里堆积，一次量到位后，我在这个链接下操作批量删除所有的pin图即可，pinterest同样没有批量删除pin图便捷全选的功能。这个程序折腾了我大半天，一方面是受困于xpath，一方面是第1轮循环后它总是报原来获取的元素不在页面内，没有大小尺寸什么的，然后程序中断退出，完全就是无解了。后来我想到的办法是重复执行这个程序，抛出异常不让它中断即可，最后也解决了，不过开始几次测试有问题，问题出在sleep的时长，pinterest的响应速度比较老年痴呆，加载页面很慢，这个也不算占用太久，那就每1轮删除多一些等待时间吧。</p>
+<p><img src="/2024/10/25/2024-10-25/2024-10-25/202c23782ca9e0524471498316be9ff8_MD5.png"></p>
+<p><img src="/2024/10/25/2024-10-25/2024-10-25/9455646b38988d72f72ebbeed42aeba6_MD5.png"></p>
+<figure class="highlight python hljs"><figcaption><span>pinterest批量url复制</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage <span class="hljs-keyword">import</span> ChromiumPage, ChromiumOptions</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> By</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> Keys</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">do1 = ChromiumOptions().set_paths(local_port=<span class="hljs-number">9111</span>, user_data_path=<span class="hljs-string">r'C:/Users/A/AppData/Local/Google/Chrome/User Data'</span>)</span><br><span class="line">p = ChromiumPage(addr_or_opts=do1)</span><br><span class="line">tab = p.new_tab() </span><br><span class="line">tab.get(<span class="hljs-string">'https://www.pinterest.com/tomyu2717/_pins/'</span>)</span><br><span class="line">time.sleep(<span class="hljs-number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 找到包含div class="vbI XiG"的元素</span></span><br><span class="line">container_div = tab.ele(<span class="hljs-string">'.:vbI'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 提取所有 div class="Yl- MIw Hb7" 下的 img 标签</span></span><br><span class="line">img_divs = container_div.eles(<span class="hljs-string">'.:XiG zI7 iyn Hsu'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 打开文件写入结果</span></span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'pinterest图片链接.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    <span class="hljs-keyword">for</span> img <span class="hljs-keyword">in</span> img_divs: </span><br><span class="line">        img = img.ele(<span class="hljs-string">'tag:img'</span>)</span><br><span class="line">        src_link = img.attr(<span class="hljs-string">'src'</span>)</span><br><span class="line">        <span class="hljs-comment"># 使用正则表达式匹配 https://i.pinimg.com/ 后第一个 / 之间的部分并替换为 originals</span></span><br><span class="line">        modified_link = re.sub(<span class="hljs-string">r'(https://i\.pinimg\.com/)[^/]+'</span>, <span class="hljs-string">r'originals'</span>, src_link)</span><br><span class="line">        modified_link = <span class="hljs-string">"https://i.pinimg.com/"</span> + modified_link </span><br><span class="line">        <span class="hljs-comment"># 写入txt文件</span></span><br><span class="line">        file.write(modified_link + <span class="hljs-string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">"图片链接已成功提取并保存到output.txt。"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+<figure class="highlight python hljs"><figcaption><span>将pinterest图片url批量提交给midjourney描述并通过文字生图</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage <span class="hljs-keyword">import</span> ChromiumPage, ChromiumOptions</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> By</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> Keys</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"></span><br><span class="line">input_text1 = <span class="hljs-string">"/des"</span></span><br><span class="line">input_text2 = <span class="hljs-string">"cribe"</span></span><br><span class="line"></span><br><span class="line">input_imagine1 = <span class="hljs-string">"/im"</span></span><br><span class="line">input_imagine2 = <span class="hljs-string">"agine"</span></span><br><span class="line"></span><br><span class="line">do1 = ChromiumOptions().set_paths(local_port=<span class="hljs-number">9111</span>, user_data_path=<span class="hljs-string">r'C:/Users/A/AppData/Local/Google/Chrome/User Data'</span>)</span><br><span class="line">p = ChromiumPage(addr_or_opts=do1)</span><br><span class="line">tab = p.new_tab()</span><br><span class="line">tab.get(<span class="hljs-string">'https://discord-d-com-s-mj3.aiwentu.net/channels/1296492298355478559/1297027207134445630'</span>)</span><br><span class="line">time.sleep(<span class="hljs-number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 读取待提交的文本文件</span></span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'pinterest图片链接.txt'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:</span><br><span class="line">    lines = file.readlines()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 最大重试次数</span></span><br><span class="line">max_retries = <span class="hljs-number">25</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 循环遍历每一行内容</span></span><br><span class="line"><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:</span><br><span class="line">    imageurl = line.strip()  <span class="hljs-comment"># 去除行末的换行符</span></span><br><span class="line">    <span class="hljs-keyword">if</span> imageurl:  <span class="hljs-comment"># 确保非空</span></span><br><span class="line">        retries = <span class="hljs-number">0</span></span><br><span class="line">        <span class="hljs-keyword">while</span> retries &lt; max_retries:</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                <span class="hljs-comment"># 找到并填写表单中的输入框（根据具体情况选择定位方式）</span></span><br><span class="line">                time.sleep(<span class="hljs-number">2</span>)</span><br><span class="line">                shurukuang = (By.XPATH, <span class="hljs-string">"//div[@contenteditable='true' and @data-slate-editor='true' and @data-slate-node='value']"</span>)</span><br><span class="line">                input1 = tab.ele(shurukuang)</span><br><span class="line">                input1.click()</span><br><span class="line">                input1.clear()</span><br><span class="line">                input1.<span class="hljs-built_in">input</span>(input_text1)  <span class="hljs-comment"># 输入字符串</span></span><br><span class="line">                time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                input1.<span class="hljs-built_in">input</span>(input_text2)</span><br><span class="line">                time.sleep(<span class="hljs-number">16</span>)</span><br><span class="line">                input1.<span class="hljs-built_in">input</span>(Keys.ENTER)  <span class="hljs-comment"># 提交</span></span><br><span class="line"></span><br><span class="line">                time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line">                menu1 = (By.XPATH, <span class="hljs-string">"//div[@class='base_bcc24e']//div[@class='text-md/normal_dc00ef autocompleteRowHeading_bcc24e' and text()='link']"</span>)</span><br><span class="line">                linkmenu = tab.ele(menu1)</span><br><span class="line">                linkmenu.click()</span><br><span class="line">                time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line"></span><br><span class="line">                shurukuang2 = (By.XPATH, <span class="hljs-string">"//span[@class='optionPillValue_d4df8b']"</span>)</span><br><span class="line">                input2 = tab.ele(shurukuang2)</span><br><span class="line">                time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                input2.click()</span><br><span class="line">                time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                input2.click()</span><br><span class="line"></span><br><span class="line">                input2.<span class="hljs-built_in">input</span>(imageurl)</span><br><span class="line">                time.sleep(<span class="hljs-number">3</span>)</span><br><span class="line">                input2.<span class="hljs-built_in">input</span>(Keys.ENTER)  <span class="hljs-comment"># 提交</span></span><br><span class="line">                time.sleep(<span class="hljs-number">8</span>)</span><br><span class="line">                tab.refresh()</span><br><span class="line">                time.sleep(<span class="hljs-number">8</span>)</span><br><span class="line"></span><br><span class="line">                <span class="hljs-keyword">try</span>:</span><br><span class="line">                    <span class="hljs-comment"># 找到所有的 grid_b0068a 元素</span></span><br><span class="line">                    <span class="hljs-keyword">for</span> original_link <span class="hljs-keyword">in</span> tab.eles(<span class="hljs-string">'@class=originalLink_d4597d'</span>):</span><br><span class="line">                        <span class="hljs-comment"># 检查 href 是否匹配</span></span><br><span class="line">                        <span class="hljs-keyword">if</span> original_link.attr(<span class="hljs-string">'href'</span>) == imageurl:</span><br><span class="line">                            description_div = original_link.parent(<span class="hljs-number">4</span>)</span><br><span class="line">                            embed_description_html = description_div.ele(<span class="hljs-string">'.:embedDescription_b0068a'</span>).html</span><br><span class="line">                            soup = BeautifulSoup(embed_description_html, <span class="hljs-string">'html.parser'</span>)</span><br><span class="line">                            description_parts = [span.get_text(strip=<span class="hljs-literal">True</span>) <span class="hljs-keyword">for</span> span <span class="hljs-keyword">in</span> soup.find_all(<span class="hljs-string">'span'</span>) <span class="hljs-keyword">if</span> span.get_text(strip=<span class="hljs-literal">True</span>)]</span><br><span class="line"></span><br><span class="line">                            <span class="hljs-comment"># 将所有部分连接起来，确保格式正确</span></span><br><span class="line">                            full_description = <span class="hljs-string">' '</span>.join(description_parts)</span><br><span class="line">                            full_description = re.sub(<span class="hljs-string">r'\s+-\s*'</span>, <span class="hljs-string">'-'</span>, full_description)</span><br><span class="line">                            ar_index = full_description.find(<span class="hljs-string">'--ar'</span>)</span><br><span class="line">                            <span class="hljs-keyword">if</span> ar_index != -<span class="hljs-number">1</span>:</span><br><span class="line">                                full_description = full_description[:ar_index].strip()</span><br><span class="line"></span><br><span class="line">                            <span class="hljs-built_in">print</span>(full_description)</span><br><span class="line">                            time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line">                            shurukuang = (By.XPATH, <span class="hljs-string">"//div[@contenteditable='true' and @data-slate-editor='true' and @data-slate-node='value']"</span>)</span><br><span class="line">                            input1 = tab.ele(shurukuang)</span><br><span class="line">                            input1.click()</span><br><span class="line">                            input1.clear()</span><br><span class="line">                            input1.<span class="hljs-built_in">input</span>(input_imagine1)  <span class="hljs-comment"># 输入字符串</span></span><br><span class="line">                            time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                            input1.<span class="hljs-built_in">input</span>(input_imagine2)</span><br><span class="line">                            time.sleep(<span class="hljs-number">8</span>)</span><br><span class="line">                            input1.<span class="hljs-built_in">input</span>(Keys.ENTER)  <span class="hljs-comment"># 提交</span></span><br><span class="line"></span><br><span class="line">                            shurukuang2 = (By.XPATH, <span class="hljs-string">"//span[@class='optionPillValue_d4df8b']"</span>)</span><br><span class="line">                            input2 = tab.ele(shurukuang2)</span><br><span class="line">                            time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                            input2.click()</span><br><span class="line">                            time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">                            input2.click()</span><br><span class="line">                            input2.<span class="hljs-built_in">input</span>(full_description)</span><br><span class="line">                            time.sleep(<span class="hljs-number">3</span>)</span><br><span class="line">                            input2.<span class="hljs-built_in">input</span>(Keys.ENTER)  <span class="hljs-comment"># 提交</span></span><br><span class="line">                            time.sleep(<span class="hljs-number">250</span>)</span><br><span class="line">                            tab.refresh()</span><br><span class="line">                            time.sleep(<span class="hljs-number">55</span>)</span><br><span class="line">                            <span class="hljs-keyword">break</span>  <span class="hljs-comment"># 如果找到了匹配的 href，可以跳出循环</span></span><br><span class="line"></span><br><span class="line">                <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">                    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"错误: <span class="hljs-subst">{e}</span>"</span>)</span><br><span class="line">                <span class="hljs-keyword">break</span>  <span class="hljs-comment"># 成功完成后跳出重试循环</span></span><br><span class="line">            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">                retries += <span class="hljs-number">1</span></span><br><span class="line">                <span class="hljs-built_in">print</span>(<span class="hljs-string">f"错误: <span class="hljs-subst">{e}</span>. 重试 (<span class="hljs-subst">{retries}</span>/<span class="hljs-subst">{max_retries}</span>)..."</span>)</span><br><span class="line">                time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 关闭浏览器</span></span><br><span class="line">tab.driver.quit()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight python hljs"><figcaption><span>批量将pinterest的pin图删除</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage <span class="hljs-keyword">import</span> ChromiumPage, ChromiumOptions</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> By</span><br><span class="line"><span class="hljs-keyword">from</span> DrissionPage.common <span class="hljs-keyword">import</span> Keys</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">do1 = ChromiumOptions().set_paths(local_port=<span class="hljs-number">9111</span>, user_data_path=<span class="hljs-string">r'C:/Users/A/AppData/Local/Google/Chrome/User Data'</span>)</span><br><span class="line">tab = ChromiumPage(addr_or_opts=do1)</span><br><span class="line">tab.get(<span class="hljs-string">'https://www.pinterest.com/tomyu2717/_pins/'</span>)</span><br><span class="line">time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line"><span class="hljs-comment"># 找到包含div class="vbI XiG"的元素</span></span><br><span class="line">    container_div = tab.ele(<span class="hljs-string">'.:vbI'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 提取所有 div class="Yl- MIw Hb7" 下的 img 标签</span></span><br><span class="line">    items = container_div.eles(<span class="hljs-string">'.:Yl- MIw Hb7'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> items:</span><br><span class="line">        <span class="hljs-built_in">print</span>(<span class="hljs-string">"没有找到要删除的元素，程序结束。"</span>)</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 遍历所有找到的元素</span></span><br><span class="line">    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> items:</span><br><span class="line">        <span class="hljs-keyword">try</span>:</span><br><span class="line">            tab.actions.move_to(item)</span><br><span class="line">            time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">            item.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">12</span>)</span><br><span class="line">            button1 = (By.XPATH, <span class="hljs-string">'//button[@aria-label="更多选项"]'</span>)</span><br><span class="line">            more_button = tab.ele(button1)</span><br><span class="line">            more_button.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">6</span>)</span><br><span class="line">            button2 = (By.XPATH, <span class="hljs-string">"//span[contains(@class, 'X8m') and text()='编辑 Pin 图']"</span>)</span><br><span class="line">            edit_button = tab.ele(button2)</span><br><span class="line">            edit_button.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">6</span>)</span><br><span class="line">            tanchuang1 = tab.ele(<span class="hljs-string">'.:ZHw XiG XbT _O1 ho- rDA jar CCY'</span>)</span><br><span class="line">            button3 = (By.XPATH, <span class="hljs-string">"//div[contains(@class, 'RCK') and .//div[text()='删除']]"</span>)</span><br><span class="line">            confirm_button1 = tanchuang1.ele(button3)</span><br><span class="line">            tab.actions.move_to(confirm_button1)</span><br><span class="line">            confirm_button1.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">2</span>)</span><br><span class="line">            tanchuang2 = tab.ele(<span class="hljs-string">'.:ZHw XiG XbT _O1 ho- rDA jar CCY'</span>)</span><br><span class="line">            confirm_button2 = tanchuang2.ele(<span class="hljs-string">'.:B1n tg7 tBJ dyH iFc sAJ H2s'</span>)</span><br><span class="line">            tab.actions.move_to(confirm_button2)</span><br><span class="line">            confirm_button2.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">6</span>)</span><br><span class="line">            pinmenu = (By.XPATH, <span class="hljs-string">"//div[contains(@class, 'DUt') and contains(@class, 'XiG')]//div[contains(@class, 'X8m') and text()='Pin 图']"</span>)</span><br><span class="line">            pinmenu_button = tab.ele(pinmenu)</span><br><span class="line">            pinmenu_button.click()</span><br><span class="line">            time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line">            tab.refresh()</span><br><span class="line">            time.sleep(<span class="hljs-number">5</span>)</span><br><span class="line">        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"错误: <span class="hljs-subst">{e}</span>"</span>)</span><br><span class="line">            <span class="hljs-comment"># 继续下一个元素</span></span><br><span class="line">            <span class="hljs-keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-built_in">print</span>(<span class="hljs-string">"一次批量删除已完成。"</span>)</span><br><span class="line">        time.sleep(<span class="hljs-number">1</span>)  <span class="hljs-comment"># 每次执行完后等待5秒</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">"批量删除已完成。"</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/midjourney/">#midjourney</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E5%9B%BE/">#ai人工智能作图</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/python/">#python</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/10/22/2024-10-21-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC12%E8%AF%9D/">2024-10-21-midjourney漫画带分镜描述简易版小镇喧嚣第12话</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 John Doe&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

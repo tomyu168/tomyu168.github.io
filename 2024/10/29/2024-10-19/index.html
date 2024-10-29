@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>2024-10-19-第1个景观实战练习 - 记录伟大征程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="继续积累一些关于景观的手法和常识，目前这一块我还没有研究怎样驱动人工智能去批量生产参考。 边缘用offset分割，这可以提取项目中现成的地块，用select manifold可以选中不规则布线的边缘然后提取曲线再用curve offset成型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-10-19-第1个景观实战练习">
+<meta property="og:url" content="http://zhudian.xyz/2024/10/29/2024-10-19/index.html">
+<meta property="og:site_name" content="记录伟大征程">
+<meta property="og:description" content="继续积累一些关于景观的手法和常识，目前这一块我还没有研究怎样驱动人工智能去批量生产参考。 边缘用offset分割，这可以提取项目中现成的地块，用select manifold可以选中不规则布线的边缘然后提取曲线再用curve offset成型。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/76c34ce59a5cd812cf2c786a4347ab8c_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/ba4a18fcf61d8441e3a909f4796a5c62_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/2399f7229572af314a20f0fdffe26ea8_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/bd071965280e1bab26903daa6b62cdeb_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/b2731936c20442d6217d6b28d5ff318f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/18b16e64a3cd9fe21d8b6de31e981daf_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/4038177c0c5bc1a30a9e1d2d2d43ff7b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/46d215f75198320f1ee4655d9d5ae256_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/d88940a783b77bdedcccddcc6d9a710f_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/9e71e225fe5e30fdf4d3da6dff2fe57b_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/e21b43761ac7e5a59608efcc86c44b69_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/83151a0cebc0c1d5a20804727943d7bc_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/3096c02f30cfb9098e40e75b5a37fd97_MD5.jpg">
+<meta property="og:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/30fa2f377e9fc0d5ccc8a537e38dd519_MD5.jpg">
+<meta property="article:published_time" content="2024-10-29T08:58:29.000Z">
+<meta property="article:modified_time" content="2024-10-29T09:33:01.084Z">
+<meta property="article:author" content="于洋">
+<meta property="article:tag" content="景观">
+<meta property="article:tag" content="BakeMaster">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhudian.xyz/2024/10/29/2024-10-19/2024-10-19/76c34ce59a5cd812cf2c786a4347ab8c_MD5.jpg">
+
+
+
+
+
+<link rel="icon" href="/favicon.ico">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/long3.jpg" alt="" height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA">建筑理论</a>
+            
+            <a class="navbar-item "
+               href="/categories/CG%E6%8A%80%E6%9C%AF">CG技术</a>
+            
+            <a class="navbar-item "
+               href="/categories/%E6%97%A5%E8%AE%B0">日记</a>
+            
+            <a class="navbar-item "
+               href="/about">我的目标</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            2024-10-19-第1个景观实战练习
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-10-29T08:58:29.000Z" itemprop="datePublished">10月 29 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1159 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>继续积累一些关于景观的手法和常识，目前这一块我还没有研究怎样驱动人工智能去批量生产参考。</p>
+<p>边缘用offset分割，这可以提取项目中现成的地块，用select manifold可以选中不规则布线的边缘然后提取曲线再用curve offset成型。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/76c34ce59a5cd812cf2c786a4347ab8c_MD5.jpg"></p>
+<span id="more"></span>
+
+<p>扶手若是自己画么，利用sweep profile画线之后在sweep profile里微调位置。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/ba4a18fcf61d8441e3a909f4796a5c62_MD5.jpg"></p>
+<p>spline patch四边封面，可以拆几组合并，注意布线形成bridge loop，成mesh之后cloth可以生产有圆润起伏的草坪，用于坡面。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/2399f7229572af314a20f0fdffe26ea8_MD5.jpg"></p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/bd071965280e1bab26903daa6b62cdeb_MD5.jpg"></p>
+<p>我用sverchok试了一下超长坡面效果不太好，能不用尽量不用sverchok吧，话说插件在d盘blenderplugin下需要blender2.8打开，像折现平行基本等宽的情况可以用edgeloop前移再bevel相当于profile的点bevel，不过sverchok可以控制多段profile实现不同区域变化的弧度，但是实际操作中这个弧度很诡异。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/b2731936c20442d6217d6b28d5ff318f_MD5.jpg"></p>
+<p>地面、草坪、道路都用road相关材质，不需要做烘焙，起名的时候与需要烘焙的物体区分开。对于需要烘培的物体在outline搜前缀，a键可以全选，shift h单独显示下用python script可以保证单选collection中的第一个，data name from object name之后添加到bakemaster.</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/18b16e64a3cd9fe21d8b6de31e981daf_MD5.jpg"></p>
+<p>草坪可以通过调整slope来使陡坡也能被草覆盖，目前不清楚有些地方始终有缺失的原因。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/4038177c0c5bc1a30a9e1d2d2d43ff7b_MD5.jpg"></p>
+<p>道路部分我是手绘地块曲线然后整体布尔切出来的，frg的问题在于其转角还是太过生硬了不好控制。然后用curve offset做出人行道，曲线复制一份用于做外圈批量curb，外圈曲线合并保证与curb的pivot一致，添加好array、curve modifier后运行python script即可，若是不成功把它们复制到一个新的blender工程好像可以解决然后再复制回原工程即可。road需要的材质添加到road文件夹从road里复制材质到这里做uv scale变化。道路部分整体选择act插件 clear uvmap删除uv再f3键auto uv可以整体添加uv展开保证texel density一致，这样调整材质的uvscale会比较容易些。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/46d215f75198320f1ee4655d9d5ae256_MD5.jpg"></p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/d88940a783b77bdedcccddcc6d9a710f_MD5.jpg"></p>
+<p>经常需要添加几何节点，我今天给添加几何节点赋予了快捷键f，这样不用每次去菜单点击3下了，绘制道路时经常要用到curve offset，cornice要用到sweep，一些物体加厚度solidify等等可以避免反复生产重复节点了。array也很常用，不过可以用link modifier对样例来获取array modifier。</p>
+<p>目前景观部分还没有细化水景、花卉等，我想等参考图多一点以后再搞。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/9e71e225fe5e30fdf4d3da6dff2fe57b_MD5.jpg"></p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/e21b43761ac7e5a59608efcc86c44b69_MD5.jpg"></p>
+<p>这个折线形的楼梯一开始废了我一些功夫，想着怎样旋转面挤出再调整。今天想了下用curve deform对多分段的直线楼梯形成了弯折apply之后用array调整一下上下左右即可。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/83151a0cebc0c1d5a20804727943d7bc_MD5.jpg"></p>
+<p>边缘石板还不太真实，材质需要进一步探索。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/3096c02f30cfb9098e40e75b5a37fd97_MD5.jpg"></p>
+<p>旋转楼梯制作时需要用人体作为参考避免楼梯无法使用，在<a href="https://zhudian.xyz/2024/10/08/2024-7-28/">第一个学校项目</a>中我提到过阶梯长度和螺旋圈数的关系。之后的制作中要注意。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/30fa2f377e9fc0d5ccc8a537e38dd519_MD5.jpg"></p>
+<p>对于栏杆一开始肯定是单个的然后组合打包一起，不然导入ue会很耗时，然而其烘培我觉得应该选取单个烘培整体共用，这个可以测试下，不然的话像现在这样显然uv单元格不够用，烘焙效果很差，curvature的磨损体现不出来。</p>
+</body></html>
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/%E6%99%AF%E8%A7%82/">#景观</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/BakeMaster/">#BakeMaster</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2024/10/25/2024-10-25/">2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+
+<style>
+.v[data-class="v"] .veditor {
+    max-height: 17em;
+    overflow-y: scroll;
+}
+
+/* 去除查看更多 */
+.v[data-class="v"] .vcards .vcard .vcontent.expand {
+    max-height: none;
+}
+
+.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+    display: none;
+}
+
+</style>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
+
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'iPPfF8Jwk6zoVuC8yAJLVdLT-gzGzoHsz',
+        appKey: 'D78M0CStPxwTiqW2ql4mmhrA',
+        notify: false,
+        verify: false,
+        avatar: 'mp',
+        placeholder: '想到什么说什么',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-CN'
+    })
+
+var count = 0;
+var dom_timer = setInterval(function () {
+	if (++count > 50) clearInterval(dom_timer);
+	if (document.querySelector('#veditor')) {
+		var cdraw = new CaveDraw({
+			element: "#veditor",
+			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
+			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
+				document.querySelector('#veditor').focus();
+				document.querySelector('#veditor').blur();
+			},
+			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
+		});
+		clearInterval(dom_timer);
+	}
+}, 200);
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2024 于洋&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>

@@ -3,6 +3,165 @@
      box-sizing: border-box;
 }
 
+
+
+:root {
+    --color-links: #1e90ff; /* 设置链接颜色为蓝色 */
+}
+
+.allow-selection {
+     user-select: text;
+}
+
+.Message {
+     display: flex;
+     align-items: flex-end;
+     margin-bottom: 0.375rem;
+     position: relative;
+     --background-color: var(--color-background);
+     --hover-color: var(--color-reply-hover);
+     --color-reaction: var(--color-message-reaction);
+     --hover-color-reaction: var(--color-message-reaction-hover);
+     --text-color-reaction: var(--accent-color);
+     --color-reaction-chosen: var(--accent-color);
+     --text-color-reaction-chosen: #FFFFFF;
+     --hover-color-reaction-chosen: var(--color-message-reaction-chosen-hover);
+     --active-color: var(--color-reply-active);
+     --max-width: 29rem;
+     --accent-color: var(--color-primary);
+     --accent-shade-color: var(--color-primary-shade);
+     --secondary-color: var(--color-text-secondary);
+     --color-voice-transcribe: var(--color-voice-transcribe-button);
+     --thumbs-background: var(--color-background);
+     --deleting-translate-x: -50%;
+     --select-message-scale: 0.9;
+     --border-top-left-radius: var(--border-radius-messages);
+     --border-top-right-radius: var(--border-radius-messages);
+     --border-bottom-left-radius: var(--border-radius-messages);
+     --border-bottom-right-radius: var(--border-radius-messages);
+}
+
+.Message.last-in-group {
+     margin-bottom: 0.625rem;
+}
+
+.Message:not(.own) {
+    padding-left: 0; /* 或者根据需要调整这个值 */
+    margin: 0 auto; /* 确保消息框水平居中 */
+    width: fit-content; /* 或者设置为特定的宽度 */
+}
+
+.no-avatars .Message:not(.own) {
+     padding-left: 0px;
+}
+
+.Message:not(.own).last-in-group {
+     --border-bottom-left-radius: var(--border-radius-messages-small);
+}
+
+.MessageList .Message {
+     position: relative;
+     opacity: 1;
+     transform: scale(1);
+     transition: opacity 0.2s, transform 0.2s;
+}
+
+.MessageList .Message.open.shown {
+     transform: none;
+}
+
+.Message:hover .custom-shape .CommentButton {
+     opacity: 1;
+}
+
+.Message:not(.own) .custom-shape .with-subheader + .MessageMeta {
+     bottom: 0.25rem;
+}
+
+.Message:not(.own) .Poll .poll-quiz-help {
+     color: var(--color-primary);
+}
+
+.Message:not(.own) .message-content .svg-appendix {
+     left: -0.562rem;
+}
+
+.Message:not(.own) .message-content.custom-shape {
+     --hover-color: var(--color-reply-hover);
+     --active-color: var(--color-reply-active);
+}
+
+.Message:not(.own).last-in-group .message-content.has-appendix {
+     --border-bottom-left-radius: 0;
+}
+
+.Message:hover .message-action-buttons {
+     opacity: 1;
+}
+
+.Message:not(.own) .message-action-buttons {
+     right: -3rem;
+}
+
+.MessageList .Message:not(.open) {
+     transform: scale(0.8);
+     opacity: 0;
+}
+
+.MessageList .Message::before {
+     content: "";
+     position: absolute;
+     inset: -0.1875rem -50vw;
+     background: rgb(0, 0, 0);
+     z-index: 0;
+     opacity: 0;
+     transition: opacity var(--select-transition);
+}
+
+html.theme-light .MessageList.with-default-bg .Message::before {
+     background: var(--pattern-color);
+}
+
+.Message .bottom-marker {
+     height: 1px;
+     width: 1px;
+     visibility: hidden;
+}
+
+.Message .message-select-control {
+     position: absolute;
+     left: 0px;
+     bottom: 0.25rem;
+     width: 1.5rem;
+     height: 1.5rem;
+     border: 2px solid rgb(255, 255, 255);
+     border-radius: 50%;
+     z-index: var(--z-message-select-control);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: rgb(255, 255, 255);
+     font-size: 1rem;
+     opacity: 0;
+     pointer-events: none;
+     transition: opacity var(--select-transition);
+}
+
+ .Message > .message-content-wrapper {
+     opacity: 1;
+     transform: scale(1) translateX(0px);
+     transition: transform var(--select-transition);
+}
+
+.message-content-wrapper {
+    background-color: #f5f5f5; /* 背景颜色，通常是灰色或白色 */
+    border: 1px solid #e0e0e0; /* 边框颜色 */
+    border-radius: 15px; /* 圆角半径，调节这个值可以改变圆弧程度 */
+    padding: 10px; /* 内边距，确保文本不会贴边 */
+    margin: 10px; /* 外边距，用于分隔其他元素 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果，增加立体感 */
+}
+
 .peer-color-3 {
      --accent-color: var(--color-peer-3, var(--color-text));
      --bar-gradient: var(--color-peer-gradient-3);
@@ -25,10 +184,6 @@
 
 .message-content.has-solid-background {
      background: var(--background-color);
-}
-
-.Message:not(.own).last-in-group .message-content.has-appendix {
-     --border-bottom-left-radius: 0;
 }
 
 .MessageList.no-avatars .message-content {
@@ -287,12 +442,14 @@ a:hover {
 .MessageMeta .icon-channelviews {
      margin-left: 0.125rem;
      margin-right: 0.375rem;
-     font-size: 1.125rem;
+     font-size: 0.68rem;
 }
 
-.icon-channelviews::before {
-     content: "";
-}
+.icon-channelviews {
+            color: #999; /* 设置图标颜色 */
+
+        }
+
 
 .MessageMeta .message-time {
      font-size: 0.75rem;
@@ -308,10 +465,6 @@ a:hover {
      flex-direction: column;
      opacity: 0;
      transition: opacity 150ms;
-}
-
-.Message:not(.own) .message-action-buttons {
-     right: -3rem;
 }
 
 .Button {
@@ -409,10 +562,6 @@ svg:not(:root) {
      font-size: 1rem !important;
 }
 
-.Message:not(.own) .message-content .svg-appendix {
-     left: -0.562rem;
-}
-
 .message-content .svg-appendix .corner {
      fill: var(--background-color);
 }
@@ -441,3 +590,15 @@ svg:not(:root) {
      width: 1rem;
      display: block;
 }
+
+.Reactions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: .375rem;
+    margin-top: 1.675rem;
+    overflow: visible;
+    max-width: calc(var(--max-width) + 2.25rem);
+}
+

@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/" itemprop="url">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-10T15:07:58.000Z" itemprop="datePublished">4月 10 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            14 分钟 读完 (约 2103 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>在完成模型制作后，对部件选中批量命名，然后data name from object使网格体名称能够规范化。在SendToUE的工作流中，网格体的名称是static mesh名称，物体名称是场景中的actor名称。对于同一网格体的部件会有多个instance对象，理想中的状况是选中其中一个instance对象烘焙而不需要所有的instance都拿去烘焙，我搜了很久并没有找到对若干包含多组instance的物体选中其中单个instance的办法。后来我想了个思路，既然有插件可以对instance操控必然是可以获取instance的，那么按照网格体分类获取其data name然后移动到各自的collection里面，再从collection着手选取其中一个对象，那么就能实现我的想法了。然而我对python几乎没什么印象了，更别说还要去啃blender python的api文档。抱着死马当活马医的态度，我试了下用kimi人工智能和chatgpt，居然在一番循序渐进的诱导下成功做出了这两段代码。</p>
+<p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/1.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/" itemprop="url">2024-3-28-SendToUE中凯城市之光</a>
         
     </h1>

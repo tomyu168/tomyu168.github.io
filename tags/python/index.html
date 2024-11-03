@@ -126,6 +126,54 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/11/03/2024-10-27/" itemprop="url">2024-10-27-telegram自动批量译文追加在原文下方以及appleid注册验证码自动识别</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-11-03T08:39:24.000Z" itemprop="datePublished">11月 3 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            37 分钟 读完 (约 5554 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>telegram有插件月费40可以实时翻译任何语言，我粗看了下大概是发送到火山翻译然后把译文用js附加html元素显示在原文下，目前一天下来总会花不少时间刷知乎、rt今日俄罗斯看看有没有什么刺激的新闻，消息有限是一方面另外长期如此也容易信息茧房，于是想在telegram看看有什么关注度大的频道利用chatgpt来逆向这个telegram的翻译插件。这个程序用到了beautiful soup格式化html提取文本，分段发送给火山翻译。需要注意的有几点：</p>
+<p>1.translate_tab = tab.get_tab(url=’<a target="_blank" rel="noopener" href="http://volcengine.com/">volcengine.com</a>‘) 用get_tab可以获取当前已有的标签页，我一开始是打开telegram再跳转到火山翻译，反复横跳。这样会造成每次跳转需要设置页面加载等待时间，另外火山翻译每次打开默认是翻译为英文，如果页面始终保持打开不刷新的话，可以设置好中文，这样不用反复切换翻译语言，那样也会耗时。</p>
+<p>2.有时会莫名其妙翻译语言切换为英文，这里检测翻译语言，若因为不明原因发生变动则使其切换为中文。</p>
+<p>3.过滤掉一些出现文本的html元素以及某些文本，比如点赞数的数字，日期，http www链接等等，@用户名，这些都会浪费时间没有翻译的意义。</p>
+<p>4.一开始翻译遇到了译文顺序问题，多段译文会倒叙排列，因为后翻译的会去紧贴原文的div，我想了下不如把同一个div中的原文合并提交，这样还可以节约提交次数省事且解决了顺序问题，因为同一个div下的原文会合并一次性翻译出来。这样做还能避免重复出现过的内容检测第1个div从而使译文错位的问题。</p>
+<p>5.译文因为重复出现过的内容检测第1个div从而使译文错位的问题，可以通过添加属性给属性值translated作为标记从而跳过，这个手法或许在4的使用下变得没有用武之地，不过其他项目可以参考。</p>
+<p><img src="/2024-10-27/1da5e011ff95df40955d66fe46794920_MD5jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/11/03/2024-10-27/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/10/25/2024-10-25/" itemprop="url">2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图</a>
         
     </h1>
@@ -327,51 +375,6 @@
 <p><img src="/2024/07/26/2024-7-26/2024-7-26/e909a68f1b28380407fa1da76854213a_MD5.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/07/26/2024-7-26/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/07/19/2024-7-19/" itemprop="url">2024-7-19-kimi人工智能批量自动解析书籍章节内容</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-07-19T02:41:02.000Z" itemprop="datePublished">7月 19 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分钟 读完 (约 1369 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>最近发现家里附近2公里左右江宁路有个茑屋书店氛围不错去看了几次书，正当我对书店里的书做了一番准备想后期陆陆续续看时，我偶然间尝试用kimi概括整理电子书，发现它的概括整理还不错，花了一天时间手动复制章节给它概括。</p>
-<p>chatgpt似乎不支持长文概括，或者说免费版的不支持，暂时还没找到可以免费用chatgpt4的办法。通义千问和kimi我测试后发现它虽然可以支持10几万字的长文本，但是长文本下要求概括章节则会发生假装概括的样子，比如让它概括第1章它会夹带其他章节的内容，为了使它的概括更为精确需要切分章节内容。手动搞，再一个个复制的话，一本40万字的书大约需要大半天完成。于是我想到自动切分章节，再用浏览器自动交互程序批量上传章节让kimi分析。</p>
-<p>章节切分的逻辑是搜索第x章+“ ”（空格）到第x+1章+“ ”（空格），因为书中可能包含提及“第x章”的字符串因此首先要手动处理下每一章标题使其符合格式。通过这个程序能批量完成多本书的章节切分。</p>
-<p><img src="/2024/07/19/2024-7-19/2024-7-19/8f1c866a4f7d566e758b4659db73c78e_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/07/19/2024-7-19/#more">阅读更多</a>
         </p>
     
     </div>

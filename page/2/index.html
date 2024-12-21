@@ -119,6 +119,138 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/11/03/2024-10-8/" itemprop="url">2024-10-8-SendToUE第2个医院</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-11-03T02:29:53.000Z" itemprop="datePublished">11月 3 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 读完 (约 770 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>导入ue前务必检查各种modifier比如array、solidify、mirror都已经应用了。</p>
+<p>不知道为啥bakemaster没autounwrap，所有的wall都没uv，全部重来一遍，吸取教训下次bakemaster之前必然保存一份dataname分类collection的blender版本。</p>
+<p>当物体超过1000个时，若data name为大于1000的数值会导致导出到ue的packedA Texture出问题，物体超标的很大原因是房型多，那么房型命名变一下前缀即可解决。</p>
+<p>这套搞了大概一个多星期，很大的问题在于缺少参考，自己思考折腾了很久，说明还是需要midjourney这边提供更多的参考池。笔记本的auto midjourney这回一次性开了近3天搞了490轮，挑了大概100个图，精简下可能也就20个吧。</p>
+<p><img src="/2024/11/03/2024-10-8/2024-10-8/e5026906a1180eee9a7ed97d5656bf51_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/11/03/2024-10-8/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/11/03/2024-11-3-%E6%97%A9%E6%9C%9F%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AAblender%E5%8E%BB%E9%99%A4%E9%87%8D%E5%8F%A0%E7%89%A9%E4%BD%93%E7%9A%84python%E4%BB%A3%E7%A0%81/" itemprop="url">2024-11-3-早期用到的一个blender去除重叠物体的python代码</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-11-03T02:04:36.000Z" itemprop="datePublished">11月 3 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 639 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><figure class="highlight python hljs"><figcaption><span>检测场景中的重叠对象并随机删除每对重叠对象中的一个</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> bpy</span><br><span class="line"><span class="hljs-keyword">import</span> mathutils</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 获取所有对象</span></span><br><span class="line">objects = <span class="hljs-built_in">list</span>(bpy.context.scene.objects)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 清除当前选择</span></span><br><span class="line">bpy.ops.<span class="hljs-built_in">object</span>.select_all(action=<span class="hljs-string">'DESELECT'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 存储已经删除的对象，以避免重复删除</span></span><br><span class="line">deleted_objects = <span class="hljs-built_in">set</span>()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检测重叠对象并记录重叠对</span></span><br><span class="line">overlap_pairs = []</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> i, obj <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(objects):</span><br><span class="line">    <span class="hljs-keyword">if</span> obj.name <span class="hljs-keyword">in</span> deleted_objects:</span><br><span class="line">        <span class="hljs-keyword">continue</span></span><br><span class="line">    </span><br><span class="line">    bbox_corners = [obj.matrix_world @ mathutils.Vector(corner) <span class="hljs-keyword">for</span> corner <span class="hljs-keyword">in</span> obj.bound_box]</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span> j, other_obj <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(objects):</span><br><span class="line">        <span class="hljs-keyword">if</span> i &gt;= j <span class="hljs-keyword">or</span> other_obj.name <span class="hljs-keyword">in</span> deleted_objects:</span><br><span class="line">            <span class="hljs-keyword">continue</span></span><br><span class="line">        </span><br><span class="line">        other_bbox_corners = [other_obj.matrix_world @ mathutils.Vector(corner) <span class="hljs-keyword">for</span> corner <span class="hljs-keyword">in</span> other_obj.bound_box]</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">min</span>(c[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &lt;= <span class="hljs-built_in">max</span>(c[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners) <span class="hljs-keyword">and</span></span><br><span class="line">            <span class="hljs-built_in">max</span>(c[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &gt;= <span class="hljs-built_in">min</span>(c[<span class="hljs-number">0</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners) <span class="hljs-keyword">and</span></span><br><span class="line">            <span class="hljs-built_in">min</span>(c[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &lt;= <span class="hljs-built_in">max</span>(c[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners) <span class="hljs-keyword">and</span></span><br><span class="line">            <span class="hljs-built_in">max</span>(c[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &gt;= <span class="hljs-built_in">min</span>(c[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners) <span class="hljs-keyword">and</span></span><br><span class="line">            <span class="hljs-built_in">min</span>(c[<span class="hljs-number">2</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &lt;= <span class="hljs-built_in">max</span>(c[<span class="hljs-number">2</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners) <span class="hljs-keyword">and</span></span><br><span class="line">            <span class="hljs-built_in">max</span>(c[<span class="hljs-number">2</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> bbox_corners) &gt;= <span class="hljs-built_in">min</span>(c[<span class="hljs-number">2</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> other_bbox_corners)):</span><br><span class="line">            </span><br><span class="line">            overlap_pairs.append((obj.name, other_obj.name))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 随机删除每对重叠对象中的一个</span></span><br><span class="line"><span class="hljs-keyword">for</span> obj_name, other_obj_name <span class="hljs-keyword">in</span> overlap_pairs:</span><br><span class="line">    to_delete_name = random.choice([obj_name, other_obj_name])</span><br><span class="line">    deleted_objects.add(to_delete_name)</span><br><span class="line">    to_delete = bpy.data.objects.get(to_delete_name)</span><br><span class="line">    <span class="hljs-keyword">if</span> to_delete:</span><br><span class="line">        bpy.data.objects.remove(to_delete, do_unlink=<span class="hljs-literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></body></html>
+        <p class="article-more-link">
+            <a href="/2024/11/03/2024-11-3-%E6%97%A9%E6%9C%9F%E7%94%A8%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AAblender%E5%8E%BB%E9%99%A4%E9%87%8D%E5%8F%A0%E7%89%A9%E4%BD%93%E7%9A%84python%E4%BB%A3%E7%A0%81/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/10/29/2024-10-19/" itemprop="url">2024-10-19-第1个景观实战练习</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-10-29T08:58:29.000Z" itemprop="datePublished">10月 29 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1159 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>继续积累一些关于景观的手法和常识，目前这一块我还没有研究怎样驱动人工智能去批量生产参考。</p>
+<p>边缘用offset分割，这可以提取项目中现成的地块，用select manifold可以选中不规则布线的边缘然后提取曲线再用curve offset成型。</p>
+<p><img src="/2024/10/29/2024-10-19/2024-10-19/76c34ce59a5cd812cf2c786a4347ab8c_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/10/29/2024-10-19/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/10/25/2024-10-25/" itemprop="url">2024-10-25-pinterest收藏图片批量url复制到本地提交midjourney文字解析再生图</a>
         
     </h1>
@@ -252,143 +384,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/10/16/2024-10-15-hitomi%E4%B8%8Ekimi%E4%B8%8E%E7%AE%80%E6%98%A0%E5%AE%9E%E7%8E%B0youtube%E5%A4%96%E8%AF%AD%E8%A7%86%E9%A2%91%E6%90%AC%E8%BF%90%E8%BD%AC%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%E9%85%8D%E5%90%88%E4%B8%AD%E6%96%87%E6%9C%97%E8%AF%BB/" itemprop="url">2024-10-15-hitomi与kimi与简映实现youtube外语视频搬运转中文字幕配合中文朗读</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-10-16T11:51:11.000Z" itemprop="datePublished">10月 16 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1057 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>先概括一下流程：<br>hitomi下载youtube视频自带英文字幕，把字幕分组1次20组发给kimi、doubao这些人工智能让它们翻译，大约间隔70秒左右，得到拼接版之后视情况使用不同的格式化python程序调整字幕格式，简映导入中文字幕和youtube视频，视频消音，字幕全选朗读选一个声音，关闭这个视频制作草稿，打开铃芽选中刚才的草稿点击启动使字幕和语音对齐，目前看来不同的音源语速不同会导致和视频的时长偏差不同，尽量接近些吧？然后调整视频的时长同步字幕时长即可。</p>
-<p><img src="/2024/10/16/2024-10-15-hitomi%E4%B8%8Ekimi%E4%B8%8E%E7%AE%80%E6%98%A0%E5%AE%9E%E7%8E%B0youtube%E5%A4%96%E8%AF%AD%E8%A7%86%E9%A2%91%E6%90%AC%E8%BF%90%E8%BD%AC%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%E9%85%8D%E5%90%88%E4%B8%AD%E6%96%87%E6%9C%97%E8%AF%BB/aa.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/10/16/2024-10-15-hitomi%E4%B8%8Ekimi%E4%B8%8E%E7%AE%80%E6%98%A0%E5%AE%9E%E7%8E%B0youtube%E5%A4%96%E8%AF%AD%E8%A7%86%E9%A2%91%E6%90%AC%E8%BF%90%E8%BD%AC%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%E9%85%8D%E5%90%88%E4%B8%AD%E6%96%87%E6%9C%97%E8%AF%BB/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/10/10/2024-10-10-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC10%E8%AF%9D/" itemprop="url">2024-10-10-midjourney漫画带分镜描述简易版小镇喧嚣第10话</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-10-10T00:37:40.000Z" itemprop="datePublished">10月 10 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1080 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><img src="/2024/10/10/2024-10-10-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC10%E8%AF%9D/m1.jpg"></p>
-
-<div style="text-align:center">中国某小镇，天然气西气东输工程现场，工人们在忙碌施工。</div>
-
-
-<br></body></html>
-        <p class="article-more-link">
-            <a href="/2024/10/10/2024-10-10-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC10%E8%AF%9D/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/10/09/2024-10-9-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC9%E8%AF%9D/" itemprop="url">2024-10-9-midjourney漫画带分镜描述简易版小镇喧嚣第9话</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-10-09T07:59:58.000Z" itemprop="datePublished">10月 9 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            5 分钟 读完 (约 717 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p><img src="/2024/10/09/2024-10-9-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC9%E8%AF%9D/m1.jpg"></p>
-
-<div style="text-align:center">中国某小镇，茶山李和老虎尾采石场，工人们在忙碌作业。</div>
-
-
-<br></body></html>
-        <p class="article-more-link">
-            <a href="/2024/10/09/2024-10-9-midjourney%E6%BC%AB%E7%94%BB%E5%B8%A6%E5%88%86%E9%95%9C%E6%8F%8F%E8%BF%B0%E7%AE%80%E6%98%93%E7%89%88%E5%B0%8F%E9%95%87%E5%96%A7%E5%9A%A3%E7%AC%AC9%E8%AF%9D/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -408,7 +403,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/42/">42</a></li>
+        <li><a class="pagination-link" href="/page/43/">43</a></li>
         
     </ul>
 </nav>

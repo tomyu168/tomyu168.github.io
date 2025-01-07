@@ -119,6 +119,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/" itemprop="url">2024-4-2-BluePrint探索自研DecoPerSocket</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-04-04T13:06:26.000Z" itemprop="datePublished">4月 4 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            22 分钟 读完 (约 3299 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>PBG中的Deco per Socket可以通过标记socket，以一定概率去分布一个集合的mesh，从而实现在建筑立面上布局广告牌、空调外机、旗帜等等道具。初步看了下想要破解PBG的blueprint难度太高了，那个Add Deco per Socket的代码太复杂可能还与其他几个函数有耦合关系。我开始设想blender中有没有类似的功能，对特定的instance物体标记特定点，随机以一定概率添加一个集合的物体并instance化并可以控制大小、偏移？之前FRG可以在一条曲线上以一定的间隔做到此效果，但这意味着要不断画线计算距离，且很多情况下并非连续的物体需要添加道具，间断曲线搞这个似乎有些麻烦，且每次变动立面布局，这个曲线要跟着重新画。</p>
+<p>顺带一提<a target="_blank" rel="noopener" href="https://ytmp3.so/en/youtube-4k-downloader">ytmp3.so</a>这个网站似乎比savetube.io要好用，可以下载清晰度更高的youtube视频。</p>
+<p>在ue的marketplace也没有找到类似decopersocket功能的插件，既然要在Unreal Engine上做大项目，我觉得掌握BluePrint看来是势在必行的。这次参考的教学来源博主似乎之前是专攻家具建模的，几年后开始出ue、blender的编程相关教学。</p>
+<p><img src="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/v2-c6a004ffbb0beb3c9359a405a8b4f26a_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/04/04/2024-4-2-BluePrint%E6%8E%A2%E7%B4%A2%E8%87%AA%E7%A0%94DecoPerSocket/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/" itemprop="url">2024-3-28-SendToUE中凯城市之光</a>
         
     </h1>
@@ -334,49 +379,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/" itemprop="url">2024-3-13-紫御府新古典含户型</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-03-18T06:33:29.000Z" itemprop="datePublished">3月 18 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            11 分钟 读完 (约 1702 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>自这个项目起我觉得有必要从PBG的工作流转变为SendToUE工作流了，后者对于建筑设计装配的自由度更灵活，在duplicate master、material assignment tool、packed level blueprint actor的加持下，后者可以通过一个blender工程在指定的地形位置导入整体建筑，无需一层层反复定义语法指派meshlist，能更为精准的落实建筑到地形上，彻底将布局和建模落实在blender，而非用ue来布局建筑。</p>
-<p><img src="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/v2-760784951473db52350e88b6856f40ad_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/03/18/2024-3-13-%E7%B4%AB%E5%BE%A1%E5%BA%9C%E6%96%B0%E5%8F%A4%E5%85%B8%E5%90%AB%E6%88%B7%E5%9E%8B/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -411,7 +413,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
-                &copy; 2024 于洋&nbsp;
+                &copy; 2025 于洋&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
                         target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>

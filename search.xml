@@ -22939,4 +22939,18 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>室内设计</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2025-1-13-解决python程序双击直接运行</title>
+    <url>/2025/01/13/2025-1-13-%E8%A7%A3%E5%86%B3python%E7%A8%8B%E5%BA%8F%E5%8F%8C%E5%87%BB%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C/</url>
+    <content><![CDATA[<html><head></head><body><p>长久以来我的python程序都要用cmd定位到目录然后python xx.py才能运行，今天通过deepseek的循序答疑发现是因为相关的包安装在anaconda里而默认的python.exe是c盘下安装的，我修改了始终用anaconda3目录下的python.exe运行后，即可使用anaconda环境中安装的包来运行，目前测试了几个程序都可以直接双击运行了。</p>
+<p><img src="/2025/01/13/2025-1-13-%E8%A7%A3%E5%86%B3python%E7%A8%8B%E5%BA%8F%E5%8F%8C%E5%87%BB%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C/1.jpg" alt="2025-1-13-解决python程序双击直接运行"></p>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>发牢骚</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
 </search>

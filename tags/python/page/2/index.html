@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/30/2024-8-30/" itemprop="url">2024-8-30-midjourney更换生产工具</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-30T07:39:35.000Z" itemprop="datePublished">8月 30 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1557 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>前几天midjourney的生产工具我自认为达到了一个不错的效率，大概3小时中断一次，然而月末时突然恶化为30分钟左右就断了。在好几次测试中断后，我觉得可能要换个平台了，另一方面我在想究竟是哪里出了问题导致频繁的中断呢，于是笔记本下载了一个captura同时买了另一个midjourney生产工具。另一个版本的工具有个优点是它是网页，它不会像先前那个版本莫名其妙强退，目前为止从没有强退过。在实战中发现这玩意儿能自动检测频次，5分钟内发起/imagine /blend基本会失败驳回，但这不会打断midjourney auto python，最后我在captura的录像中观察到问题出在了/blend /imagine命令输入后需要有一定时间等待sleep(10)左右，之前我是直接连着回车键有时候可能是网络原因来不及加载出命令，这会导致回车空砍从而还没出图片输入框就发动了点击图片输入框的动作请求（如下图，由于blend命令回车没起做用，图片输入框没出来接着去点击点到了临近的图片，再接着图片地址就跑到地址栏去了，后续全部崩塌），从而导致后面的逻辑全部崩塌。在修改这里的sleep等待后，目前验证10几小时都没出现过崩塌。</p>
+<p><img src="/2024/08/30/2024-8-30/2024-8-30/51ee3be992a1addfce455129d9223a5d_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/30/2024-8-30/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/08/28/2024-8-28/" itemprop="url">2024-8-28-suno自动批量制作音乐</a>
         
     </h1>
@@ -331,49 +374,6 @@
 <p><img src="/2024/07/03/2024-7-2/2024-7-2/ac42f3f001679e6a72133b0961b1fd45_MD5.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/07/03/2024-7-2/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/" itemprop="url">2024-5-20-bakemaster烘焙udim贴图通道打包问题</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-05-20T12:03:08.000Z" itemprop="datePublished">5月 20 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            18 分钟 读完 (约 2713 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>制作诚宵宫开始碰到面数较高的几何体udim多项线烘培遮罩的问题，bakemaster目前无法channel packing udim贴图，后来我找了ue的channel pack插件诡异的是效果不对，而且要批量处理也是个问题。</p>
-<p><img src="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/v2-0f7061ca1a6d8ef16f1151a8c3ec8e87_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/05/20/2024-5-20-bakemaster%E7%83%98%E7%84%99udim%E8%B4%B4%E5%9B%BE%E9%80%9A%E9%81%93%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98/#more">阅读更多</a>
         </p>
     
     </div>

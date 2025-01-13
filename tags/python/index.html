@@ -126,6 +126,47 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2025/01/13/2025-1-13-%E8%A7%A3%E5%86%B3python%E7%A8%8B%E5%BA%8F%E5%8F%8C%E5%87%BB%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C/" itemprop="url">2025-1-13-解决python程序双击直接运行</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2025-01-13T01:53:49.000Z" itemprop="datePublished">1月 13 2025</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            1 分钟 读完 (约 132 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>长久以来我的python程序都要用cmd定位到目录然后python xx.py才能运行，今天通过deepseek的循序答疑发现是因为相关的包安装在anaconda里而默认的python.exe是c盘下安装的，我修改了始终用anaconda3目录下的python.exe运行后，即可使用anaconda环境中安装的包来运行，目前测试了几个程序都可以直接双击运行了。</p>
+<p><img src="/2025/01/13/2025-1-13-%E8%A7%A3%E5%86%B3python%E7%A8%8B%E5%BA%8F%E5%8F%8C%E5%87%BB%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C/1.jpg" alt="2025-1-13-解决python程序双击直接运行"></p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/12/21/2024-12-20/" itemprop="url">2024-12-20-一些计算机程序辅助优化-阅读分章节提交kimi和blendmidjourney刷新提交图片</a>
         
     </h1>
@@ -330,49 +371,6 @@
         <html><head></head><body><p>第一个景观项目目前推进到了还差树木、花卉，我觉得这需要大量的图例来参考学习，找感觉。光靠文字解说局限性大，且见效慢。我想到的方法是在pinterest上找图丢给midjourney参考生产，一种是带url参考一种是describe获取关键词之后用关键词生产，后者的话自由度更高。我目前设计的程序是每次采用第一组–ar前的关键词去生产图，还没有结合图片url做参考，或许也可以考虑把第二个–ar和第一个–ar之间的内容分两次，那么一个链接理论上如果配套url可以生产3组。配套url我觉得关键词结合一次就好了，图片引导的作用会比较强。</p></body></html>
         <p class="article-more-link">
             <a href="/2024/10/25/2024-10-25/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/08/30/2024-8-30/" itemprop="url">2024-8-30-midjourney更换生产工具</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-08-30T07:39:35.000Z" itemprop="datePublished">8月 30 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            10 分钟 读完 (约 1557 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>前几天midjourney的生产工具我自认为达到了一个不错的效率，大概3小时中断一次，然而月末时突然恶化为30分钟左右就断了。在好几次测试中断后，我觉得可能要换个平台了，另一方面我在想究竟是哪里出了问题导致频繁的中断呢，于是笔记本下载了一个captura同时买了另一个midjourney生产工具。另一个版本的工具有个优点是它是网页，它不会像先前那个版本莫名其妙强退，目前为止从没有强退过。在实战中发现这玩意儿能自动检测频次，5分钟内发起/imagine /blend基本会失败驳回，但这不会打断midjourney auto python，最后我在captura的录像中观察到问题出在了/blend /imagine命令输入后需要有一定时间等待sleep(10)左右，之前我是直接连着回车键有时候可能是网络原因来不及加载出命令，这会导致回车空砍从而还没出图片输入框就发动了点击图片输入框的动作请求（如下图，由于blend命令回车没起做用，图片输入框没出来接着去点击点到了临近的图片，再接着图片地址就跑到地址栏去了，后续全部崩塌），从而导致后面的逻辑全部崩塌。在修改这里的sleep等待后，目前验证10几小时都没出现过崩塌。</p>
-<p><img src="/2024/08/30/2024-8-30/2024-8-30/51ee3be992a1addfce455129d9223a5d_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/08/30/2024-8-30/#more">阅读更多</a>
         </p>
     
     </div>

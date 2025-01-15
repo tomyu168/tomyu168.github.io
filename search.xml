@@ -22953,4 +22953,241 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>室内设计</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2024-12-23-中南海改造-第1个建筑</title>
+    <url>/2025/01/14/2024-12-23/</url>
+    <content><![CDATA[<html><head></head><body><p>第1个建筑</p>
+<p>1.用到了下图右边的屋顶切分，我估计是我国古建筑从未用到过的手法，这个手法相当于开天窗，解决了超长纵轴布局建筑屋顶无变化又没天窗的单调，目前暂时还没想到怎么和天窗结合。直觉上好像天窗会打破巨大屋顶的气势使之小气。</p>
+<p>2.用到了下图左边的单面屋檐凹凸，有了切分和凹凸意味着屋顶有层次聚焦，可以在多个小顶上做塔楼、雕塑的装饰？基督教的十字basilica用阶梯式布局在大屋顶下加高窗解决进光并打断大屋顶的重复。而我们的建筑在大屋顶下有较为厚实的斗拱、饰带再加天窗似乎比例不和谐？这个问题我觉得可以对屋顶做blend，让中国建筑和法式那种碰碰运气。</p>
+<p><img src="/2024-12-20/5dc61b92bc3844565e172bafaf475578_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2024-12-20/f84e3d07fb9901f0289a6cff0525a518_MD5.jpg"></p>
+<p>3.我们的建筑只有横轴，纵轴这一侧基本是空墙，横轴的装饰手法对比西方建筑没优势，更别说西方传统建筑的重点在于纵轴的门面westwork。因此我勉强结合另一个参考图给一侧空墙加了个塔楼，算是有点模拟basilica的十字布局了。感觉上门廊之后横轴应该接一段前面的对称，现在这样加塔楼门面焦点会被门廊吸引一部分，产生视觉冲突。之后再说。</p>
+<p><img src="/2024-12-20/39041c241ce4afe0fd5fbd666387a2e6_MD5.jpg"></p>
+<p>塔楼部分参考图中的落地窗帘折腾了蛮久的，用到了simply cloth pro这个插件可以快速设置cloth效果，但是不算理想。而且本身参考看起来也不好像个试衣间，我后来想在柱子上包裹布料失败了，最后是直接对柱子的两个面做布料效果，超长柱用布料展示柔性美这个创意我应该是第1.短柱上用布料法，instance 替换效果不是太好，感觉是褶皱太多了，我想起了下面这个参考，如果单项少量布局可能效果不好，另外就是要简化褶皱，要做下面这种效果的立柱我感觉布料模拟不好只能zbrush雕刻。</p>
+<p><img src="/2024-12-20/e859215c0b878de7382a7f5ebaaa00af_MD5.jpg"></p>
+<p>塔楼的房间原来参考的是那种偏阿拉伯、简约的白墙小高层，但是感觉太生硬而且颜过渡不和谐，于是选用了这个参考中带转折红砖的房型切分。(现在看来这个1/4圆柱包边应该用木纹间隙层叠，表现更好吧？)</p>
+<p><img src="/2024-12-20/2d7dc28b084618d8dddaad1eee6d1ba5_MD5.jpg"></p>
+<p><img src="/2024-12-20/718031411a637a5d25040110baee94a3_MD5.jpg"></p>
+<p>超长立柱用到的simply clothes设置以及vertex group</p>
+<p><img src="/2024-12-20/bf557a62ce2d4b642d20ad77e94c1aa1_MD5.jpg"></p>
+<p><img src="/2024-12-20/5e393f15087392f0b7449b3957b78ee8_MD5.jpg"></p>
+<p>纵轴房型方面方框部分我想结合unreal的碎花玻璃看看，乍看感觉是很单调的，暂时没想好怎样使其丰富。</p>
+<p><img src="/2024-12-20/9449be12da009f2337d9ae72eaf80f90_MD5.jpg"></p>
+<p>反面参考了这个带有书法和雕塑分割的璧柱，想象不出效果。</p>
+<p><img src="/2024-12-20/a71b12cfb8692b19954c97cbe9e8a8a1_MD5.jpg"></p>
+<p><img src="/2024-12-20/6a23385f5f971553e11505086fa9fef2_MD5.jpg"></p>
+<p>斗拱方面我参考塔楼部分做了简化，中式屋檐封屋顶出檐是个问题，传统做法是斗拱上用饰带接屋顶的椽子。我觉得这样不美观，就沿着</p>
+<p><img src="/2024-12-20/0ce4469719ac9ec52925d2826b34270d_MD5.jpg"></p>
+<p><img src="/2024-12-20/0bc73c0c262cdbcbb833c5f93775fffb_MD5.jpg"></p>
+<p>饰带、阑额的彩画我在最近使用midjourney时发现可以生产3：1、2：1、1：2非正方形的tile图案，这有效减少了饰带的重复感。我按照色调背景与主题排列组合生产彩画，今天把3xkeyword解决了，那么可以把比例也作为参数弄上去。</p>
+<p>2024-12-24更新：</p>
+<p>第一栋建筑基本完工，在制作过程中又遇到了texture streaming update卡住不动导致白干，再次查阅发现光是enable virtual texture anisotropic filtering并没有用，最彻底的办法是去appdata/local/unrealengine/common/ 把Derived Data Cache这个缓存文件夹删除后重启unreal，在执行此操作前遇到材质不显示或需要打开贴图文件后才能加载正常一般是texture streaming update卡住的前兆，且重启还是会这样，而在删除缓存后重启就解决了，然而这个办法缺点是重启大约要半小时还是40多分钟，适合吃饭的时间来一下，别和它较劲耗时间。再这次整合packed blueprint actor时我用的realistic glass creator中的玻璃材质，没有出现玻璃材质合并物体导致材质加载不出需要拆分的现象。不知道之前是texture streaming缓存需要清理还是说确实是材质问题。</p>
+<p>导入前我花了一天的时间整理物体instance合并斗拱，在blender中添加彩画看效果。不过blender中看彩画基本看不出个所以然来，对于随机彩画，目前是用隐藏面的方式保留需要贴彩画的面，然后用随机选取设置1/贴图数的比例来多次随机选取面依次添加材质，比如6个彩画就是6个材质。到了ue里面设定一个master material设置好texture size，便于material instance继承。</p>
+<p>超长的方框一开始很单调我在方框间隙上切了一个内收圆角感觉好了不少。粉色粉刷在enable cc里面调了不少时间，这种调整好的颜色以后master material可以copy给其他建筑用。屋顶瓦与屋脊的对其我用权重偏移对一些有较大开口的地方做了修补，属于没什么技术且费时的强迫症。屋脊两端用雕塑覆盖遮掉了接口的瑕疵，雕塑由midjourney生产图片后交给aiuni生产3d模型，目前相关的素材还很少，最近可以把midjourney生产计划转移到雕塑上。realistic glass creator生成的碎花玻璃效果看起来不错。这次部件的命名我没有像以往那样统一wall，而是按照column、decor、wall、roof等分别命名，内景interior在ue中选择static mesh替换材质，生成的packed blueprint actor用construction blueprint添加内景和climb material后我发现内景的窗帘单调，折腾了一阵最后是在window材质中蒙了一下useperinstanceblinds的参数，在false的情况下原先的参数是x3.99我蒙了几回发现用perinstancerandom配合x8 x7可以使窗帘随机化，原理不明。</p>
+<p>之前用bakemaster批量smart unwrap会使大型部件的texel density过小而使matrix 材质系统效果不理想，这次我发现在bakemaster中可以设置margin为0，即可与手动smart unwrap效果一致，这样可以极大提升物体的texel density避免搞udim烘焙，目前来看对于60万面的小型雕塑完全无压力，对于大面积屋顶瓦可以达到20texel density。另外我换了个思路若是要单独搞批量smart unwrap程序应该是逐个对物体操作，解决了之前版本一次性对所有物体整合smart unwrap使得uv tile利用极小的问题。</p>
+<p>生成packed blueprint actor之前务必保存一个备份用的level map避免丢失模型原料，生成packed blueprint actor容易出问题或后期要修改最好是回退到模型版本在其上修改，比如这次遇到碎花玻璃后的内景间距问题在变为packed blueprint actor后不好修改，还是回退到模型版本上好搞。</p>
+<p>对于非正方形的texture不知道为什么我没法转virtual texture，目前是手动拼合成正方形解决的，另外图案重复，像这里的对联式彩画书法，可以尝试用midjourney extend反推扩展更多，材质方面应该利用matrix案例中的那个udim选择不同的贴图，下次试一试。</p>
+<p><img src="/2024-12-20/1592e5711aa0d2bf73961a05e72b6ff4_MD5.jpg"></p>
+<p><img src="/2024-12-20/44110f3447d9f57de00147d53e178ffa_MD5.jpg"></p>
+<p><img src="/2024-12-20/8e8edd3f606fca63c84e18dcaa3a40f3_MD5.jpg"></p>
+<p><img src="/2024-12-20/da4b21feaf39a1639f2815396245be42_MD5.jpg"></p>
+<p><img src="/2024-12-20/7c701051d568a0ca041cb8a606bd6367_MD5.jpg"></p>
+<p>总的而言两侧过于单调看起来就很不和谐，这需要日后思考房型变换。</p>
+<p><img src="/2024-12-20/cab76a16acd4950f9ad01be94640844e_MD5.jpg"></p>
+<p>这个面也略微单调。</p>
+<p><img src="/2024-12-20/9a5614d29caea3ee8c9978cf33b90a71_MD5.jpg"></p>
+<p>裙摆立柱效果出乎意料的棒，这个辅楼并没有显得违和，比起主体部分的房型单调要出彩不少，这也是为什么我们建筑呆板的问题，实在是缺乏要素。</p>
+<p><img src="/2024-12-20/599165b580bde057ff2d251de79cda82_MD5.jpg"></p>
+<p><img src="/2024-12-20/0e2fa65ebf3bb0b68befc71b0b0c97a3_MD5.jpg"></p>
+<p>紫铜色金属的效果很棒。原本附楼顶部一圈有浮雕，我做是做了但没有导入，明天可以试试？或者说可不可以用normal map来实现</p>
+<p><img src="/2024-12-20/bfa2d4f190461d52f7a90748baacd82b_MD5.jpg"></p>
+<p>用bakemaster烘焙normal map，浮雕向z轴下方，其下放置一个cube长宽超过这个浮雕，物体名称需要改为plane_high plane_low 我试了下名称添加序号后缀plane_high_1这样也是可以的，那么批量烘焙浮雕normal也不是问题，normal的尺寸margin设为0，格式png便于观察，尺寸方面按照浮雕的比例尽量大，目前不清楚为什么烘培出来的区域很小，因此需要ps里面手动调整，对于非正方形的还是得手动叠成正方形。浮雕在整体搞好了以后最后加即可，比如一个物体部分需要则对此部分面添加一个材质，ue中拷贝原先的材质，然后修改normal和texture size还有xyz offset使浮雕布局到理想的位置。</p>
+<p>2024-12-28更新：</p>
+<p>进一步我用python实现了批量灰度图直接转化normal贴图，并且自动填充尺寸使非正方形的浮雕能够自适应1024x1024，这样也不用手动搞两个物体投影烘焙法线了。具体看第2个建筑</p>
+<p><img src="/2024-12-20/78caf18125e77a20770ad4d98e192227_MD5.jpg"></p>
+<p><img src="/2024-12-20/00d575ee3bfe7887e09040b13813f4a4_MD5.jpg"></p>
+<p><img src="/2024-12-20/4b578e1f57c2e7ee297e7a172cf20bc0_MD5.jpg"></p>
+<p>2024-12-5更新：</p>
+<p>屋顶方面我通过这个参考联想到巨大长轴屋顶可以添加楼中楼以及对切分屋顶交错添加楼中楼，后者是完全有别于天窗和十字型basilica的塔楼。</p>
+<p><img src="/2024-12-20/893f48e09b0d368ebab1334a4222fd27_MD5.jpg"></p>
+<p><img src="/2024-12-20/7e50130678480c0639a1ead58265239d_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>设计探索</tag>
+        <tag>Blueprint</tag>
+        <tag>中式建筑</tag>
+        <tag>布料</tag>
+        <tag>浮雕彩绘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-12-27-中南海改造-第3个建筑</title>
+    <url>/2025/01/15/2024-12-27/</url>
+    <content><![CDATA[<html><head></head><body><p>第3栋建筑初始参考是这个后来不知道为什么被我完全推翻按照图2来做了，我的想法是按照图2把图1的里面两个建筑合二为一，但是整体风格好像味道变了。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/dc4434c0203cf5c6e24b16645133e86f_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/93119e28e15576d90c519684db4cecab_MD5.jpg"></p>
+<p>为了让转角连接上我做了环绕柱廊，折边黑墙。立柱方面用相交圆做了层叠再分段选循环面法线挤出然后旋转复制夹1个立方体，柱头成功测试了复杂雕花用curve deform变形吸附柱头，不过这个方法只能对垂直方向一体化拉伸的柱头，对于科林斯这种有上下缩进的还没测试，感觉上可以用lattice来调整局部缩放。再是duplicate along curve添加了cornice下面的滴水式雕花。二楼的拱门上镶金是提取曲线后给厚度转换mesh而成的，这个技巧很实用，对强调边缘立体的装饰能轻松解决。一楼隐约看是两个窗格，我在大门的间距上没处理好这个比例看起来有问题，或者说问题出在了整体的长宽设置就不合理？相对于原图而言我拉长了很多，但没有额外配套的房型，这样显得黑色折叠墙十分单调。其实这涉及另一个问题就是当给定地块后，只是参考设计效果图，并不好照搬，涉及比例问题尽管可以用midjourney生产相似，持续抽到比例合适的，但这么做有些耗时，有时候自己想当然就动手“微调”结果样式、部件到位了却因为比例问题整体上看还是不满意。图2我改了下比例明显感觉好点了，到时候看情况是不是要调整。</p>
+<p>房型单一的问题或许可以通过imagine extend 图片参考建筑类型来解决，比如8 storey 12 storey hotel building facade.抽空测试下。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/dde8a3fa2f41e0e8b9ee08ce339edb53_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/b9625914718e6d6bd692ff865252ab57_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/4f1cfb9906d4ba29746a0da51fd7c6b1_MD5.jpg"></p>
+<p>圆拱门是否可以做出带有中国色彩的建筑？从这个角度看这套的柱廊上方可以做出类似太和殿的结构从而保留中式风格，看起来和开间大小有关系，门拱不能尖或完全圆需要“磨平一些，两侧可以模拟中式柱头的那个翼型托梁。</p>
+<p>以上是最初的版本，我感觉太单调了，且缺乏创新说辞。在与黄色航天飞机墙布多次blend尝试进一步与黑金建筑blend我得到了天地玄黄式建筑的初版。这样看来天地玄黄来自于黄色调背景与太空飞船的硬表面细节，这样误打误撞生产了金字书法于黑色圆柱、木板上的装饰技法，理解这一点意味着天地玄黄可以往太空主题发展，其立意将更进一步。</p>
+<p>天地玄黄是古代中国人对天地宇宙最初始状态的一种认知与思索，“玄”：本义是黑色，有深远、高深莫测的意味，用来形容天的那种幽远深邃、神秘难测的特质。“黄”：本意是指黄色，用以描述大地的颜色和一种承载万物的厚重、质朴之感。据记载我国夏商周时期以黑为尊，后世则以黄为贵，以玄黄体现中华元素的建筑装饰体系过往是没有的。</p>
+<p>在制作这套时我遇到了电脑意外卡屏，黑屏无法显示的问题，似乎是主板上什么线松动了，我插了一插又好了，不过过程中我并没有感到哪里松，傅文辉说是pcie线松了。总之好了之后再次打开，修改packed a texture转换virutual texture第一次卡了很久。另外window interior材质扩展添加不同贴图第一次也会卡很久。</p>
+<p>多保存，反复退出重进，避免那个update texture streaming卡死白做！！！</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/a44ef59250f7b2f9c33fa4dc1d030c87_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/afd5c36df59585e78b4e1f1b435bf880_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/62cd0e460ff088d5eef5ac66f7037cac_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/ee9e478cd1debacdb67ae32f3a43d1cf_MD5.jpg"></p>
+<p>在认准了一个建筑装饰亮点后，通过它的blend原料可以生产其装饰特征的同分异构体，然后ps拼接出房型。这个案例中的拼接十分简单仅仅是现成的叠成3层，之前我过度依赖midjourney，以为可以通过它直接生产整体，现在看来这是不现实的，通过imaine extend就可以看出来对于人类世界未知的无法用文字准确描述的装饰特征，midjourney无法再现，因此只有图和图blend使其丧失逻辑的情况下可能产生创意，而创意出现后需要人为组织修正。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/d2e9d80fc269b0e1701c2cfbc5d7fa24_MD5.jpg"></p>
+<p>bakemaster自动smart unwrap对于许多部件看起来效果不好尤其是超长cornice。折腾了一天很多复杂部件的matrix材质效果不理想，最后还是整体smart unwrap解决，原理不明，为什么批量smart unwrap时出现问题了呢？</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/0feae1076736fb9d6b3c6f030b4de58b_MD5.jpg"></p>
+<p>一开始我把这个黑金阵列理解为金色浮雕板阵列嵌在黑木板上</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/0ed6e3ca3855bb72206c2ac4be22b1ca_MD5.jpg"></p>
+<p>然而这样的浮雕效果不好，感觉应该是带有大片空隙的木雕能透出更多黑色木板，但这样要搞很多几何体。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/958bab0bfffc8350cf7e34f938d8f943_MD5.jpg"></p>
+<p>我后来改成了整面的平板金字书法，技法是matrix材质直接改albedo贴图，效果看起来可以，为了保证接缝问题，需要midjourney生产–tile，为适应不同规格么，需要大批量的–ar。1楼的盾纹花雕是几何体duplicate along curve因为几何体面数太大，所以没法combine楼上的简易盾纹则combine，几何体数量太多导入时会占用很长时间，据说几何体数量太多对性能也有影响。</p>
+<p>叠涩斗拱上的浮雕使其质感有一定提升但是还达不到想象中要做的冠冕立柱。黑黄相间可以突出天地玄黄的概念。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/2e55fc4037a012991173c95a8c4bbde4_MD5.jpg"></p>
+<p>整版黑底金字书法用一个url引导imagine extend可以得到各种规格的效果，说明对于简单特征的图片midjourney imagine extend可以把我较为准确。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/21217c489da7a19123e6d7b1fe052d9a_MD5.jpg"></p>
+<p>酒杯柱头立柱柱身加入了浮雕，其做法和书法一样也是利用修改matrix材质不过还需要把normal也改了，为此我让deepseek写了一个python程序可以批量把图片改为1024x1024平铺，以及另一个程序可以使图片直接转换为normal贴图，实测效果非常棒，酒杯柱头上用的matrix材质改normal。可以说在这个案例中我把浮雕雕塑的运用进一步提升熟练了，理论上实现了浮雕有间隙的情况下雕在不同颜色的其他材质上，如镀金金属雕塑雕在黑木板上。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/e0c39f820bb24ccc63d24e37c872521c_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/75b53ee95b19d0d16e76359f404e20ee_MD5.jpg"></p>
+<p>cornice上用浮雕平铺效果也是不错的</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/e3047cd0f6eecaf1db98a44c1cef9eea_MD5.jpg"></p>
+<p>屋顶我采用duplicate along curve马头柱加回纹不规则排布的护栏形式作为屋脊，一开始我想的是聚拢的三重屋脊，但中间那道想不到用什么搞。马头雕塑来源于midjourney生产后切分图片给aiuni生产3d模型。这个管道我用的圆柱体拼一段段拼接，并没有用curve，curve有时候gizmo会找不到导致移动不方便，不过感觉还是得用curve，圆柱的话不好转折，得多次复制。我一开始用的curve，不停调整不同的圆柱直径，感觉效果不好，非常的混乱改为相同直径之后好多了，不过整体效果还是不理想。另外顶楼的柱体以及多联窗框是偏红的，抽空修改一下，看看是不是能提升效果，现在好像黄色太多了些。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/2c220792b9b9e02666994b41ca2f6aea_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/48a7b5759a9ed134aa5bdae456cde646_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/4797cbb97e902078c682947fdb03c376_MD5.jpg"></p>
+<p>天地玄黄式建筑可以说是我的第一个创新式可拓展建筑装饰语言体系，我打算继续在第5栋建筑上使用并延伸这个体系。</p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/eb77c92373486acf54b3bfe838588200_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/036079884481f2ee8e198648632ba506_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/ebf7716f98e5be1c063d358c25efc9cc_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/52073a7a8cf853083539210e68f7fa98_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-27/2024-12-27/2c672fa61c541de840352c185863c8e1_MD5.jpg"></p>
+<figure class="highlight python hljs"><figcaption><span>autotile1024自动批量将目标图片以1024x1024尺寸平铺</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">tile_image_to_1024</span>(<span class="hljs-params">img, output_path</span>):</span><br><span class="line">    <span class="hljs-string">"""将单张图片平铺为1024x1024大小并保存"""</span></span><br><span class="line">    img_width, img_height = img.size</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 计算缩放比例</span></span><br><span class="line">    <span class="hljs-keyword">if</span> img_width &gt; img_height:</span><br><span class="line">        <span class="hljs-comment"># 图片是横向的，以宽度为基准缩放</span></span><br><span class="line">        scale = <span class="hljs-number">1024</span> / img_width</span><br><span class="line">        tile_width = <span class="hljs-number">1024</span></span><br><span class="line">        tile_height = <span class="hljs-built_in">int</span>(img_height * scale)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-comment"># 图片是纵向的，以高度为基准缩放</span></span><br><span class="line">        scale = <span class="hljs-number">1024</span> / img_height</span><br><span class="line">        tile_height = <span class="hljs-number">1024</span></span><br><span class="line">        tile_width = <span class="hljs-built_in">int</span>(img_width * scale)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 缩放图片</span></span><br><span class="line">    img_resized = img.resize((tile_width, tile_height), Image.Resampling.LANCZOS)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 创建1024x1024的画布</span></span><br><span class="line">    canvas = Image.new(<span class="hljs-string">'RGB'</span>, (<span class="hljs-number">1024</span>, <span class="hljs-number">1024</span>))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 计算平铺次数</span></span><br><span class="line">    x_tiles = <span class="hljs-number">1024</span> // tile_width</span><br><span class="line">    y_tiles = <span class="hljs-number">1024</span> // tile_height</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 平铺图片</span></span><br><span class="line">    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(y_tiles + <span class="hljs-number">1</span>):  <span class="hljs-comment"># +1 确保覆盖边缘</span></span><br><span class="line">        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x_tiles + <span class="hljs-number">1</span>):  <span class="hljs-comment"># +1 确保覆盖边缘</span></span><br><span class="line">            <span class="hljs-comment"># 计算粘贴位置</span></span><br><span class="line">            paste_x = x * tile_width</span><br><span class="line">            paste_y = y * tile_height</span><br><span class="line">            <span class="hljs-comment"># 将图片粘贴到画布上</span></span><br><span class="line">            canvas.paste(img_resized, (paste_x, paste_y))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 保存生成的图片</span></span><br><span class="line">    canvas.save(output_path)</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"图片已平铺并保存到: <span class="hljs-subst">{output_path}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">process_folder</span>(<span class="hljs-params">input_folder, output_folder</span>):</span><br><span class="line">    <span class="hljs-string">"""处理指定文件夹下的所有图片"""</span></span><br><span class="line">    <span class="hljs-comment"># 确保输出文件夹存在</span></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(output_folder):</span><br><span class="line">        os.makedirs(output_folder)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 遍历文件夹中的所有文件</span></span><br><span class="line">    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> os.listdir(input_folder):</span><br><span class="line">        file_path = os.path.join(input_folder, filename)</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 检查文件是否为图片</span></span><br><span class="line">        <span class="hljs-keyword">if</span> filename.lower().endswith((<span class="hljs-string">'.png'</span>, <span class="hljs-string">'.jpg'</span>, <span class="hljs-string">'.jpeg'</span>, <span class="hljs-string">'.bmp'</span>, <span class="hljs-string">'.gif'</span>, <span class="hljs-string">'.tiff'</span>)):</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                <span class="hljs-comment"># 打开图片</span></span><br><span class="line">                <span class="hljs-keyword">with</span> Image.<span class="hljs-built_in">open</span>(file_path) <span class="hljs-keyword">as</span> img:</span><br><span class="line">                    <span class="hljs-comment"># 生成输出路径</span></span><br><span class="line">                    output_path = os.path.join(output_folder, filename)</span><br><span class="line">                    <span class="hljs-comment"># 平铺图片并保存</span></span><br><span class="line">                    tile_image_to_1024(img, output_path)</span><br><span class="line">            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">                <span class="hljs-built_in">print</span>(<span class="hljs-string">f"处理文件 <span class="hljs-subst">{filename}</span> 时出错: <span class="hljs-subst">{e}</span>"</span>)</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"跳过非图片文件: <span class="hljs-subst">{filename}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 示例调用</span></span><br><span class="line">input_folder = <span class="hljs-string">r"F:\SendToUE练习\中式酒樽高脚园林式布局\tile"</span>  <span class="hljs-comment"># 输入文件夹路径</span></span><br><span class="line">output_folder = <span class="hljs-string">r"F:\SendToUE练习\中式酒樽高脚园林式布局\tile\output"</span>  <span class="hljs-comment"># 输出文件夹路径</span></span><br><span class="line">process_folder(input_folder, output_folder)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+
+<figure class="highlight python hljs"><figcaption><span>pictonormal自动批量将图片转换为1024x1024的normal贴图，若尺寸不足1024则以黑色填充剩余部分再转换</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">resize_to_1024</span>(<span class="hljs-params">image, target_size=(<span class="hljs-params"><span class="hljs-number">1024</span>, <span class="hljs-number">1024</span></span>)</span>):</span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    将输入图像调整为 1024x1024 尺寸。</span></span><br><span class="line"><span class="hljs-string">    图像会等比例缩放，不足部分用黑色填充。</span></span><br><span class="line"><span class="hljs-string">    </span></span><br><span class="line"><span class="hljs-string">    :param image: 输入的 PIL 图像</span></span><br><span class="line"><span class="hljs-string">    :param target_size: 目标尺寸，默认为 (1024, 1024)</span></span><br><span class="line"><span class="hljs-string">    :return: 调整后的 PIL 图像</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    <span class="hljs-comment"># 获取原始尺寸</span></span><br><span class="line">    original_width, original_height = image.size</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 计算等比例缩放尺寸</span></span><br><span class="line">    scale_factor = <span class="hljs-built_in">min</span>(target_size[<span class="hljs-number">0</span>] / original_width, target_size[<span class="hljs-number">1</span>] / original_height)</span><br><span class="line">    new_width = <span class="hljs-built_in">int</span>(original_width * scale_factor)</span><br><span class="line">    new_height = <span class="hljs-built_in">int</span>(original_height * scale_factor)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 缩放图像</span></span><br><span class="line">    resized_image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 创建目标尺寸的画布并填充黑色</span></span><br><span class="line">    padded_image = Image.new(<span class="hljs-string">'RGB'</span>, target_size, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 计算粘贴位置，使图像居中</span></span><br><span class="line">    offset_x = (target_size[<span class="hljs-number">0</span>] - new_width) // <span class="hljs-number">2</span></span><br><span class="line">    offset_y = (target_size[<span class="hljs-number">1</span>] - new_height) // <span class="hljs-number">2</span></span><br><span class="line">    padded_image.paste(resized_image, (offset_x, offset_y))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> padded_image</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">grayscale_to_normal_map</span>(<span class="hljs-params">image, strength=<span class="hljs-number">5.0</span></span>):</span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    将灰度图像转换为法线贴图。</span></span><br><span class="line"><span class="hljs-string">    </span></span><br><span class="line"><span class="hljs-string">    :param image: 输入的 PIL 图像（灰度图）</span></span><br><span class="line"><span class="hljs-string">    :param strength: 法线贴图的强度，默认为 5.0</span></span><br><span class="line"><span class="hljs-string">    :return: 生成的法线贴图（PIL 图像）</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    pixels = np.array(image, dtype=np.float32) / <span class="hljs-number">255.0</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 使用 Sobel 算子计算梯度</span></span><br><span class="line">    kernel_x = np.array([[-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>],</span><br><span class="line">                         [-<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],</span><br><span class="line">                         [-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]], dtype=np.float32)</span><br><span class="line">    kernel_y = np.array([[-<span class="hljs-number">1</span>, -<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>],</span><br><span class="line">                         [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],</span><br><span class="line">                         [ <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">1</span>]], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">    gradient_x = np.zeros_like(pixels)</span><br><span class="line">    gradient_y = np.zeros_like(pixels)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 对图像进行卷积，计算梯度</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, pixels.shape[<span class="hljs-number">0</span>] - <span class="hljs-number">1</span>):</span><br><span class="line">        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, pixels.shape[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>):</span><br><span class="line">            gradient_x[i, j] = np.<span class="hljs-built_in">sum</span>(pixels[i-<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>, j-<span class="hljs-number">1</span>:j+<span class="hljs-number">2</span>] * kernel_x)</span><br><span class="line">            gradient_y[i, j] = np.<span class="hljs-built_in">sum</span>(pixels[i-<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>, j-<span class="hljs-number">1</span>:j+<span class="hljs-number">2</span>] * kernel_y)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 归一化梯度</span></span><br><span class="line">    normal_map = np.zeros((pixels.shape[<span class="hljs-number">0</span>], pixels.shape[<span class="hljs-number">1</span>], <span class="hljs-number">3</span>), dtype=np.float32)</span><br><span class="line">    normal_map[..., <span class="hljs-number">0</span>] = gradient_x * strength  <span class="hljs-comment"># R 通道</span></span><br><span class="line">    normal_map[..., <span class="hljs-number">1</span>] = gradient_y * strength  <span class="hljs-comment"># G 通道</span></span><br><span class="line">    normal_map[..., <span class="hljs-number">2</span>] = <span class="hljs-number">1.0</span>                   <span class="hljs-comment"># B 通道</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 归一化法线向量</span></span><br><span class="line">    norm = np.sqrt(normal_map[..., <span class="hljs-number">0</span>]**<span class="hljs-number">2</span> + normal_map[..., <span class="hljs-number">1</span>]**<span class="hljs-number">2</span> + normal_map[..., <span class="hljs-number">2</span>]**<span class="hljs-number">2</span>)</span><br><span class="line">    normal_map[..., <span class="hljs-number">0</span>] /= norm</span><br><span class="line">    normal_map[..., <span class="hljs-number">1</span>] /= norm</span><br><span class="line">    normal_map[..., <span class="hljs-number">2</span>] /= norm</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 将法线向量从 [-1, 1] 映射到 [0, 255]</span></span><br><span class="line">    normal_map = (normal_map + <span class="hljs-number">1.0</span>) * <span class="hljs-number">127.5</span></span><br><span class="line">    normal_map = np.clip(normal_map, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>).astype(np.uint8)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> Image.fromarray(normal_map, <span class="hljs-string">'RGB'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">process_image</span>(<span class="hljs-params">image_path, output_path, strength=<span class="hljs-number">5.0</span></span>):</span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    处理单张图像：</span></span><br><span class="line"><span class="hljs-string">    1. 调整尺寸为 1024x1024。</span></span><br><span class="line"><span class="hljs-string">    2. 转换为法线贴图。</span></span><br><span class="line"><span class="hljs-string">    3. 保存结果。</span></span><br><span class="line"><span class="hljs-string">    </span></span><br><span class="line"><span class="hljs-string">    :param image_path: 输入图像的路径</span></span><br><span class="line"><span class="hljs-string">    :param output_path: 输出图像的路径</span></span><br><span class="line"><span class="hljs-string">    :param strength: 法线贴图的强度，默认为 5.0</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    <span class="hljs-comment"># 打开图像</span></span><br><span class="line">    image = Image.<span class="hljs-built_in">open</span>(image_path)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 调整尺寸为 1024x1024</span></span><br><span class="line">    resized_image = resize_to_1024(image)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 转换为灰度图</span></span><br><span class="line">    grayscale_image = resized_image.convert(<span class="hljs-string">'L'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 转换为法线贴图</span></span><br><span class="line">    normal_map = grayscale_to_normal_map(grayscale_image, strength=strength)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 保存结果</span></span><br><span class="line">    normal_map.save(output_path)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">process_folder</span>(<span class="hljs-params">input_folder, output_folder, strength=<span class="hljs-number">5.0</span></span>):</span><br><span class="line">    <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">    处理指定文件夹下的所有图片：</span></span><br><span class="line"><span class="hljs-string">    1. 调整尺寸为 1024x1024。</span></span><br><span class="line"><span class="hljs-string">    2. 转换为法线贴图。</span></span><br><span class="line"><span class="hljs-string">    3. 保存结果到输出文件夹。</span></span><br><span class="line"><span class="hljs-string">    </span></span><br><span class="line"><span class="hljs-string">    :param input_folder: 输入文件夹路径</span></span><br><span class="line"><span class="hljs-string">    :param output_folder: 输出文件夹路径</span></span><br><span class="line"><span class="hljs-string">    :param strength: 法线贴图的强度，默认为 5.0</span></span><br><span class="line"><span class="hljs-string">    """</span></span><br><span class="line">    <span class="hljs-comment"># 确保输出文件夹存在</span></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(output_folder):</span><br><span class="line">        os.makedirs(output_folder)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 遍历输入文件夹中的所有文件</span></span><br><span class="line">    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> os.listdir(input_folder):</span><br><span class="line">        <span class="hljs-comment"># 检查文件是否为图片（支持常见格式）</span></span><br><span class="line">        <span class="hljs-keyword">if</span> filename.lower().endswith((<span class="hljs-string">'.png'</span>, <span class="hljs-string">'.jpg'</span>, <span class="hljs-string">'.jpeg'</span>, <span class="hljs-string">'.bmp'</span>, <span class="hljs-string">'.tiff'</span>)):</span><br><span class="line">            input_path = os.path.join(input_folder, filename)</span><br><span class="line">            output_path = os.path.join(output_folder, filename)</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment"># 处理图片</span></span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Processing: <span class="hljs-subst">{filename}</span>'</span>)</span><br><span class="line">            <span class="hljs-keyword">try</span>:</span><br><span class="line">                process_image(input_path, output_path, strength=strength)</span><br><span class="line">                <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Saved: <span class="hljs-subst">{output_path}</span>'</span>)</span><br><span class="line">            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:</span><br><span class="line">                <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Error processing <span class="hljs-subst">{filename}</span>: <span class="hljs-subst">{e}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 使用示例</span></span><br><span class="line">input_folder = <span class="hljs-string">r'F:\SendToUE练习\中式酒樽高脚园林式布局\fudiaotu'</span></span><br><span class="line">output_folder = <span class="hljs-string">r'F:\SendToUE练习\中式酒樽高脚园林式布局\fudiao2'</span></span><br><span class="line">process_folder(input_folder, output_folder, strength=<span class="hljs-number">5.0</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>midjourney</tag>
+        <tag>设计探索</tag>
+        <tag>python</tag>
+        <tag>浮雕彩绘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2025-1-2-midjourney建筑创新设计相关问题1</title>
+    <url>/2025/01/15/2025-1-2/</url>
+    <content><![CDATA[<html><head></head><body><p>从去年6.1开始试用midjourney生产建筑创新设计，8.1开始用python pyautogui控制笔记本电脑自动化midjourney生产一直到上个月跌跌碰碰算是把各种自动化的问题给解决了，目前漫画生产可以说是基本框架解决不过暂时不搞了；雕塑、浮雕生产完全解决。这里重点谈建筑创新设计。</p>
+<p>目前来看imagine extend法来构建一种建筑装饰的体系是不足的，对于现实中可以“容易想到的”midjourney有可能成系列，比如说，它的本质是简易盒子房带有栅格随机分布以及柴火堆立柱，这两个特征midjourney很容易把握。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/fc7eba12e5367e556f6124d08a0722f1_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/c4eda06c8236a289014a44209ed95b43_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/eb01ea11886129482e516643fd4b7f3a_MD5.jpg"></p>
+<p>然而要让天地玄黄这种具有复杂的人类过往历史中没有定义的装饰元素用imagine extend则无法有效复现。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/67d03eab28c3783664c699b9c503c36f_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/cd8c674a51c152e00b3b0623528f4165_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/ac5049f76c1dfa3cc8b8821888827c21_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/6ef0b2bbfe3f29c10974efcf372b22a8_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/d62c0ece1c40fd523db217b9568bbadc_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/8cb5757539d59fddd61565892455a970_MD5.jpg"></p>
+<p>像zaha hadid 、heather wick他们的建筑看似很特别，但不太容易形成大众化的识别度，无法成为一个体系。从我业余的角度来看，他们的建筑更像是几何形体通过某种程序碰运气形成大型，然后在这个大型上用简易房型修修补补。blender的tissue插件就是为这种针对这种不规则形状在分割块面后，对一个单元房型进行分布，顶多就是在整体表皮上搞一点小脑筋。若是一条长街都要求他们来设计，则毫无疑问会感到视觉疲劳，单调匮乏。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/f5f0b9fe8ebc6ffff1be65cec3d15c1c_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/bf64d651d509dee26dcdc5e41f77f64d_MD5.jpg"></p>
+<p>从9月也不知道10月到现在随机了上千甚至上万次各种imagine、blend至今其实我还没有做出一套具有辨识度且“得体”的建筑装饰体系。可以说之前的尝试都是失败的，时至今日我也算是弄明白了网上普遍的一种言论即人工智能对画师、创新不构成冲击。但通过我的实验来看人工智能可以对建筑装饰体系创新提供驱动力，不过你不能寄希望于丢给它批量自动大量产出一步到位，它可以生产局部的创新，构建未曾有过的房型，并通过相同的blend拓展同分异构体，接下来我需要自己设法把这些房型构造拼接到一个建筑布局上。</p>
+<p>比如说下面这种构成整体盒子房立面的装饰语言，第一套手工拼接完以后，若是搭建圆明园路景观步行街的话，它的前后左右如何拓展同分异构体？我印象里至今地球上还没有一条中国现代建筑构成的街道受到各种小红书上各种擦边美女或抖音、b站亲子家庭、青年旅游打卡的，从外国建筑的经验来看像敦煌色系这样要搞一条街和而不同是史无前例的，外国建筑一般是整体同一化色彩一条街上有变化，颜色有红砖、灰、米、白这么几个互相协调，若每个建筑都带有多种色彩展开感觉压力不小。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/ac5049f76c1dfa3cc8b8821888827c21_MD5.jpg"></p>
+<p>第二种园区装置型，对于非道路两侧并排的园区、商场相对自由排布的建筑，在装饰方面可以结合“以小见大”？即通过一些当代科技发展产物的装置呼应。理论上来说既然装饰可以上建筑立面做街道两侧排布也是没问题的，可能是目前我的素材还太少，完全无法想象那一层。下面的图例中展示了航天飞机、工业管道、冲孔板麻布化表面的核电反应堆包裹。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/a8fa78c3002c6a36a8594836c251cbe2_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/7497ff9d5d2d444121117df88cd55f1e_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/f398dd8f0e1ef1cf15ee4ab5607ce277_MD5.jpg"></p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/dda37a26c04886fd25b21c71d32d9c41_MD5.jpg"></p>
+<p>这套创意的原料是黄色背景的太空设备壁纸，所以整体氛围偏黄，我不知道若是用白色的太空设备作为原料会不会产出更具有通用性。</p>
+<p><img src="/2025/01/15/2025-1-2/2025-1-2/072135b448c8e219939f2bf535eb65f6_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>midjourney</tag>
+        <tag>设计探索</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-12-25-中南海改造-第2个建筑</title>
+    <url>/2025/01/15/2024-12-25/</url>
+    <content><![CDATA[<html><head></head><body><p>第2个建筑本来想参考右图的，但觉得这个房型布置太单调了，于是参考了图2，图2的建筑显然是两头矮塔加中间长轴，于是整体的布局也做了调整。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/b1644db8c1c29789358f8972d658a7cb_MD5.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/2d45e5110b05a89b1799a76550b55442_MD5.jpg"></p>
+<p>这个参考图看起来是四面尖顶但是对于两侧塔楼宽度较大时这个尖顶会比例很不和谐，图上这个效果需要长轴部分宽度较小大约12米左右？我设计的布局宽度比较大，两侧塔做成了梯形顶。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/c83aede8553d8b6ea708721634557def_MD5.jpg"></p>
+<p>墩柱暂时没做柱头，昨天实现了不规则柱头curve deform添加装饰图案，因此这个问题不大，可以尝试下添加midjourney生产的浮雕了。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/bac130bcf2866a9e40182804688a5634_MD5.jpg"></p>
+<p>2024-12-28更新：</p>
+<p>简易柱头的浮雕也可以用matrix 材质的triplanar 投射的normal贴图来表现。彩画、浮雕、雕塑、托梁、空槽板等装饰手法多样结合，我一开始在两侧塔楼的上层用彩绘槽板，但是在cornice间的槽板和巧克力叠涩、房型上的彩绘添加后就发现色彩已经有些混乱了，所以我尝试改成空槽板红色高亮木和beigestone paint材质效果都不理想，紫铜色金属感觉不错，另外原来交错叠涩用的是绿色高亮陶瓷材质感觉和整体不和谐也换成了紫铜色金属。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/a4c2a6825018105e4e3ab3e735355700_MD5.jpg"></p>
+<p>这个槽板不规则大小拼接类似屏风结构的房型装饰简单但却很有原创度，从成品来看完全可以借助槽板和彩绘作为腰线来给楼房分几个段。槽板上可以尝试采用书法浮雕？这里的红绿纯色我一开始还以为会很混乱，没想到意外的和谐，这种色彩的使用远超当前所谓的设计师，不得不说midjourney人工智能确实强。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/5cb61a13404c09b69342a7ee146362e3_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/d7a9aadb37ed1ae8b366a146b7eea696_MD5.jpg"></p>
+<p>紫铜色金属槽板上我尝试用matrix材质修改normal贴图调节xyz偏移配合normal可以在槽板上添加浮雕效果，normal 1和-1倒装可以控制浮雕凹凸，但是同一个坐标平面上（xz yz）是没法通过调整保证两个用同样材质的槽板上的浮雕能居中到理想位置。我使用的槽板彩绘都是midjourney的tile图可以保证不居中的情况下首尾无缝拼接起来因此不受triplanar 贴图的限制。因此4个面的话仅有两个面可以用同一个材质，若要同一图案的浮雕重复么，复制一个使用相同normal的材质修改其偏移。另外我测试了即使槽板在unreal中并非0 90 180度的旋转处于不规则角度，normal投影并不会扭曲，所以旋转不规则情况可以大胆使用。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/0b75103fe957d384f08956f4b6056692_MD5.jpg"></p>
+<p>雕塑方面在近距离观察时身体动态方面可以了，面部细节没有或许可以通过头身分离单独再做一次aiuni的3d。动物头上带有装饰纹理在jade材质中效果不理想，即使只有头生产的3d模型依然没有把纹样给具体刻画出来，我说的是这次的垂脊用到的脊兽牛头。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/c17559410f2ef9a8b25fffd88034ad5d_MD5.jpg"></p>
+<p>蓝色这一段彩画给我提示那个金边回子纹理可以作为几何体增加每个切分的多样性。槽板线条多样性也很重要，这里用不同颜色材质槽板相间居然没有违和感也是神了。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/2b050acd5672706bcd7ec3b87996ab5a_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/9f1cb2104343e5f3f078edfd4fd83843_MD5.jpg"></p>
+<p>侧面也就是westwork现状，下层太过单调了？有点头重脚轻的味道，不过看起来也还行。不过用ue渲染状态下的截图目前似乎还没有好的产出，理想情况是比如现在两侧塔楼的房型不理想，要优化的话直接截图blend就能像这个们一样得到好的设计参考。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/dbd83dc000ff5a22fa2c9085899570b9_MD5.jpg"></p>
+<p>2024-12-30更新：</p>
+<p>借助midjourney我对westwork部分当时参考的门用blend批量拓展，解决了入口门的单调、匮乏。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/9214f18ec58681cbaa8e5496d38dd3cb_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/432f1d0faa97ce6d49e188b543067dcf_MD5.jpg"></p>
+<p>2024-11-30更新：</p>
+<p>昨天想了下用之前的创新建筑和巴黎haussmann建筑的屋顶部分blend来获取屋顶的变化，目前应该很难一步到位，我试着把输出结果再和中式屋顶blend进一步迭代看看。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/f7b1185afce2eb389aaca1df13510376_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/9cecfd9d675594c787809c7011bbff1c_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/49e189870d8eef06797ba8df4b361042_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/865256bb1172d102cbe82da86363266a_MD5.jpg"></p>
+<p>第2座建筑带有许多彩画装饰，这种装饰布局或许是一个破局的切入点，目前来说中式的建筑似乎没有一套独立体系的房型装饰手法，这个手法创新度很高，但是似乎不太好对盒子房进行房型布置。另一方面是整体延续性，如果附近的建筑运用特别手法的大量彩画拼贴装饰那么会不会鹤立鸡群呢？</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/2ba476b6f98528c17df0d1bab3f57e15_MD5.jpg"></p>
+<p>2024-12-28更新：</p>
+<p>试验彩画随机对出檐扶璧也就是斗拱做彩绘效果比传统的升斗斗拱实色填充要强多了。之后可以挑战一下传统斗拱随机上色，不过它这个结构很难想象上彩绘会是什么效果，我感觉不会太好。这次的好时巧克力叠涩可谓是神来之笔。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/c154584e3c8316b6e7d3899c9ccb0b08_MD5.jpg"></p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/5cb61a13404c09b69342a7ee146362e3_MD5.jpg"></p>
+<p>通过unreal实时渲染的效果图可以作为原料丢给midjourney生产器进行批量碰运气做微调，这对修改房型应该是十分立竿见影的，这两天可以尝试下。</p>
+<p>随机彩绘方面或许可以用bustop广告牌材质来替代，这里面也让我搞清楚了非1024的长条texture原来是通过udim编号导入进来的，</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/daa6e4675193483eb23e756fb19100e1_MD5.jpg"></p>
+<p>进一步测试了normal也是可以的，问题是而且不受triplanar限制，但是matrix要使用grime drip得配合triplanar吧？因此浮雕没法在色彩和材质上维持原来的，或者说可以尝试对材质搞几个色彩texture用于perinstancerandom来达到效果？</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/c6e8e8859c7892d09c6e530d25e6cf2b_MD5.jpg"></p>
+<p>测试了下效果不理想，原因应该是这些小玩意儿不互为instance，但如果为instance么由于数量太多，导入的时候负担很大，下次可以测试一下如果槽板这种上百片会是什么情况。进一步测试互为instance的情况下还是会有黑色面片的情况暂时不清楚这是什么毛病，instance下确实可以随机并且居中，但大小好像不是很好调整另外浮雕效果有点“用力过猛”。</p>
+<p><img src="/2025/01/15/2024-12-25/2024-12-25/7da316b4003b6c59e96e31a692f9ef76_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>midjourney</tag>
+        <tag>设计探索</tag>
+        <tag>中式建筑</tag>
+        <tag>浮雕彩绘</tag>
+      </tags>
+  </entry>
 </search>

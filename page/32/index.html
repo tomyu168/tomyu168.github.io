@@ -119,6 +119,187 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/" itemprop="url">2022 12 6 测试obsidian markdown搬运到hexo</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-12-06T02:47:30.000Z" itemprop="datePublished">12月 6 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 580 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>这两天想起来要备份A History Of Interior Design。最好是一键复制解决，不然在hexo的md下面一个个图片存一个个链接上去那得累死。于是想到了markdown编辑器，于是遇到了obsidian，这个工具可以满足一键复制网页并转化为md格式，我测试了一下效果可以，问题是在于这样操作实际上图片是引用链接，如果平台倒了的话图也会一起挂掉。</p>
+<p>一早上被hexo的timed out问题整的很惨，什么repo地址，代理设置，host，ssh keygen。也不知道咋搞，这会儿似乎好了，也不知道是我弄好的，还是网顺畅了。如果是我改的话那么有几个点：</p>
+<p>1.ssh-keygen -t rsa重新生成ssh key然后在id_rsa.pub复制key给github的ssh key重新生成一个</p>
+<p>2.git config –global https.proxy 127.0.0.1:7890</p>
+<p>git config –global http.proxy 127.0.0.1:7890</p>
+<p>端口为clash代理的端口</p>
+<p>3.在git的ssh host里面改一个ip</p>
+<p>4.在system32里面改一个host ip</p>
+<p>以后做工作学习笔记要转到obsidian上了，一时间似乎脑子还没转过来，这一篇还在记事本里面搞，直到要截图obsidian的界面了才发现别扭。</p>
+<p><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/aaa.png"></p>
+<p>obsidian中可以截图自动保存到目录下面，它内置了全文索引的功能，相当于本地建立了知识库，界面可以调整颜色，别的功能暂时还没研究，这种编辑器的功能会在word之上，日后摸索。</p>
+<p><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/7be0443c6fdb7909ce5c903b9b8754a.png"><br><img src="/2022/12/06/2022-12-6-%E6%B5%8B%E8%AF%95obsidian-markdown%E6%90%AC%E8%BF%90%E5%88%B0hexo/d38012cdc7f88c99ad69568a3f368b8.png"><br>通过local images插件解决了平台图片本地保存避免平台暴雷后链接失效的问题。</p>
+<p>以后在obsidian中写一篇日记设定一个文件夹对应存图，全部完了图从文件夹批量复制到hexo的图片文件夹即可，然后source mode下复制到md文件里，即可以远程备份。在hexo的本地电脑不在时也可以在远程平台写笔记到时候通过local images插件即可解决图片本地化问题。</p>
+</body></html>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/12/05/2022-12-5-%E9%9B%95%E5%A1%91%E7%9A%84%E5%87%A0%E4%B8%AA%E9%98%B6%E6%AE%B5flipnormal%E7%B3%BB%E5%88%97%E4%B8%AD%E7%9A%84mid-frequency%E6%A6%82%E5%BF%B5/" itemprop="url">2022 12 5 雕塑的几个阶段flipnormal系列中的mid frequency概念</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-12-05T06:20:30.000Z" itemprop="datePublished">12月 5 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 读完 (约 505 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>从雕塑本身来说flipnormal认为应该分为3个阶段low mid high frequency。low即大形，high是纹理比如皮肤、鳞片、毛孔这些，往往人们忽视了mid阶段，什么是mid阶段呢，根据教学来看似乎指的是肌肉解剖学特征、骨骼标志。从题图对比，high阶段是用贴图做的，其中mid阶段没做好看起来很平，所有特征都被平滑了。这也是我目前做雕塑的一大问题，即找不到这些特征，或者不太敢把它们强调出来，另一方面是观察不到。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/12/05/2022-12-5-%E9%9B%95%E5%A1%91%E7%9A%84%E5%87%A0%E4%B8%AA%E9%98%B6%E6%AE%B5flipnormal%E7%B3%BB%E5%88%97%E4%B8%AD%E7%9A%84mid-frequency%E6%A6%82%E5%BF%B5/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/12/05/2022-12-5-%E4%BA%BA%E5%83%8F%E6%B8%B8%E6%88%8F%E8%A7%92%E8%89%B2%E5%92%8C%E4%BA%BA%E5%83%8F%E9%9B%95%E5%A1%91%E7%9A%84%E4%B8%A4%E6%9D%A1%E5%88%86%E6%94%AF%E8%B7%AF%E7%BA%BF/" itemprop="url">2022 12 5 人像游戏角色和人像雕塑的两条分支路线</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-12-05T02:08:11.000Z" itemprop="datePublished">12月 5 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 读完 (约 507 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>周末心血来潮胆大包天想试一下写实人像制作，然而我都还不会给多边形硬边物体做材质纹理、毛发也从来没接触过，就看了下zbrush的fibermesh而已。完全没能力的情况下，就容易摆烂了，玩玩游戏睁只眼闭只眼看了会儿示范周末就没了。步子不能迈的太大，通过b站<a href="https://www.bilibili.com/video/BV1WT4y1S7LJ/?spm_id_from=333.999.0.0&amp;vd_source=9211ca883c846624ea76e0f08321331f" title="" target="">赫敏格兰杰</a>以及youtube的<a href="BLACKWIDOW%E7%B3%BB%E5%88%97https://www.youtube.com/@KubisiArt/videos" title="" target=""></a>可以看出真实人物角色制作的整套流程，其整个时长在2天左右。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2022/12/05/2022-12-5-%E4%BA%BA%E5%83%8F%E6%B8%B8%E6%88%8F%E8%A7%92%E8%89%B2%E5%92%8C%E4%BA%BA%E5%83%8F%E9%9B%95%E5%A1%91%E7%9A%84%E4%B8%A4%E6%9D%A1%E5%88%86%E6%94%AF%E8%B7%AF%E7%BA%BF/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/" itemprop="url">2022 11 28 人物头像zbrush模型</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2022-11-29T01:52:17.000Z" itemprop="datePublished">11月 29 2022</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            2 分钟 读完 (约 358 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>上周试验了直接对人物照片用一个球做zbrush模型，效果很不理想。实际上这等于素描写生，我在素描学习时不具备这种能力。</p>
+<p><img src="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/r1.jpg"></p>
+
+<div style="text-align:center">完全不像。</div></body></html>
+        <p class="article-more-link">
+            <a href="/2022/11/29/2022-11-28-%E4%BA%BA%E7%89%A9%E5%A4%B4%E5%83%8Fzbrush%E6%A8%A1%E5%9E%8B/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/11/14/2022-11-15-%E5%89%8D%E6%9C%9F%E7%9A%84%E8%90%BD%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9Bzbrush%E6%80%BB%E7%BB%93%E6%B1%87%E6%80%BB/" itemprop="url">2022 11 15 前期的落下的一些zbrush总结汇总</a>
         
     </h1>
@@ -213,178 +394,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/" itemprop="url">2022 11 14 人物雕塑pose造型利用mixamo在blender与zbrush中互导</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-14T02:03:37.000Z" itemprop="datePublished">11月 14 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            4 分钟 读完 (约 586 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>周末效率比较差，本来是想入门一下人物雕塑肌肉质感的，结果一笔都没有动，主要是消耗在了mixamo这个在线绑定角色的平台上，这是一个去年底上线的平台，提供了大量的动作。</p>
-<p><img src="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/mixamo1.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/11/14/2022-11-14-%E4%BA%BA%E7%89%A9%E9%9B%95%E5%A1%91pose%E9%80%A0%E5%9E%8B%E5%88%A9%E7%94%A8mixamo%E5%9C%A8blender%E4%B8%8Ezbrush%E4%B8%AD%E4%BA%92%E5%AF%BC/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/" itemprop="url">2022.11.10 zbrush动物速写owen s和Pablo Muñoz Gómez</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-10T06:08:25.000Z" itemprop="datePublished">11月 10 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            3 分钟 读完 (约 376 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>上次做鹤鸵雕塑学习了Pablo Muñoz Gómez的直播示范，收获蛮大的，在塑形大的结构方面用sculpture pro模式，可以对一些细节做很好的塑造，用snake hook笔刷拉伸可以保证有足够的面数，不会像move那样产生破面之类的问题，像素不够了在pro模式下直接smooth一下需要刻画的区域就有足够面数了。</p>
-<p><img src="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/%E7%81%AB%E7%83%88%E9%B8%9F1.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/11/10/2022-11-10-zbrush%E5%8A%A8%E7%89%A9%E9%80%9F%E5%86%99owen-s%E5%92%8CPablo-Munoz-Gomez/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/" itemprop="url">2022.11.2 zbrush动物学习肌肉塑造</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-11-02T09:14:47.000Z" itemprop="datePublished">11月 2 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1015 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>昨天用了约2小时做了个狮子头，实际上根据教学示范来看可以压缩到半小时甚至更少。这一版做的狮子头细节更多了，并不是我的手法进步了，只不过找了现成的雕塑作为参考图，比起解剖学的参考图可以更直观观察肌肉特征。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/11/02/2022-11-2-zbrush%E5%8A%A8%E7%89%A9%E5%AD%A6%E4%B9%A0/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/" itemprop="url">2022 10 30 zbrush动物黑神话以及人体肌肉虫等等</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2022-10-31T02:44:44.000Z" itemprop="datePublished">10月 31 2022</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1059 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div>
-<p style="color: red">不知不觉从我第一天接触zbrush到现在已经过了4个半月了，这期间穿插了4篇万字以上的建筑装饰理论总结，每篇至少占用了10天时间且打乱了节奏，这是我目前面对的一个比较大的矛盾，是否应该交叉推进？理论总结部分偏向摘抄，搜索技巧，以及一些思想提炼，没有那种需要全身心去实践的环节。而zbrush则是要全身心高度集中，分设节点多次复盘才可能获得进步的。我觉得接下来应该提高自己设置节点的能力，提前布局好每周需要复盘的教学示范数量，以及复盘次数。这样可以更直观的察觉自己的学习进度历程。这样看来的话我还是应该坚持多学科交叉学习的，目前的话就分为建筑理论、zbrush建模和俄语三个部分吧。
-</p></div></body></html>
-        <p class="article-more-link">
-            <a href="/2022/10/31/2022-10-30-zbrush%E5%8A%A8%E7%89%A9%E9%BB%91%E7%A5%9E%E8%AF%9D%E4%BB%A5%E5%8F%8A%E4%BA%BA%E4%BD%93%E8%82%8C%E8%82%89%E8%99%AB%E7%AD%89%E7%AD%89/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -408,7 +417,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/44/">44</a></li>
+        <li><a class="pagination-link" href="/page/45/">45</a></li>
         
     </ul>
 </nav>

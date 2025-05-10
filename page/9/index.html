@@ -119,6 +119,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/05/2024-8-5/" itemprop="url">2024-8-5-midjourney共享版批量做图提交定时暂停手动暂停</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-05T15:15:06.000Z" itemprop="datePublished">8月 5 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            16 分钟 读完 (约 2439 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>由于midjourney手动提交1天搞下来大改只能收集150个图，非常疲惫而且会经历排队等待、队列占满导致的沮丧、进退两难。于是我想捣鼓一个自动提交的程序，经过这一天我大概看出来行为模式是用建筑装饰特征的图+楼面房型排列来实现建筑风格的生产。根据chatgpt的说法可以根据屏幕坐标来控制.exe文件中的/blend 命令实现自动化上传？我觉得可以试试看，用笔记本电脑全天开着自动匹配来生成素材？一方面是穷举几个文件夹中的图片排列组合使用/blend。还有一个是/imagine + 关键词，关键词应该是一个txt文件按照行来读取关键词，关键词提前准备好。还有一个是/describe + 图片链接，图片链接这一块通过selenium交互浏览器，批量抓取pinterest收藏的facade。</p>
+<p>以下4天的进度跟踪是/blend的实现。主要依托pyautogui控制鼠标和键盘行为，遇到的难点有中文路径，自动暂停、手动暂停与任务执行时间关系、状态的计算。在这个过程中我觉得自动暂停、手动暂停控制执行任务的这个逻辑可以通用到其他日后类似需求的程序当中。另外就是制作程序时，遇到需要时长测试的先把任务部分简化为print输出，把时长放缩使周期缩短，这样能快速调试。当然这一整天的程序逻辑部分我丝毫没有去研究，完全就靠人工智能的概率论去蒙，做到了我理想状态的“我不懂，但我知道随心所欲”。</p>
+<p><img src="/2024/08/05/2024-8-5/2024-8-5/aea87c0b0aa7126ec04729c58bf65c62_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/05/2024-8-5/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/07/26/2024-7-26/" itemprop="url">2024-7-26-pdf切分章节与自动批量下载kimi回复并整理</a>
         
     </h1>
@@ -321,51 +365,6 @@
 <p><img src="/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/07/21/2024-7-21/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/07/19/2024-7-19/" itemprop="url">2024-7-19-kimi人工智能批量自动解析书籍章节内容</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-07-19T02:41:02.000Z" itemprop="datePublished">7月 19 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分钟 读完 (约 1369 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>最近发现家里附近2公里左右江宁路有个茑屋书店氛围不错去看了几次书，正当我对书店里的书做了一番准备想后期陆陆续续看时，我偶然间尝试用kimi概括整理电子书，发现它的概括整理还不错，花了一天时间手动复制章节给它概括。</p>
-<p>chatgpt似乎不支持长文概括，或者说免费版的不支持，暂时还没找到可以免费用chatgpt4的办法。通义千问和kimi我测试后发现它虽然可以支持10几万字的长文本，但是长文本下要求概括章节则会发生假装概括的样子，比如让它概括第1章它会夹带其他章节的内容，为了使它的概括更为精确需要切分章节内容。手动搞，再一个个复制的话，一本40万字的书大约需要大半天完成。于是我想到自动切分章节，再用浏览器自动交互程序批量上传章节让kimi分析。</p>
-<p>章节切分的逻辑是搜索第x章+“ ”（空格）到第x+1章+“ ”（空格），因为书中可能包含提及“第x章”的字符串因此首先要手动处理下每一章标题使其符合格式。通过这个程序能批量完成多本书的章节切分。</p>
-<p><img src="/2024/07/19/2024-7-19/2024-7-19/8f1c866a4f7d566e758b4659db73c78e_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/07/19/2024-7-19/#more">阅读更多</a>
         </p>
     
     </div>

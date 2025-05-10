@@ -119,6 +119,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/30/2024-8-30/" itemprop="url">2024-8-30-midjourney更换生产工具</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-30T07:39:35.000Z" itemprop="datePublished">8月 30 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1557 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>前几天midjourney的生产工具我自认为达到了一个不错的效率，大概3小时中断一次，然而月末时突然恶化为30分钟左右就断了。在好几次测试中断后，我觉得可能要换个平台了，另一方面我在想究竟是哪里出了问题导致频繁的中断呢，于是笔记本下载了一个captura同时买了另一个midjourney生产工具。另一个版本的工具有个优点是它是网页，它不会像先前那个版本莫名其妙强退，目前为止从没有强退过。在实战中发现这玩意儿能自动检测频次，5分钟内发起/imagine /blend基本会失败驳回，但这不会打断midjourney auto python，最后我在captura的录像中观察到问题出在了/blend /imagine命令输入后需要有一定时间等待sleep(10)左右，之前我是直接连着回车键有时候可能是网络原因来不及加载出命令，这会导致回车空砍从而还没出图片输入框就发动了点击图片输入框的动作请求（如下图，由于blend命令回车没起做用，图片输入框没出来接着去点击点到了临近的图片，再接着图片地址就跑到地址栏去了，后续全部崩塌），从而导致后面的逻辑全部崩塌。在修改这里的sleep等待后，目前验证10几小时都没出现过崩塌。</p>
+<p><img src="/2024/08/30/2024-8-30/2024-8-30/51ee3be992a1addfce455129d9223a5d_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/30/2024-8-30/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/08/28/2024-8-28/" itemprop="url">2024-8-28-suno自动批量制作音乐</a>
         
     </h1>
@@ -328,50 +371,6 @@
 <p><img src="/2024/08/14/2024-8-9/2024-8-9/71926f3d3885ad13a13e0afff254cf2a_MD5.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/08/14/2024-8-9/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/08/05/2024-8-5/" itemprop="url">2024-8-5-midjourney共享版批量做图提交定时暂停手动暂停</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-08-05T15:15:06.000Z" itemprop="datePublished">8月 5 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2439 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>由于midjourney手动提交1天搞下来大改只能收集150个图，非常疲惫而且会经历排队等待、队列占满导致的沮丧、进退两难。于是我想捣鼓一个自动提交的程序，经过这一天我大概看出来行为模式是用建筑装饰特征的图+楼面房型排列来实现建筑风格的生产。根据chatgpt的说法可以根据屏幕坐标来控制.exe文件中的/blend 命令实现自动化上传？我觉得可以试试看，用笔记本电脑全天开着自动匹配来生成素材？一方面是穷举几个文件夹中的图片排列组合使用/blend。还有一个是/imagine + 关键词，关键词应该是一个txt文件按照行来读取关键词，关键词提前准备好。还有一个是/describe + 图片链接，图片链接这一块通过selenium交互浏览器，批量抓取pinterest收藏的facade。</p>
-<p>以下4天的进度跟踪是/blend的实现。主要依托pyautogui控制鼠标和键盘行为，遇到的难点有中文路径，自动暂停、手动暂停与任务执行时间关系、状态的计算。在这个过程中我觉得自动暂停、手动暂停控制执行任务的这个逻辑可以通用到其他日后类似需求的程序当中。另外就是制作程序时，遇到需要时长测试的先把任务部分简化为print输出，把时长放缩使周期缩短，这样能快速调试。当然这一整天的程序逻辑部分我丝毫没有去研究，完全就靠人工智能的概率论去蒙，做到了我理想状态的“我不懂，但我知道随心所欲”。</p>
-<p><img src="/2024/08/05/2024-8-5/2024-8-5/aea87c0b0aa7126ec04729c58bf65c62_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/08/05/2024-8-5/#more">阅读更多</a>
         </p>
     
     </div>

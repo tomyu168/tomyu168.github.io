@@ -149,6 +149,35 @@ def mute_autoplay_videos(message_divs):
                 video['muted'] = ''  # 添加 muted 属性
                 print(f"Updated video tag: {video}")  # 打印更新后的 video 标签
 
+        for i, video in enumerate(video_tags):
+            video_src = video.get('src')
+            if video_src and video_src.startswith('blob:') and 'full-media' in video.get('class', []):
+                print(f"Preparing to download video: {video_src}")
+                
+                # 定位到页面上该视频元素
+                videoxpath = (By.XPATH, f'(//video[contains(@class, "full-media") and starts-with(@src, "blob:")])[{i+1}]')
+                video_element = tab.ele(videoxpath)
+                
+                if video_element:
+                    video_element.scroll.to_see()
+                    time.sleep(1)
+                    tab.actions.r_click(video_element)
+                    time.sleep(1)
+
+                    # 可能的菜单项：Download / Save video as / etc
+                    download_xpath = (By.XPATH, '//div[@class="MenuItem compact" and contains(text(), "Download")]')
+                    download = tab.ele(download_xpath)
+                    
+                    if download:
+                        tab.set.download_path(download_folder)
+                        tab.set.download_file_name(video_src.split('/')[-1].strip())
+                        download.click()
+                        print("Triggered download for video.")
+                    else:
+                        print("Download option not found in context menu.")
+
+
+
 def rename_file_extensions(directory):
     for filename in os.listdir(directory):
         # 分离文件名和扩展名
@@ -530,53 +559,53 @@ def process_webpage(url_base, message_limit):
             total_videos += video_count
             print(f"Found {video_count} videos in current div.")
 
-            if video_count > 0:  # 确保当前 div 中有视频
-                for video in video_tags:  # 遍历每个视频
-                    video_src = video.get('src')
-                    if video_src and video_src.startswith('./progressive/document'):
-                        # 提取文件名
-                        file_name = video_src.replace('./progressive/document', '').strip()
-                        print(f"Preparing to download video with filename: {file_name}")
+            # if video_count > 0:  # 确保当前 div 中有视频
+            #     for video in video_tags:  # 遍历每个视频
+            #         video_src = video.get('src')
+            #         if video_src and video_src.startswith('./progressive/document'):
+            #             # 提取文件名
+            #             file_name = video_src.replace('./progressive/document', '').strip()
+            #             print(f"Preparing to download video with filename: {file_name}")
 
-                        # 定义视频标签的 XPath
-                        message_div_id = message_div['id']
-                        videoxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//video')
-                        video_element = tab.ele(videoxpath)  # 获取视频元素
+            #             # 定义视频标签的 XPath
+            #             message_div_id = message_div['id']
+            #             videoxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//video')
+            #             video_element = tab.ele(videoxpath)  # 获取视频元素
 
-                        # 模拟右键点击
-                        tab.actions.r_click(video_element)
-                        time.sleep(1)  # 等待菜单出现
+            #             # 模拟右键点击
+            #             tab.actions.r_click(video_element)
+            #             time.sleep(1)  # 等待菜单出现
 
-                        # 定义下载选项的 XPath
-                        downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and normalize-space(.) = "Download"]')
-                        download = tab.ele(downloadxpath)  # 获取下载按钮
+            #             # 定义下载选项的 XPath
+            #             downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and normalize-space(.) = "Download"]')
+            #             download = tab.ele(downloadxpath)  # 获取下载按钮
 
-                        retries = 0
-                        while retries < max_retries:
-                            try:
-                                # 设置下载路径和文件名
-                                tab.set.download_path(r'D:\hexoblog\source\telegram\1天30条的imgvideo')  # 设置文件保存路径
-                                tab.set.download_file_name(file_name)  # 设置重命名文件名
-                                time.sleep(1)
-                                download.click()
+            #             retries = 0
+            #             while retries < max_retries:
+            #                 try:
+            #                     # 设置下载路径和文件名
+            #                     tab.set.download_path(r'D:\hexoblog\source\telegram\1天30条的imgvideo')  # 设置文件保存路径
+            #                     tab.set.download_file_name(file_name)  # 设置重命名文件名
+            #                     time.sleep(1)
+            #                     download.click()
                                 
-                                # 修改视频标签属性
-                                video_src = '1天30条的imgvideo/' + file_name + ".mp4"
-                                video['data-src'] = video_src
-                                del video['src']
-                                video['class'] = 'full-media lazy'
+            #                     # 修改视频标签属性
+            #                     video_src = '1天30条的imgvideo/' + file_name + ".mp4"
+            #                     video['data-src'] = video_src
+            #                     del video['src']
+            #                     video['class'] = 'full-media lazy'
                                 
-                                print(f"Downloaded {file_name} successfully.")
-                                break  # 成功完成后跳出重试循环
-                            except Exception as e:
-                                retries += 1
-                                print(f"错误: {e}. 重试 ({retries}/{max_retries})...")
-                                time.sleep(3)  # 等待 5 秒再重试
-                        else:
-                            print(f"Failed to download {file_name} after {max_retries} attempts.")
+            #                     print(f"Downloaded {file_name} successfully.")
+            #                     break  # 成功完成后跳出重试循环
+            #                 except Exception as e:
+            #                     retries += 1
+            #                     print(f"错误: {e}. 重试 ({retries}/{max_retries})...")
+            #                     time.sleep(3)  # 等待 5 秒再重试
+            #             else:
+            #                 print(f"Failed to download {file_name} after {max_retries} attempts.")
                             
-                        # 可选：等待下载完成
-                        time.sleep(15)  # 根据下载时间进行调整
+            #             # 可选：等待下载完成
+            #             time.sleep(15)  # 根据下载时间进行调整
 
         mute_autoplay_videos(top_limit_message_divs)
 

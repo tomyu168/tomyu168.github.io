@@ -3,7 +3,7 @@ import shutil
 
 folder_path = r'D:\hexoblog\source\telegram\1天30条的imgvideo'
 size_limit_mb = 25
-target_path = r'E:\ai_analyze\telegram批量翻译程序\待压缩'
+target_path = r'D:\hexoblog\source\telegram\telegram批量翻译程序\待压缩'
 
 # 确保目标文件夹存在
 os.makedirs(target_path, exist_ok=True)

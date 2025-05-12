@@ -2,9 +2,9 @@ import os
 import shutil
 
 # 指定源目录和目标目录
-source_folder = r'E:\ai_analyze\telegram批量翻译程序\待压缩\已转换'  # 替换为你的源目录路径
+source_folder = r'D:\hexoblog\source\telegram\telegram批量翻译程序\待压缩\已转换'  # 替换为你的源目录路径
 target_folder = r'D:\hexoblog\source\telegram\1天30条的imgvideo'  # 替换为你的目标目录路径
-del_folder = r'E:\ai_analyze\telegram批量翻译程序\待压缩'
+del_folder = r'D:\hexoblog\source\telegram\telegram批量翻译程序\待压缩'
 # 确保目标文件夹存在
 os.makedirs(target_folder, exist_ok=True)
 

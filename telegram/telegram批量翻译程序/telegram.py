@@ -15,7 +15,7 @@ do1 = ChromiumOptions().set_paths(local_port=9111, user_data_path=r'E:/chrometmp
 tab = ChromiumPage(addr_or_opts=do1)
 chat_ids = []
 url_base = 'https://web.telegram.org/a/#'
-message_limit = 35
+message_limit = 30
 
 api_id = '24053889'
 api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'
@@ -38,7 +38,7 @@ with TelegramClient('session_name', api_id, api_hash, proxy=proxy) as client:
             # 获取该频道的未读消息数
             unread_messages = dialog.unread_count
             # 如果未读消息数大于等于30条，将其 chat_id 添加到 chat_ids 列表中
-            if unread_messages >= 84:
+            if unread_messages >= 30:
                 chat_ids.append(str(dialog.id))  # 将 chat_id 转为字符串并添加到列表
 
     # 输出满足条件的频道 chat_ids
@@ -47,6 +47,36 @@ with TelegramClient('session_name', api_id, api_hash, proxy=proxy) as client:
     if target_chat_id in chat_ids:
         chat_ids.remove(target_chat_id)  # 从列表中移除该 chat_id
     time.sleep(6)
+
+
+def add_extensions_by_size(directory):
+    for filename in os.listdir(directory):
+        filepath = os.path.join(directory, filename)
+
+        # 跳过文件夹
+        if not os.path.isfile(filepath):
+            continue
+
+        # 判断是否已有后缀
+        if '.' in filename:
+            continue
+
+        # 获取文件大小（单位：字节）
+        file_size_bytes = os.path.getsize(filepath)
+        file_size_mb = file_size_bytes / (1024 * 1024)
+
+        # 判断大小并添加后缀
+        if file_size_mb < 0.4:
+            new_filename = filename + '.jpg'
+        else:
+            new_filename = filename + '.mp4'
+
+        new_filepath = os.path.join(directory, new_filename)
+        
+        # 重命名文件
+        os.rename(filepath, new_filepath)
+        print(f"Renamed '{filename}' -> '{new_filename}'")
+
 
 def download_images(top_limit_message_divs, download_folder, max_retries=6):
     if not os.path.exists(download_folder):
@@ -536,7 +566,7 @@ def process_webpage(url_base, message_limit):
                     video_src = video.get('src')
                     if video_src and 'progressive/document' in video_src:
                         # 提取文件名
-                        file_name = video_src.replace('./progressive/document', '').strip()
+                        file_name = video_src.split('/')[-1]
                         print(f"Preparing to download video with filename: {file_name}")
 
                         # 定义视频标签的 XPath
@@ -564,6 +594,7 @@ def process_webpage(url_base, message_limit):
                                 
                                 # 修改视频标签属性
                                 video_src = '1天30条的imgvideo/' + file_name + ".mp4"
+                                print(f'video_src为{video_src}')
                                 video['data-src'] = video_src
                                 del video['src']
                                 video['class'] = 'full-media lazy'
@@ -643,6 +674,7 @@ def process_webpage(url_base, message_limit):
 
 process_webpage(url_base, message_limit)
 
-
+target_directory = r'D:\hexoblog\source\telegram\1天30条的imgvideo'
+add_extensions_by_size(target_directory)
 
 

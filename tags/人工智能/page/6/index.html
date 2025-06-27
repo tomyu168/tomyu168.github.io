@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/28/2024-8-28/" itemprop="url">2024-8-28-suno自动批量制作音乐</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-28T07:28:30.000Z" itemprop="datePublished">8月 28 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            21 分钟 读完 (约 3195 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>去年年底试过suno自动作曲，我忘记了为什么当时没试用下去，可能那时还不支持歌词？前两天也不知道为啥想起来去摸这玩意儿，可能是在youtube听那些lofi集合实在是恶心，搞来搞去就那么点东西，自己的歌单也很有限。最近一直借用人工智能弄自动化，看到suno每天支持做5x2首歌（歌词相同版）于是我想挑战下用ai驱动开多账号来为自己生产歌单。当然这个想法不是纯粹想要苦行僧一样的挑战或是炫技，而是因为我大概用了一晚上在suno本身有600多积分的情况下，一次做歌是10积分，我一口气几乎都用完了，好像不是一晚而是1晚再加1天？总之在这个过程中，我生产了几首我觉得很不错的音乐，是那种我愿意反复循环的，我当时甚至是想付费来生产的。我的想法是如果每100首能产生2-3个好听的歌曲，那么买10000首就可以有200-300个了，这其实和midjourney暴力穷举筛选各种雕塑、景观、外立面设计一样就是设法用控制变量手法提高产出效率，当然前提是要量大管饱。</p>
+<p><img src="/2024/08/28/2024-8-28/2024-8-28/95cedd483b52f6de3769008c631a6e1b_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/28/2024-8-28/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/08/20/2024-8-19/" itemprop="url">2024-8-19-midjourney生产图片周期测试以及blend进展</a>
         
     </h1>
@@ -347,56 +390,13 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/" itemprop="url">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-04-10T15:07:58.000Z" itemprop="datePublished">4月 10 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2354 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>在完成模型制作后，对部件选中批量命名，然后data name from object使网格体名称能够规范化。在SendToUE的工作流中，网格体的名称是static mesh名称，物体名称是场景中的actor名称。对于同一网格体的部件会有多个instance对象，理想中的状况是选中其中一个instance对象烘焙而不需要所有的instance都拿去烘焙，我搜了很久并没有找到对若干包含多组instance的物体选中其中单个instance的办法。后来我想了个思路，既然有插件可以对instance操控必然是可以获取instance的，那么按照网格体分类获取其data name然后移动到各自的collection里面，再从collection着手选取其中一个对象，那么就能实现我的想法了。然而我对python几乎没什么印象了，更别说还要去啃blender python的api文档。抱着死马当活马医的态度，我试了下用kimi人工智能和chatgpt，居然在一番循序渐进的诱导下成功做出了这两段代码。</p>
-<p><img src="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/1.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
     <div class="pagination-previous">
         <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/5/">上一页</a>
     </div>
-    <div class="pagination-next is-invisible is-hidden-mobile">
+    <div class="pagination-next">
         <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/7/">下一页</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
@@ -408,6 +408,8 @@
         <li><a class="pagination-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/5/">5</a></li>
         
         <li><a class="pagination-link is-current" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/6/">6</a></li>
+        
+        <li><a class="pagination-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/page/7/">7</a></li>
         
     </ul>
 </nav>

@@ -119,6 +119,97 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/" itemprop="url">2023-12-25-ue散布工具iascatter实现绿化园林</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-25T08:43:44.000Z" itemprop="datePublished">12月 25 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 分钟 读完 (约 2736 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>geo-scatter在blender里面搞绿化太卡了，仅仅一片草坪就会使视图操作巨卡，似乎通过摄像机culling可以缓解，但我估计会有防不胜防的“卡”，毕竟blender一卡就只能强退，之前搞得就白弄了。</p>
+<p>为什么要用geo-scatter，我开始反思质问自己，一个是利用其现成的植物配比和效果参考，一个是一键生成可方便调节密度、位置、形状，可以导出instance。然而不仅仅是操作卡，导出instance也是暴卡，颠覆了我以往的想法是blender中只要做了instance关联就可以无限生产物体而不会有性能问题。那天晚上我甚至在纠结可否用导出json，在ue中用json循环读取，创建实例。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaqyCV5Ho9g&amp;t=158s">Unreal Engine 5 Tutorial - Instance Importer - Reading Files With Blueprints [3/4]</a></p>
+<p>后来我想到citypark项目以及目前尝试过的绿化，1是用landscape paint刷一层底，2是笔刷刷foliage给绿化地基添加实体形成层次，3是逐个添加树木再同类asset转化instance。前期暂时遇到的问题有，1.curb通过blender curve export用prg widget转，曲线会被改动变得诡异很难修；2.植物的散布不能精确在指定范围的地块控制，笔刷画一圈还要擦一遍；3.地块在ue中没办法精确规划。结合geo-scatter，我希望地块在blender中可以导入ue，然后对这个地块精确识别，曲面吸附，带有geo-scatter中的散布控制，大量散布不会卡死，操作视图流畅。</p>
+<p><img src="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/v2-def82e965a805bc7682e886f1b8e844e_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/25/2023-12-25-ue%E6%95%A3%E5%B8%83%E5%B7%A5%E5%85%B7iascatter%E5%AE%9E%E7%8E%B0%E7%BB%BF%E5%8C%96%E5%9B%AD%E6%9E%97/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/" itemprop="url">2023-12-14-blender道路uv展开FRG替换PRG</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2023-12-20T03:36:12.000Z" itemprop="datePublished">12月 20 2023</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            22 分钟 读完 (约 3238 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>首先做到这一步我发现之前大量时间用在选取物体“/”键独立显示上，做到后面东西越来越多，在完整场景里选取变得十分困难了，这时要规范分类collection，比如道路做一个collection。对道路进行编辑，做材质、uv展开时隐藏其他collection即可。</p>
+<p>关于小区的道路我想了下先把地形mesh转换成一个完全平面，等全部做完以后再通过权重z方向偏移道路局部以及地形mesh即可产生起伏的效果。</p>
+<p>道路的绘制直线可以直接用cube去拼凑，若是曲线路径那么有两种做法一个是bezier绘制，这个方法适用于不规则超长贯穿式路径的绘制，可以快速搞出很不规则的曲线，缺点是其弧度很僵硬，与绘制的笔法有关系，可能有数位板会好一些？下图中白色为bezier绘制的曲线路面。第二种方式是对挤出的cube用spin tool做拱形挤出，这种方法每次只能搞一个弯曲，优点是做出来的弧度十分圆润。</p>
+<p><img src="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/v2-5a790b8897d47f779f20c284db506d79_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/12/20/2023-12-14-blender%E9%81%93%E8%B7%AFuv%E5%B1%95%E5%BC%80FRG%E6%9B%BF%E6%8D%A2PRG/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/12/17/2023-11-17-blender%E6%95%B4%E5%90%88%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%AF%BC%E5%85%A5ue/" itemprop="url">2023-11-17-blender整合建筑部件导入ue</a>
         
     </h1>
@@ -283,92 +374,6 @@
 <p><img src="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/v2-2763639cc2027ce6ce60da71a5f144aa_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2023/12/05/2023-12-4-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%902-1/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/" itemprop="url">2023-12-3-完整景观项目分析1</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-04T02:50:53.000Z" itemprop="datePublished">12月 4 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA/">建筑理论</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            38 分钟 读完 (约 5635 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>青岛龙湖·春江天越，这样一个平面图依旧是没有想法怎样具体实施的。注意道路明显宽度有很大的不同，也就是说这些道路应该都是knift project投射的绘制好的平面，而不是用bezier曲线放样一个profile 道路mesh。</p>
-<p><img src="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/v2-5715855159992e1afa479bd0f8304352_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/04/2023-12-3-%E5%AE%8C%E6%95%B4%E6%99%AF%E8%A7%82%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%901/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/" itemprop="url">2023-12-2-环境细化与stable-diffusion</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2023-12-02T08:07:19.000Z" itemprop="datePublished">12月 2 2023</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AD%91%E7%90%86%E8%AE%BA/">建筑理论</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            8 分钟 读完 (约 1203 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>之前设法通过stable diffusion生成了许多小区平面图，不过这些平面图顶多指导建筑、道路、绿化布局，在设计样式上几乎没什么参考。</p>
-<p><img src="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/v2-4c77c9b052eb11143f3df42e3061baa7_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/12/02/2023-12-2-%E7%8E%AF%E5%A2%83%E7%BB%86%E5%8C%96%E4%B8%8Estable-diffusion/#more">阅读更多</a>
         </p>
     
     </div>

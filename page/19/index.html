@@ -119,6 +119,93 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/" itemprop="url">2024-2-16-BlenderToUE问题集锦1</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T12:04:25.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            19 分钟 读完 (约 2881 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>1.物体的shading出了问题，且mesh支离破碎，勾选去掉nanite或者去掉generate lightmap uvs可以恢复正常，但这样显然不好，后来我发现主要是光照贴图根据第一套uv而来，cornice没有uv所以出了问题，smart uv project之后即可，展开uv应该在bevel之前。</p>
+<p><img src="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/v2-72c8be5298d64399b6541f88e7a6529f_1440w.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/02/26/2024-2-16-BlenderToUE%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A61/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/" itemprop="url">2024-2-26-PBG程序化建筑从blender到ue</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-02-26T08:04:16.000Z" itemprop="datePublished">2月 26 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1239 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>制作PBG程序化建筑：</p>
+<p>1.先建模，分析标准墙体和外部装饰部件确定好需要用哪几种材质，使用标准厚度带门框、窗框的口、凵、冂字形墙体，多个开口则用多个标准墙体合并中间重合部分用vertex merge合并。以下为一些标准墙体的变形，包含了两侧完全\部分挤出；inset内侧开口的循环边内收；开槽；异形墙体拱形用布尔、多边形需要计算角度？</p>
+<p>建模开始前切分楼层注意始终保持一层为完整的地面到天花板，比如有些情况中，地面位于cornice的中段，则应该切分cornice而不是切分实际逻辑上的楼层而保持cornice的完整性，这样会使墙体、装饰部件、门窗框跟着一起切分从而使整个工作变得非常复杂。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/02/26/2024-2-26-PBG%E7%A8%8B%E5%BA%8F%E5%8C%96%E5%BB%BA%E7%AD%91%E4%BB%8Eblender%E5%88%B0ue/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/02/14/2024-1-26-%E5%BB%BA%E7%AD%91%E9%83%A8%E4%BB%B6%E5%B1%80%E9%83%A8uv%E5%9B%BE%E6%A1%88%E5%BD%A9%E7%BB%98%E4%B8%8E%E5%AE%A4%E5%86%85%E5%9C%BA%E6%99%AF%E8%A7%86%E5%B7%AE%E8%B4%B4%E5%9B%BE%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83/" itemprop="url">2024-1-26-建筑部件局部uv图案彩绘与室内场景视差贴图随机分布</a>
         
     </h1>
@@ -278,91 +365,6 @@
 <p><img src="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/v2-871b67193b3c4b7e0c024b202d2f46ea_1440w.jpg"></p></body></html>
         <p class="article-more-link">
             <a href="/2024/01/26/2024-1-9-%E5%BB%BA%E7%AD%91%E7%BB%84%E8%A3%85%E7%9A%84%E8%A6%81%E7%82%B9%E4%BB%A5%E5%8F%8Auv%E5%88%86%E5%89%B2/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/01/10/2024-1-9-%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93%E6%84%9F%E6%82%9F/" itemprop="url">2024-1-9-阶段总结感悟</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-01-10T02:14:33.000Z" itemprop="datePublished">1月 10 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            12 分钟 读完 (约 1740 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>原本想去年完整做一个小区，结果到现在停摆了，在这个过程中我遇到的问题有：<br>1.精细景观小区道路的制作，这里的道路不少曲线是通过spin tool做的旋转，保证了漂亮的弧度，但是很费人工，另外这个做法下砖石在曲线路径下的uv会有扭曲，导致效果不完美。逼死强迫症。我觉得可以尝试用frg来替代手绘bezier以及手动spin tool，frg设置好倒角好自动的弧度感觉不错，绘制快速，而且uv都搞好了。<br>2.绿化如何搞？用hillside的草坪材质可以覆盖一个surface，但是不解决立体性，使用iascatter对区域分布绿化效果不好，而且容易卡。不过卡的原因可能是没有使用合理的lod依旧依赖nanite，绿化这块需要用lod让低面数的尽量多展示，这样可以使性能跟得上，另一方面想要在区域分布目前看来自带的fill最合适，只要点击面片会在面片上分布，但这要求对所有绿化带的面片指定，也就是说确定设计，之所以我在第一个小区中没有绿化带的面片是做到哪儿想到哪儿，先摆建筑然后道路、会所活动室、水景不少都是临时起意，根本没有一个设计图纸，目前我还没法借助stable diffusion做出较好的彩平景观建筑设计平面方案，不过就算是想到哪里做到哪里也得按照一个流程来使得绿化带面片确定下来。对于小块区域的绿化布置、线性的，iascatter很棒，完美解决了之前PRG以及nvspline的不足，或许我应该再测试以下iascatter用于大片区域？<br>3.建筑组装方面，之前很不顺利，1天都搞不定一套，大量的重复工作很枯燥而且效果也做不好，corner mesh点对齐什么的，snap总是不舒服不顺手。今天发现可以借助kitbash现成的部件来搞，另外corner mesh用ctrl shift alt s来精准斜切45度做，别总是用加减移动对齐对角线啥的。<br>4.地平搞不定，用scale 0拉平vertex会导致间断性的一个笔直坡面，后来改手动对四周的点多次选取smooth vertex再到用archipack 的terrain功能拉平，调节falloff。<br>5.。。。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/01/10/2024-1-9-%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93%E6%84%9F%E6%82%9F/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/" itemprop="url">2024-1-5-混合简易社区组成的区块用frg布局道路archipack修整地平</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-01-10T01:53:19.000Z" itemprop="datePublished">1月 10 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/CG%E6%8A%80%E6%9C%AF/">CG技术</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            16 分钟 读完 (约 2423 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>不过做每个区块前先看一下这个区块的实景参考一下，不过也不一定要采用实景的手法就是了</p>
-<p><img src="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/v2-94e55b80762b308db3498850d5855d56_1440w.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/01/10/2024-1-5-%E6%B7%B7%E5%90%88%E7%AE%80%E6%98%93%E7%A4%BE%E5%8C%BA%E7%BB%84%E6%88%90%E7%9A%84%E5%8C%BA%E5%9D%97%E7%94%A8frg%E5%B8%83%E5%B1%80%E9%81%93%E8%B7%AFarchipack%E4%BF%AE%E6%95%B4%E5%9C%B0%E5%B9%B3/#more">阅读更多</a>
         </p>
     
     </div>

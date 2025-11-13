@@ -15,7 +15,7 @@ do1 = ChromiumOptions().set_paths(local_port=9111, user_data_path=r'E:/chrometmp
 tab = ChromiumPage(addr_or_opts=do1)
 chat_ids = []
 url_base = 'https://web.telegram.org/a/#'
-message_limit = 35
+message_limit = 25
 
 api_id = '24053889'
 api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'
@@ -38,7 +38,7 @@ with TelegramClient('session_name', api_id, api_hash, proxy=proxy) as client:
             # 获取该频道的未读消息数
             unread_messages = dialog.unread_count
             # 如果未读消息数大于等于30条，将其 chat_id 添加到 chat_ids 列表中
-            if unread_messages >= 35:
+            if unread_messages >= message_limit:
                 chat_ids.append(str(dialog.id))  # 将 chat_id 转为字符串并添加到列表
 
     # 输出满足条件的频道 chat_ids

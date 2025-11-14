@@ -236,7 +236,7 @@ def translate_text(text):
 
     result1 = (By.XPATH, "//div[@class='aytrOJav' and @id='machineResContent']")  
     translated_text = translate_tab.ele(result1)
-    input1 = (By.XPATH, "//div[@role='textbox' and @class='ioHXHxf9' and @contenteditable='true']") 
+    input1 = (By.XPATH, "//div[contains(@class, 'ioHXHxf9') and @contenteditable='true' and @role='textbox']")
     input_box = translate_tab.ele(input1)
     input_box.clear()
     input_box.input(text)

@@ -1,0 +1,2367 @@
+===== message-18707 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group last-in-list has-views shown open" data-message-id="18707" id="message-18707">
+ <div class="bottom-marker" data-message-id="18707" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     IPL 2026 full list of Released &amp; Retained players by 10 franchises: Total salary purse remaining, player trades &amp; more
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/ipl-2026-full-list-of-released-retained-players-by-rcb-csk-mi-gt-srh-kkr-dc-lsg-pbks-rr-salary-purse-player-trades-11763199039370.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/ipl-2026-full-list-of-released-retained-players-by-rcb-csk-mi-gt-srh-kkr-dc-lsg-pbks-rr-salary-purse-player-trades-11763199039370.html">
+      https://www.livemint.com/sports/cricket-news/ipl-2026-full-list-of-released-retained-players-by-rcb-csk-mi-gt-srh-kkr-dc-lsg-pbks-rr-salary-purse-player-trades-11763199039370.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      IPL 2026 full list of Released &amp; Retained players by 10 franchises: Total salary purse remaining, player trades &amp; more
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/ipl-2026-full-list-of-released-retained-players-by-rcb-csk-mi-gt-srh-kkr-dc-lsg-pbks-rr-salary-purse-player-trades-11763199039370.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/ipl-2026-full-list-of-released-retained-players-by-rcb-csk-mi-gt-srh-kkr-dc-lsg-pbks-rr-salary-purse-player-trades-11763199039370.html">
+        mint
+       </a>
+       <p class="site-title">
+        IPL 2026 full list of Released &amp; Retained players by 10 franchises: Total salary purse remaining, player trades &amp; more | Mint
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        IPL 2026 full list of Released &amp; Retained players by 10 franchises: Total salary purse remaining, player trades &amp; more | Mint
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/bd8bab63-f8e3-4de7-af0c-673d6214aaf7"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18706 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18706" id="message-18706">
+ <div class="bottom-marker" data-message-id="18706" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Tenneco Clean Air IPO vs PhysicsWallah IPO vs Emmvee IPO vs Fujiyama Power IPO: What does GMP signal ahead of listing?
+     <br/>
+     <br/>
+     Read on
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/ipo/tenneco-clean-air-ipo-vs-physicswallah-ipo-vs-emmvee-ipo-vs-fujiyama-power-ipo-what-does-gmp-signal-ahead-of-listing-11763200827031.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/ipo/tenneco-clean-air-ipo-vs-physicswallah-ipo-vs-emmvee-ipo-vs-fujiyama-power-ipo-what-does-gmp-signal-ahead-of-listing-11763200827031.html">
+      https://www.livemint.com/market/ipo/tenneco-clean-air-ipo-vs-physicswallah-ipo-vs-emmvee-ipo-vs-fujiyama-power-ipo-what-does-gmp-signal-ahead-of-listing-11763200827031.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Tenneco Clean Air IPO vs PhysicsWallah IPO vs Emmvee IPO vs Fujiyama Power IPO: What does GMP signal ahead of listing?
+Read on
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/ipo/tenneco-clean-air-ipo-vs-physicswallah-ipo-vs-emmvee-ipo-vs-fujiyama-power-ipo-what-does-gmp-signal-ahead-of-listing-11763200827031.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/ipo/tenneco-clean-air-ipo-vs-physicswallah-ipo-vs-emmvee-ipo-vs-fujiyama-power-ipo-what-does-gmp-signal-ahead-of-listing-11763200827031.html">
+        mint
+       </a>
+       <p class="site-title">
+        Tenneco Clean Air IPO vs PhysicsWallah IPO vs Emmvee IPO vs Fujiyama Power IPO: What does GMP signal ahead of listing? | Stock Market News
+       </p>
+       <p class="site-description">
+        After stellar back-to-back debuts of Groww and Pine Labs, expectations are ripe that the upcoming listings could also offer strong gains to IPO investors, even if the gre...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Tenneco Clean Air IPO vs PhysicsWallah IPO vs Emmvee IPO vs Fujiyama Power IPO: What does GMP signal ahead of listing? | Stock Market News
+After stellar back-to-back debuts of Groww and Pine Labs, expectations are ripe that the upcoming listings could also offer strong gains to IPO investors, even if the gre...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/f441ce16-d6bd-4730-8f91-d146d98483f8"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18705 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18705" id="message-18705">
+ <div class="bottom-marker" data-message-id="18705" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Tata Motors vs TMPV: Which is a better stock to buy after Q2 results and Tata Motors demerger? Explained
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/tata-motors-vs-tmpv-which-is-a-better-stock-to-buy-after-q2-results-and-tata-motors-demerger-explained-11763198210419.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/tata-motors-vs-tmpv-which-is-a-better-stock-to-buy-after-q2-results-and-tata-motors-demerger-explained-11763198210419.html">
+      https://www.livemint.com/market/stock-market-news/tata-motors-vs-tmpv-which-is-a-better-stock-to-buy-after-q2-results-and-tata-motors-demerger-explained-11763198210419.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Tata Motors vs TMPV: Which is a better stock to buy after Q2 results and Tata Motors demerger? Explained
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/tata-motors-vs-tmpv-which-is-a-better-stock-to-buy-after-q2-results-and-tata-motors-demerger-explained-11763198210419.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/tata-motors-vs-tmpv-which-is-a-better-stock-to-buy-after-q2-results-and-tata-motors-demerger-explained-11763198210419.html">
+        mint
+       </a>
+       <p class="site-title">
+        Tata Motors vs TMPV: Which is a better stock to buy after Q2 results and Tata Motors demerger? Explained | Stock Market News
+       </p>
+       <p class="site-description">
+        Tata Motors vs TMPV: The two demerged Tata group companies — Tata Motors (which houses the commercial vehicle business) and Tata Motors Passenger Vehicles — announced the...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Tata Motors vs TMPV: Which is a better stock to buy after Q2 results and Tata Motors demerger? Explained | Stock Market News
+Tata Motors vs TMPV: The two demerged Tata group companies — Tata Motors (which houses the commercial vehicle business) and Tata Motors Passenger Vehicles — announced the...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/4bafef64-e2cd-4de0-a24f-8c1d4009f08b"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18704 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18704" id="message-18704">
+ <div class="bottom-marker" data-message-id="18704" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Gold prices jump ₹2,000 this week! What's behind the rise and how to trade now? Find out
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/commodities/gold-prices-jump-rs-2-000-this-week-whats-behind-the-rise-and-how-to-trade-now-11763187210577.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/commodities/gold-prices-jump-rs-2-000-this-week-whats-behind-the-rise-and-how-to-trade-now-11763187210577.html">
+      https://www.livemint.com/market/commodities/gold-prices-jump-rs-2-000-this-week-whats-behind-the-rise-and-how-to-trade-now-11763187210577.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Gold prices jump ₹2,000 this week! What's behind the rise and how to trade now? Find out
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/commodities/gold-prices-jump-rs-2-000-this-week-whats-behind-the-rise-and-how-to-trade-now-11763187210577.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/commodities/gold-prices-jump-rs-2-000-this-week-whats-behind-the-rise-and-how-to-trade-now-11763187210577.html">
+        mint
+       </a>
+       <p class="site-title">
+        Gold prices jump  ₹2,000 this week! What's behind the rise and how to trade now? | Stock Market News
+       </p>
+       <p class="site-description">
+        Gold price today: The domestic gold prices in the futures market settled in the green this week, despite the selloff seen last evening. The bullion managed to rise over  ...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Gold prices jump ₹2,000 this week! What's behind the rise and how to trade now? | Stock Market News
+Gold price today: The domestic gold prices in the futures market settled in the green this week, despite the selloff seen last evening. The bullion managed to rise over ...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/099a4e5a-8d1f-4556-8ab0-5730af4d0125"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18703 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18703" id="message-18703">
+ <div class="bottom-marker" data-message-id="18703" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     JK police station blast: 9 dead, 32 hurt in ‘accidental’ blast, top cop says ‘speculation unnecessary’
+     <br/>
+     <br/>
+     Latest updates
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/news/india/jk-police-station-blast-9-dead-32-hurt-in-accidental-blast-top-cop-says-speculation-unnecessary-latest-updates-11763182533980.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/news/india/jk-police-station-blast-9-dead-32-hurt-in-accidental-blast-top-cop-says-speculation-unnecessary-latest-updates-11763182533980.html">
+      https://www.livemint.com/news/india/jk-police-station-blast-9-dead-32-hurt-in-accidental-blast-top-cop-says-speculation-unnecessary-latest-updates-11763182533980.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      JK police station blast: 9 dead, 32 hurt in ‘accidental’ blast, top cop says ‘speculation unnecessary’
+Latest updates
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/news/india/jk-police-station-blast-9-dead-32-hurt-in-accidental-blast-top-cop-says-speculation-unnecessary-latest-updates-11763182533980.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/news/india/jk-police-station-blast-9-dead-32-hurt-in-accidental-blast-top-cop-says-speculation-unnecessary-latest-updates-11763182533980.html">
+        mint
+       </a>
+       <p class="site-title">
+        JK police station blast: 9 dead, 32 hurt in ‘accidental’ blast, top cop says ‘speculation unnecessary’ | Latest updates | Today News
+       </p>
+       <p class="site-description">
+        The blast occurred when some policemen and authorities were extracting samples from a large cache of 360 kg of explosives explosives confiscated in the 'white-collar' ter...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        JK police station blast: 9 dead, 32 hurt in ‘accidental’ blast, top cop says ‘speculation unnecessary’ | Latest updates | Today News
+The blast occurred when some policemen and authorities were extracting samples from a large cache of 360 kg of explosives explosives confiscated in the 'white-collar' ter...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/0050c640-59d7-4b14-a932-789cc977625e"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18702 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18702" id="message-18702">
+ <div class="bottom-marker" data-message-id="18702" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     JDU huddle begins, party president and MP Sanjay Jha arrive at Nitish Kumar's residence
+     <img alt="🚨" class="open emoji emoji-small" data-path="./img-apple-64/1f6a8.png" draggable="false" src="./img-apple-64/1f6a8.png"/>
+     <br/>
+     <br/>
+     Live updates here
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/bihar-election-result-2025-live-updates-nda-three-fourth-majority-congress-votechori-mgb-rjd-tejashwi-rahul-nitish-cm-11763165086166.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/bihar-election-result-2025-live-updates-nda-three-fourth-majority-congress-votechori-mgb-rjd-tejashwi-rahul-nitish-cm-11763165086166.html">
+      https://www.livemint.com/elections/bihar-election-result-2025-live-updates-nda-three-fourth-majority-congress-votechori-mgb-rjd-tejashwi-rahul-nitish-cm-11763165086166.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      JDU huddle begins, party president and MP Sanjay Jha arrive at Nitish Kumar's residence
+Live updates here
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/bihar-election-result-2025-live-updates-nda-three-fourth-majority-congress-votechori-mgb-rjd-tejashwi-rahul-nitish-cm-11763165086166.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/bihar-election-result-2025-live-updates-nda-three-fourth-majority-congress-votechori-mgb-rjd-tejashwi-rahul-nitish-cm-11763165086166.html">
+        mint
+       </a>
+       <p class="site-title">
+        Bihar Election Result 2025 LIVE: JDU huddle begins, party president and MP Sanjay Jha arrive at Nitish Kumar's residence | Mint
+       </p>
+       <p class="site-description">
+        The ruling NDA got 202 seats, a three-fourths majority in the 243-member House. This is the second time NDA has crossed 200 mark in the assembly polls. Stay tuned for Bih...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Bihar Election Result 2025 LIVE: JDU huddle begins, party president and MP Sanjay Jha arrive at Nitish Kumar's residence | Mint
+The ruling NDA got 202 seats, a three-fourths majority in the 243-member House. This is the second time NDA has crossed 200 mark in the assembly polls. Stay tuned for Bih...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/ab68e672-ca83-4749-8936-adc8abf91a03"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18701 =====
+<div class="shown open Message message-list-item first-in-group allow-selection last-in-group has-views" data-message-id="18701" id="message-18701">
+ <div class="bottom-marker" data-message-id="18701" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Ravindra Jadeja left Chennai Super Kings (CSK) after 13 years in a mega trade deal that saw Sanju Samson leave Rajasthan Royals, the Indian Premier League (IPL) announced on Saturday
+     <br/>
+     <br/>
+     Read to know more
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/ipl-2026-trade-sanju-samson-confirms-csk-move-ravindra-jadeja-returns-to-rajasthan-after-13-years-get-complete-list-11763181713860.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/ipl-2026-trade-sanju-samson-confirms-csk-move-ravindra-jadeja-returns-to-rajasthan-after-13-years-get-complete-list-11763181713860.html">
+      https://www.livemint.com/sports/cricket-news/ipl-2026-trade-sanju-samson-confirms-csk-move-ravindra-jadeja-returns-to-rajasthan-after-13-years-get-complete-list-11763181713860.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Ravindra Jadeja left Chennai Super Kings (CSK) after 13 years in a mega trade deal that saw Sanju Samson leave Rajasthan Royals, the Indian Premier League (IPL) announced on Saturday
+Read to know more
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/ipl-2026-trade-sanju-samson-confirms-csk-move-ravindra-jadeja-returns-to-rajasthan-after-13-years-get-complete-list-11763181713860.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/ipl-2026-trade-sanju-samson-confirms-csk-move-ravindra-jadeja-returns-to-rajasthan-after-13-years-get-complete-list-11763181713860.html">
+        mint
+       </a>
+       <p class="site-title">
+        IPL 2026 trade: Sanju Samson confirms CSK move, Ravindra Jadeja returns to Rajasthan after 13 years - Get complete list | Mint
+       </p>
+       <p class="site-description">
+        IPL 2026 trade: Sanju Samson has completed a move to Chennai Super Kings while Ravindra Jadeja will now play for Rajasthan Royals in IPL 2026 as a part of the mega trade ...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        IPL 2026 trade: Sanju Samson confirms CSK move, Ravindra Jadeja returns to Rajasthan after 13 years - Get complete list | Mint
+IPL 2026 trade: Sanju Samson has completed a move to Chennai Super Kings while Ravindra Jadeja will now play for Rajasthan Royals in IPL 2026 as a part of the mega trade ...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 247px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/9c8e3ee4-c6c7-4cf0-8c45-104aed842c74"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18700 =====
+<div class="Message message-list-item allow-selection last-in-group has-views shown open" data-message-id="18700" id="message-18700">
+ <div class="bottom-marker" data-message-id="18700" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Groww shares surge 50% over IPO price: Should investors still chase the stock amid massive run-up this week? Find out
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/groww-shares-surge-50-over-ipo-price-should-investors-still-chase-the-stock-amid-massive-run-up-this-week-11763181408719.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/groww-shares-surge-50-over-ipo-price-should-investors-still-chase-the-stock-amid-massive-run-up-this-week-11763181408719.html">
+      https://www.livemint.com/market/stock-market-news/groww-shares-surge-50-over-ipo-price-should-investors-still-chase-the-stock-amid-massive-run-up-this-week-11763181408719.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Groww shares surge 50% over IPO price: Should investors still chase the stock amid massive run-up this week? Find out
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/groww-shares-surge-50-over-ipo-price-should-investors-still-chase-the-stock-amid-massive-run-up-this-week-11763181408719.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/groww-shares-surge-50-over-ipo-price-should-investors-still-chase-the-stock-amid-massive-run-up-this-week-11763181408719.html">
+        mint
+       </a>
+       <p class="site-title">
+        Groww shares surge 50% over IPO price: Should investors still chase the stock amid massive run-up this week? | Stock Market News
+       </p>
+       <p class="site-description">
+        Groww IPO shares listed at a 14% premium on the bourses on Wednesday, November 13. Later, it jumped 30.94% to close at  ₹130.94 apiece against its IPO price of  ₹100. Sin...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Groww shares surge 50% over IPO price: Should investors still chase the stock amid massive run-up this week? | Stock Market News
+Groww IPO shares listed at a 14% premium on the bourses on Wednesday, November 13. Later, it jumped 30.94% to close at ₹130.94 apiece against its IPO price of ₹100. Sin...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/e679ebb3-1534-4bfc-aaa5-58a6a794317f"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18699 =====
+<div class="Message message-list-item first-in-group allow-selection has-views shown open" data-message-id="18699" id="message-18699">
+ <div class="bottom-marker" data-message-id="18699" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Stocks to buy under ₹200: Mehul Kothari of Anand Rathi recommends three stocks to buy or sell
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/stocks-to-buy-under-rs-200-mehul-kothari-of-anand-rathi-recommends-three-stocks-to-buy-or-sell-11763174737926.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/stocks-to-buy-under-rs-200-mehul-kothari-of-anand-rathi-recommends-three-stocks-to-buy-or-sell-11763174737926.html">
+      https://www.livemint.com/market/stock-market-news/stocks-to-buy-under-rs-200-mehul-kothari-of-anand-rathi-recommends-three-stocks-to-buy-or-sell-11763174737926.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Stocks to buy under ₹200: Mehul Kothari of Anand Rathi recommends three stocks to buy or sell
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/stocks-to-buy-under-rs-200-mehul-kothari-of-anand-rathi-recommends-three-stocks-to-buy-or-sell-11763174737926.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/stocks-to-buy-under-rs-200-mehul-kothari-of-anand-rathi-recommends-three-stocks-to-buy-or-sell-11763174737926.html">
+        mint
+       </a>
+       <p class="site-title">
+        Stocks to buy under  ₹200: Mehul Kothari of Anand Rathi recommends three stocks to buy or sell | Stock Market News
+       </p>
+       <p class="site-description">
+        Mehul Kothari, Deputy Vice President — Technical Research at Anand Rathi, said the bulls are firmly back on Dalal Street, with the Nifty 50 poised to cross the 26,000 mar...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Stocks to buy under ₹200: Mehul Kothari of Anand Rathi recommends three stocks to buy or sell | Stock Market News
+Mehul Kothari, Deputy Vice President — Technical Research at Anand Rathi, said the bulls are firmly back on Dalal Street, with the Nifty 50 poised to cross the 26,000 mar...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/cc9b5576-14c1-4967-b691-087a00a28424"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18698 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18698" id="message-18698">
+ <div class="bottom-marker" data-message-id="18698" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/29eaea59-68d2-4285-a360-4c4a7caa0640"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | Final results of Bihar Election 2025: The Bharatiya Janata Party (BJP) emerged as largest party with 89% strike rate, while the Mahagathbandhan, which comprised of Rashtriya Janata Dal, saw a humiliating defeat.
+     <br/>
+     <br/>
+     Check how many seats BJP, JD(U), RJD, Congress and other parties won
+     <br/>
+     <br/>
+     Read more:
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/final-results-of-bihar-election-2025-check-how-many-seats-bjp-jd-u-rjd-congress-and-other-parties-won-11763134745520.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/final-results-of-bihar-election-2025-check-how-many-seats-bjp-jd-u-rjd-congress-and-other-parties-won-11763134745520.html">
+      https://www.livemint.com/elections/assembly-elections/final-results-of-bihar-election-2025-check-how-many-seats-bjp-jd-u-rjd-congress-and-other-parties-won-11763134745520.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| Bihar Election Result 2025 LIVE
+After bumper voting, it's time for vote counting today.
+Who's winning
+Catch real-time updates here
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18697 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18697" id="message-18697">
+ <div class="bottom-marker" data-message-id="18697" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 320px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner dark interactive" style="height: 432px;">
+     <canvas class="thumbnail blurred-bg" height="40" width="22">
+     </canvas>
+     <img alt="" class="thumbnail with-blurred-bg opacity-transition slow not-open not-shown" draggable="true" src="blob:https://web.telegram.org/a607ecb2-fc96-484b-abbb-c7ff963cad3d" style="width: 243px;"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="22">
+     </canvas>
+     <i aria-hidden="true" class="icon icon-large-play opacity-transition fast not-shown not-open">
+     </i>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | Delhi: "Jai Chhathi Maiya, yeh prachand jeet, atoot vishwas, Bihar ke logo ne bilkul garda uda diya hai, " says Prime Minister Narendra Modi as he begins his address to celebrate the NDA's victory in the Bihar elections.
+     <br/>
+     <br/>
+     Track LIVE updates:
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html" rel="noopener noreferrer" target="_blank" title="https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html">
+      https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| Prashant Kishor’s Jan Suraaj Party fails to lead a single seat in the 2025 Bihar Assembly elections, perfectly aligning with his own prediction, while the NDA secures a landslide victory.
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18696 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18696" id="message-18696">
+ <div class="bottom-marker" data-message-id="18696" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Bihar Election Results 2025: Here's all you need to know about Bihar Chief Minister Nitish Kumar, his education qualifications, his family and political career.
+     <br/>
+     <br/>
+     Read more:
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/s/1CtOwZk" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/s/1CtOwZk">
+      https://www.livemint.com/s/1CtOwZk
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Bihar Election Results 2025: Here's all you need to know about Bihar Chief Minister Nitish Kumar, his education qualifications, his family and political career.
+Read more:
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/s/1CtOwZk" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/s/1CtOwZk">
+        mint
+       </a>
+       <p class="site-title">
+        Nitish Kumar 10wi baar? Know about Bihar CM's family, health, education, constituency and net worth | Mint
+       </p>
+       <p class="site-description">
+        Bihar Election Results 2025: Here's all you need to know about Bihar Chief Minister Nitish Kumar, his education qualifications, his family and political career.
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Nitish Kumar 10wi baar? Know about Bihar CM's family, health, education, constituency and net worth | Mint
+Bihar Election Results 2025: Here's all you need to know about Bihar Chief Minister Nitish Kumar, his education qualifications, his family and political career.
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/3618b7b1-b1e0-425f-8099-3c46aec49ab2"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18695 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18695" id="message-18695">
+ <div class="bottom-marker" data-message-id="18695" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/d0567ac6-1047-4b4b-a21f-6a09dc0e0b6e"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | The 2025 Bihar Assembly election counting on 14 November quickly revealed a clear winner: the National Democratic Alliance (NDA) crossed the majority mark early, signalling a strong mandate. Yet beyond the headline figures, the results highlighted shifting political dynamics, unexpected gains, and the growing influence of voter demographics.
+     <br/>
+     <br/>
+     Read more:
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/s/1CtFgJ6" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/s/1CtFgJ6">
+      https://www.livemint.com/s/1CtFgJ6
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| The National Democratic Alliance (NDA) is currently leading in Bihar, buoyed by the popularity of Chief Minister Nitish Kumar and Prime Minister Narendra Modi. If trends hold, they are on track to surpass the 2010 record when the NDA won 206 seats.
+The ongoing results reflect strong voter confidence in Nitish Kumar and PM Modi, with the alliance heading toward another historic victory.
+Read more:
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18694 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views was-edited shown open" data-message-id="18694" id="message-18694">
+ <div class="bottom-marker" data-message-id="18694" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/42ace89d-a98e-4f5e-9274-d5b5f6c8f7b4"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | The National Democratic Alliance (NDA) is currently leading in Bihar, buoyed by the popularity of Chief Minister Nitish Kumar and Prime Minister Narendra Modi. If trends hold, they are on track to surpass the 2010 record when the NDA won 206 seats.
+     <br/>
+     <br/>
+     The ongoing results reflect strong voter confidence in Nitish Kumar and PM Modi, with the alliance heading toward another historic victory.
+     <br/>
+     <br/>
+     Read more:
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/bihar-elections-nda-crosses-exit-polls-predictions-how-nitish-kumar-pulled-indias-poorest-state-out-of-jungle-raj-11763106126203.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/bihar-elections-nda-crosses-exit-polls-predictions-how-nitish-kumar-pulled-indias-poorest-state-out-of-jungle-raj-11763106126203.html">
+      https://www.livemint.com/elections/assembly-elections/bihar-elections-nda-crosses-exit-polls-predictions-how-nitish-kumar-pulled-indias-poorest-state-out-of-jungle-raj-11763106126203.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| The 2025 Bihar Assembly election counting on 14 November quickly revealed a clear winner: the National Democratic Alliance (NDA) crossed the majority mark early, signalling a strong mandate. Yet beyond the headline figures, the results highlighted shifting political dynamics, unexpected gains, and the growing influence of voter demographics.
+Read more:
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18692 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18692" id="message-18692">
+ <div class="bottom-marker" data-message-id="18692" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | Prashant Kishor’s Jan Suraaj Party fails to lead a single seat in the 2025 Bihar Assembly elections, perfectly aligning with his own prediction, while the NDA secures a landslide victory.
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/prashantkishors-jan-suraaj-party-flops-entirely-in-bihar-assembly-elections-just-as-he-predicted-11763101793344.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/prashantkishors-jan-suraaj-party-flops-entirely-in-bihar-assembly-elections-just-as-he-predicted-11763101793344.html">
+      https://www.livemint.com/elections/assembly-elections/prashantkishors-jan-suraaj-party-flops-entirely-in-bihar-assembly-elections-just-as-he-predicted-11763101793344.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| Delhi: "Jai Chhathi Maiya, yeh prachand jeet, atoot vishwas, Bihar ke logo ne bilkul garda uda diya hai, " says Prime Minister Narendra Modi as he begins his address to celebrate the NDA's victory in the Bihar elections.
+Track LIVE updates:
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/prashantkishors-jan-suraaj-party-flops-entirely-in-bihar-assembly-elections-just-as-he-predicted-11763101793344.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/prashantkishors-jan-suraaj-party-flops-entirely-in-bihar-assembly-elections-just-as-he-predicted-11763101793344.html">
+        mint
+       </a>
+       <p class="site-title">
+        Prashant Kishor’s Jan Suraaj Party flops entirely in Bihar Assembly Elections — Just as he predicted | Mint
+       </p>
+       <p class="site-description">
+        Prashant Kishor’s Jan Suraaj Party fails to lead a single seat in the 2025 Bihar Assembly elections, perfectly aligning with his own prediction, while the NDA secures a l...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Prashant Kishor’s Jan Suraaj Party flops entirely in Bihar Assembly Elections — Just as he predicted | Mint
+Prashant Kishor’s Jan Suraaj Party fails to lead a single seat in the 2025 Bihar Assembly elections, perfectly aligning with his own prediction, while the NDA secures a l...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/b2f43b0d-e578-4104-93fc-bb20d67ea8c7"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18691 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18691" id="message-18691">
+ <div class="bottom-marker" data-message-id="18691" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Google warns users about rising online scams using AI and deceptive software, particularly malicious VPN apps.
+     <br/>
+     <br/>
+     Here's how to stay safe, reveals the tech giant
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/technology/tech-news/google-flags-surge-in-fake-vpn-apps-urges-caution-with-online-deals-ahead-of-black-friday-11763102116889.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/technology/tech-news/google-flags-surge-in-fake-vpn-apps-urges-caution-with-online-deals-ahead-of-black-friday-11763102116889.html">
+      https://www.livemint.com/technology/tech-news/google-flags-surge-in-fake-vpn-apps-urges-caution-with-online-deals-ahead-of-black-friday-11763102116889.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Google warns users about rising online scams using AI and deceptive software, particularly malicious VPN apps.
+Here's how to stay safe, reveals the tech giant
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/technology/tech-news/google-flags-surge-in-fake-vpn-apps-urges-caution-with-online-deals-ahead-of-black-friday-11763102116889.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/technology/tech-news/google-flags-surge-in-fake-vpn-apps-urges-caution-with-online-deals-ahead-of-black-friday-11763102116889.html">
+        mint
+       </a>
+       <p class="site-title">
+        Google flags surge in fake VPN apps, urges caution with online deals ahead of Black Friday | Mint
+       </p>
+       <p class="site-description">
+        Google warns users about rising online scams using AI and deceptive software, particularly malicious VPN apps. Cybercriminals impersonate trusted brands, tricking users i...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Google flags surge in fake VPN apps, urges caution with online deals ahead of Black Friday | Mint
+Google warns users about rising online scams using AI and deceptive software, particularly malicious VPN apps. Cybercriminals impersonate trusted brands, tricking users i...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/c61ccbc3-fee2-451a-a681-93935f64fbd0"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18690 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18690" id="message-18690">
+ <div class="bottom-marker" data-message-id="18690" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Jasprit Bumrah made a mockery of Temba Bavuma's height while discussing a Decision-Review System (DRS) call on the opening day of the first Test against South Africa on Friday at the Eden Gardens in Kolkata, the video of which went viral on social media.
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/jasprit-bumrah-pokes-fun-at-temba-bavumas-height-during-drs-call-india-pacers-stump-mic-chatter-goes-viral-watch-11763098710190.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/jasprit-bumrah-pokes-fun-at-temba-bavumas-height-during-drs-call-india-pacers-stump-mic-chatter-goes-viral-watch-11763098710190.html">
+      https://www.livemint.com/sports/cricket-news/jasprit-bumrah-pokes-fun-at-temba-bavumas-height-during-drs-call-india-pacers-stump-mic-chatter-goes-viral-watch-11763098710190.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Jasprit Bumrah made a mockery of Temba Bavuma's height while discussing a Decision-Review System (DRS) call on the opening day of the first Test against South Africa on Friday at the Eden Gardens in Kolkata, the video of which went viral on social media.
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/sports/cricket-news/jasprit-bumrah-pokes-fun-at-temba-bavumas-height-during-drs-call-india-pacers-stump-mic-chatter-goes-viral-watch-11763098710190.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/sports/cricket-news/jasprit-bumrah-pokes-fun-at-temba-bavumas-height-during-drs-call-india-pacers-stump-mic-chatter-goes-viral-watch-11763098710190.html">
+        mint
+       </a>
+       <p class="site-title">
+        Jasprit Bumrah pokes fun at Temba Bavuma's height during DRS call, India pacer's stump mic chatter goes viral: Watch | Mint
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/5fc35b63-2b34-417f-b4b0-bba75262518b"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18688 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18688" id="message-18688">
+ <div class="bottom-marker" data-message-id="18688" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/e3596530-61cf-44cc-9368-2b535ac8eea2"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #ElectionsWithMint
+     </a>
+     | Bihar Election Result 2025 LIVE
+     <img alt="🔴" class="emoji emoji-small" data-path="./img-apple-64/1f534.png" draggable="false" src="./img-apple-64/1f534.png"/>
+     After bumper voting, it's time for vote counting today.
+     <br/>
+     <br/>
+     Who's winning
+     <img alt="🤔" class="emoji emoji-small" data-path="./img-apple-64/1f914.png" draggable="false" src="./img-apple-64/1f914.png"/>
+     Catch real-time updates here
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html" rel="noopener noreferrer" target="_blank" title="https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html">
+      https://livemint.com/elections/assembly-elections/bihar-assembly-election-results-2025-live-updates-vote-counting-results-nda-rjd-nitish-kumar-tejashwi-yadav-14-november-11763040018028.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #ElectionsWithMint
+| Final results of Bihar Election 2025: The Bharatiya Janata Party (BJP) emerged as largest party with 89% strike rate, while the Mahagathbandhan, which comprised of Rashtriya Janata Dal, saw a humiliating defeat.
+Check how many seats BJP, JD(U), RJD, Congress and other parties won
+Read more:
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18687 =====
+<div class="Message message-list-item allow-selection last-in-group has-views shown open" data-message-id="18687" id="message-18687">
+ <div class="bottom-marker" data-message-id="18687" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | 8 things that changed for market overnight- Gift Nifty, US markets sell-off, Bihar election results.
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/indian-stock-market-8-things-that-changed-for-market-overnight-gift-nifty-us-markets-sell-off-bihar-election-results-11763049831762.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/indian-stock-market-8-things-that-changed-for-market-overnight-gift-nifty-us-markets-sell-off-bihar-election-results-11763049831762.html">
+      https://www.livemint.com/market/stock-market-news/indian-stock-market-8-things-that-changed-for-market-overnight-gift-nifty-us-markets-sell-off-bihar-election-results-11763049831762.html
+     </a>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/indian-stock-market-8-things-that-changed-for-market-overnight-gift-nifty-us-markets-sell-off-bihar-election-results-11763049831762.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/indian-stock-market-8-things-that-changed-for-market-overnight-gift-nifty-us-markets-sell-off-bihar-election-results-11763049831762.html">
+        mint
+       </a>
+       <p class="site-title">
+        Indian stock market: 8 things that changed for market overnight- Gift Nifty, US markets sell-off, Bihar election results | Stock Market News
+       </p>
+       <p class="site-description">
+        Gift Nifty was trading around 25,848 level, a discount of nearly 106 points from the Nifty futures’ previous close, indicating a negative start for the Indian stock marke...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Indian stock market: 8 things that changed for market overnight- Gift Nifty, US markets sell-off, Bihar election results | Stock Market News
+Gift Nifty was trading around 25,848 level, a discount of nearly 106 points from the Nifty futures’ previous close, indicating a negative start for the Indian stock marke...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/ba662cbb-fc93-4dc9-9ecf-773f568df5f4"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18686 =====
+<div class="Message message-list-item first-in-group allow-selection has-views shown open" data-message-id="18686" id="message-18686">
+ <div class="bottom-marker" data-message-id="18686" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | Sumeet Bagadia recommends five shares to buy today
+     <img alt="💰" class="emoji emoji-small" data-path="./img-apple-64/1f4b0.png" draggable="false" src="./img-apple-64/1f4b0.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/breakout-stocks-to-buy-or-sell-sumeet-bagadia-recommends-five-shares-to-buy-today-14-november-2025-11763083677750.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/breakout-stocks-to-buy-or-sell-sumeet-bagadia-recommends-five-shares-to-buy-today-14-november-2025-11763083677750.html">
+      https://www.livemint.com/market/stock-market-news/breakout-stocks-to-buy-or-sell-sumeet-bagadia-recommends-five-shares-to-buy-today-14-november-2025-11763083677750.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #MintMarkets
+| Stock market today: Trade setup for Nifty 50, Wall Street sell-off, Bihar election results to IPOs - 8 stocks to buy
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/breakout-stocks-to-buy-or-sell-sumeet-bagadia-recommends-five-shares-to-buy-today-14-november-2025-11763083677750.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/breakout-stocks-to-buy-or-sell-sumeet-bagadia-recommends-five-shares-to-buy-today-14-november-2025-11763083677750.html">
+        mint
+       </a>
+       <p class="site-title">
+        Breakout stocks to buy or sell: Sumeet Bagadia recommends five shares to buy today — 14 November 2025 | Stock Market News
+       </p>
+       <p class="site-description">
+        Breakout stocks to buy or sell: Sumeet Bagadia recommends five breakout stocks to buy today - Gokul Agro Resources, Goldiam International, Apex Frozen Foods, Carraro Indi...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Breakout stocks to buy or sell: Sumeet Bagadia recommends five shares to buy today — 14 November 2025 | Stock Market News
+Breakout stocks to buy or sell: Sumeet Bagadia recommends five breakout stocks to buy today - Gokul Agro Resources, Goldiam International, Apex Frozen Foods, Carraro Indi...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/1384a1df-3d20-4463-9d3d-3bef0fc78912"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18685 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18685" id="message-18685">
+ <div class="bottom-marker" data-message-id="18685" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/579dfec4-42ec-42e8-bd52-ea3e09eaf9e1"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #BiharElectionResults2025
+     </a>
+     : Nitish Kumar is Bihar's longest-serving chief minister and has been the CM for 10 years at a trot now.
+     <br/>
+     <br/>
+     As his fate remains in focus in the Bihar Election 2025, here's a look at his net worth
+     <img alt="💰" class="emoji emoji-small" data-path="./img-apple-64/1f4b0.png" draggable="false" src="./img-apple-64/1f4b0.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/bihar-election-results-eci-2025-nitish-kumar-net-worth-his-weaknesses-strengths-mahagathbandhan-jdu-10-points-11763054746803.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/bihar-election-results-eci-2025-nitish-kumar-net-worth-his-weaknesses-strengths-mahagathbandhan-jdu-10-points-11763054746803.html">
+      https://www.livemint.com/elections/assembly-elections/bihar-election-results-eci-2025-nitish-kumar-net-worth-his-weaknesses-strengths-mahagathbandhan-jdu-10-points-11763054746803.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #BiharElectionResults2025
+: Nitish Kumar is Bihar's longest-serving chief minister and has been the CM for 10 years at a trot now.
+As his fate remains in focus in the Bihar Election 2025, here's a look at his net worth
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18684 =====
+<div class="Message message-list-item allow-selection last-in-group has-views shown open" data-message-id="18684" id="message-18684">
+ <div class="bottom-marker" data-message-id="18684" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | Vaishali Parekh recommends three intraday stock for today
+     <img alt="📈" class="emoji emoji-small" data-path="./img-apple-64/1f4c8.png" draggable="false" src="./img-apple-64/1f4c8.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/buy-or-sell-vaishali-parekh-recommends-three-intraday-stock-for-today-14-november-2025-11763046019139.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/buy-or-sell-vaishali-parekh-recommends-three-intraday-stock-for-today-14-november-2025-11763046019139.html">
+      https://www.livemint.com/market/stock-market-news/buy-or-sell-vaishali-parekh-recommends-three-intraday-stock-for-today-14-november-2025-11763046019139.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #MintMarkets
+| Vaishali Parekh recommends three intraday stock for today
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/buy-or-sell-vaishali-parekh-recommends-three-intraday-stock-for-today-14-november-2025-11763046019139.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/buy-or-sell-vaishali-parekh-recommends-three-intraday-stock-for-today-14-november-2025-11763046019139.html">
+        mint
+       </a>
+       <p class="site-title">
+        Buy or sell: Vaishali Parekh recommends three intraday stock for today - 14 November 2025 | Stock Market News
+       </p>
+       <p class="site-description">
+        Regarding intraday stocks for today, Vaishali Parekh of Prabhudas Lilladher recommends three stocks to buy: Varun Beverages, Bharat Heavy Electricals Limited (BHEL) and F...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Buy or sell: Vaishali Parekh recommends three intraday stock for today - 14 November 2025 | Stock Market News
+Regarding intraday stocks for today, Vaishali Parekh of Prabhudas Lilladher recommends three stocks to buy: Varun Beverages, Bharat Heavy Electricals Limited (BHEL) and F...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/8668b79d-4a9d-42ce-a4d7-8a42da7c61b1"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18683 =====
+<div class="Message message-list-item first-in-group allow-selection has-views shown open" data-message-id="18683" id="message-18683">
+ <div class="bottom-marker" data-message-id="18683" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | Stock market today: Trade setup for Nifty 50, Wall Street sell-off, Bihar election results to IPOs - 8 stocks to buy
+     <img alt="📈" class="emoji emoji-small" data-path="./img-apple-64/1f4c8.png" draggable="false" src="./img-apple-64/1f4c8.png"/>
+     <br/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/stock-market-today-trade-setup-for-nifty-50-wall-street-sell-off-bihar-election-results-to-ipos-8-stocks-to-buy-11763043659852.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/stock-market-today-trade-setup-for-nifty-50-wall-street-sell-off-bihar-election-results-to-ipos-8-stocks-to-buy-11763043659852.html">
+      https://www.livemint.com/market/stock-market-news/stock-market-today-trade-setup-for-nifty-50-wall-street-sell-off-bihar-election-results-to-ipos-8-stocks-to-buy-11763043659852.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #MintMarkets
+| Sumeet Bagadia recommends five shares to buy today
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/stock-market-today-trade-setup-for-nifty-50-wall-street-sell-off-bihar-election-results-to-ipos-8-stocks-to-buy-11763043659852.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/stock-market-today-trade-setup-for-nifty-50-wall-street-sell-off-bihar-election-results-to-ipos-8-stocks-to-buy-11763043659852.html">
+        mint
+       </a>
+       <p class="site-title">
+        Stock market today: Trade setup for Nifty 50, Wall Street sell-off, Bihar election results to IPOs - 8 stocks to buy | Stock Market News
+       </p>
+       <p class="site-description">
+        Stock market news: Indian stock indices closed slightly higher as investors reacted to low inflation and global market conditions. Analysts highlighted potential buying o...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Stock market today: Trade setup for Nifty 50, Wall Street sell-off, Bihar election results to IPOs - 8 stocks to buy | Stock Market News
+Stock market news: Indian stock indices closed slightly higher as investors reacted to low inflation and global market conditions. Analysts highlighted potential buying o...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/ae9c4e34-5a48-4fbb-a209-49f8d84c1071"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18682 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18682" id="message-18682">
+ <div class="bottom-marker" data-message-id="18682" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     The Internal Revenue Service (IRS) announced its new retirement contribution limits on 13 November 2025, along with the increased allocations for 401(k) accounts of Americans.
+     <br/>
+     <br/>
+     Here's how much investors can save next year
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/news/us-news/ira-contribution-2026-irs-announces-retirement-allocation-limits-heres-how-much-investors-can-save-next-year-11763050782690.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/news/us-news/ira-contribution-2026-irs-announces-retirement-allocation-limits-heres-how-much-investors-can-save-next-year-11763050782690.html">
+      https://www.livemint.com/news/us-news/ira-contribution-2026-irs-announces-retirement-allocation-limits-heres-how-much-investors-can-save-next-year-11763050782690.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      The Internal Revenue Service (IRS) announced its new retirement contribution limits on 13 November 2025, along with the increased allocations for 401(k) accounts of Americans.
+Here's how much investors can save next year
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/news/us-news/ira-contribution-2026-irs-announces-retirement-allocation-limits-heres-how-much-investors-can-save-next-year-11763050782690.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/news/us-news/ira-contribution-2026-irs-announces-retirement-allocation-limits-heres-how-much-investors-can-save-next-year-11763050782690.html">
+        mint
+       </a>
+       <p class="site-title">
+        IRA contribution 2026: IRS announces retirement allocation limits — Here's how much investors can save next year | Today News
+       </p>
+       <p class="site-description">
+        IRA contribution 2026: The Internal Revenue Service (IRS) announced its new retirement contribution limits on 13 November 2025, along with the increased allocations for 4...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        IRA contribution 2026: IRS announces retirement allocation limits — Here's how much investors can save next year | Today News
+IRA contribution 2026: The Internal Revenue Service (IRS) announced its new retirement contribution limits on 13 November 2025, along with the increased allocations for 4...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/46d1ac27-4b4d-40b4-a7e6-f7fd4863624f"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18681 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18681" id="message-18681">
+ <div class="bottom-marker" data-message-id="18681" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/f3e10f64-9ed6-41bf-8d43-8616c7294b3f"/>
+     <canvas class="thumbnail opacity-transition slow not-open not-shown" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     Stepping away from your desk? Cognizant says think again.
+     <img alt="💻" class="emoji emoji-small" data-path="./img-apple-64/1f4bb.png" draggable="false" src="./img-apple-64/1f4bb.png"/>
+     <br/>
+     <br/>
+     The IT major is testing tools like ProHance to track mouse &amp; keyboard activity, marking employees “idle” after 5 minutes of inactivity. The firm says it’s for process insights, not performance - but many see it as micro-management.
+     <img alt="👨‍💻" class="emoji emoji-small" data-path="./img-apple-64/1f468-200d-1f4bb.png" draggable="false" src="./img-apple-64/1f468-200d-1f4bb.png"/>
+     <br/>
+     <br/>
+     Read in detail
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/companies/break-workplace-cognizant-ai-tools-micro-management-it-firms-tracking-evaluating-prohance-sapience-wipro-11762747164929.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/companies/break-workplace-cognizant-ai-tools-micro-management-it-firms-tracking-evaluating-prohance-sapience-wipro-11762747164929.html">
+      https://www.livemint.com/companies/break-workplace-cognizant-ai-tools-micro-management-it-firms-tracking-evaluating-prohance-sapience-wipro-11762747164929.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Stepping away from your desk? Cognizant says think again.
+The IT major is testing tools like ProHance to track mouse &amp; keyboard activity, marking employees “idle” after 5 minutes of inactivity. The firm says it’s for process insights, not performance - but many see it as micro-management.
+Read in detail
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18680 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18680" id="message-18680">
+ <div class="bottom-marker" data-message-id="18680" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #BiharElectionsWithMint
+     </a>
+     : The result for 243 assembly seats will be declared on Thursday with most exit polls suggesting NDA could secure over 140 seats. While RJD is predicted to emerge as the largest party.
+     <br/>
+     <br/>
+     Here's a look at political parties performance in 2020
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/how-bjp-nitish-kumars-jd-u-rjd-congress-performed-in-2020-bihar-assembly-elections-as-exit-polls-predict-sweep-for-nda-11763033724044.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/how-bjp-nitish-kumars-jd-u-rjd-congress-performed-in-2020-bihar-assembly-elections-as-exit-polls-predict-sweep-for-nda-11763033724044.html">
+      https://www.livemint.com/elections/assembly-elections/how-bjp-nitish-kumars-jd-u-rjd-congress-performed-in-2020-bihar-assembly-elections-as-exit-polls-predict-sweep-for-nda-11763033724044.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #BiharElectionsWithMint
+: The result for 243 assembly seats will be declared on Thursday with most exit polls suggesting NDA could secure over 140 seats. While RJD is predicted to emerge as the largest party.
+Here's a look at political parties performance in 2020
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/elections/assembly-elections/how-bjp-nitish-kumars-jd-u-rjd-congress-performed-in-2020-bihar-assembly-elections-as-exit-polls-predict-sweep-for-nda-11763033724044.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/elections/assembly-elections/how-bjp-nitish-kumars-jd-u-rjd-congress-performed-in-2020-bihar-assembly-elections-as-exit-polls-predict-sweep-for-nda-11763033724044.html">
+        mint
+       </a>
+       <p class="site-title">
+        How BJP, Nitish Kumar's JD(U) and RJD performed in 2020 Bihar elections as exit polls predict sweep for NDA | Mint
+       </p>
+       <p class="site-description">
+        Bihar Elections 2025: The result for 243 assembly seats will be declared on Thursday with most exit polls suggesting NDA could secure over 140 seats. While RJD is predict...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        How BJP, Nitish Kumar's JD(U) and RJD performed in 2020 Bihar elections as exit polls predict sweep for NDA | Mint
+Bihar Elections 2025: The result for 243 assembly seats will be declared on Thursday with most exit polls suggesting NDA could secure over 140 seats. While RJD is predict...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/59d06715-9f8d-474e-9fa8-9d5eca7aae9b"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18679 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18679" id="message-18679">
+ <div class="bottom-marker" data-message-id="18679" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Nithin Kamath, CEO of Zerodha, explained the benefits of Infosys's ₹18,000 crore buyback to participants in a social media post detailing taxation, gains, eligibility, and how capital losses can offset other gains.
+     <br/>
+     <br/>
+     Here's what he said…
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/money/personal-finance/zerodha-nithin-kamath-explains-buyback-taxation-investors-infosys-record-rs-18000-crore-plan-markets-offset-capital-gain-11763031772693.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/money/personal-finance/zerodha-nithin-kamath-explains-buyback-taxation-investors-infosys-record-rs-18000-crore-plan-markets-offset-capital-gain-11763031772693.html">
+      https://www.livemint.com/money/personal-finance/zerodha-nithin-kamath-explains-buyback-taxation-investors-infosys-record-rs-18000-crore-plan-markets-offset-capital-gain-11763031772693.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Nithin Kamath, CEO of Zerodha, explained the benefits of Infosys's ₹18,000 crore buyback to participants in a social media post detailing taxation, gains, eligibility, and how capital losses can offset other gains.
+Here's what he said…
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/money/personal-finance/zerodha-nithin-kamath-explains-buyback-taxation-investors-infosys-record-rs-18000-crore-plan-markets-offset-capital-gain-11763031772693.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/money/personal-finance/zerodha-nithin-kamath-explains-buyback-taxation-investors-infosys-record-rs-18000-crore-plan-markets-offset-capital-gain-11763031772693.html">
+        mint
+       </a>
+       <p class="site-title">
+        Nithin Kamath breaks down buyback taxation as Infosys announces  ₹18,000 crore record plan | Mint
+       </p>
+       <p class="site-description">
+        Nithin Kamath, CEO of Zerodha, explained the benefits of Infosys's  ₹18,000 crore buyback to participants in a social media post detailing taxation, gains, eligibility, a...
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        Nithin Kamath breaks down buyback taxation as Infosys announces ₹18,000 crore record plan | Mint
+Nithin Kamath, CEO of Zerodha, explained the benefits of Infosys's ₹18,000 crore buyback to participants in a social media post detailing taxation, gains, eligibility, a...
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/7446b2ad-11a5-4e09-a9cc-42e90f46c0ab"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18678 =====
+<div class="shown open Message message-list-item allow-selection last-in-group has-views" data-message-id="18678" id="message-18678">
+ <div class="bottom-marker" data-message-id="18678" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button web-page media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="">
+   <div class="content-inner" dir="auto">
+    <div class="text-content clearfix" data-translated="true" dir="auto">
+     Akon’s arrest in Georgia and a recent divorce filing have revived discussion around his net worth.
+     <br/>
+     <br/>
+     What is Akon’s net worth?
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/entertainment/what-is-akon-s-net-worth-singer-arrested-in-georgia-months-after-wife-files-for-divorce-11763028386618.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/entertainment/what-is-akon-s-net-worth-singer-arrested-in-georgia-months-after-wife-files-for-divorce-11763028386618.html">
+      https://www.livemint.com/entertainment/what-is-akon-s-net-worth-singer-arrested-in-georgia-months-after-wife-files-for-divorce-11763028386618.html
+     </a>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      Akon’s arrest in Georgia and a recent divorce filing have revived discussion around his net worth.
+What is Akon’s net worth?
+     </p>
+    </div>
+    <div class="nRjVJOQv _9jsufX2y WebPage" data-initial="m" dir="auto">
+     <div class="WebPage--content">
+      <div class="WebPage-text WebPage-text_interactive" data-translated="true">
+       <a class="site-name" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/entertainment/what-is-akon-s-net-worth-singer-arrested-in-georgia-months-after-wife-files-for-divorce-11763028386618.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/entertainment/what-is-akon-s-net-worth-singer-arrested-in-georgia-months-after-wife-files-for-divorce-11763028386618.html">
+        mint
+       </a>
+       <p class="site-title">
+        What is Akon’s net worth? Singer arrested in Georgia months after wife files for divorce | Mint
+       </p>
+       <p class="site-description">
+        Akon’s arrest in Georgia and a recent divorce filing have revived discussion around his net worth.
+       </p>
+      </div>
+      <div class="translated_text">
+       <p style="color: purple;">
+        What is Akon’s net worth? Singer arrested in Georgia months after wife files for divorce | Mint
+Akon’s arrest in Georgia and a recent divorce filing have revived discussion around his net worth.
+       </p>
+      </div>
+      <div class="media-inner interactive" style="height: 246px;">
+       <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/7af43ed6-dd67-4d1e-8060-bbb364ab650d"/>
+       <canvas class="thumbnail opacity-transition slow not-open not-shown" height="23" width="40">
+       </canvas>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="Reactions" dir="ltr">
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18672 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18672" id="message-18672">
+ <div class="bottom-marker" data-message-id="18672" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <img alt="" class="full-media opacity-transition slow shown open" draggable="true" src="blob:https://web.telegram.org/ac7aeb69-309f-4f78-bec2-08776ca76dee"/>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | Hero MotoCorp, LG Electronics, Tata Steel, SBI among 10 shares in focus today
+     <img alt="👀" class="emoji emoji-small" data-path="./img-apple-64/1f440.png" draggable="false" src="./img-apple-64/1f440.png"/>
+     <br/>
+     <br/>
+     Here’s a quick look at stocks likely to be in focus in today's trade
+     <img alt="📈" class="emoji emoji-small" data-path="./img-apple-64/1f4c8.png" draggable="false" src="./img-apple-64/1f4c8.png"/>
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/market/stock-market-news/stocks-to-watch-hero-motocorp-lg-electronics-tata-steel-sbi-among-10-shares-in-focus-today-11762995862517.html" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/market/stock-market-news/stocks-to-watch-hero-motocorp-lg-electronics-tata-steel-sbi-among-10-shares-in-focus-today-11762995862517.html">
+      https://www.livemint.com/market/stock-market-news/stocks-to-watch-hero-motocorp-lg-electronics-tata-steel-sbi-among-10-shares-in-focus-today-11762995862517.html
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #MintMarkets
+| 8 things that changed for market overnight- Gift Nifty, US markets sell-off, Bihar election results.
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+===== message-18658 =====
+<div class="Message message-list-item first-in-group allow-selection last-in-group has-views shown open" data-message-id="18658" id="message-18658">
+ <div class="bottom-marker" data-message-id="18658" data-should-update-views="true">
+ </div>
+ <div class="message-select-control no-selection">
+ </div>
+ <div class="message-content-wrapper can-select-text">
+  <div class="message-content peer-color-1 text has-action-button media has-reactions has-shadow has-solid-background has-appendix has-footer" dir="auto" style="width: 346px;">
+   <div class="content-inner" dir="auto">
+    <div class="media-inner interactive" style="height: 432px;">
+     <canvas class="thumbnail opacity-transition slow shown open" height="40" width="32">
+     </canvas>
+    </div>
+    <div class="text-content clearfix with-meta" data-translated="true" dir="auto">
+     <a class="text-entity-link" data-entity-type="MessageEntityHashtag" dir="auto">
+      #MintMarkets
+     </a>
+     | Tata Steel, IRCTC, Tata Motors, RVNL among 10 shares in focus today
+     <img alt="👀" class="emoji emoji-small" data-path="./img-apple-64/1f440.png" draggable="false" src="./img-apple-64/1f440.png"/>
+     <br/>
+     <br/>
+     Here’s a quick look at stocks likely to be in focus in today's trade
+     <img alt="📈" class="emoji emoji-small" data-path="./img-apple-64/1f4c8.png" draggable="false" src="./img-apple-64/1f4c8.png"/>
+     <img alt="👇" class="emoji emoji-small" data-path="./img-apple-64/1f447.png" draggable="false" src="./img-apple-64/1f447.png"/>
+     <br/>
+     <a class="text-entity-link word-break-all" data-entity-type="MessageEntityUrl" dir="auto" href="https://www.livemint.com/s/1Cf1vea" rel="noopener noreferrer" target="_blank" title="https://www.livemint.com/s/1Cf1vea">
+      https://www.livemint.com/s/1Cf1vea
+     </a>
+     <div class="Reactions" dir="ltr">
+     </div>
+    </div>
+    <div class="translated_text">
+     <p style="color: purple;">
+      #MintMarkets
+|
+MARKETS OPEN LOWER: Indian indices are in the red this morning.
+Sensex: 84,060.14 (Down 418.53 points) Nifty: 25,767.90 (Down 111.25 points)
+     </p>
+    </div>
+   </div>
+   <div class="message-action-buttons">
+    <button aria-label="Forward" class="Button message-action-button tiny translucent-white round" title="Forward" type="button">
+     <i aria-hidden="true" class="icon icon-share-filled">
+     </i>
+    </button>
+   </div>
+   <svg class="svg-appendix" height="20" width="9">
+    <defs>
+     <filter filterunits="objectBoundingBox" height="141.2%" id="messageAppendix" width="200%" x="-50%" y="-14.7%">
+      <feoffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1">
+      </feoffset>
+      <fegaussianblur in="shadowOffsetOuter1" result="shadowBlurOuter1" stddeviation="1">
+      </fegaussianblur>
+      <fecolormatrix in="shadowBlurOuter1" values="0 0 0 0 0.0621962482 0 0 0 0 0.138574144 0 0 0 0 0.185037364 0 0 0 0.15 0">
+      </fecolormatrix>
+     </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+     <path d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="#000" filter="url(#messageAppendix)">
+     </path>
+     <path class="corner" d="M3 17h6V0c-.193 2.84-.876 5.767-2.05 8.782-.904 2.325-2.446 4.485-4.625 6.48A1 1 0 003 17z" fill="FFF">
+     </path>
+    </g>
+   </svg>
+   <div class="quick-reaction no-selection">
+    <img alt="Red Heart" class="ReactionStaticEmoji opacity-transition slow open shown" draggable="false" src="blob:https://web.telegram.org/e2377aee-d1e7-42bf-bd7c-e10d4e3600a1" style="width: 28px; height: 28px;"/>
+   </div>
+  </div>
+ </div>
+</div>
+
+

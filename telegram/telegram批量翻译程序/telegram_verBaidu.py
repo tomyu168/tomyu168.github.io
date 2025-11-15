@@ -15,7 +15,7 @@ do1 = ChromiumOptions().set_paths(local_port=9111, user_data_path=r'E:/chrometmp
 tab = ChromiumPage(addr_or_opts=do1)
 chat_ids = []
 url_base = 'https://web.telegram.org/a/#'
-message_limit = 70
+message_limit = 30
 
 api_id = '24053889'
 api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'
@@ -24,29 +24,7 @@ api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'
 proxy = ('socks5', '127.0.0.1', 7890)  # 代理地址和端口需要根据实际情况调整
 
 # 登录并创建客户端
-with TelegramClient('session_name', api_id, api_hash, proxy=proxy) as client:
-    # 检查是否已登录
 
-    # 获取当前登录用户的聊天列表
-    dialogs = client.get_dialogs()
-    
-    # 用于存储未读消息数大于等于35条的频道的 chat_id
-    
-    for dialog in dialogs:
-        # 只获取频道或群组
-        if dialog.is_channel:
-            # 获取该频道的未读消息数
-            unread_messages = dialog.unread_count
-            # 如果未读消息数大于等于30条，将其 chat_id 添加到 chat_ids 列表中
-            if unread_messages >= message_limit:
-                chat_ids.append(str(dialog.id))  # 将 chat_id 转为字符串并添加到列表
-
-    # 输出满足条件的频道 chat_ids
-    print(f"未读消息数大于等于30条的频道 chat_ids: {chat_ids}")
-    target_chat_id = '-1001224883656'
-    if target_chat_id in chat_ids:
-        chat_ids.remove(target_chat_id)  # 从列表中移除该 chat_id
-    time.sleep(6)
 
 
 def add_extensions_by_size(directory):
@@ -85,51 +63,7 @@ def download_images(top_limit_message_divs, download_folder, max_retries=6):
     total_blob_images = 0  # 统计所有 blob 图片总数
 
     for div in top_limit_message_divs:
-
-        video_tags = div.find_all('video')
-        for video in video_tags:
-            video_url = video.get('src')
-            if not video_url:
-                continue
-            file_name = f"{message_div_id}_video.mp4"
-            video_path = os.path.join(download_folder, file_name)
-            if video_url.startswith('blob:'):
-                # blob 视频下载
-                video_element = tab.ele((By.XPATH, f'(//div[@id="{message_div_id}"]//video[contains(@class, "full-media") and starts-with(@src, "blob:")])[1]'))
-                for attempt in range(max_retries):
-                    result = tab.run_js(f"""
-                        return fetch('{video_url}')
-                            .then(response => response.blob())
-                            .then(blob => {{
-                                return new Promise((resolve, reject) => {{
-                                    const reader = new FileReader();
-                                    reader.onloadend = () => resolve(reader.result.split(',')[1]);
-                                    reader.onerror = reject;
-                                    reader.readAsDataURL(blob);
-                                }});
-                            }});
-                    """)
-                    video_data = base64.b64decode(result)
-                    with open(video_path, 'wb') as f:
-                        f.write(video_data)
-                    if os.path.exists(video_path) and os.path.getsize(video_path) > 0:
-                        print(f"Saved video: {video_path}")
-                        break
-                    time.sleep(1)
-            else:
-                # 普通 URL 视频直接下载
-                try:
-                    import requests
-                    resp = requests.get(video_url, stream=True)
-                    with open(video_path, 'wb') as f:
-                        for chunk in resp.iter_content(1024*1024):
-                            f.write(chunk)
-                    print(f"Saved video: {video_path}")
-                except Exception as e:
-                    print(f"Failed to download video {video_url}: {e}")
-                    
         # 找到所有 img 标签
-
         img_tags = div.find_all('img')
 
         # 替换 ./ 为完整路径
@@ -196,10 +130,10 @@ def download_images(top_limit_message_divs, download_folder, max_retries=6):
                 else:  # 只有一张符合条件的图片，模拟右键下载
                     print(f"Preparing to download single img: {img_url}")
                     img_element.scroll.to_see()
-                    time.sleep(3)
+                    time.sleep(1)
                     tab.actions.r_click(img_element)
                     # img_element.click.right()
-                    time.sleep(3)
+                    time.sleep(1)
 
                     # downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
                     downloadxpath = (By.XPATH, f'//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
@@ -292,7 +226,7 @@ def translate_text(text):
     return translated_text.text
 
 # 处理网页内容
-def process_webpage(url_base, message_limit):
+def process_webpage(client, url_base, message_limit, chat_ids):
     # 指定输出文件路径
     output_file_path = r'D:\hexoblog\source\telegram\telegram_1dayOnceUpdate35.html'
 
@@ -347,6 +281,16 @@ def process_webpage(url_base, message_limit):
         time.sleep(1)
         menu_list.click()
 
+        # prev = 0
+        # while True:
+        #     current_html = tab.html
+        #     msgs = current_html.count('message-list-item')
+        #     if msgs == prev:
+        #         break
+        #     prev = msgs
+        #     tab.scroll.down(2000)
+        #     time.sleep(1)
+
         button1 = (By.XPATH, '//div[@class="Y2NKrpKj u62x81QI"]/button')
         buttondown = tab.ele(button1)
         buttondown.click()
@@ -354,6 +298,40 @@ def process_webpage(url_base, message_limit):
         container1 = (By.XPATH, '//div[@class="messages-container"]')
         messages_container = tab.ele(container1)
         time.sleep(2)
+
+        try:
+            entity = client.get_entity(int(chat_id))  # 将 chat_id 转成 int
+            messagesvideo = client.get_messages(entity, limit=message_limit)
+        except ValueError as e:
+            print(f"无法找到 chat_id 对应实体: {chat_id}, 跳过。错误: {e}")
+            continue
+
+        download_folder = r"D:\hexoblog\source\telegram\1天30条的imgvideo"
+        os.makedirs(download_folder, exist_ok=True)
+
+        video_count = 0
+        for msg in messagesvideo:
+            if msg.video or (msg.document and msg.document.mime_type and "video" in msg.document.mime_type):
+                video_count += 1
+                # 自动选择扩展名：优先从 mime_type，回退到 mp4
+                ext = "mp4"
+                try:
+                    if msg.document and msg.document.mime_type:
+                        mime = msg.document.mime_type  # 比如 "video/mp4"
+                        ext_from_mime = mime.split('/')[-1]
+                        if ext_from_mime:
+                            ext = ext_from_mime.split('+')[0]  # 避免带 + 的情况
+                except Exception:
+                    pass
+
+                file_path = os.path.join(download_folder, f"{msg.id}.{ext}")
+                print(f"Downloading video => {msg.id} -> {file_path}")
+                try:
+                    client.download_media(msg, file=file_path)
+                except Exception as e:
+                    print(f"下载失败 msg.id={msg.id}: {e}")
+
+        print(f"chat_id {chat_id} 在前 {message_limit} 条消息中有 {video_count} 个视频")
 
         # 使用BeautifulSoup解析HTML
         soup = BeautifulSoup(messages_container.html, 'html.parser')
@@ -575,6 +553,101 @@ def process_webpage(url_base, message_limit):
         
         top_limit_message_divs = message_divs_sorted[:message_limit]
 
+        output_message_divs_path = r"D:\hexoblog\source\telegram\debug_divs.txt"
+
+        with open(output_message_divs_path, "w", encoding="utf-8") as f:
+            for div in top_limit_message_divs:
+                f.write(f"===== {div['id']} =====\n")
+                f.write(div.prettify())       # 输出格式化 HTML
+                f.write("\n\n")
+        print(f"[DEBUG] 已把 top_limit_message_divs 输出到 {output_message_divs_path}")
+
+        # max_retries = 25
+        # for message_div in top_limit_message_divs:
+        #     # 获取当前 message_div 的视频标签
+        #     video_tags = message_div.find_all('video')
+        #     print("Video tags found:", video_tags)
+
+        #     video_count = sum(1 for video in video_tags if video.get('src'))
+        #     total_videos += video_count
+        #     print(f"Found {video_count} videos in current div.")
+
+        #     if video_count > 0:  # 确保当前 div 中有视频
+        #         for video in video_tags:  # 遍历每个视频
+        #             video_src = video.get('src')
+        #             if video_src and 'progressive/document' in video_src:
+        #                 # 提取文件名
+        #                 file_name = video_src.split('/')[-1]
+        #                 print(f"Preparing to download video with filename: {file_name}")
+
+        #                 # 定义视频标签的 XPath
+        #                 message_div_id = message_div['id']
+        #                 videoxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//video')
+        #                 video_element = tab.ele(videoxpath)  # 获取视频元素
+        #                 print(f'video_element为{video_element}')
+
+        #                 # 模拟右键点击
+        #                 tab.actions.r_click(video_element)
+        #                 time.sleep(1)  # 等待菜单出现
+
+        #                 # 定义下载选项的 XPath
+        #                 downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and normalize-space(.) = "Download"]')
+        #                 download = tab.ele(downloadxpath)  # 获取下载按钮
+
+        #                 retries = 0
+        #                 while retries < max_retries:
+        #                     try:
+        #                         # 设置下载路径和文件名
+        #                         tab.set.download_path(r'D:\hexoblog\source\telegram\1天30条的imgvideo')  # 设置文件保存路径
+        #                         tab.set.download_file_name(file_name)  # 设置重命名文件名
+        #                         time.sleep(1)
+        #                         download.click()
+                                
+        #                         # 修改视频标签属性
+        #                         video_src = '1天30条的imgvideo/' + file_name + ".mp4"
+        #                         print(f'video_src为{video_src}')
+        #                         video['data-src'] = video_src
+        #                         del video['src']
+        #                         video['class'] = 'full-media lazy'
+                                
+        #                         print(f"Downloaded {file_name} successfully.")
+        #                         break  # 成功完成后跳出重试循环
+        #                     except Exception as e:
+        #                         retries += 1
+        #                         print(f"错误: {e}. 重试 ({retries}/{max_retries})...")
+        #                         time.sleep(3)  # 等待 5 秒再重试
+        #                 else:
+        #                     print(f"Failed to download {file_name} after {max_retries} attempts.")
+                            
+        #                 # 可选：等待下载完成
+        #                 time.sleep(15)  # 根据下载时间进行调整
+
+        # mute_autoplay_videos(top_limit_message_divs)
+
+        directory_path = "D:/hexoblog/source/telegram/1天30条的imgvideo"
+
+        # for filename in os.listdir(directory_path):
+        #     # 检查文件名前缀是否为 'video'
+        #     if filename.startswith("video"):
+        #         # 构造新的文件名（移除 'video' 前缀）
+        #         new_filename = filename[len("video"):]
+                
+        #         # 构造旧文件路径和新文件路径
+        #         old_file = os.path.join(directory_path, filename)
+        #         new_file = os.path.join(directory_path, new_filename)
+
+        #         # 如果新文件名已存在，添加一个序号后缀
+        #         count = 1
+        #         while os.path.exists(new_file):
+        #             new_file = os.path.join(directory_path, f"{new_filename}_{count}")
+        #             count += 1
+
+        #         # 重命名文件
+        #         os.rename(old_file, new_file)
+        #         print(f"Renamed {filename} to {new_file}")
+
+        # rename_file_extensions(directory_path)
+
         download_folder = r'D:\hexoblog\source\telegram\1天30条的imgvideo'
         download_images(top_limit_message_divs, download_folder)
 
@@ -601,91 +674,6 @@ def process_webpage(url_base, message_limit):
                     img_url = 'https://web.telegram.org/a/' + img_url.lstrip('./')
                     img['src'] = img_url
 
-        max_retries = 25
-        for message_div in top_limit_message_divs:
-            # 获取当前 message_div 的视频标签
-            video_tags = message_div.find_all('video')
-            print("Video tags found:", video_tags)
-
-            video_count = sum(1 for video in video_tags if video.get('src'))
-            total_videos += video_count
-            print(f"Found {video_count} videos in current div.")
-
-            if video_count > 0:  # 确保当前 div 中有视频
-                for video in video_tags:  # 遍历每个视频
-                    video_src = video.get('src')
-                    if video_src and 'progressive/document' in video_src:
-                        # 提取文件名
-                        file_name = video_src.split('/')[-1]
-                        print(f"Preparing to download video with filename: {file_name}")
-
-                        # 定义视频标签的 XPath
-                        message_div_id = message_div['id']
-                        videoxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//video')
-                        video_element = tab.ele(videoxpath)  # 获取视频元素
-                        print(f'video_element为{video_element}')
-
-                        # 模拟右键点击
-                        tab.actions.r_click(video_element)
-                        time.sleep(1)  # 等待菜单出现
-
-                        # 定义下载选项的 XPath
-                        downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and normalize-space(.) = "Download"]')
-                        download = tab.ele(downloadxpath)  # 获取下载按钮
-
-                        retries = 0
-                        while retries < max_retries:
-                            try:
-                                # 设置下载路径和文件名
-                                tab.set.download_path(r'D:\hexoblog\source\telegram\1天30条的imgvideo')  # 设置文件保存路径
-                                tab.set.download_file_name(file_name)  # 设置重命名文件名
-                                time.sleep(1)
-                                download.click()
-                                
-                                # 修改视频标签属性
-                                video_src = '1天30条的imgvideo/' + file_name + ".mp4"
-                                print(f'video_src为{video_src}')
-                                video['data-src'] = video_src
-                                del video['src']
-                                video['class'] = 'full-media lazy'
-                                
-                                print(f"Downloaded {file_name} successfully.")
-                                break  # 成功完成后跳出重试循环
-                            except Exception as e:
-                                retries += 1
-                                print(f"错误: {e}. 重试 ({retries}/{max_retries})...")
-                                time.sleep(3)  # 等待 5 秒再重试
-                        else:
-                            print(f"Failed to download {file_name} after {max_retries} attempts.")
-                            
-                        # 可选：等待下载完成
-                        time.sleep(15)  # 根据下载时间进行调整
-
-        mute_autoplay_videos(top_limit_message_divs)
-
-        directory_path = "D:/hexoblog/source/telegram/1天30条的imgvideo"
-
-        for filename in os.listdir(directory_path):
-            # 检查文件名前缀是否为 'video'
-            if filename.startswith("video"):
-                # 构造新的文件名（移除 'video' 前缀）
-                new_filename = filename[len("video"):]
-                
-                # 构造旧文件路径和新文件路径
-                old_file = os.path.join(directory_path, filename)
-                new_file = os.path.join(directory_path, new_filename)
-
-                # 如果新文件名已存在，添加一个序号后缀
-                count = 1
-                while os.path.exists(new_file):
-                    new_file = os.path.join(directory_path, f"{new_filename}_{count}")
-                    count += 1
-
-                # 重命名文件
-                os.rename(old_file, new_file)
-                print(f"Renamed {filename} to {new_file}")
-
-        rename_file_extensions(directory_path)
 
         for filename in os.listdir(directory_path):
             # 检查文件是否以 '_1' 结尾并且紧接着文件扩展名
@@ -722,7 +710,32 @@ def process_webpage(url_base, message_limit):
     print(f"Translated messages saved to {output_file_path}")
 
 
-process_webpage(url_base, message_limit)
+with TelegramClient('session_name', api_id, api_hash, proxy=proxy) as client:
+    # 检查是否已登录
+
+    # 获取当前登录用户的聊天列表
+    dialogs = client.get_dialogs()
+    
+    # 用于存储未读消息数大于等于35条的频道的 chat_id
+    
+    for dialog in dialogs:
+        # 只获取频道或群组
+        if dialog.is_channel:
+            # 获取该频道的未读消息数
+            unread_messages = dialog.unread_count
+            # 如果未读消息数大于等于30条，将其 chat_id 添加到 chat_ids 列表中
+            if unread_messages >= message_limit:
+                chat_ids.append(str(dialog.id))  # 将 chat_id 转为字符串并添加到列表
+
+    # 输出满足条件的频道 chat_ids
+    print(f"未读消息数大于等于30条的频道 chat_ids: {chat_ids}")
+    target_chat_id = '-1001224883656'
+    if target_chat_id in chat_ids:
+        chat_ids.remove(target_chat_id)  # 从列表中移除该 chat_id
+    time.sleep(3)
+
+    process_webpage(client, url_base, message_limit, chat_ids)
+
 
 target_directory = r'D:\hexoblog\source\telegram\1天30条的imgvideo'
 add_extensions_by_size(target_directory)

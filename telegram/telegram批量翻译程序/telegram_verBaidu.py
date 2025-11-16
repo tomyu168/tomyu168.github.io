@@ -337,6 +337,8 @@ def process_webpage(client, url_base, message_limit, chat_ids):
         soup = BeautifulSoup(messages_container.html, 'html.parser')
 
         # 删除不需要的元素
+        for videotags in soup.find_all('video', class_='full-media with-blurred-bg'):
+            videotags.decompose()
         for meta_span in soup.find_all('span', class_='MessageMeta'):
             meta_span.decompose()
         for message_title in soup.find_all('span', class_='message-title-name'):
@@ -349,6 +351,8 @@ def process_webpage(client, url_base, message_limit, chat_ids):
             reply.decompose()
         for reply2 in soup.find_all('div', class_='recent-repliers'):
             reply2.decompose()
+
+
 
         # 提取 message-list-item 中的消息
         message_divs = soup.find_all('div', class_='message-list-item', id=lambda x: x and x.startswith('message-'))
@@ -365,6 +369,42 @@ def process_webpage(client, url_base, message_limit, chat_ids):
 
         total_videos = 0
         total_imgs = 0
+        download_folder_rel = r"1天30条的imgvideo"
+        
+        for message_div in top_limit_message_divs:
+
+            # 1. 解析 message_div 的 id，例如 "message-12345"
+            try:
+                msg_id = int(message_div.get("id").split("-")[1])
+            except Exception:
+                continue
+
+            # 2. 找 media-inner
+            media_inner = message_div.find("div", class_="media-inner")
+            if not media_inner:
+                continue
+
+            # 3. 找第一个 canvas
+            first_canvas = media_inner.find("canvas")
+            if not first_canvas:
+                continue
+
+            # 4. 创建新 video 标签
+            new_video = soup.new_tag("video")
+            new_video['autoplay'] = ""
+            new_video['src'] = f"{download_folder_rel}/{msg_id}.mp4"
+            new_video['class'] = "full-media with-blurred-bg"
+            new_video['muted'] = ""
+            new_video['loop'] = ""
+            new_video['playsinline'] = ""
+            new_video['disablepictureinpicture'] = ""
+            new_video['draggable'] = "true"
+
+            # 5. 插入到 canvas 之后
+            first_canvas.insert_after(new_video)
+
+            print(f"已为 msg.id={msg_id} 插入 <video> 标签")
+
 
         for message_div in top_limit_message_divs:
 
@@ -562,92 +602,8 @@ def process_webpage(client, url_base, message_limit, chat_ids):
                 f.write("\n\n")
         print(f"[DEBUG] 已把 top_limit_message_divs 输出到 {output_message_divs_path}")
 
-        # max_retries = 25
-        # for message_div in top_limit_message_divs:
-        #     # 获取当前 message_div 的视频标签
-        #     video_tags = message_div.find_all('video')
-        #     print("Video tags found:", video_tags)
-
-        #     video_count = sum(1 for video in video_tags if video.get('src'))
-        #     total_videos += video_count
-        #     print(f"Found {video_count} videos in current div.")
-
-        #     if video_count > 0:  # 确保当前 div 中有视频
-        #         for video in video_tags:  # 遍历每个视频
-        #             video_src = video.get('src')
-        #             if video_src and 'progressive/document' in video_src:
-        #                 # 提取文件名
-        #                 file_name = video_src.split('/')[-1]
-        #                 print(f"Preparing to download video with filename: {file_name}")
-
-        #                 # 定义视频标签的 XPath
-        #                 message_div_id = message_div['id']
-        #                 videoxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//video')
-        #                 video_element = tab.ele(videoxpath)  # 获取视频元素
-        #                 print(f'video_element为{video_element}')
-
-        #                 # 模拟右键点击
-        #                 tab.actions.r_click(video_element)
-        #                 time.sleep(1)  # 等待菜单出现
-
-        #                 # 定义下载选项的 XPath
-        #                 downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and normalize-space(.) = "Download"]')
-        #                 download = tab.ele(downloadxpath)  # 获取下载按钮
-
-        #                 retries = 0
-        #                 while retries < max_retries:
-        #                     try:
-        #                         # 设置下载路径和文件名
-        #                         tab.set.download_path(r'D:\hexoblog\source\telegram\1天30条的imgvideo')  # 设置文件保存路径
-        #                         tab.set.download_file_name(file_name)  # 设置重命名文件名
-        #                         time.sleep(1)
-        #                         download.click()
-                                
-        #                         # 修改视频标签属性
-        #                         video_src = '1天30条的imgvideo/' + file_name + ".mp4"
-        #                         print(f'video_src为{video_src}')
-        #                         video['data-src'] = video_src
-        #                         del video['src']
-        #                         video['class'] = 'full-media lazy'
-                                
-        #                         print(f"Downloaded {file_name} successfully.")
-        #                         break  # 成功完成后跳出重试循环
-        #                     except Exception as e:
-        #                         retries += 1
-        #                         print(f"错误: {e}. 重试 ({retries}/{max_retries})...")
-        #                         time.sleep(3)  # 等待 5 秒再重试
-        #                 else:
-        #                     print(f"Failed to download {file_name} after {max_retries} attempts.")
-                            
-        #                 # 可选：等待下载完成
-        #                 time.sleep(15)  # 根据下载时间进行调整
-
-        # mute_autoplay_videos(top_limit_message_divs)
 
         directory_path = "D:/hexoblog/source/telegram/1天30条的imgvideo"
-
-        # for filename in os.listdir(directory_path):
-        #     # 检查文件名前缀是否为 'video'
-        #     if filename.startswith("video"):
-        #         # 构造新的文件名（移除 'video' 前缀）
-        #         new_filename = filename[len("video"):]
-                
-        #         # 构造旧文件路径和新文件路径
-        #         old_file = os.path.join(directory_path, filename)
-        #         new_file = os.path.join(directory_path, new_filename)
-
-        #         # 如果新文件名已存在，添加一个序号后缀
-        #         count = 1
-        #         while os.path.exists(new_file):
-        #             new_file = os.path.join(directory_path, f"{new_filename}_{count}")
-        #             count += 1
-
-        #         # 重命名文件
-        #         os.rename(old_file, new_file)
-        #         print(f"Renamed {filename} to {new_file}")
-
-        # rename_file_extensions(directory_path)
-
         download_folder = r'D:\hexoblog\source\telegram\1天30条的imgvideo'
         download_images(top_limit_message_divs, download_folder)
 
@@ -675,28 +631,7 @@ def process_webpage(client, url_base, message_limit, chat_ids):
                     img['src'] = img_url
 
 
-        for filename in os.listdir(directory_path):
-            # 检查文件是否以 '_1' 结尾并且紧接着文件扩展名
-            if filename.endswith('_1.mp4') or filename.endswith('_1.MOV'):
-                # 移除文件名中的 '_1'
-                new_filename = filename.replace('_1', '', 1)
-                
-                # 构建旧文件和新文件的完整路径
-                old_file = os.path.join(directory_path, filename)
-                new_file = os.path.join(directory_path, new_filename)
-                
-                # 检查是否存在同名文件，若存在则添加后缀 '_new' 或编号
-                count = 1
-                while os.path.exists(new_file):
-                    name, ext = os.path.splitext(new_filename)
-                    new_file = os.path.join(directory_path, f"{name}_new{count}{ext}")
-                    count += 1
-
-                # 重命名文件
-                os.rename(old_file, new_file)
-                print(f"Renamed {filename} to {new_file}")
-            else:
-                print(f"Skipping {filename}, does not match pattern.")
+        
 
         translated_text_divs = ''.join(str(div) for div in top_limit_message_divs)
 

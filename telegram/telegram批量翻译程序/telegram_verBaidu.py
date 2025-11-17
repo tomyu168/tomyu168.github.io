@@ -15,7 +15,7 @@ do1 = ChromiumOptions().set_paths(local_port=9111, user_data_path=r'E:/chrometmp
 tab = ChromiumPage(addr_or_opts=do1)
 chat_ids = []
 url_base = 'https://web.telegram.org/a/#'
-message_limit = 30
+message_limit = 37
 
 api_id = '24053889'
 api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'
@@ -293,7 +293,7 @@ def process_webpage(client, url_base, message_limit, chat_ids):
 
         button1 = (By.XPATH, '//div[@class="Y2NKrpKj u62x81QI"]/button')
         buttondown = tab.ele(button1)
-        buttondown.click()
+        buttondown.click(by_js=True)
         time.sleep(3)
         container1 = (By.XPATH, '//div[@class="messages-container"]')
         messages_container = tab.ele(container1)

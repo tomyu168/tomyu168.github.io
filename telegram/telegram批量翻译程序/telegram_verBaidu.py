@@ -280,7 +280,7 @@ def process_webpage(client, url_base, message_limit, chat_ids):
         menu_list = tab.ele(menu1)
         time.sleep(2)
         menu_list.click()
-        time.sleep(2)
+        time.sleep(3)
         # prev = 0
         # while True:
         #     current_html = tab.html
@@ -290,11 +290,34 @@ def process_webpage(client, url_base, message_limit, chat_ids):
         #     prev = msgs
         #     tab.scroll.down(2000)
         #     time.sleep(1)
-
-        button1 = (By.XPATH, '//div[@class="Y2NKrpKj u62x81QI"]/button') 
-        buttondown = tab.ele(button1)
-        buttondown.click()
+        tab.refresh()
         time.sleep(3)
+
+        max_clicks = 10  # 最多点击 10 次，防止无限循环
+        click_count = 0
+
+        while click_count < max_clicks:
+            try:
+                # 尝试查找按钮（带超时，避免卡住）
+                button1 = (By.XPATH, '//div[@class="Y2NKrpKj u62x81QI"]/button')
+                buttondown = tab.ele(button1)  # 等待最多 2 秒
+                
+                if not buttondown or not buttondown.states.is_enabled:
+                    print("按钮未找到或不可用，停止点击。")
+                    break
+                
+                # 点击前再确认元素仍存在（防闪烁）
+                buttondown.click()
+                click_count += 1
+                print(f"第 {click_count} 次点击「一键到底」按钮成功。")
+                time.sleep(1)  # 等待页面加载新内容
+
+            except (ElementNotFoundError, ElementLostError) as e:
+                print("按钮已消失或失效，跳出循环。")
+                break
+            except Exception as e:
+                print(f"点击按钮时发生未知错误: {e}")
+                break
         container1 = (By.XPATH, '//div[@class="messages-container"]')
         messages_container = tab.ele(container1)
         time.sleep(2)

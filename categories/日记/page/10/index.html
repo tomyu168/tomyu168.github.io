@@ -126,6 +126,49 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2024/08/30/2024-8-30/" itemprop="url">2024-8-30-midjourney更换生产工具</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <time datetime="2024-08-30T07:39:35.000Z" itemprop="datePublished">8月 30 2024</time>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1557 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p>前几天midjourney的生产工具我自认为达到了一个不错的效率，大概3小时中断一次，然而月末时突然恶化为30分钟左右就断了。在好几次测试中断后，我觉得可能要换个平台了，另一方面我在想究竟是哪里出了问题导致频繁的中断呢，于是笔记本下载了一个captura同时买了另一个midjourney生产工具。另一个版本的工具有个优点是它是网页，它不会像先前那个版本莫名其妙强退，目前为止从没有强退过。在实战中发现这玩意儿能自动检测频次，5分钟内发起/imagine /blend基本会失败驳回，但这不会打断midjourney auto python，最后我在captura的录像中观察到问题出在了/blend /imagine命令输入后需要有一定时间等待sleep(10)左右，之前我是直接连着回车键有时候可能是网络原因来不及加载出命令，这会导致回车空砍从而还没出图片输入框就发动了点击图片输入框的动作请求（如下图，由于blend命令回车没起做用，图片输入框没出来接着去点击点到了临近的图片，再接着图片地址就跑到地址栏去了，后续全部崩塌），从而导致后面的逻辑全部崩塌。在修改这里的sleep等待后，目前验证10几小时都没出现过崩塌。</p>
+<p><img src="/2024/08/30/2024-8-30/2024-8-30/51ee3be992a1addfce455129d9223a5d_MD5.jpg"></p></body></html>
+        <p class="article-more-link">
+            <a href="/2024/08/30/2024-8-30/#more">阅读更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2024/08/28/2024-8-28/" itemprop="url">2024-8-28-suno自动批量制作音乐</a>
         
     </h1>
@@ -345,51 +388,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2024/07/19/2024-7-19/" itemprop="url">2024-7-19-kimi人工智能批量自动解析书籍章节内容</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            
-                <time datetime="2024-07-19T02:41:02.000Z" itemprop="datePublished">7月 19 2024</time>
-            
-        </span>
-        
-        <span class="column is-narrow article-category">
-            <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            9 分钟 读完 (约 1369 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>最近发现家里附近2公里左右江宁路有个茑屋书店氛围不错去看了几次书，正当我对书店里的书做了一番准备想后期陆陆续续看时，我偶然间尝试用kimi概括整理电子书，发现它的概括整理还不错，花了一天时间手动复制章节给它概括。</p>
-<p>chatgpt似乎不支持长文概括，或者说免费版的不支持，暂时还没找到可以免费用chatgpt4的办法。通义千问和kimi我测试后发现它虽然可以支持10几万字的长文本，但是长文本下要求概括章节则会发生假装概括的样子，比如让它概括第1章它会夹带其他章节的内容，为了使它的概括更为精确需要切分章节内容。手动搞，再一个个复制的话，一本40万字的书大约需要大半天完成。于是我想到自动切分章节，再用浏览器自动交互程序批量上传章节让kimi分析。</p>
-<p>章节切分的逻辑是搜索第x章+“ ”（空格）到第x+1章+“ ”（空格），因为书中可能包含提及“第x章”的字符串因此首先要手动处理下每一章标题使其符合格式。通过这个程序能批量完成多本书的章节切分。</p>
-<p><img src="/2024/07/19/2024-7-19/2024-7-19/8f1c866a4f7d566e758b4659db73c78e_MD5.jpg"></p></body></html>
-        <p class="article-more-link">
-            <a href="/2024/07/19/2024-7-19/#more">阅读更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -413,7 +411,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/%E6%97%A5%E8%AE%B0/page/14/">14</a></li>
+        <li><a class="pagination-link" href="/categories/%E6%97%A5%E8%AE%B0/page/15/">15</a></li>
         
     </ul>
 </nav>

@@ -15,7 +15,7 @@ do1 = ChromiumOptions().set_paths(local_port=9111, user_data_path=r'E:/chrometmp
 tab = ChromiumPage(addr_or_opts=do1)
 chat_ids = []
 url_base = 'https://web.telegram.org/a/#'
-message_limit = 70
+message_limit = 60
 
 api_id = '24053889'
 api_hash = '8e1a8794cf3c36a56097cd8d3f3775b2'

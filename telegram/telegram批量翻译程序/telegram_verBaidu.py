@@ -1,5 +1,6 @@
 from DrissionPage import ChromiumPage, ChromiumOptions
 from DrissionPage.common import By
+from DrissionPage.errors import *
 import time
 import re
 from bs4 import BeautifulSoup
@@ -83,68 +84,77 @@ def download_images(top_limit_message_divs, download_folder, max_retries=6):
         total_blob_images += blob_img_count
         print(f"Found {blob_img_count} blob images in current div after filtering.")
 
-        for i, img in enumerate(filtered_img_tags):   
-            img_url = img.get('src')
-            if img_url and img_url.startswith('blob:') and 'full-media' in img.get('class', []):
-                message_div_id = div['id']
-                imgxpath = (By.XPATH, f'(//div[@id="{message_div_id}"]//img[contains(@class, "full-media") and starts-with(@src, "blob:")])')
-                
-                img_element = tab.ele(imgxpath)
-                # 检查是否存在多个符合条件的 img 标签
-                imgMorethan1xpath = (By.XPATH, f'(//div[@id="{message_div_id}"]//img[contains(@class, "full-media") and starts-with(@src, "blob:")])[2]')
-                img_element2 = tab.ele(imgMorethan1xpath)
-
-                if img_element2:  # 多个 blob 图片，使用 base64 下载
-                    print(f"Preparing to download multi imgs")
-                    file_name = img_url.split('/')[-1] + '.jpg'
-                    img_path = os.path.join(download_folder, file_name)
+        for i, img in enumerate(filtered_img_tags):  
+            try: 
+                img_url = img.get('src')
+                if img_url and img_url.startswith('blob:') and 'full-media' in img.get('class', []):
+                    message_div_id = div['id']
+                    imgxpath = (By.XPATH, f'(//div[@id="{message_div_id}"]//img[contains(@class, "full-media") and starts-with(@src, "blob:")])')
                     
-                    for attempt in range(max_retries):
-                        result = tab.run_js(f"""
-                            return fetch('{img_url}')
-                                .then(response => response.blob())
-                                .then(blob => {{
-                                    return new Promise((resolve, reject) => {{
-                                        const reader = new FileReader();
-                                        reader.onloadend = () => resolve(reader.result.split(',')[1]);
-                                        reader.onerror = reject;
-                                        reader.readAsDataURL(blob);
+                    img_element = tab.ele(imgxpath)
+                    # 检查是否存在多个符合条件的 img 标签
+                    imgMorethan1xpath = (By.XPATH, f'(//div[@id="{message_div_id}"]//img[contains(@class, "full-media") and starts-with(@src, "blob:")])[2]')
+                    img_element2 = tab.ele(imgMorethan1xpath)
+
+                    if img_element2:  # 多个 blob 图片，使用 base64 下载
+                        print(f"Preparing to download multi imgs")
+                        file_name = img_url.split('/')[-1] + '.jpg'
+                        img_path = os.path.join(download_folder, file_name)
+                        
+                        for attempt in range(max_retries):
+                            result = tab.run_js(f"""
+                                return fetch('{img_url}')
+                                    .then(response => response.blob())
+                                    .then(blob => {{
+                                        return new Promise((resolve, reject) => {{
+                                            const reader = new FileReader();
+                                            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                                            reader.onerror = reject;
+                                            reader.readAsDataURL(blob);
+                                        }});
                                     }});
-                                }});
-                        """)
+                            """)
 
-                        img_data = base64.b64decode(result)  # 转换为二进制数据
-                        with open(img_path, 'wb') as img_file:
-                            img_file.write(img_data)
+                            img_data = base64.b64decode(result)  # 转换为二进制数据
+                            with open(img_path, 'wb') as img_file:
+                                img_file.write(img_data)
 
-                        time.sleep(1)
-                        if os.path.exists(img_path) and os.path.getsize(img_path) > 0:
-                            print(f"Saved image to: {img_path}")
-                            break
-                        else:
-                            print(f"Retry {attempt + 1}/{max_retries} for image {img_url} failed.")
                             time.sleep(1)
-                    else:
-                        print(f"Failed to download image {img_url} after {max_retries} attempts.")
+                            if os.path.exists(img_path) and os.path.getsize(img_path) > 0:
+                                print(f"Saved image to: {img_path}")
+                                break
+                            else:
+                                print(f"Retry {attempt + 1}/{max_retries} for image {img_url} failed.")
+                                time.sleep(1)
+                        else:
+                            print(f"Failed to download image {img_url} after {max_retries} attempts.")
 
-                else:  # 只有一张符合条件的图片，模拟右键下载
-                    print(f"Preparing to download single img: {img_url}")
-                    img_element.scroll.to_see()
-                    time.sleep(1)
-                    tab.actions.r_click(img_element)
-                    # img_element.click.right()
-                    time.sleep(1)
+                    else:  # 只有一张符合条件的图片，模拟右键下载
+                        print(f"Preparing to download single img: {img_url}")
+                        img_element.scroll.to_see()
+                        time.sleep(1)
+                        tab.actions.r_click(img_element)
+                        # img_element.click.right()
+                        time.sleep(1)
 
-                    # downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
-                    downloadxpath = (By.XPATH, f'//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
-                    download = tab.ele(downloadxpath)
+                        # downloadxpath = (By.XPATH, f'//div[@id="{message_div_id}"]//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
+                        downloadxpath = (By.XPATH, f'//div[@class="MenuItem compact" and (normalize-space(.) = "Download" or normalize-space(.) = "Cancel Download")]')
+                        download = tab.ele(downloadxpath)
 
-                    # 设置下载路径和文件名
-                    tab.set.download_path(download_folder)
-                    tab.set.download_file_name(img_url.split('/')[-1].strip())
-                    download.click()
-                    time.sleep(3)
+                        # 设置下载路径和文件名
+                        tab.set.download_path(download_folder)
+                        tab.set.download_file_name(img_url.split('/')[-1].strip())
+                        download.click()
+                        time.sleep(3)
 
+            except ElementNotFoundError as e:
+                print(f"⚠️ 元素丢失，已跳过第 {i} 张图片：{e}")
+                continue
+
+            except Exception as e:
+                print(f"❌ 未知错误（不中断）：{e}")
+                continue            
+            
     print(f"Total blob images found: {total_blob_images}")
 
 
@@ -195,35 +205,55 @@ def is_non_chinese_and_non_link(text):
     )
 
 # 执行翻译并返回结果
-def translate_text(text):
-    translate_tab = tab.get_tab(url='fanyi.baidu.com/')
-    time.sleep(3)
-    translate_tab.refresh()
-    time.sleep(3)
-    # while translate_tab.ele('t:iframe'):
-    #     print("检测到 iframe，刷新页面...")
-    #     translate_tab.refresh()
-    #     time.sleep(6)  # 等待页面加载
-    # languageEn = (By.XPATH, "//div[@class='reverse']/following-sibling::div[@class='sc-ipEyDJ dqurTv']/div[@class='lang' and text()='英语']")
-    # if translate_tab.ele(languageEn):
-    #     print("由于不明原因改成翻译为英文")
-    #     translate_tab.ele(languageEn).click()
-    #     time.sleep(2)
-    #     language2 = (By.XPATH, "//div[@class='lang-search-recently']/div[@data-lang='zh']")
-    #     language_option = translate_tab.ele(language2)
-    #     language_option.click()
-    #     print("强制改为翻译成中文")
+# def translate_text(text):
+#     translate_tab = tab.get_tab(url='fanyi.baidu.com/')
+#     time.sleep(1)
+#     translate_tab.refresh()
+#     time.sleep(1)
 
-    result1 = (By.XPATH, "//div[@class='aytrOJav' and @id='machineResContent']")  
-    translated_text = translate_tab.ele(result1)
-    input1 = (By.XPATH, "//div[contains(@class, 'ioHXHxf9') and @contenteditable='true' and @role='textbox']")
-    input_box = translate_tab.ele(input1)
-    input_box.clear()
-    input_box.input(text)
+#     result1 = (By.XPATH, "//div[@class='aytrOJav' and @id='machineResContent']")  
+#     translated_text = translate_tab.ele(result1)
+#     input1 = (By.XPATH, "//div[contains(@class, 'ioHXHxf9') and @contenteditable='true' and @role='textbox']")
+#     input_box = translate_tab.ele(input1)
+#     input_box.clear()
+#     input_box.input(text)
 
-    time.sleep(15)
-    # print("translated_text为：" + translated_text.text)
-    return translated_text.text
+#     time.sleep(15)
+#     # print("translated_text为：" + translated_text.text)
+#     return translated_text.text
+
+
+def translate_text(text, max_retry=3):
+    for attempt in range(1, max_retry + 1):
+        try:
+            translate_tab = tab.get_tab(url='https://fanyi.baidu.com/')
+            translate_tab.refresh()
+            time.sleep(3)
+            input1 = (By.XPATH, "//div[contains(@class, 'ioHXHxf9') and @contenteditable='true' and @role='textbox']")
+            input_box = translate_tab.ele(input1)
+            time.sleep(3)
+            input_box.clear()
+            input_box.input(text)
+            time.sleep(3)
+            # ✅ 等翻译结果出现（最多等15秒）
+            result1 = (By.XPATH, "//div[@class='aytrOJav' and @id='machineResContent']")  
+            translated_text = translate_tab.ele(result1)
+
+            if translated_text.text:               # ✅ 防止拿到空内容
+                return translated_text.text
+
+            print("⚠ 翻译结果为空，重试中...")
+
+        except ElementNotFoundError as e:
+            print(f"⚠ 第 {attempt} 次：页面元素未加载，正在重试：{e}")
+
+        except Exception as e:
+            print(f"❌ 第 {attempt} 次：未知异常：{e}")
+
+        time.sleep(3)   # ✅ 给网络缓冲时间
+
+    return "【翻译失败：网络异常或页面加载失败】"
+
 
 # 处理网页内容
 def process_webpage(client, url_base, message_limit, chat_ids):

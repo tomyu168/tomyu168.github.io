@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Telegram Styled Message</title>
+
+</head>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+    const lazyElements = document.querySelectorAll('.lazy');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const src = el.getAttribute('data-src');
+                if (src) {
+                    if (el.tagName === 'IMG' || el.tagName === 'VIDEO') {
+                        el.src = src;
+                        el.removeAttribute('data-src'); // 移除 data-src
+                    }
+                    observer.unobserve(el); // 停止观察已加载元素
+                }
+            }
+        });
+    }, { rootMargin: "0px 0px 200px 0px" }); // 提前 200px 加载
+
+    lazyElements.forEach(el => observer.observe(el));
+});
+
+</script>
+<body>
+
+<div><table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>open</th>
+<th>high</th>
+<th>low</th>
+<th>close</th>
+<th>volume</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+<td>code</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2020-11-16</td>
+<td>000001</td>
+<td>17.08</td>
+<td>17.43</td>
+<td>16.90</td>
+<td>17.37</td>
+<td>759856.0</td>
+<td>1.308190e+09</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000002</td>
+<td>29.39</td>
+<td>29.50</td>
+<td>29.00</td>
+<td>29.20</td>
+<td>516576.0</td>
+<td>1.509810e+09</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000004</td>
+<td>31.15</td>
+<td>31.46</td>
+<td>30.11</td>
+<td>30.61</td>
+<td>72456.0</td>
+<td>2.223127e+08</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000005</td>
+<td>2.68</td>
+<td>2.70</td>
+<td>2.65</td>
+<td>2.69</td>
+<td>64372.0</td>
+<td>1.725762e+07</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000006</td>
+<td>5.66</td>
+<td>5.74</td>
+<td>5.62</td>
+<td>5.72</td>
+<td>98253.0</td>
+<td>5.592563e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000007</td>
+<td>9.42</td>
+<td>9.42</td>
+<td>9.18</td>
+<td>9.20</td>
+<td>22567.0</td>
+<td>2.094628e+07</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000008</td>
+<td>2.72</td>
+<td>2.74</td>
+<td>2.70</td>
+<td>2.73</td>
+<td>171930.0</td>
+<td>4.678304e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000009</td>
+<td>7.71</td>
+<td>7.88</td>
+<td>7.66</td>
+<td>7.82</td>
+<td>320180.0</td>
+<td>2.492149e+08</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>000010</td>
+<td>4.19</td>
+<td>4.27</td>
+<td>4.10</td>
+<td>4.24</td>
+<td>71661.0</td>
+<td>3.004320e+07</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>000011</td>
+<td>13.76</td>
+<td>14.40</td>
+<td>13.58</td>
+<td>14.39</td>
+<td>105639.0</td>
+<td>1.489735e+08</td>
+</tr>
+</tbody>
+</table></div></body></html>

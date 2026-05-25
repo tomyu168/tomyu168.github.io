@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-<link rel="stylesheet" href="/css/dark.css">
+
 
 
 
@@ -46,9 +46,9 @@
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="精神思考">
 <meta property="article:tag" content="家具模型">
+<meta property="article:tag" content="sketchup学习与实践">
 <meta property="article:tag" content="读书笔记">
 <meta property="article:tag" content="罪与罚">
-<meta property="article:tag" content="sketchup学习与实践">
 <meta property="article:tag" content="新鲜事儿">
 <meta property="article:tag" content="古文学习">
 <meta property="article:tag" content="文化考据">
@@ -75,8 +75,8 @@
 <meta property="article:tag" content="iascatter">
 <meta property="article:tag" content="vertexsmooth">
 <meta property="article:tag" content="shrinkwrap">
-<meta property="article:tag" content="硬表面">
 <meta property="article:tag" content="防疫">
+<meta property="article:tag" content="硬表面">
 <meta property="article:tag" content="装修">
 <meta property="article:tag" content="几何节点">
 <meta property="article:tag" content="substancedesigner">
@@ -416,28 +416,7 @@
 <script src="/js/script.js"></script>
 
 
-<button id="dark-mode-toggle" title="切换深色模式">🌙</button>
-<script>
-(function() {
-  var btn = document.getElementById('dark-mode-toggle');
-  var isDark = localStorage.getItem('dark-mode') === 'true';
-  function applyMode(dark) {
-    if (dark) {
-      document.body.classList.add('dark-mode');
-      btn.textContent = '☀️';
-    } else {
-      document.body.classList.remove('dark-mode');
-      btn.textContent = '🌙';
-    }
-  }
-  applyMode(isDark);
-  btn.addEventListener('click', function() {
-    isDark = !isDark;
-    localStorage.setItem('dark-mode', isDark);
-    applyMode(isDark);
-  });
-})();
-</script>
+
 
     
     <div class="searchbox ins-search">

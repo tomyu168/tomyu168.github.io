@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+<link rel="stylesheet" href="/css/dark.css">
 
 
 
@@ -473,28 +474,7 @@ var dom_timer = setInterval(function () {
 <script src="/js/script.js"></script>
 
 
-<button id="dark-mode-toggle" title="切换深色模式">🌙</button>
-<script>
-(function() {
-  var btn = document.getElementById('dark-mode-toggle');
-  var isDark = localStorage.getItem('dark-mode') === 'true';
-  function applyMode(dark) {
-    if (dark) {
-      document.body.classList.add('dark-mode');
-      btn.textContent = '☀️';
-    } else {
-      document.body.classList.remove('dark-mode');
-      btn.textContent = '🌙';
-    }
-  }
-  applyMode(isDark);
-  btn.addEventListener('click', function() {
-    isDark = !isDark;
-    localStorage.setItem('dark-mode', isDark);
-    applyMode(isDark);
-  });
-})();
-</script>
+
 
     
     <div class="searchbox ins-search">

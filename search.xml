@@ -980,40 +980,6 @@
       </tags>
   </entry>
   <entry>
-    <title>6.26周总结</title>
-    <url>/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<html><head></head><body><p>关于理论总结：</p>
-<p>这周未能完成秦汉建筑的总结，周二收尾，一鼓作气把魏晋南北朝篇、隋唐篇、宋辽西夏金在7、8月总结完。秦汉建筑从6.7开始总结，前后大概用了20天，当然这20天并非每天都有推进，如果算平均4天推进一次，那么和<a href="#">Post not found: 关于理论总结的进程与工作流程</a>这篇总结中预计的工作量差不多。实战中，连续两天以上推进不可持续，中国传统建筑的瓶颈主要在于图例太少且不清晰，无法直观感受，另一个是文字材料许多古文的翻译难找，且可能带有夸张成分，或许看看影视剧结合起来会有新的体会，不过由于构件和装饰相对单一，想必之后建模应该相对容易些。在第一册完结时陆续把之前的模型做起来。</p>
-<p>关于zbrush：</p>
-<p>周五z球完成了恐龙模型的大型，在<a href="https://space.bilibili.com/368991876/video" title="" target="">120集</a>这个系列的教学中，z球的创建在非插入两个球之间时需要将视图微微旋转，不然的话开启x对称操作不好控制，需要出现绿色圈证明不是一次拉出两个对称z球。若两个球之间在插入就没有问题了。alt键可以删去多余z球，恐龙模型有助于观察z球形成骨骼，注意不要过多加入z球以免结构混乱（比如恐龙前臂在z球过多时很难衍生出来），调节笔刷有助于创建不同大小z球。</p>
-<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/zd1.jpg" alt="2022-6.26周总结"></p>
-<p>周日完成了遮罩。ctrl进入遮罩模式，需要按照ctrl操作，配合alt键普通pen是去除遮罩，curve是确定曲线路径的一个点继续添加点形成轨迹，ctrl点击一下模糊遮罩，alt点击一下锐化遮罩。</p>
-<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma1.jpg" alt="6.26周总结"></p>
-<p>deformation inflat反向遮罩绘制图案型铠甲。ctrl对空白区域点击可以清除遮罩，ctrl I反向遮罩。遮罩也受到模型细分面影响。通过调节笔刷大小alt去除遮罩可以绘制图案尖角。</p>
-<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma2.jpg" alt="6.26周总结"></p>
-<p>还可以通过move工具切换y模式操纵杆多次拖拉加选遮罩区域。</p>
-<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma3.jpg" alt="6.26周总结"></p>
-<p>这周zbrush可以说超额完成了预期，没想到很轻松的过了骷髅的造型，恐龙倒是预期不难反而折腾了不少时间。下周p15-20干完一个怪物人头雕刻。</p>
-<p>3dsmax部分:</p>
-<p>第一次独立完成了一个家具的建模，搞了一个下午其实没啥东西，先是box去面布线拉点在面片层面上拟合靠背和坐面的木板结构，然后shell成面，在这个物体上选取面detach再shell成靠背和坐面的软包，椅子腿和脚本来想通过detach椅背和坐面的面不断extrude，但是发现这样做整体僵化，后来是通过大型几何摆放用曲线描绘路径，render直接成形然后再细化倒角，最后smooth。具体还要去看看教学的思路。这周做了3个家具，下周再做6个家具，应该效率可以上来了。</p>
-<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/c2.jpg" alt="6.26周总结"></p>
-<p>画图部分：</p>
-<p>没动，暂时弃疗。</p>
-<p>俄语部分：</p>
-<p>老师说大学俄语系用1个月完成前8课，每周五天上一个半天课。从疫情封闭后期1个月到现在两个月我不成熟的完成了前8课。现在很多单词、语法都是懵懵懂懂，看到老师说没问题自己就丢三落四了。继续推进第九课吧，就和悠悠球练招一样先不管卡壳的东西。</p>
-<p>跑步俯卧撑锻炼部分：</p>
-<p>异常出色的完成了，不过就是跑步5公里似乎最后一公里右肩疼越来越严重，最近一次没能完成，差点抽筋，还是要量力而行。</p>
-</body></html>]]></content>
-      <categories>
-        <category>gallery</category>
-      </categories>
-      <tags>
-        <tag>zbrush学习</tag>
-        <tag>阶段总结</tag>
-        <tag>3dsmax学习与实践</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>6.28中国传统建筑专有名词</title>
     <url>/2022/06/28/2022-6-28%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%BB%BA%E7%AD%91%E4%B8%93%E6%9C%89%E5%90%8D%E8%AF%8D/</url>
     <content><![CDATA[<html><head></head><body><p>瓜柱：两根梁之间的短柱</p>
@@ -1067,6 +1033,40 @@
       </categories>
       <tags>
         <tag>建筑装饰构件理论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6.26周总结</title>
+    <url>/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<html><head></head><body><p>关于理论总结：</p>
+<p>这周未能完成秦汉建筑的总结，周二收尾，一鼓作气把魏晋南北朝篇、隋唐篇、宋辽西夏金在7、8月总结完。秦汉建筑从6.7开始总结，前后大概用了20天，当然这20天并非每天都有推进，如果算平均4天推进一次，那么和<a href="#">Post not found: 关于理论总结的进程与工作流程</a>这篇总结中预计的工作量差不多。实战中，连续两天以上推进不可持续，中国传统建筑的瓶颈主要在于图例太少且不清晰，无法直观感受，另一个是文字材料许多古文的翻译难找，且可能带有夸张成分，或许看看影视剧结合起来会有新的体会，不过由于构件和装饰相对单一，想必之后建模应该相对容易些。在第一册完结时陆续把之前的模型做起来。</p>
+<p>关于zbrush：</p>
+<p>周五z球完成了恐龙模型的大型，在<a href="https://space.bilibili.com/368991876/video" title="" target="">120集</a>这个系列的教学中，z球的创建在非插入两个球之间时需要将视图微微旋转，不然的话开启x对称操作不好控制，需要出现绿色圈证明不是一次拉出两个对称z球。若两个球之间在插入就没有问题了。alt键可以删去多余z球，恐龙模型有助于观察z球形成骨骼，注意不要过多加入z球以免结构混乱（比如恐龙前臂在z球过多时很难衍生出来），调节笔刷有助于创建不同大小z球。</p>
+<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/zd1.jpg" alt="2022-6.26周总结"></p>
+<p>周日完成了遮罩。ctrl进入遮罩模式，需要按照ctrl操作，配合alt键普通pen是去除遮罩，curve是确定曲线路径的一个点继续添加点形成轨迹，ctrl点击一下模糊遮罩，alt点击一下锐化遮罩。</p>
+<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma1.jpg" alt="6.26周总结"></p>
+<p>deformation inflat反向遮罩绘制图案型铠甲。ctrl对空白区域点击可以清除遮罩，ctrl I反向遮罩。遮罩也受到模型细分面影响。通过调节笔刷大小alt去除遮罩可以绘制图案尖角。</p>
+<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma2.jpg" alt="6.26周总结"></p>
+<p>还可以通过move工具切换y模式操纵杆多次拖拉加选遮罩区域。</p>
+<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/ma3.jpg" alt="6.26周总结"></p>
+<p>这周zbrush可以说超额完成了预期，没想到很轻松的过了骷髅的造型，恐龙倒是预期不难反而折腾了不少时间。下周p15-20干完一个怪物人头雕刻。</p>
+<p>3dsmax部分:</p>
+<p>第一次独立完成了一个家具的建模，搞了一个下午其实没啥东西，先是box去面布线拉点在面片层面上拟合靠背和坐面的木板结构，然后shell成面，在这个物体上选取面detach再shell成靠背和坐面的软包，椅子腿和脚本来想通过detach椅背和坐面的面不断extrude，但是发现这样做整体僵化，后来是通过大型几何摆放用曲线描绘路径，render直接成形然后再细化倒角，最后smooth。具体还要去看看教学的思路。这周做了3个家具，下周再做6个家具，应该效率可以上来了。</p>
+<p><img src="/2022/06/26/2022-6-26%E5%91%A8%E6%80%BB%E7%BB%93/c2.jpg" alt="6.26周总结"></p>
+<p>画图部分：</p>
+<p>没动，暂时弃疗。</p>
+<p>俄语部分：</p>
+<p>老师说大学俄语系用1个月完成前8课，每周五天上一个半天课。从疫情封闭后期1个月到现在两个月我不成熟的完成了前8课。现在很多单词、语法都是懵懵懂懂，看到老师说没问题自己就丢三落四了。继续推进第九课吧，就和悠悠球练招一样先不管卡壳的东西。</p>
+<p>跑步俯卧撑锻炼部分：</p>
+<p>异常出色的完成了，不过就是跑步5公里似乎最后一公里右肩疼越来越严重，最近一次没能完成，差点抽筋，还是要量力而行。</p>
+</body></html>]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
+      <tags>
+        <tag>zbrush学习</tag>
+        <tag>阶段总结</tag>
+        <tag>3dsmax学习与实践</tag>
       </tags>
   </entry>
   <entry>
@@ -1375,6 +1375,19 @@
       </tags>
   </entry>
   <entry>
+    <title>7.4zbrush羊角怪人模型</title>
+    <url>/2022/07/04/2022-7-4zbrush%E7%BE%8A%E8%A7%92%E6%80%AA%E4%BA%BA%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<html><head></head><body><p>这个模型没有什么软件技术上的知识点，综合前面骷髅以及遮罩绘制，inflat膨胀变形。主要难点在于观察参考物体的结构关系如何用雕刻去表达，以及一些拉伸旋转对y模式下操控杆的微操，特别是耳朵在拉伸出来后如何调整局部遮罩旋转使其立体形象逼真。</p>
+<p>有必要重新过一遍，像骷髅一样熟练掌握，目前对于操控感的认识还停留在“碰运气”阶段。z球恐龙暂时先不复刻了，到时候其他模型可能会碰到直接实战。</p>
+</body></html>]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
+      <tags>
+        <tag>zbrush学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>8.16zbrush毫无进展？</title>
     <url>/2022/08/16/2022-8-16zbrush%E6%AF%AB%E6%97%A0%E8%BF%9B%E5%B1%95%EF%BC%9F/</url>
     <content><![CDATA[<html><head></head><body><p>昨天白忙活一天，目前做动物雕刻对参考图，解剖图没有认识，不知道如何刻画形状特别像老虎这种受毛发影响大的动物，对于其形体棱角不好把握，做出来的头部诡异。身体部分肌肉的刻画究竟怎么对应参考图完全没有概念，有点像乱刷claybuild，smooth之后达到感觉上的满意，误打误撞罢了，这样肯定不得行，而且细节部分刻画不出来。</p>
@@ -1435,19 +1448,6 @@
         <tag>zbrush学习</tag>
         <tag>阶段总结</tag>
         <tag>新鲜事儿</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>7.4zbrush羊角怪人模型</title>
-    <url>/2022/07/04/2022-7-4zbrush%E7%BE%8A%E8%A7%92%E6%80%AA%E4%BA%BA%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<html><head></head><body><p>这个模型没有什么软件技术上的知识点，综合前面骷髅以及遮罩绘制，inflat膨胀变形。主要难点在于观察参考物体的结构关系如何用雕刻去表达，以及一些拉伸旋转对y模式下操控杆的微操，特别是耳朵在拉伸出来后如何调整局部遮罩旋转使其立体形象逼真。</p>
-<p>有必要重新过一遍，像骷髅一样熟练掌握，目前对于操控感的认识还停留在“碰运气”阶段。z球恐龙暂时先不复刻了，到时候其他模型可能会碰到直接实战。</p>
-</body></html>]]></content>
-      <categories>
-        <category>gallery</category>
-      </categories>
-      <tags>
-        <tag>zbrush学习</tag>
       </tags>
   </entry>
   <entry>
@@ -2228,6 +2228,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/03/06/2022-hello-world/</url>
+    <content><![CDATA[<html><head></head><body><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+</body></html>]]></content>
+  </entry>
+  <entry>
     <title>game character的制作流程</title>
     <url>/2022/07/19/2022-game-character%E7%9A%84%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<html><head></head><body><a href="https://www.youtube.com/watch?v=ISgdREmFO7w" title="" target="">Full 3D Character Workflow Explained - Sculpting, Retopo &amp; Textures</a>展示了角色从“基本模型”到高模（zbrush），重新拓扑（maya），到uv展开（maya），到绘制材质的流程。
@@ -2265,24 +2283,6 @@
         <tag>贴图</tag>
         <tag>烘焙</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/03/06/2022-hello-world/</url>
-    <content><![CDATA[<html><head></head><body><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-</body></html>]]></content>
   </entry>
   <entry>
     <title>hexo 部署问题</title>
@@ -13249,6 +13249,33 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       </tags>
   </entry>
   <entry>
+    <title>2024-3-5-米棕典型住宅小高层PBG练习</title>
+    <url>/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/</url>
+    <content><![CDATA[<html><head></head><body><p>这个房子由于corner不同需要两个pbg对接，且屋顶还有cornice拼接，根据初步拆解来看唯一可以重复的部件在于黄色部分叠加楼层，以及中间凹陷拉宽距离？</p>
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-e1a0b9439d85205b2ccbbbb4d6191f0f_1440w.jpg"></p>
+<span id="more"></span>
+
+
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-784043733ac1d2084e19dae6f340da43_1440w.jpg"></p>
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-5c51e11e644570404b033b82f47639c5_1440w.jpg"></p>
+<p>这套我并没有使用pbg为了将几个转角还原出来，我直接在blender里面基于su的模型搞，需要注意的要点是，所使用的部件提前apply scale and rotation、flip normal、clean parent、解除object data link.su中的栏杆经常会出现重叠，通过全选simliar material把栏杆都删干净保留一份即可。在blender中依旧使用模块化思维，这里的模块可以精确到一个个部件了，届时alt d复制实例，send to unreal插件可以保证blender到ue依旧保持instance关系，不过导入ue后是同一个mesh还没有实例化需要借助meshtoinstance widget转换才行。</p>
+<p>通过此法导入的部件第二套uv正常，若需要用4套遮罩只要对每个部件逐一做处理即可，可以重点到一些有表现力的部件上。这套房子制作我用了两天模型基本上一天，uv搞了半天多。模型是考虑到要分uv所以有些部件做的有些吃力，这个方法无需考虑拆分拼接节省了不少时间在对齐和pivot上。</p>
+<p>经测试将所有部件join合并后200万面的物体做smart uv展开设置texel density再packuvmaster巨卡，blender导出ue导入势必也会很卡，不利于非破坏性过程建设，要修改很困难，且由于窗户内景非instance无法适配内景材质。</p>
+<p>对于5、6层立面排布固定的建筑无需使用PBG的房型模块化，而转为部件的模块化。</p>
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-2d82cc76bf496a63880a94e4cd0e5234_1440w.jpg"></p>
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-4fb27589c4db848400851fcaaa1c65dc_1440w.jpg"></p>
+<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-2c47d9f959e28868e30b83bae4341efc_1440w.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>SendToUE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2024-3-28-SendToUE中凯城市之光</title>
     <url>/2024/04/01/2024-3-28-SendToUE%E4%B8%AD%E5%87%AF%E5%9F%8E%E5%B8%82%E4%B9%8B%E5%85%89/</url>
     <content><![CDATA[<html><head></head><body><p>这是第一个仅通过参考图片来制作模块化建筑的项目，比起现成的项目有3d模型作为参考，在尺寸上完全不需要多考虑，部件切分方面由于不是正视图因此观察较为困难容易混淆。</p>
@@ -13322,33 +13349,6 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>综合技术3d场景制作</tag>
         <tag>blender</tag>
         <tag>python</tag>
-        <tag>SendToUE</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2024-3-5-米棕典型住宅小高层PBG练习</title>
-    <url>/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/</url>
-    <content><![CDATA[<html><head></head><body><p>这个房子由于corner不同需要两个pbg对接，且屋顶还有cornice拼接，根据初步拆解来看唯一可以重复的部件在于黄色部分叠加楼层，以及中间凹陷拉宽距离？</p>
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-e1a0b9439d85205b2ccbbbb4d6191f0f_1440w.jpg"></p>
-<span id="more"></span>
-
-
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-784043733ac1d2084e19dae6f340da43_1440w.jpg"></p>
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-5c51e11e644570404b033b82f47639c5_1440w.jpg"></p>
-<p>这套我并没有使用pbg为了将几个转角还原出来，我直接在blender里面基于su的模型搞，需要注意的要点是，所使用的部件提前apply scale and rotation、flip normal、clean parent、解除object data link.su中的栏杆经常会出现重叠，通过全选simliar material把栏杆都删干净保留一份即可。在blender中依旧使用模块化思维，这里的模块可以精确到一个个部件了，届时alt d复制实例，send to unreal插件可以保证blender到ue依旧保持instance关系，不过导入ue后是同一个mesh还没有实例化需要借助meshtoinstance widget转换才行。</p>
-<p>通过此法导入的部件第二套uv正常，若需要用4套遮罩只要对每个部件逐一做处理即可，可以重点到一些有表现力的部件上。这套房子制作我用了两天模型基本上一天，uv搞了半天多。模型是考虑到要分uv所以有些部件做的有些吃力，这个方法无需考虑拆分拼接节省了不少时间在对齐和pivot上。</p>
-<p>经测试将所有部件join合并后200万面的物体做smart uv展开设置texel density再packuvmaster巨卡，blender导出ue导入势必也会很卡，不利于非破坏性过程建设，要修改很困难，且由于窗户内景非instance无法适配内景材质。</p>
-<p>对于5、6层立面排布固定的建筑无需使用PBG的房型模块化，而转为部件的模块化。</p>
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-2d82cc76bf496a63880a94e4cd0e5234_1440w.jpg"></p>
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-4fb27589c4db848400851fcaaa1c65dc_1440w.jpg"></p>
-<p><img src="/2024/03/13/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/2024-3-5-%E7%B1%B3%E6%A3%95%E5%85%B8%E5%9E%8B%E4%BD%8F%E5%AE%85%E5%B0%8F%E9%AB%98%E5%B1%82PBG%E7%BB%83%E4%B9%A0/v2-2c47d9f959e28868e30b83bae4341efc_1440w.jpg"></p>
-</body></html>]]></content>
-      <categories>
-        <category>CG技术</category>
-      </categories>
-      <tags>
-        <tag>综合技术3d场景制作</tag>
-        <tag>blender</tag>
         <tag>SendToUE</tag>
       </tags>
   </entry>
@@ -14051,6 +14051,55 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       </tags>
   </entry>
   <entry>
+    <title>2024-4-9-SendToUE水石国际中国特色连排别墅</title>
+    <url>/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/</url>
+    <content><![CDATA[<html><head></head><body><p>原版sketchup这个材质太诡异了，另外目前遇到个问题是sketchup的素材只有正面，背面自己创作暂时还没发借助人工智能实现，参考的pinterest案例。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-8e35ee5e006951a026760268e25c6ab1_1440w.jpg"></p>
+<span id="more"></span>
+
+<p>建模重构用了一天不到，这个案例不涉及楼层叠加问题，或者说我暂时没法想象它如何改造叠加楼层，因此建模前我也没做切分。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-4bd291610d242bae87fde263e066bfb1_1440w.jpg"></p>
+<p>昨天被卡住的问题是大量部件需要等建模完成后用bakemaster烘焙，理想中的状况是全选所有物体包含instance关系的则只选其中一个，blender内置没有这个功能，我找了下插件也没办法，后来通过先归类collection再选collection中第一个物体实现了，详情见<a href="https://zhudian.xyz/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a></p>
+<p>烘焙完成后我开始给第二套uv做分割，大概用了1个小时多。然后是对窗户join内景伪装的面片，join前确认uv展开朝向。</p>
+<p>导入ue后我遇到了一个问题，对于要批量生成材质的mesh如何批量快速选取呢？情景是对于大量static mesh选取含有某种特定材质的那些，我在网上找方法、插件未果，问chatgpt无果，让它编写python脚本不成功。后来发现直接用select菜单下select all with same material，然后browse to asset即可实现上述需求。之后我发现MaterialConvertInstance.py这个脚本无法对中文路径操作，必须用英文和数字、下划线才行。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-890b31c5fa964d211deae6fb85ad9e68_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-2394d06a2ca2986cc3b72cfee474e48e_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-ccf71af02a402dd9acf38acba6ac8e10_1440w.jpg"></p>
+<p>随后我发现了两个问题：</p>
+<p>1.存在3类mesh，一种只有a材质，一种只有b材质，一种既有a又有b材质，MaterialConvertInstance.py一次只能根据material slot index批量生成一种材质，假设所有既有a又有b材质的mesh按照1a2b排列material slot，那么对material slot index 0执行MaterialConvertInstance.py后，a消失被xx替代，此时再用MaterialConvertInstance.py去对b做生成会出问题因为二者的material slot index不同。为解决这个问题，我优化了代码，不过这次chatgpt能帮的忙有限，这个api可能太小众了，参考了Unreal Automatically Assigning Material by Material Slot Name with Python <a href="https://www.artstation.com/blogs/hinsunlee/Ondp/unreal-automatically-assigning-material-by-material-slot-name-with-python">Unreal Automatically Assigning Material by Material Slot Name with Python</a> 对最后赋予材质这段做了循环判断，深入解读了get_material_index(slot_name)和get_material_slot_names(StaticMeshComponent)。成功实现了对位material slot name来赋予材质。</p>
+<p>sm_component = unreal.StaticMeshComponent()<br>    sm_component.set_static_mesh(sm_asset)<br>    material_slot_names = unreal.StaticMeshComponent.get_material_slot_names(sm_component)<br>    print(“material_slot_names:”,material_slot_names)<br>    for slot in material_slot_names:<br>        if slot == “bb”:  # Replace “YourTargetMaterialSlotName” with your target material slot name<br>            sm_asset.set_material(sm_component.get_material_index(slot), mi_asset)<br>            print(“sm_component.get_material_index(slot)”,sm_component.get_material_index(slot))<br>            break</p>
+<p>成功自动生成材质实例并赋予到相同名称的两个不同slot index</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-5490d45cd7082f00ed3cc3e085cf811a_1440w.jpg"></p>
+<p>2.在blender创建部件以及烘培纹理，理想状态是所有部件和纹理的名称是对应的。实际发现data name都跟随了最大尾数物体的名称，解决办法很容易，只要选中最小尾数的物体data name from object即可。这样就不会使static mesh名称和烘焙名称不符了。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-3d7713a79d8187c5ff600655f52ee233_1440w.jpg"></p>
+<p>打包packed blueprint level actor时经常会在框选时加入一些意想不到的其他actor比如skydome什么的，用Actor Lock插件alt+”,” 冻结选中的actor, alt+”.”解冻选中的actor。</p>
+<p>ctrl+F全选与当前选中actor具有相同材质的actor，ctrl+b把这些选中的actor对应的static mesh在content browser中高亮选中，借助b站<a href="https://www.bilibili.com/video/BV1P6421w7vi/?spm_id_from=333.880.my_history.page.click">【UE5开发】快速调试python脚本_哔哩哔哩_bilibili</a> 这个启动脚本，在菜单栏上增加一栏，点开run script即运行MaterialConvertInstance.py.</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-0a3ce83ce9fb344cccc663cd48a0f4d9_1440w.jpg"></p>
+<p>没有多选skydome的情况下，packed blueprint level actor打包的房子pivot居中正常，调出时位于z轴0点。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-9780f9706a70cab6a35a85f66844b182_1440w.jpg"></p>
+<p>完成packed level actor blueprint后我发现ctrl+d复制出来的blueprint actor内景是一样的（下图1），其中的instancing random seed每个复制品都一样。网上找不到关于这个参数的编程控制方式，没办法问题又回到了Num Custom Data Floats，最早接触matrix项目时就发现只要改动这个数值就能更改内景，具体原理就不深究了，然而网上找了很久只有关于Custom Data Value设置的，Num Custom Data Floats则需要手动设置，那么多的部件都要这么搞那得累死了，之前查到一条说ue5.3对这个参数做了expose，由于当时对blueprint完全不懂所以也就没深究，这次有了前几天完成deco per socket blueprint复刻的底气后，我打算试试看ue5.3能否实现这东西。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-7dd56641325b4b4649d4831a31dfec89_1440w.jpg"></p>
+<p>测试成功！可以观察到图2、3中custom data 的值不同（也就是custom data value）。那么问题就变成整个平台从5.2到5.3的迁移了，整个拷贝一份原来的工程我觉得没必要，那个工程文件有60多个GB里面包含了大量我自己都忘记的unused asset，而用清理工具去搞是有风险的，因此不如下定决心整个重排架构。目前看下来不再需要PBG和PRG了，也可以再做两个项目来验证，我不知道之前的插件对ue5.3有没有兼容问题，也是时候随着项目整理来确定其他插件的使用问题了。</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-67be5af559ee1af6c0ca6b826b90a941_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-7f6f8215c87cfc3ea4a2af0226b5f489_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-6090517f8f169c34d1c99ca4803f28c0_1440w.jpg"></p>
+<p>重构了室内伪装的master material把perintancerandom替换成perinstanceCustomData，脑筋一时间没转过来，这个值太大了怎么在材质函数里获取0-1范围，后来想到这个值是在construction script的blueprint里面控制的，直接限定那边的值0-1即可，random float in range.</p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-f8d2317f9088650b9e84fd4a3e3b70bd_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-52590869f4a91513e5c629110e4b6cd8_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-aea5285e2cae3ddd579b9e3ffa6dc225_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-05ab9e2ea1dcd6a93e8f7807d6116fbd_1440w.jpg"></p>
+<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-6963a73ffb0a24462f2885682b2836c2_1440w.jpg"></p>
+<p>最后贴一下完整的MaterialConvertInstance.py代码</p>
+<figure class="highlight python hljs"><figcaption><span>按照材质slot名称创建带packedA texture的材质实例并赋予选中的StaticMeshAsset</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> unreal</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">set_mi_texture</span>(<span class="hljs-params">mi_asset, param_name, tex_path</span>):</span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> unreal.EditorAssetLibrary.does_asset_exist(tex_path):</span><br><span class="line">        unreal.log_warning(<span class="hljs-string">"Can't find texture: "</span> + tex_path)</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span></span><br><span class="line">    tex_asset = unreal.EditorAssetLibrary.find_asset_data(tex_path).get_asset()</span><br><span class="line">    <span class="hljs-keyword">return</span> unreal.MaterialEditingLibrary.set_material_instance_texture_parameter_value(mi_asset, param_name, tex_asset)</span><br><span class="line"></span><br><span class="line">unreal.log(<span class="hljs-string">"---------------------------------------------------"</span>)</span><br><span class="line">AssetTools = unreal.AssetToolsHelpers.get_asset_tools()</span><br><span class="line">MaterialEditingLibrary = unreal.MaterialEditingLibrary</span><br><span class="line">EditorAssetLibrary = unreal.EditorAssetLibrary</span><br><span class="line">mtl_parentname = <span class="hljs-string">"MI_Bldg_PaintedStone_Black"</span></span><br><span class="line">base_mtl = unreal.EditorAssetLibrary.find_asset_data(<span class="hljs-string">"/Game/RealEstate_Building/villa1/Materials/"</span> + mtl_parentname)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Iterate over selected meshes</span></span><br><span class="line">sel_assets = unreal.EditorUtilityLibrary.get_selected_assets()</span><br><span class="line"><span class="hljs-keyword">for</span> sm_asset <span class="hljs-keyword">in</span> sel_assets:</span><br><span class="line">    <span class="hljs-keyword">if</span> sm_asset.get_class().get_name() != <span class="hljs-string">"StaticMesh"</span>:</span><br><span class="line">        <span class="hljs-keyword">continue</span>  <span class="hljs-comment"># Skip non-static-meshes</span></span><br><span class="line"></span><br><span class="line">    asset_name = sm_asset.get_name()</span><br><span class="line">    <span class="hljs-keyword">if</span> asset_name.startswith(<span class="hljs-string">"S_"</span>):</span><br><span class="line">        asset_name = asset_name[<span class="hljs-number">2</span>:]  <span class="hljs-comment"># Store mesh name without prefix</span></span><br><span class="line">    asset_folder = unreal.Paths.get_path(sm_asset.get_path_name())</span><br><span class="line">    base_folder = asset_folder[:-<span class="hljs-number">7</span>]  <span class="hljs-comment"># Get base folder (subtract "Meshes" from base path)</span></span><br><span class="line">    mtl_folder = base_folder + <span class="hljs-string">"/Materials/"</span></span><br><span class="line">    tex_folder = base_folder + <span class="hljs-string">"/Textures/"</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># Create folder for materials if not exist</span></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> unreal.EditorAssetLibrary.does_directory_exist(mtl_folder):</span><br><span class="line">        unreal.EditorAssetLibrary.make_directory(mtl_folder)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Name of material instance for this mesh</span></span><br><span class="line">    mi_name = mtl_parentname + <span class="hljs-string">"_"</span> + asset_name</span><br><span class="line">    mi_full_path = mtl_folder + mi_name</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Check if material instance already exists</span></span><br><span class="line">    <span class="hljs-keyword">if</span> EditorAssetLibrary.does_asset_exist(mi_full_path):</span><br><span class="line">        mi_asset = EditorAssetLibrary.find_asset_data(mi_full_path).get_asset()</span><br><span class="line">        unreal.log(<span class="hljs-string">"Asset already exists"</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        mi_asset = AssetTools.create_asset(mi_name, mtl_folder, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Set material instance parameters</span></span><br><span class="line">    MaterialEditingLibrary.set_material_instance_parent(mi_asset, base_mtl.get_asset())  <span class="hljs-comment"># Set parent material</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Find textures for this mesh</span></span><br><span class="line">    set_mi_texture(mi_asset, <span class="hljs-string">"PackedA Tex"</span>, tex_folder + asset_name)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Set new material instance on static mesh based on material slot name</span></span><br><span class="line">    sm_component = unreal.StaticMeshComponent()</span><br><span class="line">    sm_component.set_static_mesh(sm_asset)</span><br><span class="line">    material_slot_names = unreal.StaticMeshComponent.get_material_slot_names(sm_component)</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">"material_slot_names:"</span>,material_slot_names)</span><br><span class="line">    <span class="hljs-keyword">for</span> slot <span class="hljs-keyword">in</span> material_slot_names:</span><br><span class="line">        <span class="hljs-keyword">if</span> slot == <span class="hljs-string">"黑色涂料"</span>:  <span class="hljs-comment"># Replace "YourTargetMaterialSlotName" with your target material slot name</span></span><br><span class="line">            sm_asset.set_material(sm_component.get_material_index(slot), mi_asset)</span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">"sm_component.get_material_index(slot)"</span>,sm_component.get_material_index(slot))</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
+      <tags>
+        <tag>综合技术3d场景制作</tag>
+        <tag>blender</tag>
+        <tag>python</tag>
+        <tag>SendToUE</tag>
+        <tag>Blueprint</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2024-5-30-flowgpt生成图片</title>
     <url>/2024/05/30/2024-5-30/</url>
     <content><![CDATA[<html><head></head><body><p>flowgpt旗下有各种各样的ai模型，一次只能生成一个图，对于不同类型主题的产生的图片有很大差异。目前看来只有输出正方形图的比较好用，长方形图的效果不佳，没法做出创意来，另外sd的ip adapter和t2i adapter没法很好的模仿flowgpt生成的图。另外flowgpt里的regenerator有时候不起做用，在一些图上使用regenerator会较好继承之前那张图的风格。</p>
@@ -14152,55 +14201,6 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
       <tags>
         <tag>计算机网络</tag>
         <tag>代理技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2024-4-9-SendToUE水石国际中国特色连排别墅</title>
-    <url>/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/</url>
-    <content><![CDATA[<html><head></head><body><p>原版sketchup这个材质太诡异了，另外目前遇到个问题是sketchup的素材只有正面，背面自己创作暂时还没发借助人工智能实现，参考的pinterest案例。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-8e35ee5e006951a026760268e25c6ab1_1440w.jpg"></p>
-<span id="more"></span>
-
-<p>建模重构用了一天不到，这个案例不涉及楼层叠加问题，或者说我暂时没法想象它如何改造叠加楼层，因此建模前我也没做切分。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-4bd291610d242bae87fde263e066bfb1_1440w.jpg"></p>
-<p>昨天被卡住的问题是大量部件需要等建模完成后用bakemaster烘焙，理想中的状况是全选所有物体包含instance关系的则只选其中一个，blender内置没有这个功能，我找了下插件也没办法，后来通过先归类collection再选collection中第一个物体实现了，详情见<a href="https://zhudian.xyz/2024/04/10/2024-4-10-%E5%A4%A7%E9%87%8F%E9%83%A8%E4%BB%B6%E7%83%98%E7%84%99%E6%89%B9%E9%87%8F%E9%80%89%E4%B8%AD%E9%97%AE%E9%A2%98%E7%94%A8python%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3/">2024-4-10-大量部件烘焙批量选中问题用python代码解决</a></p>
-<p>烘焙完成后我开始给第二套uv做分割，大概用了1个小时多。然后是对窗户join内景伪装的面片，join前确认uv展开朝向。</p>
-<p>导入ue后我遇到了一个问题，对于要批量生成材质的mesh如何批量快速选取呢？情景是对于大量static mesh选取含有某种特定材质的那些，我在网上找方法、插件未果，问chatgpt无果，让它编写python脚本不成功。后来发现直接用select菜单下select all with same material，然后browse to asset即可实现上述需求。之后我发现MaterialConvertInstance.py这个脚本无法对中文路径操作，必须用英文和数字、下划线才行。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-890b31c5fa964d211deae6fb85ad9e68_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-2394d06a2ca2986cc3b72cfee474e48e_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-ccf71af02a402dd9acf38acba6ac8e10_1440w.jpg"></p>
-<p>随后我发现了两个问题：</p>
-<p>1.存在3类mesh，一种只有a材质，一种只有b材质，一种既有a又有b材质，MaterialConvertInstance.py一次只能根据material slot index批量生成一种材质，假设所有既有a又有b材质的mesh按照1a2b排列material slot，那么对material slot index 0执行MaterialConvertInstance.py后，a消失被xx替代，此时再用MaterialConvertInstance.py去对b做生成会出问题因为二者的material slot index不同。为解决这个问题，我优化了代码，不过这次chatgpt能帮的忙有限，这个api可能太小众了，参考了Unreal Automatically Assigning Material by Material Slot Name with Python <a href="https://www.artstation.com/blogs/hinsunlee/Ondp/unreal-automatically-assigning-material-by-material-slot-name-with-python">Unreal Automatically Assigning Material by Material Slot Name with Python</a> 对最后赋予材质这段做了循环判断，深入解读了get_material_index(slot_name)和get_material_slot_names(StaticMeshComponent)。成功实现了对位material slot name来赋予材质。</p>
-<p>sm_component = unreal.StaticMeshComponent()<br>    sm_component.set_static_mesh(sm_asset)<br>    material_slot_names = unreal.StaticMeshComponent.get_material_slot_names(sm_component)<br>    print(“material_slot_names:”,material_slot_names)<br>    for slot in material_slot_names:<br>        if slot == “bb”:  # Replace “YourTargetMaterialSlotName” with your target material slot name<br>            sm_asset.set_material(sm_component.get_material_index(slot), mi_asset)<br>            print(“sm_component.get_material_index(slot)”,sm_component.get_material_index(slot))<br>            break</p>
-<p>成功自动生成材质实例并赋予到相同名称的两个不同slot index</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-5490d45cd7082f00ed3cc3e085cf811a_1440w.jpg"></p>
-<p>2.在blender创建部件以及烘培纹理，理想状态是所有部件和纹理的名称是对应的。实际发现data name都跟随了最大尾数物体的名称，解决办法很容易，只要选中最小尾数的物体data name from object即可。这样就不会使static mesh名称和烘焙名称不符了。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-3d7713a79d8187c5ff600655f52ee233_1440w.jpg"></p>
-<p>打包packed blueprint level actor时经常会在框选时加入一些意想不到的其他actor比如skydome什么的，用Actor Lock插件alt+”,” 冻结选中的actor, alt+”.”解冻选中的actor。</p>
-<p>ctrl+F全选与当前选中actor具有相同材质的actor，ctrl+b把这些选中的actor对应的static mesh在content browser中高亮选中，借助b站<a href="https://www.bilibili.com/video/BV1P6421w7vi/?spm_id_from=333.880.my_history.page.click">【UE5开发】快速调试python脚本_哔哩哔哩_bilibili</a> 这个启动脚本，在菜单栏上增加一栏，点开run script即运行MaterialConvertInstance.py.</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-0a3ce83ce9fb344cccc663cd48a0f4d9_1440w.jpg"></p>
-<p>没有多选skydome的情况下，packed blueprint level actor打包的房子pivot居中正常，调出时位于z轴0点。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-9780f9706a70cab6a35a85f66844b182_1440w.jpg"></p>
-<p>完成packed level actor blueprint后我发现ctrl+d复制出来的blueprint actor内景是一样的（下图1），其中的instancing random seed每个复制品都一样。网上找不到关于这个参数的编程控制方式，没办法问题又回到了Num Custom Data Floats，最早接触matrix项目时就发现只要改动这个数值就能更改内景，具体原理就不深究了，然而网上找了很久只有关于Custom Data Value设置的，Num Custom Data Floats则需要手动设置，那么多的部件都要这么搞那得累死了，之前查到一条说ue5.3对这个参数做了expose，由于当时对blueprint完全不懂所以也就没深究，这次有了前几天完成deco per socket blueprint复刻的底气后，我打算试试看ue5.3能否实现这东西。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-7dd56641325b4b4649d4831a31dfec89_1440w.jpg"></p>
-<p>测试成功！可以观察到图2、3中custom data 的值不同（也就是custom data value）。那么问题就变成整个平台从5.2到5.3的迁移了，整个拷贝一份原来的工程我觉得没必要，那个工程文件有60多个GB里面包含了大量我自己都忘记的unused asset，而用清理工具去搞是有风险的，因此不如下定决心整个重排架构。目前看下来不再需要PBG和PRG了，也可以再做两个项目来验证，我不知道之前的插件对ue5.3有没有兼容问题，也是时候随着项目整理来确定其他插件的使用问题了。</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-67be5af559ee1af6c0ca6b826b90a941_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-7f6f8215c87cfc3ea4a2af0226b5f489_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-6090517f8f169c34d1c99ca4803f28c0_1440w.jpg"></p>
-<p>重构了室内伪装的master material把perintancerandom替换成perinstanceCustomData，脑筋一时间没转过来，这个值太大了怎么在材质函数里获取0-1范围，后来想到这个值是在construction script的blueprint里面控制的，直接限定那边的值0-1即可，random float in range.</p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-f8d2317f9088650b9e84fd4a3e3b70bd_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-52590869f4a91513e5c629110e4b6cd8_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-aea5285e2cae3ddd579b9e3ffa6dc225_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-05ab9e2ea1dcd6a93e8f7807d6116fbd_1440w.jpg"></p>
-<p><img src="/2024/04/14/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/2024-4-9-SendToUE%E6%B0%B4%E7%9F%B3%E5%9B%BD%E9%99%85%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E8%BF%9E%E6%8E%92%E5%88%AB%E5%A2%85/v2-6963a73ffb0a24462f2885682b2836c2_1440w.jpg"></p>
-<p>最后贴一下完整的MaterialConvertInstance.py代码</p>
-<figure class="highlight python hljs"><figcaption><span>按照材质slot名称创建带packedA texture的材质实例并赋予选中的StaticMeshAsset</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> unreal</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">def</span> <span class="title function_">set_mi_texture</span>(<span class="hljs-params">mi_asset, param_name, tex_path</span>):</span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> unreal.EditorAssetLibrary.does_asset_exist(tex_path):</span><br><span class="line">        unreal.log_warning(<span class="hljs-string">"Can't find texture: "</span> + tex_path)</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span></span><br><span class="line">    tex_asset = unreal.EditorAssetLibrary.find_asset_data(tex_path).get_asset()</span><br><span class="line">    <span class="hljs-keyword">return</span> unreal.MaterialEditingLibrary.set_material_instance_texture_parameter_value(mi_asset, param_name, tex_asset)</span><br><span class="line"></span><br><span class="line">unreal.log(<span class="hljs-string">"---------------------------------------------------"</span>)</span><br><span class="line">AssetTools = unreal.AssetToolsHelpers.get_asset_tools()</span><br><span class="line">MaterialEditingLibrary = unreal.MaterialEditingLibrary</span><br><span class="line">EditorAssetLibrary = unreal.EditorAssetLibrary</span><br><span class="line">mtl_parentname = <span class="hljs-string">"MI_Bldg_PaintedStone_Black"</span></span><br><span class="line">base_mtl = unreal.EditorAssetLibrary.find_asset_data(<span class="hljs-string">"/Game/RealEstate_Building/villa1/Materials/"</span> + mtl_parentname)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Iterate over selected meshes</span></span><br><span class="line">sel_assets = unreal.EditorUtilityLibrary.get_selected_assets()</span><br><span class="line"><span class="hljs-keyword">for</span> sm_asset <span class="hljs-keyword">in</span> sel_assets:</span><br><span class="line">    <span class="hljs-keyword">if</span> sm_asset.get_class().get_name() != <span class="hljs-string">"StaticMesh"</span>:</span><br><span class="line">        <span class="hljs-keyword">continue</span>  <span class="hljs-comment"># Skip non-static-meshes</span></span><br><span class="line"></span><br><span class="line">    asset_name = sm_asset.get_name()</span><br><span class="line">    <span class="hljs-keyword">if</span> asset_name.startswith(<span class="hljs-string">"S_"</span>):</span><br><span class="line">        asset_name = asset_name[<span class="hljs-number">2</span>:]  <span class="hljs-comment"># Store mesh name without prefix</span></span><br><span class="line">    asset_folder = unreal.Paths.get_path(sm_asset.get_path_name())</span><br><span class="line">    base_folder = asset_folder[:-<span class="hljs-number">7</span>]  <span class="hljs-comment"># Get base folder (subtract "Meshes" from base path)</span></span><br><span class="line">    mtl_folder = base_folder + <span class="hljs-string">"/Materials/"</span></span><br><span class="line">    tex_folder = base_folder + <span class="hljs-string">"/Textures/"</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># Create folder for materials if not exist</span></span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> unreal.EditorAssetLibrary.does_directory_exist(mtl_folder):</span><br><span class="line">        unreal.EditorAssetLibrary.make_directory(mtl_folder)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Name of material instance for this mesh</span></span><br><span class="line">    mi_name = mtl_parentname + <span class="hljs-string">"_"</span> + asset_name</span><br><span class="line">    mi_full_path = mtl_folder + mi_name</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Check if material instance already exists</span></span><br><span class="line">    <span class="hljs-keyword">if</span> EditorAssetLibrary.does_asset_exist(mi_full_path):</span><br><span class="line">        mi_asset = EditorAssetLibrary.find_asset_data(mi_full_path).get_asset()</span><br><span class="line">        unreal.log(<span class="hljs-string">"Asset already exists"</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        mi_asset = AssetTools.create_asset(mi_name, mtl_folder, unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Set material instance parameters</span></span><br><span class="line">    MaterialEditingLibrary.set_material_instance_parent(mi_asset, base_mtl.get_asset())  <span class="hljs-comment"># Set parent material</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Find textures for this mesh</span></span><br><span class="line">    set_mi_texture(mi_asset, <span class="hljs-string">"PackedA Tex"</span>, tex_folder + asset_name)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># Set new material instance on static mesh based on material slot name</span></span><br><span class="line">    sm_component = unreal.StaticMeshComponent()</span><br><span class="line">    sm_component.set_static_mesh(sm_asset)</span><br><span class="line">    material_slot_names = unreal.StaticMeshComponent.get_material_slot_names(sm_component)</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">"material_slot_names:"</span>,material_slot_names)</span><br><span class="line">    <span class="hljs-keyword">for</span> slot <span class="hljs-keyword">in</span> material_slot_names:</span><br><span class="line">        <span class="hljs-keyword">if</span> slot == <span class="hljs-string">"黑色涂料"</span>:  <span class="hljs-comment"># Replace "YourTargetMaterialSlotName" with your target material slot name</span></span><br><span class="line">            sm_asset.set_material(sm_component.get_material_index(slot), mi_asset)</span><br><span class="line">            <span class="hljs-built_in">print</span>(<span class="hljs-string">"sm_component.get_material_index(slot)"</span>,sm_component.get_material_index(slot))</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br></pre></td></tr></tbody></table></figure></body></html>]]></content>
-      <tags>
-        <tag>综合技术3d场景制作</tag>
-        <tag>blender</tag>
-        <tag>python</tag>
-        <tag>SendToUE</tag>
-        <tag>Blueprint</tag>
       </tags>
   </entry>
   <entry>
@@ -14700,9 +14700,9 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p>以下链接为Climbing with Control Rig的安装和基本使用，昨天折腾v3版的安装感觉太复杂了，没有撑下去。</p>
 <p><a href="https://www.youtube.com/watch?v=9DhZaw8pHF8">安装Climbing with Control Rig可兼容不同的角色模型做调整</a></p>
 <p>视频是我简单录制的展示第一人称、第三人称视角切换，视角缩小放大，建筑表面攀爬。</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-zuZMZSTWeONCyJAY" src="https://player.bilibili.com/player.html?bvid=BV1oT421Y7ja&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-zuZMZSTWeONCyJAY").style.height=document.getElementById("mmedia-zuZMZSTWeONCyJAY").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-lGkfMZyzyDsrkmUu" src="https://player.bilibili.com/player.html?bvid=BV1oT421Y7ja&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-lGkfMZyzyDsrkmUu").style.height=document.getElementById("mmedia-lGkfMZyzyDsrkmUu").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-zuZMZSTWeONCyJAY").style.height=document.getElementById("mmedia-zuZMZSTWeONCyJAY").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-lGkfMZyzyDsrkmUu").style.height=document.getElementById("mmedia-lGkfMZyzyDsrkmUu").scrollWidth*0.76+"px";
     }; </script></body></html>]]></content>
       <categories>
         <category>CG技术</category>
@@ -14812,6 +14812,88 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
         <tag>ai人工智能作图</tag>
         <tag>python</tag>
         <tag>anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024-7-21-blender地形微景观仿rhino学习</title>
+    <url>/2024/07/21/2024-7-21/</url>
+    <content><![CDATA[<html><head></head><body><p><a href="https://www.bilibili.com/video/BV1Rs4y137EW/?p=1&amp;vd_source=9211ca883c846624ea76e0f08321331f">进阶景观坡道楼梯Rhino建模–海洋之森购物公园_哔哩哔哩_bilibili</a></p>
+<p>人行道与建筑间带坡道升降和景观混合，之前不知道如何处理这种情况，往往会陷入复杂曲面权重偏移的想法中，而这会导致楼梯、绿化很难处理贴合问题以及满目疮痍式的凹凸不平。网上我暂时没看到相关的教学，好像就犀牛这个，之前看到一个公园微景观也是犀牛做的，有想试试看犀牛的想法，但是在birail3+被maya这个我以前用过的软件劝退后，我暂时放弃了入手rhino，而是想着如何用教学中的思路在blender中实现。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg"></p>
+<span id="more"></span>
+
+<p>假设可以用midjourney生成景观平面参考？我觉得这种平面我可能都没有直观感受它的效果，那么从立面实拍去反向倒推咯？对于这样一个复杂结构拆解，画出来几个坡面和阶梯的走向。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/23dda0f556d02355c152e93cb93e8a08_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4e91f0f09003557a3acc791df258e3e6_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/980881a8ed37b51787c5ba45ab931601_MD5.jpg"></p>
+<p>在不知道实际宽高的情况下教学假设坡度为1：12.先把确定的大坡面弄出来。接着看次一级的沿着楼梯的必然是斜坡面</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/644a4f234d7c3e4bd554c399aa90dcc0_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/012976c2a47ea62c15227cd84c3545e8_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1bbaca524798371d0e09017e501a1ad8_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/00660ba14fe62055c210287a76eee10d_MD5.jpg"></p>
+<p>初期主要问题就是分析共面、交线，blender在绘制这些面和点线的处理，我直觉上觉得比起rhino应该要简单不少，没那么多繁琐。大约用了20分钟，作者在rhino里面完成了这些分析并制作出了微地形的大形。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/68e07382a86c4c8a8fc73c76bb120deb_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/220c37d54c90169649a035a100327174_MD5.jpg"></p>
+<p>所有坡面全部构造好了以后，开始做阶梯。阶梯提供了一种思路用等分线提取出来然后向前向下挤出，具体到blender就是dice v2切分，然后用quicksnap在x、y轴上对最底层的边做轴像点对齐挤出台阶水平面，quicksnap在z轴上对最底层边做轴像点对齐挤出台阶竖直面。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/19c64836e8c065ded53dc0ae9df892ae_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/17a4f6bd3ef04303f7067e2fdb47ea1a_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/ed425c27dd5484d5451dcc9618391ec9_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/a80d3dc036039c62d368962ad68f91d8_MD5.jpg"></p>
+<p>坡道与阶梯的相交问题涉及到collection 布尔，对于复杂物体combine而成参与布尔经常会异常现象，此时可以将combine物体，比如此例中式阶梯竖直面的阵列seperate by loose part将它们塞到一个collection参与布尔。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/44314dd1a489d11dca9512c97aa4800b_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4ccf270f06ba203c7c4abcbb8acf5b03_MD5.jpg"></p>
+<p>后面似乎没有详细的怎么做花坛以及摆植物，下图为台阶填平局部扩展平台。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1d710c536be9a2bf723d26f4127ce693_MD5.jpg"></p>
+<p><a href="https://www.bilibili.com/video/BV1bW4y1F7mr/?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f">Rhino景观经典案例002：Lemvig滑板公园（附建模过程）_哔哩哔哩_bilibili</a></p>
+<p>参考图顶视图下勾线。这里的曲线光offset不行，后期得再调节图3为我offset后手动调节点。rhino中的思路是只画直线，中间的圆弧通过两侧直线连接自动生成，blender两条直线combine之后用f键连接点然后调整曲线手柄的控制点靠外的两个为vector靠内的4个为aligned即可获得圆润平滑的曲线过渡。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/b3c31623471133982cf33e4af31d1381_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1c2d5a4c957c5f002ed09349710ac790_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/235437ea24a5bbd66d8fb5efc850c35c_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/59d4a77ce6798b3d96d10a960d10f76e_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/b53a106271b8285e2bc445dee332d06b_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/33a82644710305cd051fad8f64441756_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg"></p>
+<p>第二步叫平地，我暂时不清楚这个叫法是什么意思。对线稿填充成面片，z轴偏移制造高差画出坡面、阶梯。图3为基础birail，双轨加一个profile。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4a7d2b3cba613049dd2132977c343a22_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/86b1a64185b67843e079966826774e88_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1f4ffbf079ec9afb0adb8e6915f3b938_MD5.jpg"></p>
+<p>第三步坡面，这里一开始我没看懂在做什么，原来是要确定高度，通过制造一个平缓的坡面将曲线垂直投射做出双轨。最后对前面那个面做多段profile的birail3+。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/ba4014ef0069ab8798bd2dd41e7587e3_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/6444094288c1ad16dad8b56c377804d3_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/33410f899b0d3f9a5453f3844272be36_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/434d99853b5b7c6df04cdb2711c8d127_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg"></p>
+<p>坡面与这个birail3+形成的拱面之间的衔接用到的是spline patch,4条curve成面。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/002364a6bd4d15012acf669d7793f0d2_MD5.jpg"></p>
+<p>birail3+形成一个有机聚拢的花坛坡面？</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4071358d7bd4451cd2e3a6cbb5202a59_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/5228ce95f9b372763386f7e7f8857ad3_MD5.jpg"></p>
+<p>第四步场地，示范中花了不少时间绘制篮球场的标线，</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/91a9654d3a3eebe8db76275ccd1bcfdc_MD5.jpg"></p>
+<p>这一圈柱子用duplicate along curve ridge可以实现</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/f6c25221d353c13cd86393e8701e0ce1_MD5.jpg"></p>
+<p>第五步地形，这里通过嵌面曲面命令对一个曲面地块做了填充，blender里面好像没有这种多段线成面的工具，另外如果有这个的话还需要什么birail3+呢？目前对于局部地形做较为精确的变化blender里面我想到的是曲线成面后用quad remesher添加规则细分，然后用权重偏移。若是没有精确要求只是想要一个光滑的曲面凹凸么，q键调出hardop的菜单，然后add modifier &gt; clothes。详细的移步</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/3420d8ade1a8e49388f20c59b7e2724f_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/8227998eb1c40cb8535ec9ef47d91580_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/4138335737b13895806a1e2686ea4866_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg"></p>
+<p>演示不完全这部分没有完整的。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/51b220bf5891c351ae60e2b35afeb297_MD5.jpg"></p>
+<p>b站还有一个完整演示版的教学，看来这个滑板公园很有名气。</p>
+<p><a href="https://www.bilibili.com/video/BV1fv411J7Ww/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=9211ca883c846624ea76e0f08321331f">莱姆维滑板公园——新手级案例教学_哔哩哔哩_bilibili</a></p>
+<p>从这个教学来看上面那个示范中没有的这个部分也是birail3+实现的，其上半部分的轨道是通过下面的轨道沿着一个轴旋转得到的。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/1510d8a3d8b2e5e40ef4f589cb0b9fa3_MD5.jpg"></p>
+<p>连续起伏部分的原理是逐个手动权重偏移，看起来rhino自带细分权重偏移的优化即使点数很少构造的面也很平滑过渡，而在blender中需要许多点数才行。</p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/eabec013473e860cc9e350e80704484c_MD5.jpg"></p>
+<p><img src="/2024/07/21/2024-7-21/2024-7-21/58204755f50e881b921e58cdedbd5914_MD5.jpg"></p>
+</body></html>]]></content>
+      <categories>
+        <category>CG技术</category>
+      </categories>
+      <tags>
+        <tag>blender</tag>
+        <tag>景观</tag>
+        <tag>rhino</tag>
       </tags>
   </entry>
   <entry>
@@ -18588,88 +18670,6 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p><img src="/2024/07/23/2024-7-23/2024-7-23/7efc28966fa060916b317cb28cb99823_MD5.jpg"></p>
 <p><img src="/2024/07/23/2024-7-23/2024-7-23/ae6c49307c0b609dfae46d37b0e8fce0_MD5.jpg"></p>
 <p><img src="/2024/07/23/2024-7-23/2024-7-23/2606af816d0e553820f477c1a7c021c1_MD5.jpg"></p>
-</body></html>]]></content>
-      <categories>
-        <category>CG技术</category>
-      </categories>
-      <tags>
-        <tag>blender</tag>
-        <tag>景观</tag>
-        <tag>rhino</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2024-7-21-blender地形微景观仿rhino学习</title>
-    <url>/2024/07/21/2024-7-21/</url>
-    <content><![CDATA[<html><head></head><body><p><a href="https://www.bilibili.com/video/BV1Rs4y137EW/?p=1&amp;vd_source=9211ca883c846624ea76e0f08321331f">进阶景观坡道楼梯Rhino建模–海洋之森购物公园_哔哩哔哩_bilibili</a></p>
-<p>人行道与建筑间带坡道升降和景观混合，之前不知道如何处理这种情况，往往会陷入复杂曲面权重偏移的想法中，而这会导致楼梯、绿化很难处理贴合问题以及满目疮痍式的凹凸不平。网上我暂时没看到相关的教学，好像就犀牛这个，之前看到一个公园微景观也是犀牛做的，有想试试看犀牛的想法，但是在birail3+被maya这个我以前用过的软件劝退后，我暂时放弃了入手rhino，而是想着如何用教学中的思路在blender中实现。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/e16853708c84f053c3f69a31ecda7643_MD5.jpg"></p>
-<span id="more"></span>
-
-<p>假设可以用midjourney生成景观平面参考？我觉得这种平面我可能都没有直观感受它的效果，那么从立面实拍去反向倒推咯？对于这样一个复杂结构拆解，画出来几个坡面和阶梯的走向。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/23dda0f556d02355c152e93cb93e8a08_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/4e91f0f09003557a3acc791df258e3e6_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/980881a8ed37b51787c5ba45ab931601_MD5.jpg"></p>
-<p>在不知道实际宽高的情况下教学假设坡度为1：12.先把确定的大坡面弄出来。接着看次一级的沿着楼梯的必然是斜坡面</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/644a4f234d7c3e4bd554c399aa90dcc0_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/012976c2a47ea62c15227cd84c3545e8_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/1bbaca524798371d0e09017e501a1ad8_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/00660ba14fe62055c210287a76eee10d_MD5.jpg"></p>
-<p>初期主要问题就是分析共面、交线，blender在绘制这些面和点线的处理，我直觉上觉得比起rhino应该要简单不少，没那么多繁琐。大约用了20分钟，作者在rhino里面完成了这些分析并制作出了微地形的大形。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/68e07382a86c4c8a8fc73c76bb120deb_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/220c37d54c90169649a035a100327174_MD5.jpg"></p>
-<p>所有坡面全部构造好了以后，开始做阶梯。阶梯提供了一种思路用等分线提取出来然后向前向下挤出，具体到blender就是dice v2切分，然后用quicksnap在x、y轴上对最底层的边做轴像点对齐挤出台阶水平面，quicksnap在z轴上对最底层边做轴像点对齐挤出台阶竖直面。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/19c64836e8c065ded53dc0ae9df892ae_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/17a4f6bd3ef04303f7067e2fdb47ea1a_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/ed425c27dd5484d5451dcc9618391ec9_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/a80d3dc036039c62d368962ad68f91d8_MD5.jpg"></p>
-<p>坡道与阶梯的相交问题涉及到collection 布尔，对于复杂物体combine而成参与布尔经常会异常现象，此时可以将combine物体，比如此例中式阶梯竖直面的阵列seperate by loose part将它们塞到一个collection参与布尔。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/44314dd1a489d11dca9512c97aa4800b_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/4ccf270f06ba203c7c4abcbb8acf5b03_MD5.jpg"></p>
-<p>后面似乎没有详细的怎么做花坛以及摆植物，下图为台阶填平局部扩展平台。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/1d710c536be9a2bf723d26f4127ce693_MD5.jpg"></p>
-<p><a href="https://www.bilibili.com/video/BV1bW4y1F7mr/?spm_id_from=333.337.search-card.all.click&amp;vd_source=9211ca883c846624ea76e0f08321331f">Rhino景观经典案例002：Lemvig滑板公园（附建模过程）_哔哩哔哩_bilibili</a></p>
-<p>参考图顶视图下勾线。这里的曲线光offset不行，后期得再调节图3为我offset后手动调节点。rhino中的思路是只画直线，中间的圆弧通过两侧直线连接自动生成，blender两条直线combine之后用f键连接点然后调整曲线手柄的控制点靠外的两个为vector靠内的4个为aligned即可获得圆润平滑的曲线过渡。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/b3c31623471133982cf33e4af31d1381_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/1c2d5a4c957c5f002ed09349710ac790_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/235437ea24a5bbd66d8fb5efc850c35c_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/59d4a77ce6798b3d96d10a960d10f76e_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/b53a106271b8285e2bc445dee332d06b_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/33a82644710305cd051fad8f64441756_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/bfae6bac8dd3ea2d50f3c557bedc4aaf_MD5.jpg"></p>
-<p>第二步叫平地，我暂时不清楚这个叫法是什么意思。对线稿填充成面片，z轴偏移制造高差画出坡面、阶梯。图3为基础birail，双轨加一个profile。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/4a7d2b3cba613049dd2132977c343a22_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/86b1a64185b67843e079966826774e88_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/1f4ffbf079ec9afb0adb8e6915f3b938_MD5.jpg"></p>
-<p>第三步坡面，这里一开始我没看懂在做什么，原来是要确定高度，通过制造一个平缓的坡面将曲线垂直投射做出双轨。最后对前面那个面做多段profile的birail3+。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/ba4014ef0069ab8798bd2dd41e7587e3_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/6444094288c1ad16dad8b56c377804d3_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/33410f899b0d3f9a5453f3844272be36_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/434d99853b5b7c6df04cdb2711c8d127_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/9a584be0d3bfeb0e25036d50872909fa_MD5.jpg"></p>
-<p>坡面与这个birail3+形成的拱面之间的衔接用到的是spline patch,4条curve成面。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/002364a6bd4d15012acf669d7793f0d2_MD5.jpg"></p>
-<p>birail3+形成一个有机聚拢的花坛坡面？</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/4071358d7bd4451cd2e3a6cbb5202a59_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/5228ce95f9b372763386f7e7f8857ad3_MD5.jpg"></p>
-<p>第四步场地，示范中花了不少时间绘制篮球场的标线，</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/91a9654d3a3eebe8db76275ccd1bcfdc_MD5.jpg"></p>
-<p>这一圈柱子用duplicate along curve ridge可以实现</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/f6c25221d353c13cd86393e8701e0ce1_MD5.jpg"></p>
-<p>第五步地形，这里通过嵌面曲面命令对一个曲面地块做了填充，blender里面好像没有这种多段线成面的工具，另外如果有这个的话还需要什么birail3+呢？目前对于局部地形做较为精确的变化blender里面我想到的是曲线成面后用quad remesher添加规则细分，然后用权重偏移。若是没有精确要求只是想要一个光滑的曲面凹凸么，q键调出hardop的菜单，然后add modifier &gt; clothes。详细的移步</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/3420d8ade1a8e49388f20c59b7e2724f_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/8227998eb1c40cb8535ec9ef47d91580_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/4138335737b13895806a1e2686ea4866_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/c54f4e1d1551223d34dcf6a4d951b537_MD5.jpg"></p>
-<p>演示不完全这部分没有完整的。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/51b220bf5891c351ae60e2b35afeb297_MD5.jpg"></p>
-<p>b站还有一个完整演示版的教学，看来这个滑板公园很有名气。</p>
-<p><a href="https://www.bilibili.com/video/BV1fv411J7Ww/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=9211ca883c846624ea76e0f08321331f">莱姆维滑板公园——新手级案例教学_哔哩哔哩_bilibili</a></p>
-<p>从这个教学来看上面那个示范中没有的这个部分也是birail3+实现的，其上半部分的轨道是通过下面的轨道沿着一个轴旋转得到的。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/1510d8a3d8b2e5e40ef4f589cb0b9fa3_MD5.jpg"></p>
-<p>连续起伏部分的原理是逐个手动权重偏移，看起来rhino自带细分权重偏移的优化即使点数很少构造的面也很平滑过渡，而在blender中需要许多点数才行。</p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/eabec013473e860cc9e350e80704484c_MD5.jpg"></p>
-<p><img src="/2024/07/21/2024-7-21/2024-7-21/58204755f50e881b921e58cdedbd5914_MD5.jpg"></p>
 </body></html>]]></content>
       <categories>
         <category>CG技术</category>
@@ -24333,9 +24333,9 @@ claybuildup对脖颈做了加厚构造了颈部渐变轮廓。
 <p><img src="/2022/12/14/A-History-Of-Interior-Design-%E5%AE%A4%E5%86%85%E8%BD%AF%E8%A3%85%E8%AE%BE%E8%AE%A1%E5%8E%86%E5%8F%B2%E5%8F%98%E8%BF%81-%E7%BD%97%E9%A9%AC%E7%AF%87%E4%B8%8B%E2%80%94%E2%80%94%E6%B0%91%E7%94%A8%E5%BB%BA%E7%AD%91%E5%8F%8A%E5%AE%A4%E5%86%85%E8%A3%85%E9%A5%B0/%E7%BD%97%E9%A9%AC%E7%AF%87%E4%B8%8B/v2-e9594c3c3b6b8c720dd528463f80e1f2_1440w.webp"></p>
 <p>insula第一层面向街道的房间都是商店，这点和domus是一样的。2层以上才是住宅，当时没有水塔、高压送水，因此越是上层的住宅生活越是不便利（日常打水用水是个大麻烦）。一些资料表明罗马平民的居住空间十分狭小，我们可以推断可能2层以上每扇窗是一个家庭单元。另外这种高层建筑结构对供水能力低下的古代而言，火灾可以说是毁灭性的，无论是木头、泥砖、混凝土在当时都无法阻止火势的蔓延。但不管怎么说insula可以说是现代公寓楼的开端（大城市的蜗居人可以咒骂一下古罗马人的这项发明），使得城市人口规模的扩增有了居住保障。</p>
 <p>最后给大家看一个insula的介绍视频，本章到此结束。</p>
-<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-qOonUtyIWOGwcDqw" src="https://player.bilibili.com/player.html?bvid=BV1ug411w7XS&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-qOonUtyIWOGwcDqw").style.height=document.getElementById("mmedia-qOonUtyIWOGwcDqw").scrollWidth*0.76+"px";
+<style>.bbplayer{width: 100%; max-width: 850px; margin: auto}</style><div class="bbplayer"><iframe class="bbplayer" id="mmedia-oLxhojigHgFFakwf" src="https://player.bilibili.com/player.html?bvid=BV1ug411w7XS&amp;page=1&amp;high_quality=1&amp;danmaku=true" allowfullscreen="allowfullscreen" scrolling="no" border="0" frameborder="0" framespacing="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe></div><script> document.getElementById("mmedia-oLxhojigHgFFakwf").style.height=document.getElementById("mmedia-oLxhojigHgFFakwf").scrollWidth*0.76+"px";
     window.onresize = function(){
-      document.getElementById("mmedia-qOonUtyIWOGwcDqw").style.height=document.getElementById("mmedia-qOonUtyIWOGwcDqw").scrollWidth*0.76+"px";
+      document.getElementById("mmedia-oLxhojigHgFFakwf").style.height=document.getElementById("mmedia-oLxhojigHgFFakwf").scrollWidth*0.76+"px";
     }; </script></body></html>]]></content>
       <categories>
         <category>建筑理论</category>

@@ -10,7 +10,6 @@
 
 
 
-
 <meta name="description" content="">
 
 
@@ -228,28 +227,8 @@
     <h3 class="title is-4">评论</h3>
     
 <div id="valine-thread"></div>
-
-<style>
-.v[data-class="v"] .veditor {
-    max-height: 17em;
-    overflow-y: scroll;
-}
-
-/* 去除查看更多 */
-.v[data-class="v"] .vcards .vcard .vcontent.expand {
-    max-height: none;
-}
-
-.v[data-class="v"] .vcards .vcard .vcontent.expand::before,
-.v[data-class="v"] .vcards .vcard .vcontent.expand::after {
-    display: none;
-}
-
-</style>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script src="https://cdn.jsdelivr.net/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script>
-
 <script>
     new Valine({
         el: '#valine-thread',
@@ -263,23 +242,6 @@
         visitor: true,
         lang: 'zh-CN'
     })
-
-var count = 0;
-var dom_timer = setInterval(function () {
-	if (++count > 50) clearInterval(dom_timer);
-	if (document.querySelector('#veditor')) {
-		var cdraw = new CaveDraw({
-			element: "#veditor",
-			readOnlyMode: false, // valine 不提交form，而是过滤评论框数据后发送，所以评论框不能readonly。
-			afterUpdateEditor: ()=>{ // 手动触发valine对评论框数据的过滤
-				document.querySelector('#veditor').focus();
-				document.querySelector('#veditor').blur();
-			},
-			controls: ['brush', 'eraser', 'bucket', 'clear', 'undo', 'redo', 'save']
-		});
-		clearInterval(dom_timer);
-	}
-}, 200);
 </script>
 
 
@@ -329,8 +291,6 @@ var dom_timer = setInterval(function () {
     }
     moment.locale("zh-CN");
 </script>
-
-
 
 
     
@@ -449,8 +409,6 @@ var dom_timer = setInterval(function () {
 
 
 <script src="/js/script.js"></script>
-
-
 
 
     

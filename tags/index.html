@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+<link rel="stylesheet" href="/css/dark.css">
 
 
 
@@ -105,8 +106,8 @@
 <meta property="article:tag" content="UE的Landscape">
 <meta property="article:tag" content="Higgsas几何节点">
 <meta property="article:tag" content="建筑规范">
-<meta property="article:tag" content="彩绘纹理贴图">
 <meta property="article:tag" content="chatgpt">
+<meta property="article:tag" content="彩绘纹理贴图">
 <meta property="article:tag" content="代理技术">
 <meta property="article:tag" content="欧式建筑">
 <meta property="article:tag" content="kimichat">
@@ -561,11 +562,11 @@
             </span>
             
             <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/tags/%E5%BD%A9%E7%BB%98%E7%BA%B9%E7%90%86%E8%B4%B4%E5%9B%BE/">#彩绘纹理贴图&nbsp;(2)</a>
+                <a class="tag is-light article-tag" href="/tags/chatgpt/">#chatgpt&nbsp;(4)</a>
             </span>
             
             <span class="column is-narrow">
-                <a class="tag is-light article-tag" href="/tags/chatgpt/">#chatgpt&nbsp;(4)</a>
+                <a class="tag is-light article-tag" href="/tags/%E5%BD%A9%E7%BB%98%E7%BA%B9%E7%90%86%E8%B4%B4%E5%9B%BE/">#彩绘纹理贴图&nbsp;(2)</a>
             </span>
             
             <span class="column is-narrow">
@@ -808,6 +809,29 @@
 
 <script src="/js/script.js"></script>
 
+
+<button id="dark-mode-toggle" title="切换深色模式">🌙</button>
+<script>
+(function() {
+  var btn = document.getElementById('dark-mode-toggle');
+  var isDark = localStorage.getItem('dark-mode') === 'true';
+  function applyMode(dark) {
+    if (dark) {
+      document.body.classList.add('dark-mode');
+      btn.textContent = '☀️';
+    } else {
+      document.body.classList.remove('dark-mode');
+      btn.textContent = '🌙';
+    }
+  }
+  applyMode(isDark);
+  btn.addEventListener('click', function() {
+    isDark = !isDark;
+    localStorage.setItem('dark-mode', isDark);
+    applyMode(isDark);
+  });
+})();
+</script>
 
     
     <div class="searchbox ins-search">

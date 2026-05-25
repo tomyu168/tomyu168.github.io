@@ -1,0 +1,58 @@
+#dark-mode-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.2s;
+}
+#dark-mode-toggle:hover { background-color: #555; }
+body.dark-mode #dark-mode-toggle { background-color: #e0e0e0; color: #333; }
+
+body.dark-mode { background-color: #121212; color: #e0e0e0; }
+body.dark-mode .section { background-color: #121212; }
+body.dark-mode .navbar, body.dark-mode .navbar-main { background-color: #1e1e1e !important; border-bottom-color: #333 !important; }
+body.dark-mode .navbar-item, body.dark-mode .navbar-link, body.dark-mode .navbar-logo { color: #e0e0e0 !important; }
+body.dark-mode .navbar-item:hover, body.dark-mode .navbar-link:hover { background-color: #2a2a2a !important; color: #69b1ff !important; }
+body.dark-mode .navbar-dropdown { background-color: #1e1e1e !important; border-color: #333 !important; }
+body.dark-mode a { color: #69b1ff; }
+body.dark-mode a:hover { color: #91c5ff; }
+body.dark-mode .content { color: #e0e0e0 !important; }
+body.dark-mode .content h1, body.dark-mode .content h2, body.dark-mode .content h3,
+body.dark-mode .content h4, body.dark-mode .content h5, body.dark-mode .content h6 { color: #f0f0f0 !important; }
+body.dark-mode .article-title a { color: #f0f0f0 !important; }
+body.dark-mode .article-meta, body.dark-mode .article-meta a,
+body.dark-mode .second-date-block, body.dark-mode time { color: #888 !important; }
+body.dark-mode .article + .article { border-top-color: #333 !important; }
+body.dark-mode code { background-color: #2a2a2a !important; color: #abb2bf !important; }
+body.dark-mode pre { background-color: #1a1a1a !important; color: #abb2bf !important; }
+body.dark-mode figure.highlight { background-color: #1a1a1a !important; }
+body.dark-mode figure.highlight figcaption { background-color: #252525 !important; color: #888 !important; }
+body.dark-mode figure.highlight .gutter { background-color: #252525 !important; color: #666 !important; }
+body.dark-mode figure.highlight pre { background-color: #1a1a1a !important; color: #abb2bf !important; }
+body.dark-mode hr { background-color: #333 !important; }
+body.dark-mode .footer .content { border-top-color: #333 !important; color: #888 !important; }
+body.dark-mode .archive .articles { border-left-color: #333 !important; }
+body.dark-mode .archive .article:hover { border-left-color: #69b1ff !important; }
+body.dark-mode .pagination-link { border-color: #444 !important; color: #e0e0e0 !important; }
+body.dark-mode .pagination-link.is-current { background-color: #444 !important; }
+body.dark-mode .pagination-previous a, body.dark-mode .pagination-next a { color: #e0e0e0 !important; }
+body.dark-mode .searchbox-container { background-color: #1e1e1e !important; }
+body.dark-mode .searchbox-input { background-color: #1e1e1e !important; color: #e0e0e0 !important; border-bottom-color: #333 !important; }
+body.dark-mode .tag:not(body) { background-color: #2a2a2a !important; color: #ccc !important; }
+
+/* 修复搜索框默认隐藏 */
+body.dark-mode .searchbox {
+  display: none;
+}
+body.dark-mode .searchbox.show {
+  display: block;
+}
